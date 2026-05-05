@@ -14,8 +14,6 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../user/v1/user.pbenum.dart' as $1;
-
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 /// A request to get the server configuration.
@@ -62,16 +60,10 @@ class GetConfigResponse extends $pb.GeneratedMessage {
   factory GetConfigResponse({
     $core.String? version,
     $core.int? resourceChunkSize,
-    $1.UserRole? allowMessageDelete,
-    $1.UserRole? allowMessageUpdate,
   }) {
     final result = create();
     if (version != null) result.version = version;
     if (resourceChunkSize != null) result.resourceChunkSize = resourceChunkSize;
-    if (allowMessageDelete != null)
-      result.allowMessageDelete = allowMessageDelete;
-    if (allowMessageUpdate != null)
-      result.allowMessageUpdate = allowMessageUpdate;
     return result;
   }
 
@@ -91,10 +83,6 @@ class GetConfigResponse extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'version')
     ..aI(2, _omitFieldNames ? '' : 'resourceChunkSize',
         fieldType: $pb.PbFieldType.OU3)
-    ..aE<$1.UserRole>(3, _omitFieldNames ? '' : 'allowMessageDelete',
-        enumValues: $1.UserRole.values)
-    ..aE<$1.UserRole>(4, _omitFieldNames ? '' : 'allowMessageUpdate',
-        enumValues: $1.UserRole.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -116,6 +104,7 @@ class GetConfigResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GetConfigResponse>(create);
   static GetConfigResponse? _defaultInstance;
 
+  /// The server API version.
   @$pb.TagNumber(1)
   $core.String get version => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -134,26 +123,6 @@ class GetConfigResponse extends $pb.GeneratedMessage {
   $core.bool hasResourceChunkSize() => $_has(1);
   @$pb.TagNumber(2)
   void clearResourceChunkSize() => $_clearField(2);
-
-  /// The minimum user role that is allowed to delete messages.
-  @$pb.TagNumber(3)
-  $1.UserRole get allowMessageDelete => $_getN(2);
-  @$pb.TagNumber(3)
-  set allowMessageDelete($1.UserRole value) => $_setField(3, value);
-  @$pb.TagNumber(3)
-  $core.bool hasAllowMessageDelete() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearAllowMessageDelete() => $_clearField(3);
-
-  /// The minimum user role that is allowed to update messages.
-  @$pb.TagNumber(4)
-  $1.UserRole get allowMessageUpdate => $_getN(3);
-  @$pb.TagNumber(4)
-  set allowMessageUpdate($1.UserRole value) => $_setField(4, value);
-  @$pb.TagNumber(4)
-  $core.bool hasAllowMessageUpdate() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearAllowMessageUpdate() => $_clearField(4);
 }
 
 /// A request to clear the server state.

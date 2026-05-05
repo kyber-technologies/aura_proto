@@ -16,25 +16,25 @@ service GeneralService {
 }
 
 // A request to get the server configuration.
-message GetConfigRequest {}
+message GetConfigRequest {
+}
 
 // A response from a request to get the server configuration.
 message GetConfigResponse {
+  // The server API version.
   string version = 1;
   // The chunk size to use for resource operations.
   uint32 resource_chunk_size = 2;
-  // The minimum user role that is allowed to delete messages.
-  user.v1.UserRole allow_message_delete = 3;
-  // The minimum user role that is allowed to update messages.
-  user.v1.UserRole allow_message_update = 4;
 }
 
 // A request to clear the server state.
 //
 // Only available in testing mode.
-message ClearStateRequest {}
+message ClearStateRequest {
+}
 
 // A response from a request to clear the server state.
 //
 // Only available in testing mode.
-message ClearStateResponse {}
+message ClearStateResponse {
+}

@@ -36,32 +36,13 @@ const GetConfigResponse$json = {
       '5': 13,
       '10': 'resourceChunkSize'
     },
-    {
-      '1': 'allow_message_delete',
-      '3': 3,
-      '4': 1,
-      '5': 14,
-      '6': '.user.v1.UserRole',
-      '10': 'allowMessageDelete'
-    },
-    {
-      '1': 'allow_message_update',
-      '3': 4,
-      '4': 1,
-      '5': 14,
-      '6': '.user.v1.UserRole',
-      '10': 'allowMessageUpdate'
-    },
   ],
 };
 
 /// Descriptor for `GetConfigResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getConfigResponseDescriptor = $convert.base64Decode(
     'ChFHZXRDb25maWdSZXNwb25zZRIYCgd2ZXJzaW9uGAEgASgJUgd2ZXJzaW9uEi4KE3Jlc291cm'
-    'NlX2NodW5rX3NpemUYAiABKA1SEXJlc291cmNlQ2h1bmtTaXplEkMKFGFsbG93X21lc3NhZ2Vf'
-    'ZGVsZXRlGAMgASgOMhEudXNlci52MS5Vc2VyUm9sZVISYWxsb3dNZXNzYWdlRGVsZXRlEkMKFG'
-    'FsbG93X21lc3NhZ2VfdXBkYXRlGAQgASgOMhEudXNlci52MS5Vc2VyUm9sZVISYWxsb3dNZXNz'
-    'YWdlVXBkYXRl');
+    'NlX2NodW5rX3NpemUYAiABKA1SEXJlc291cmNlQ2h1bmtTaXpl');
 
 @$core.Deprecated('Use clearStateRequestDescriptor instead')
 const ClearStateRequest$json = {
