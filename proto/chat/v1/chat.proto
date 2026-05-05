@@ -1,0 +1,170 @@
+syntax = "proto3";
+
+package chat.v1;
+
+import "common/v1/common.proto";
+import "resource/v1/resource.proto";
+
+// The chat service provides methods for sending messages.
+service ChatService {
+  // Creates a new channel.
+  //
+  // Requires Authentication: Only authorized users can create channels.
+  rpc CreateChannel(CreateChannelRequest) returns (CreateChannelResponse);
+
+  // Reads messages from a channel.
+  //
+  // Requires Authentication: Only authorized & invited users can read messages.
+  rpc ReadMessages(ReadMessagesRequest) returns (ReadMessagesResponse);
+
+  // Sends a message to a channel.
+  //
+  // Requires Authentication: Only authorized users can send messages.
+  rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
+
+  // Deletes a message.
+  //
+  // Config-dependent: This can be disabled.
+  //
+  // Requires Authentication: Only authorized users can delete messages.
+  rpc DeleteMessage(DeleteMessageRequest) returns (DeleteMessageResponse);
+
+  // Updates a message.
+  //
+  // Config-dependent: This can be disabled.
+  //
+  // Requires Authentication: Only authorized users can update messages.
+  rpc UpdateMessage(UpdateMessageRequest) returns (UpdateMessageResponse);
+}
+
+// The request message for creating a channel.
+message CreateChannelRequest {
+  // The name of the channel.
+  string name = 2;
+  // The description of the channel.
+  string description = 3;
+  // The members of the channel.
+  map<string, ChannelPermission> members = 4;
+}
+
+// The response message for creating a channel.
+message CreateChannelResponse {
+  // The result of the create operation.
+  oneof result {
+    // The channel that was created.
+    Channel channel = 1;
+    // An error that occurred during the create operation, if any.
+    common.v1.Error error = 2;
+  }
+}
+
+// The request message for reading messages.
+message ReadMessagesRequest {
+  // The ID of the channel to read messages from.
+  string channel_id = 1;
+  // The maximum number of messages to load.
+  uint32 limit = 2;
+  // The timestamp to start reading from.
+  common.v1.Timestamp start_time = 3;
+}
+
+message ReadMessagesResponse {
+  // The messages read from the channel.
+  repeated Message messages = 1;
+  // An error that occurred during the read operation, if any.
+  optional common.v1.Error error = 2;
+}
+
+// The request message for sending a message.
+message SendMessageRequest {
+  // The ID of the channel to send the message to.
+  string channel_id = 1;
+  // The message content.
+  Content content = 2;
+}
+
+// The response message for sending a message.
+message SendMessageResponse {
+  // The result of the send operation.
+  oneof result {
+    // The created message.
+    Message message = 1;
+    // An error that occurred during the send operation.
+    common.v1.Error error = 2;
+  }
+}
+
+// The request message for deleting a message.
+message DeleteMessageRequest {
+  // The ID of the message to delete.
+  string message_id = 1;
+}
+
+// The response message for deleting a message.
+message DeleteMessageResponse {
+  // The error that occurred during the delete operation, if any.
+  optional common.v1.Error error = 1;
+}
+
+message UpdateMessageRequest {
+  // The ID of the message to update.
+  string message_id = 1;
+  // The updated message content.
+  Content content = 2;
+}
+
+// The response message for updating a message.
+message UpdateMessageResponse {
+  // The result of the update operation.
+  oneof result {
+    // The updated message.
+    Message message = 1;
+    // An error that occurred during the update operation.
+    common.v1.Error error = 2;
+  }
+}
+
+// A messaging channel.
+//
+// Can be a private channel to a user or a public channel.
+message Channel {
+  // The ID of the channel.
+  string channel_id = 1;
+  // The name of the channel.
+  string name = 2;
+  // The description of the channel.
+  string description = 3;
+  // The members of the channel.
+  map<string, ChannelPermission> members = 4;
+}
+
+enum ChannelPermission {
+  CHANNEL_PERMISSION_READ_ONLY_UNSPECIFIED = 0;
+  CHANNEL_PERMISSION_READ_WRITE = 1;
+  CHANNEL_PERMISSION_MANAGER = 2;
+}
+
+// A concrete post sent to a channel.
+message Message {
+  // The ID of the message.
+  string message_id = 1;
+  // The ID of the channel the message was sent to.
+  string channel_id = 2;
+  // The ID of the user who sent the message.
+  string user_id = 3;
+  // The content of the message.
+  Content content = 4;
+}
+
+// The content of a message.
+message Content {
+  // The timestamp when the message was created.
+  common.v1.Timestamp created_at = 1;
+  // The type of content.
+  oneof content {
+    // The text content of the message.
+    string text = 2;
+    // The resource content of the message.
+    resource.v1.ResourceId resource = 3;
+  }
+}
