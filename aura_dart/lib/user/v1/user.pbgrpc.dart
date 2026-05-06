@@ -41,6 +41,14 @@ class UserServiceClient extends $grpc.Client {
     return $createUnaryCall(_$authUser, request, options: options);
   }
 
+  /// Verifies an email.
+  $grpc.ResponseFuture<$0.VerifyEmailResponse> verifyEmail(
+    $0.VerifyEmailRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$verifyEmail, request, options: options);
+  }
+
   /// Creates a new user.
   ///
   /// Requires Authentication: Only administrators can create users.
@@ -98,6 +106,11 @@ class UserServiceClient extends $grpc.Client {
           '/user.v1.UserService/AuthUser',
           ($0.AuthUserRequest value) => value.writeToBuffer(),
           $0.AuthUserResponse.fromBuffer);
+  static final _$verifyEmail =
+      $grpc.ClientMethod<$0.VerifyEmailRequest, $0.VerifyEmailResponse>(
+          '/user.v1.UserService/VerifyEmail',
+          ($0.VerifyEmailRequest value) => value.writeToBuffer(),
+          $0.VerifyEmailResponse.fromBuffer);
   static final _$createUser =
       $grpc.ClientMethod<$0.CreateUserRequest, $0.CreateUserResponse>(
           '/user.v1.UserService/CreateUser',
@@ -137,6 +150,15 @@ abstract class UserServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.AuthUserRequest.fromBuffer(value),
         ($0.AuthUserResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.VerifyEmailRequest, $0.VerifyEmailResponse>(
+            'VerifyEmail',
+            verifyEmail_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.VerifyEmailRequest.fromBuffer(value),
+            ($0.VerifyEmailResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.CreateUserRequest, $0.CreateUserResponse>(
         'CreateUser',
         createUser_Pre,
@@ -183,6 +205,14 @@ abstract class UserServiceBase extends $grpc.Service {
 
   $async.Future<$0.AuthUserResponse> authUser(
       $grpc.ServiceCall call, $0.AuthUserRequest request);
+
+  $async.Future<$0.VerifyEmailResponse> verifyEmail_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.VerifyEmailRequest> $request) async {
+    return verifyEmail($call, await $request);
+  }
+
+  $async.Future<$0.VerifyEmailResponse> verifyEmail(
+      $grpc.ServiceCall call, $0.VerifyEmailRequest request);
 
   $async.Future<$0.CreateUserResponse> createUser_Pre($grpc.ServiceCall $call,
       $async.Future<$0.CreateUserRequest> $request) async {

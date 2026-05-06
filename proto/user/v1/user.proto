@@ -10,6 +10,9 @@ service UserService {
   // Authenticates a user.
   rpc AuthUser(AuthUserRequest) returns (AuthUserResponse);
 
+  // Verifies an email.
+  rpc VerifyEmail(VerifyEmailRequest) returns (VerifyEmailResponse);
+
   // Creates a new user.
   //
   // Requires Authentication: Only administrators can create users.
