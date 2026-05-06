@@ -5,7 +5,7 @@ use surrealdb::types::SurrealValue;
 
 pub static DEFAULT_USER_ICON: LazyLock<ResourceId> = LazyLock::new(|| ResourceId {
     namespace: "aura".to_string(),
-    key: "aura_icon.png".to_string(),
+    key: "default_icon.png".to_string(),
 });
 
 pub const FILE_DESCRIPTOR_SET: &[u8] = tonic::include_file_descriptor_set!("descriptor");

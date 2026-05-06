@@ -24,5 +24,5 @@ export 'user/v1/user.pbjson.dart';
 
 final ResourceId defaultUserIcon = ResourceId(
   namespace: 'aura',
-  key: 'aura_icon.png',
+  key: 'default_icon.png',
 );
