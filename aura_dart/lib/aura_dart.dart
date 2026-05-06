@@ -11,6 +11,11 @@ export 'chat/v1/chat.pbjson.dart';
 export 'common/v1/common.pb.dart';
 export 'common/v1/common.pbenum.dart';
 export 'common/v1/common.pbjson.dart';
+// General
+export 'general/v1/general.pb.dart';
+export 'general/v1/general.pbenum.dart';
+export 'general/v1/general.pbgrpc.dart';
+export 'general/v1/general.pbjson.dart';
 // Resource
 export 'resource/v1/resource.pb.dart';
 export 'resource/v1/resource.pbenum.dart';
