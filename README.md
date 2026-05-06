@@ -1,6 +1,6 @@
-# Aura Protocol Buffers API
+# Aura gRPC API
 
-**The official Aura Protocol Buffers API.**
+**The official Aura gRPC API.**
 
 ## Rust API
 
