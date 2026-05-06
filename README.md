@@ -1,6 +1,6 @@
 # Aura Protocol Buffers API
 
-**The official Aura protocol buffers API.**
+**The official Aura Protocol Buffers API.**
 
 ## Rust API
 
