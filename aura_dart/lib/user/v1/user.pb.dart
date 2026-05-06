@@ -180,13 +180,136 @@ class AuthUserResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(1);
 }
 
+/// Request message for verifying an email.
+class VerifyEmailRequest extends $pb.GeneratedMessage {
+  factory VerifyEmailRequest({
+    $core.String? email,
+  }) {
+    final result = create();
+    if (email != null) result.email = email;
+    return result;
+  }
+
+  VerifyEmailRequest._();
+
+  factory VerifyEmailRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory VerifyEmailRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'VerifyEmailRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'email')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  VerifyEmailRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  VerifyEmailRequest copyWith(void Function(VerifyEmailRequest) updates) =>
+      super.copyWith((message) => updates(message as VerifyEmailRequest))
+          as VerifyEmailRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static VerifyEmailRequest create() => VerifyEmailRequest._();
+  @$core.override
+  VerifyEmailRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static VerifyEmailRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<VerifyEmailRequest>(create);
+  static VerifyEmailRequest? _defaultInstance;
+
+  /// The E-Mail to verify
+  @$pb.TagNumber(1)
+  $core.String get email => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set email($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasEmail() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearEmail() => $_clearField(1);
+}
+
+/// Response message for verifying an email.
+class VerifyEmailResponse extends $pb.GeneratedMessage {
+  factory VerifyEmailResponse({
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  VerifyEmailResponse._();
+
+  factory VerifyEmailResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory VerifyEmailResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'VerifyEmailResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  VerifyEmailResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  VerifyEmailResponse copyWith(void Function(VerifyEmailResponse) updates) =>
+      super.copyWith((message) => updates(message as VerifyEmailResponse))
+          as VerifyEmailResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static VerifyEmailResponse create() => VerifyEmailResponse._();
+  @$core.override
+  VerifyEmailResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static VerifyEmailResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<VerifyEmailResponse>(create);
+  static VerifyEmailResponse? _defaultInstance;
+
+  /// Error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+}
+
 /// Request message for creating a user.
 class CreateUserRequest extends $pb.GeneratedMessage {
   factory CreateUserRequest({
-    User? user,
+    $core.String? userId,
+    $core.String? username,
+    $core.String? email,
+    $core.String? password,
+    $core.String? verificationToken,
   }) {
     final result = create();
-    if (user != null) result.user = user;
+    if (userId != null) result.userId = userId;
+    if (username != null) result.username = username;
+    if (email != null) result.email = email;
+    if (password != null) result.password = password;
+    if (verificationToken != null) result.verificationToken = verificationToken;
     return result;
   }
 
@@ -203,7 +326,11 @@ class CreateUserRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'CreateUserRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..aOM<User>(1, _omitFieldNames ? '' : 'user', subBuilder: User.create)
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
+    ..aOS(2, _omitFieldNames ? '' : 'username')
+    ..aOS(3, _omitFieldNames ? '' : 'email')
+    ..aOS(4, _omitFieldNames ? '' : 'password')
+    ..aOS(5, _omitFieldNames ? '' : 'verificationToken')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -225,17 +352,55 @@ class CreateUserRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<CreateUserRequest>(create);
   static CreateUserRequest? _defaultInstance;
 
-  /// User to create.
+  /// Unique user identifier.
   @$pb.TagNumber(1)
-  User get user => $_getN(0);
+  $core.String get userId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set user(User value) => $_setField(1, value);
+  set userId($core.String value) => $_setString(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasUser() => $_has(0);
+  $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUser() => $_clearField(1);
-  @$pb.TagNumber(1)
-  User ensureUser() => $_ensure(0);
+  void clearUserId() => $_clearField(1);
+
+  /// Username of the user.
+  @$pb.TagNumber(2)
+  $core.String get username => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set username($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasUsername() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUsername() => $_clearField(2);
+
+  /// Email of the user.
+  @$pb.TagNumber(3)
+  $core.String get email => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set email($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasEmail() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearEmail() => $_clearField(3);
+
+  /// Password hash of the user.
+  @$pb.TagNumber(4)
+  $core.String get password => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set password($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasPassword() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearPassword() => $_clearField(4);
+
+  /// E-Mail verification token.
+  @$pb.TagNumber(5)
+  $core.String get verificationToken => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set verificationToken($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasVerificationToken() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearVerificationToken() => $_clearField(5);
 }
 
 /// Response message for creating a user.
@@ -468,126 +633,6 @@ class UpdateUserRequest extends $pb.GeneratedMessage {
   void clearUser() => $_clearField(1);
   @$pb.TagNumber(1)
   User ensureUser() => $_ensure(0);
-}
-
-/// Request message for updating a user's avatar.
-class UpdateUserAvatarRequest extends $pb.GeneratedMessage {
-  factory UpdateUserAvatarRequest({
-    $2.ResourceId? avatar,
-  }) {
-    final result = create();
-    if (avatar != null) result.avatar = avatar;
-    return result;
-  }
-
-  UpdateUserAvatarRequest._();
-
-  factory UpdateUserAvatarRequest.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory UpdateUserAvatarRequest.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'UpdateUserAvatarRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.ResourceId>(2, _omitFieldNames ? '' : 'avatar',
-        subBuilder: $2.ResourceId.create)
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UpdateUserAvatarRequest clone() => deepCopy();
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UpdateUserAvatarRequest copyWith(
-          void Function(UpdateUserAvatarRequest) updates) =>
-      super.copyWith((message) => updates(message as UpdateUserAvatarRequest))
-          as UpdateUserAvatarRequest;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static UpdateUserAvatarRequest create() => UpdateUserAvatarRequest._();
-  @$core.override
-  UpdateUserAvatarRequest createEmptyInstance() => create();
-  @$core.pragma('dart2js:noInline')
-  static UpdateUserAvatarRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<UpdateUserAvatarRequest>(create);
-  static UpdateUserAvatarRequest? _defaultInstance;
-
-  /// New avatar resource ID.
-  @$pb.TagNumber(2)
-  $2.ResourceId get avatar => $_getN(0);
-  @$pb.TagNumber(2)
-  set avatar($2.ResourceId value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasAvatar() => $_has(0);
-  @$pb.TagNumber(2)
-  void clearAvatar() => $_clearField(2);
-  @$pb.TagNumber(2)
-  $2.ResourceId ensureAvatar() => $_ensure(0);
-}
-
-/// Response message for updating a user's avatar.
-class UpdateUserAvatarResponse extends $pb.GeneratedMessage {
-  factory UpdateUserAvatarResponse({
-    $1.Error? error,
-  }) {
-    final result = create();
-    if (error != null) result.error = error;
-    return result;
-  }
-
-  UpdateUserAvatarResponse._();
-
-  factory UpdateUserAvatarResponse.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory UpdateUserAvatarResponse.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'UpdateUserAvatarResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
-        subBuilder: $1.Error.create)
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UpdateUserAvatarResponse clone() => deepCopy();
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UpdateUserAvatarResponse copyWith(
-          void Function(UpdateUserAvatarResponse) updates) =>
-      super.copyWith((message) => updates(message as UpdateUserAvatarResponse))
-          as UpdateUserAvatarResponse;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static UpdateUserAvatarResponse create() => UpdateUserAvatarResponse._();
-  @$core.override
-  UpdateUserAvatarResponse createEmptyInstance() => create();
-  @$core.pragma('dart2js:noInline')
-  static UpdateUserAvatarResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<UpdateUserAvatarResponse>(create);
-  static UpdateUserAvatarResponse? _defaultInstance;
-
-  /// Error, if any.
-  @$pb.TagNumber(1)
-  $1.Error get error => $_getN(0);
-  @$pb.TagNumber(1)
-  set error($1.Error value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasError() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearError() => $_clearField(1);
-  @$pb.TagNumber(1)
-  $1.Error ensureError() => $_ensure(0);
 }
 
 /// Response message for updating a user.

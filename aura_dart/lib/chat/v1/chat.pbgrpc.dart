@@ -65,26 +65,12 @@ class ChatServiceClient extends $grpc.Client {
 
   /// Deletes a message.
   ///
-  /// Config-dependent: This can be disabled.
-  ///
   /// Requires Authentication: Only authorized users can delete messages.
   $grpc.ResponseFuture<$0.DeleteMessageResponse> deleteMessage(
     $0.DeleteMessageRequest request, {
     $grpc.CallOptions? options,
   }) {
     return $createUnaryCall(_$deleteMessage, request, options: options);
-  }
-
-  /// Updates a message.
-  ///
-  /// Config-dependent: This can be disabled.
-  ///
-  /// Requires Authentication: Only authorized users can update messages.
-  $grpc.ResponseFuture<$0.UpdateMessageResponse> updateMessage(
-    $0.UpdateMessageRequest request, {
-    $grpc.CallOptions? options,
-  }) {
-    return $createUnaryCall(_$updateMessage, request, options: options);
   }
 
   // method descriptors
@@ -109,11 +95,6 @@ class ChatServiceClient extends $grpc.Client {
           '/chat.v1.ChatService/DeleteMessage',
           ($0.DeleteMessageRequest value) => value.writeToBuffer(),
           $0.DeleteMessageResponse.fromBuffer);
-  static final _$updateMessage =
-      $grpc.ClientMethod<$0.UpdateMessageRequest, $0.UpdateMessageResponse>(
-          '/chat.v1.ChatService/UpdateMessage',
-          ($0.UpdateMessageRequest value) => value.writeToBuffer(),
-          $0.UpdateMessageResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('chat.v1.ChatService')
@@ -157,15 +138,6 @@ abstract class ChatServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.DeleteMessageRequest.fromBuffer(value),
             ($0.DeleteMessageResponse value) => value.writeToBuffer()));
-    $addMethod(
-        $grpc.ServiceMethod<$0.UpdateMessageRequest, $0.UpdateMessageResponse>(
-            'UpdateMessage',
-            updateMessage_Pre,
-            false,
-            false,
-            ($core.List<$core.int> value) =>
-                $0.UpdateMessageRequest.fromBuffer(value),
-            ($0.UpdateMessageResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.CreateChannelResponse> createChannel_Pre(
@@ -202,13 +174,4 @@ abstract class ChatServiceBase extends $grpc.Service {
 
   $async.Future<$0.DeleteMessageResponse> deleteMessage(
       $grpc.ServiceCall call, $0.DeleteMessageRequest request);
-
-  $async.Future<$0.UpdateMessageResponse> updateMessage_Pre(
-      $grpc.ServiceCall $call,
-      $async.Future<$0.UpdateMessageRequest> $request) async {
-    return updateMessage($call, await $request);
-  }
-
-  $async.Future<$0.UpdateMessageResponse> updateMessage(
-      $grpc.ServiceCall call, $0.UpdateMessageRequest request);
 }

@@ -20,15 +20,15 @@ const UserRole$json = {
   '1': 'UserRole',
   '2': [
     {'1': 'USER_ROLE_USER_UNSPECIFIED', '2': 0},
-    {'1': 'USER_ROLE_SUPERVISOR', '2': 1},
+    {'1': 'USER_ROLE_MODERATOR', '2': 1},
     {'1': 'USER_ROLE_ADMIN', '2': 2},
   ],
 };
 
 /// Descriptor for `UserRole`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List userRoleDescriptor = $convert.base64Decode(
-    'CghVc2VyUm9sZRIeChpVU0VSX1JPTEVfVVNFUl9VTlNQRUNJRklFRBAAEhgKFFVTRVJfUk9MRV'
-    '9TVVBFUlZJU09SEAESEwoPVVNFUl9ST0xFX0FETUlOEAI=');
+    'CghVc2VyUm9sZRIeChpVU0VSX1JPTEVfVVNFUl9VTlNQRUNJRklFRBAAEhcKE1VTRVJfUk9MRV'
+    '9NT0RFUkFUT1IQARITCg9VU0VSX1JPTEVfQURNSU4QAg==');
 
 @$core.Deprecated('Use authUserRequestDescriptor instead')
 const AuthUserRequest$json = {
@@ -69,17 +69,67 @@ final $typed_data.Uint8List authUserResponseDescriptor = $convert.base64Decode(
     'ChBBdXRoVXNlclJlc3BvbnNlEhYKBXRva2VuGAEgASgJSABSBXRva2VuEigKBWVycm9yGAIgAS'
     'gLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9yQggKBnJlc3VsdA==');
 
+@$core.Deprecated('Use verifyEmailRequestDescriptor instead')
+const VerifyEmailRequest$json = {
+  '1': 'VerifyEmailRequest',
+  '2': [
+    {'1': 'email', '3': 1, '4': 1, '5': 9, '10': 'email'},
+  ],
+};
+
+/// Descriptor for `VerifyEmailRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List verifyEmailRequestDescriptor = $convert
+    .base64Decode('ChJWZXJpZnlFbWFpbFJlcXVlc3QSFAoFZW1haWwYASABKAlSBWVtYWls');
+
+@$core.Deprecated('Use verifyEmailResponseDescriptor instead')
+const VerifyEmailResponse$json = {
+  '1': 'VerifyEmailResponse',
+  '2': [
+    {
+      '1': 'error',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_error'},
+  ],
+};
+
+/// Descriptor for `VerifyEmailResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List verifyEmailResponseDescriptor = $convert.base64Decode(
+    'ChNWZXJpZnlFbWFpbFJlc3BvbnNlEisKBWVycm9yGAEgASgLMhAuY29tbW9uLnYxLkVycm9ySA'
+    'BSBWVycm9yiAEBQggKBl9lcnJvcg==');
+
 @$core.Deprecated('Use createUserRequestDescriptor instead')
 const CreateUserRequest$json = {
   '1': 'CreateUserRequest',
   '2': [
-    {'1': 'user', '3': 1, '4': 1, '5': 11, '6': '.user.v1.User', '10': 'user'},
+    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
+    {'1': 'username', '3': 2, '4': 1, '5': 9, '10': 'username'},
+    {'1': 'email', '3': 3, '4': 1, '5': 9, '10': 'email'},
+    {'1': 'password', '3': 4, '4': 1, '5': 9, '10': 'password'},
+    {
+      '1': 'verification_token',
+      '3': 5,
+      '4': 1,
+      '5': 9,
+      '10': 'verificationToken'
+    },
   ],
 };
 
 /// Descriptor for `CreateUserRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createUserRequestDescriptor = $convert.base64Decode(
-    'ChFDcmVhdGVVc2VyUmVxdWVzdBIhCgR1c2VyGAEgASgLMg0udXNlci52MS5Vc2VyUgR1c2Vy');
+    'ChFDcmVhdGVVc2VyUmVxdWVzdBIXCgd1c2VyX2lkGAEgASgJUgZ1c2VySWQSGgoIdXNlcm5hbW'
+    'UYAiABKAlSCHVzZXJuYW1lEhQKBWVtYWlsGAMgASgJUgVlbWFpbBIaCghwYXNzd29yZBgEIAEo'
+    'CVIIcGFzc3dvcmQSLQoSdmVyaWZpY2F0aW9uX3Rva2VuGAUgASgJUhF2ZXJpZmljYXRpb25Ub2'
+    'tlbg==');
 
 @$core.Deprecated('Use createUserResponseDescriptor instead')
 const CreateUserResponse$json = {
@@ -154,53 +204,6 @@ const UpdateUserRequest$json = {
 /// Descriptor for `UpdateUserRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateUserRequestDescriptor = $convert.base64Decode(
     'ChFVcGRhdGVVc2VyUmVxdWVzdBIhCgR1c2VyGAEgASgLMg0udXNlci52MS5Vc2VyUgR1c2Vy');
-
-@$core.Deprecated('Use updateUserAvatarRequestDescriptor instead')
-const UpdateUserAvatarRequest$json = {
-  '1': 'UpdateUserAvatarRequest',
-  '2': [
-    {
-      '1': 'avatar',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.resource.v1.ResourceId',
-      '10': 'avatar'
-    },
-  ],
-};
-
-/// Descriptor for `UpdateUserAvatarRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateUserAvatarRequestDescriptor =
-    $convert.base64Decode(
-        'ChdVcGRhdGVVc2VyQXZhdGFyUmVxdWVzdBIvCgZhdmF0YXIYAiABKAsyFy5yZXNvdXJjZS52MS'
-        '5SZXNvdXJjZUlkUgZhdmF0YXI=');
-
-@$core.Deprecated('Use updateUserAvatarResponseDescriptor instead')
-const UpdateUserAvatarResponse$json = {
-  '1': 'UpdateUserAvatarResponse',
-  '2': [
-    {
-      '1': 'error',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.common.v1.Error',
-      '9': 0,
-      '10': 'error',
-      '17': true
-    },
-  ],
-  '8': [
-    {'1': '_error'},
-  ],
-};
-
-/// Descriptor for `UpdateUserAvatarResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateUserAvatarResponseDescriptor =
-    $convert.base64Decode(
-        'ChhVcGRhdGVVc2VyQXZhdGFyUmVzcG9uc2USKwoFZXJyb3IYASABKAsyEC5jb21tb24udjEuRX'
-        'Jyb3JIAFIFZXJyb3KIAQFCCAoGX2Vycm9y');
 
 @$core.Deprecated('Use updateUserResponseDescriptor instead')
 const UpdateUserResponse$json = {

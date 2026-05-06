@@ -71,18 +71,6 @@ class UserServiceClient extends $grpc.Client {
     return $createUnaryCall(_$updateUser, request, options: options);
   }
 
-  /// Updates a user's avatar.
-  ///
-  /// Config-dependent: This can be disabled.
-  ///
-  /// Requires Authentication: All authenticated users can update a their avatar.
-  $grpc.ResponseFuture<$0.UpdateUserAvatarResponse> updateUserAvatar(
-    $0.UpdateUserAvatarRequest request, {
-    $grpc.CallOptions? options,
-  }) {
-    return $createUnaryCall(_$updateUserAvatar, request, options: options);
-  }
-
   /// Gets a user by ID.
   ///
   /// Requires Authentication: All authenticated users can get a user.
@@ -125,11 +113,6 @@ class UserServiceClient extends $grpc.Client {
           '/user.v1.UserService/UpdateUser',
           ($0.UpdateUserRequest value) => value.writeToBuffer(),
           $0.UpdateUserResponse.fromBuffer);
-  static final _$updateUserAvatar = $grpc.ClientMethod<
-          $0.UpdateUserAvatarRequest, $0.UpdateUserAvatarResponse>(
-      '/user.v1.UserService/UpdateUserAvatar',
-      ($0.UpdateUserAvatarRequest value) => value.writeToBuffer(),
-      $0.UpdateUserAvatarResponse.fromBuffer);
   static final _$getUser =
       $grpc.ClientMethod<$0.GetUserRequest, $0.GetUserResponse>(
           '/user.v1.UserService/GetUser',
@@ -175,15 +158,6 @@ abstract class UserServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.UpdateUserRequest.fromBuffer(value),
         ($0.UpdateUserResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.UpdateUserAvatarRequest,
-            $0.UpdateUserAvatarResponse>(
-        'UpdateUserAvatar',
-        updateUserAvatar_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) =>
-            $0.UpdateUserAvatarRequest.fromBuffer(value),
-        ($0.UpdateUserAvatarResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.GetUserRequest, $0.GetUserResponse>(
         'GetUser',
         getUser_Pre,
@@ -233,15 +207,6 @@ abstract class UserServiceBase extends $grpc.Service {
 
   $async.Future<$0.UpdateUserResponse> updateUser(
       $grpc.ServiceCall call, $0.UpdateUserRequest request);
-
-  $async.Future<$0.UpdateUserAvatarResponse> updateUserAvatar_Pre(
-      $grpc.ServiceCall $call,
-      $async.Future<$0.UpdateUserAvatarRequest> $request) async {
-    return updateUserAvatar($call, await $request);
-  }
-
-  $async.Future<$0.UpdateUserAvatarResponse> updateUserAvatar(
-      $grpc.ServiceCall call, $0.UpdateUserAvatarRequest request);
 
   $async.Future<$0.GetUserResponse> getUser_Pre($grpc.ServiceCall $call,
       $async.Future<$0.GetUserRequest> $request) async {

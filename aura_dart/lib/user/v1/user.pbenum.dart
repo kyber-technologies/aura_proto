@@ -20,9 +20,9 @@ class UserRole extends $pb.ProtobufEnum {
   static const UserRole USER_ROLE_USER_UNSPECIFIED =
       UserRole._(0, _omitEnumNames ? '' : 'USER_ROLE_USER_UNSPECIFIED');
 
-  /// A supervisor user.
-  static const UserRole USER_ROLE_SUPERVISOR =
-      UserRole._(1, _omitEnumNames ? '' : 'USER_ROLE_SUPERVISOR');
+  /// A moderator user.
+  static const UserRole USER_ROLE_MODERATOR =
+      UserRole._(1, _omitEnumNames ? '' : 'USER_ROLE_MODERATOR');
 
   /// An administrator user.
   static const UserRole USER_ROLE_ADMIN =
@@ -30,7 +30,7 @@ class UserRole extends $pb.ProtobufEnum {
 
   static const $core.List<UserRole> values = <UserRole>[
     USER_ROLE_USER_UNSPECIFIED,
-    USER_ROLE_SUPERVISOR,
+    USER_ROLE_MODERATOR,
     USER_ROLE_ADMIN,
   ];
 
