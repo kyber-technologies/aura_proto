@@ -207,6 +207,123 @@ class ClearStateResponse extends $pb.GeneratedMessage {
   static ClearStateResponse? _defaultInstance;
 }
 
+/// A request to get an email verification token.
+///
+/// Only available in testing mode.
+class GetEmailTokenRequest extends $pb.GeneratedMessage {
+  factory GetEmailTokenRequest({
+    $core.String? email,
+  }) {
+    final result = create();
+    if (email != null) result.email = email;
+    return result;
+  }
+
+  GetEmailTokenRequest._();
+
+  factory GetEmailTokenRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetEmailTokenRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetEmailTokenRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'general.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'email')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetEmailTokenRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetEmailTokenRequest copyWith(void Function(GetEmailTokenRequest) updates) =>
+      super.copyWith((message) => updates(message as GetEmailTokenRequest))
+          as GetEmailTokenRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetEmailTokenRequest create() => GetEmailTokenRequest._();
+  @$core.override
+  GetEmailTokenRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetEmailTokenRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetEmailTokenRequest>(create);
+  static GetEmailTokenRequest? _defaultInstance;
+
+  /// The email address to get a token for.
+  @$pb.TagNumber(1)
+  $core.String get email => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set email($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasEmail() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearEmail() => $_clearField(1);
+}
+
+/// A response from a request to get an email verification token.
+///
+/// Only available in testing mode.
+class GetEmailTokenResponse extends $pb.GeneratedMessage {
+  factory GetEmailTokenResponse({
+    $core.String? token,
+  }) {
+    final result = create();
+    if (token != null) result.token = token;
+    return result;
+  }
+
+  GetEmailTokenResponse._();
+
+  factory GetEmailTokenResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetEmailTokenResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetEmailTokenResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'general.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'token')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetEmailTokenResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetEmailTokenResponse copyWith(
+          void Function(GetEmailTokenResponse) updates) =>
+      super.copyWith((message) => updates(message as GetEmailTokenResponse))
+          as GetEmailTokenResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetEmailTokenResponse create() => GetEmailTokenResponse._();
+  @$core.override
+  GetEmailTokenResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetEmailTokenResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetEmailTokenResponse>(create);
+  static GetEmailTokenResponse? _defaultInstance;
+
+  /// The email verification token.
+  @$pb.TagNumber(1)
+  $core.String get token => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set token($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasToken() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearToken() => $_clearField(1);
+}
+
 const $core.bool _omitFieldNames =
     $core.bool.fromEnvironment('protobuf.omit_field_names');
 const $core.bool _omitMessageNames =

@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package general.v1;
 
-import "user/v1/user.proto";
-
 // Service for general server mechanics.
 service GeneralService {
   // Get the server configuration.
@@ -13,11 +11,15 @@ service GeneralService {
   //
   // Only available in testing mode.
   rpc ClearState(ClearStateRequest) returns (ClearStateResponse);
+
+  // Get an email verification token.
+  //
+  // Only available in testing mode.
+  rpc GetEmailToken(GetEmailTokenRequest) returns (GetEmailTokenResponse);
 }
 
 // A request to get the server configuration.
-message GetConfigRequest {
-}
+message GetConfigRequest {}
 
 // A response from a request to get the server configuration.
 message GetConfigResponse {
@@ -30,11 +32,25 @@ message GetConfigResponse {
 // A request to clear the server state.
 //
 // Only available in testing mode.
-message ClearStateRequest {
-}
+message ClearStateRequest {}
 
 // A response from a request to clear the server state.
 //
 // Only available in testing mode.
-message ClearStateResponse {
+message ClearStateResponse {}
+
+// A request to get an email verification token.
+//
+// Only available in testing mode.
+message GetEmailTokenRequest {
+  // The email address to get a token for.
+  string email = 1;
+}
+
+// A response from a request to get an email verification token.
+//
+// Only available in testing mode.
+message GetEmailTokenResponse {
+  // The email verification token.
+  string token = 1;
 }

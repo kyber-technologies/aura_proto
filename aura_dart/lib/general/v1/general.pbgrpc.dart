@@ -51,6 +51,16 @@ class GeneralServiceClient extends $grpc.Client {
     return $createUnaryCall(_$clearState, request, options: options);
   }
 
+  /// Get an email verification token.
+  ///
+  /// Only available in testing mode.
+  $grpc.ResponseFuture<$0.GetEmailTokenResponse> getEmailToken(
+    $0.GetEmailTokenRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$getEmailToken, request, options: options);
+  }
+
   // method descriptors
 
   static final _$getConfig =
@@ -63,6 +73,11 @@ class GeneralServiceClient extends $grpc.Client {
           '/general.v1.GeneralService/ClearState',
           ($0.ClearStateRequest value) => value.writeToBuffer(),
           $0.ClearStateResponse.fromBuffer);
+  static final _$getEmailToken =
+      $grpc.ClientMethod<$0.GetEmailTokenRequest, $0.GetEmailTokenResponse>(
+          '/general.v1.GeneralService/GetEmailToken',
+          ($0.GetEmailTokenRequest value) => value.writeToBuffer(),
+          $0.GetEmailTokenResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('general.v1.GeneralService')
@@ -84,6 +99,15 @@ abstract class GeneralServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.ClearStateRequest.fromBuffer(value),
         ($0.ClearStateResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.GetEmailTokenRequest, $0.GetEmailTokenResponse>(
+            'GetEmailToken',
+            getEmailToken_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.GetEmailTokenRequest.fromBuffer(value),
+            ($0.GetEmailTokenResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.GetConfigResponse> getConfig_Pre($grpc.ServiceCall $call,
@@ -101,4 +125,13 @@ abstract class GeneralServiceBase extends $grpc.Service {
 
   $async.Future<$0.ClearStateResponse> clearState(
       $grpc.ServiceCall call, $0.ClearStateRequest request);
+
+  $async.Future<$0.GetEmailTokenResponse> getEmailToken_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.GetEmailTokenRequest> $request) async {
+    return getEmailToken($call, await $request);
+  }
+
+  $async.Future<$0.GetEmailTokenResponse> getEmailToken(
+      $grpc.ServiceCall call, $0.GetEmailTokenRequest request);
 }
