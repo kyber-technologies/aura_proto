@@ -382,7 +382,7 @@ class CreateUserRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearEmail() => $_clearField(3);
 
-  /// Password hash of the user.
+  /// Password of the user.
   @$pb.TagNumber(4)
   $core.String get password => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -465,10 +465,10 @@ class CreateUserResponse extends $pb.GeneratedMessage {
 /// Request message for deleting a user.
 class DeleteUserRequest extends $pb.GeneratedMessage {
   factory DeleteUserRequest({
-    $core.String? userId,
+    $core.String? password,
   }) {
     final result = create();
-    if (userId != null) result.userId = userId;
+    if (password != null) result.password = password;
     return result;
   }
 
@@ -485,7 +485,7 @@ class DeleteUserRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'DeleteUserRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'userId')
+    ..aOS(1, _omitFieldNames ? '' : 'password')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -507,15 +507,15 @@ class DeleteUserRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<DeleteUserRequest>(create);
   static DeleteUserRequest? _defaultInstance;
 
-  /// ID of the user to delete.
+  /// Password of the user.
   @$pb.TagNumber(1)
-  $core.String get userId => $_getSZ(0);
+  $core.String get password => $_getSZ(0);
   @$pb.TagNumber(1)
-  set userId($core.String value) => $_setString(0, value);
+  set password($core.String value) => $_setString(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasUserId() => $_has(0);
+  $core.bool hasPassword() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUserId() => $_clearField(1);
+  void clearPassword() => $_clearField(1);
 }
 
 /// Response message for deleting a user.
@@ -580,10 +580,14 @@ class DeleteUserResponse extends $pb.GeneratedMessage {
 /// Request message for updating a user.
 class UpdateUserRequest extends $pb.GeneratedMessage {
   factory UpdateUserRequest({
-    User? user,
+    $core.String? username,
+    $core.String? email,
+    $core.String? password,
   }) {
     final result = create();
-    if (user != null) result.user = user;
+    if (username != null) result.username = username;
+    if (email != null) result.email = email;
+    if (password != null) result.password = password;
     return result;
   }
 
@@ -600,7 +604,9 @@ class UpdateUserRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'UpdateUserRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..aOM<User>(1, _omitFieldNames ? '' : 'user', subBuilder: User.create)
+    ..aOS(2, _omitFieldNames ? '' : 'username')
+    ..aOS(3, _omitFieldNames ? '' : 'email')
+    ..aOS(4, _omitFieldNames ? '' : 'password')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -622,17 +628,35 @@ class UpdateUserRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<UpdateUserRequest>(create);
   static UpdateUserRequest? _defaultInstance;
 
-  /// User to update.
-  @$pb.TagNumber(1)
-  User get user => $_getN(0);
-  @$pb.TagNumber(1)
-  set user(User value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasUser() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearUser() => $_clearField(1);
-  @$pb.TagNumber(1)
-  User ensureUser() => $_ensure(0);
+  /// Username of the user.
+  @$pb.TagNumber(2)
+  $core.String get username => $_getSZ(0);
+  @$pb.TagNumber(2)
+  set username($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(2)
+  $core.bool hasUsername() => $_has(0);
+  @$pb.TagNumber(2)
+  void clearUsername() => $_clearField(2);
+
+  /// Email of the user.
+  @$pb.TagNumber(3)
+  $core.String get email => $_getSZ(1);
+  @$pb.TagNumber(3)
+  set email($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(3)
+  $core.bool hasEmail() => $_has(1);
+  @$pb.TagNumber(3)
+  void clearEmail() => $_clearField(3);
+
+  /// Password of the user.
+  @$pb.TagNumber(4)
+  $core.String get password => $_getSZ(2);
+  @$pb.TagNumber(4)
+  set password($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(4)
+  $core.bool hasPassword() => $_has(2);
+  @$pb.TagNumber(4)
+  void clearPassword() => $_clearField(4);
 }
 
 /// Response message for updating a user.
@@ -1058,7 +1082,7 @@ class User extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearEmail() => $_clearField(3);
 
-  /// Password hash of the user.
+  /// Password of the user.
   @$pb.TagNumber(4)
   $core.String get password => $_getSZ(3);
   @$pb.TagNumber(4)

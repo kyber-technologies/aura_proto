@@ -14,18 +14,16 @@ service UserService {
   rpc VerifyEmail(VerifyEmailRequest) returns (VerifyEmailResponse);
 
   // Creates a new user.
-  //
-  // Requires Authentication: Only administrators can create users.
   rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
 
   // Deletes a user by ID.
   //
-  // Requires Authentication: Only administrators can delete users.
+  // Requires Authentication: Only the user itself can delete his own account.
   rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
 
   // Updates a user.
   //
-  // Requires Authentication: Only administrators can update users.
+  // Requires Authentication: Only the user itself can update his own account.
   rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
 
   // Gets a user by ID.
@@ -77,7 +75,7 @@ message CreateUserRequest {
   string username = 2;
   // Email of the user.
   string email = 3;
-  // Password hash of the user.
+  // Password of the user.
   string password = 4;
   // E-Mail verification token.
   string verification_token = 5;
@@ -91,8 +89,8 @@ message CreateUserResponse {
 
 // Request message for deleting a user.
 message DeleteUserRequest {
-  // ID of the user to delete.
-  string user_id = 1;
+  // Password of the user.
+  string password = 1;
 }
 
 // Response message for deleting a user.
@@ -103,8 +101,12 @@ message DeleteUserResponse {
 
 // Request message for updating a user.
 message UpdateUserRequest {
-  // User to update.
-  User user = 1;
+  // Username of the user.
+  optional string username = 2;
+  // Email of the user.
+  optional string email = 3;
+  // Password of the user.
+  optional  string password = 4;
 }
 
 // Response message for updating a user.
@@ -154,7 +156,7 @@ message User {
   string username = 2;
   // Email of the user.
   string email = 3;
-  // Password hash of the user.
+  // Password of the user.
   string password = 4;
   // Role of the user.
   UserRole role = 5;

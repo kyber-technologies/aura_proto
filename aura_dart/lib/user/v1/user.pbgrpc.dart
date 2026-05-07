@@ -50,8 +50,6 @@ class UserServiceClient extends $grpc.Client {
   }
 
   /// Creates a new user.
-  ///
-  /// Requires Authentication: Only administrators can create users.
   $grpc.ResponseFuture<$0.CreateUserResponse> createUser(
     $0.CreateUserRequest request, {
     $grpc.CallOptions? options,
@@ -61,7 +59,7 @@ class UserServiceClient extends $grpc.Client {
 
   /// Deletes a user by ID.
   ///
-  /// Requires Authentication: Only administrators can delete users.
+  /// Requires Authentication: Only the user itself can delete his own account.
   $grpc.ResponseFuture<$0.DeleteUserResponse> deleteUser(
     $0.DeleteUserRequest request, {
     $grpc.CallOptions? options,
@@ -71,7 +69,7 @@ class UserServiceClient extends $grpc.Client {
 
   /// Updates a user.
   ///
-  /// Requires Authentication: Only administrators can update users.
+  /// Requires Authentication: Only the user itself can update his own account.
   $grpc.ResponseFuture<$0.UpdateUserResponse> updateUser(
     $0.UpdateUserRequest request, {
     $grpc.CallOptions? options,
