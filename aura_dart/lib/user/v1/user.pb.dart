@@ -22,6 +22,7 @@ export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 export 'user.pbenum.dart';
 
+/// Request message for checking if a user exists.
 class UserExistsRequest extends $pb.GeneratedMessage {
   factory UserExistsRequest({
     $core.String? userId,
@@ -77,15 +78,12 @@ class UserExistsRequest extends $pb.GeneratedMessage {
   void clearUserId() => $_clearField(1);
 }
 
-enum UserExistsResponse_Result { exists, error, notSet }
-
+/// Response message for checking if a user exists.
 class UserExistsResponse extends $pb.GeneratedMessage {
   factory UserExistsResponse({
-    $core.bool? exists,
     $1.Error? error,
   }) {
     final result = create();
-    if (exists != null) result.exists = exists;
     if (error != null) result.error = error;
     return result;
   }
@@ -99,19 +97,11 @@ class UserExistsResponse extends $pb.GeneratedMessage {
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, UserExistsResponse_Result>
-      _UserExistsResponse_ResultByTag = {
-    1: UserExistsResponse_Result.exists,
-    2: UserExistsResponse_Result.error,
-    0: UserExistsResponse_Result.notSet
-  };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'UserExistsResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..oo(0, [1, 2])
-    ..aOB(1, _omitFieldNames ? '' : 'exists')
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
     ..hasRequiredFields = false;
 
@@ -134,35 +124,17 @@ class UserExistsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<UserExistsResponse>(create);
   static UserExistsResponse? _defaultInstance;
 
+  /// Error, if user does not exist or any other error.
   @$pb.TagNumber(1)
-  @$pb.TagNumber(2)
-  UserExistsResponse_Result whichResult() =>
-      _UserExistsResponse_ResultByTag[$_whichOneof(0)]!;
+  $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)
-  @$pb.TagNumber(2)
-  void clearResult() => $_clearField($_whichOneof(0));
-
-  /// Whether the user exists.
+  set error($1.Error value) => $_setField(1, value);
   @$pb.TagNumber(1)
-  $core.bool get exists => $_getBF(0);
+  $core.bool hasError() => $_has(0);
   @$pb.TagNumber(1)
-  set exists($core.bool value) => $_setBool(0, value);
+  void clearError() => $_clearField(1);
   @$pb.TagNumber(1)
-  $core.bool hasExists() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearExists() => $_clearField(1);
-
-  /// Error, if any.
-  @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
-  @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
-  @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  $1.Error ensureError() => $_ensure(0);
 }
 
 /// Request message for authenticating a user.

@@ -40,18 +40,16 @@ service UserService {
   rpc SearchUsers(SearchUsersRequest) returns (SearchUsersResponse);
 }
 
+// Request message for checking if a user exists.
 message UserExistsRequest {
   // User ID of the user.
   string user_id = 1;
 }
 
+// Response message for checking if a user exists.
 message UserExistsResponse {
-  oneof result {
-    // Whether the user exists.
-    bool exists = 1;
-    // Error, if any.
-    common.v1.Error error = 2;
-  }
+  // Error, if user does not exist or any other error.
+  common.v1.Error error = 1;
 }
 
 // Request message for authenticating a user.
