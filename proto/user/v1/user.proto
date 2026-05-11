@@ -7,6 +7,9 @@ import "resource/v1/resource.proto";
 
 // Service for managing users.
 service UserService {
+  // Checks if a user exists by ID.
+  rpc UserExists(UserExistsRequest) returns (UserExistsResponse);
+
   // Authenticates a user.
   rpc AuthUser(AuthUserRequest) returns (AuthUserResponse);
 
@@ -35,6 +38,20 @@ service UserService {
   //
   // Requires Authentication: All authenticated users can search for users.
   rpc SearchUsers(SearchUsersRequest) returns (SearchUsersResponse);
+}
+
+message UserExistsRequest {
+  // User ID of the user.
+  string user_id = 1;
+}
+
+message UserExistsResponse {
+  oneof result {
+    // Whether the user exists.
+    bool exists = 1;
+    // Error, if any.
+    common.v1.Error error = 2;
+  }
 }
 
 // Request message for authenticating a user.
@@ -106,7 +123,7 @@ message UpdateUserRequest {
   // Email of the user.
   optional string email = 3;
   // Password of the user.
-  optional  string password = 4;
+  optional string password = 4;
 }
 
 // Response message for updating a user.

@@ -33,6 +33,14 @@ class UserServiceClient extends $grpc.Client {
 
   UserServiceClient(super.channel, {super.options, super.interceptors});
 
+  /// Checks if a user exists by ID.
+  $grpc.ResponseFuture<$0.UserExistsResponse> userExists(
+    $0.UserExistsRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$userExists, request, options: options);
+  }
+
   /// Authenticates a user.
   $grpc.ResponseFuture<$0.AuthUserResponse> authUser(
     $0.AuthUserRequest request, {
@@ -99,6 +107,11 @@ class UserServiceClient extends $grpc.Client {
 
   // method descriptors
 
+  static final _$userExists =
+      $grpc.ClientMethod<$0.UserExistsRequest, $0.UserExistsResponse>(
+          '/user.v1.UserService/UserExists',
+          ($0.UserExistsRequest value) => value.writeToBuffer(),
+          $0.UserExistsResponse.fromBuffer);
   static final _$authUser =
       $grpc.ClientMethod<$0.AuthUserRequest, $0.AuthUserResponse>(
           '/user.v1.UserService/AuthUser',
@@ -141,6 +154,13 @@ abstract class UserServiceBase extends $grpc.Service {
   $core.String get $name => 'user.v1.UserService';
 
   UserServiceBase() {
+    $addMethod($grpc.ServiceMethod<$0.UserExistsRequest, $0.UserExistsResponse>(
+        'UserExists',
+        userExists_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.UserExistsRequest.fromBuffer(value),
+        ($0.UserExistsResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.AuthUserRequest, $0.AuthUserResponse>(
         'AuthUser',
         authUser_Pre,
@@ -195,6 +215,14 @@ abstract class UserServiceBase extends $grpc.Service {
                 $0.SearchUsersRequest.fromBuffer(value),
             ($0.SearchUsersResponse value) => value.writeToBuffer()));
   }
+
+  $async.Future<$0.UserExistsResponse> userExists_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.UserExistsRequest> $request) async {
+    return userExists($call, await $request);
+  }
+
+  $async.Future<$0.UserExistsResponse> userExists(
+      $grpc.ServiceCall call, $0.UserExistsRequest request);
 
   $async.Future<$0.AuthUserResponse> authUser_Pre($grpc.ServiceCall $call,
       $async.Future<$0.AuthUserRequest> $request) async {

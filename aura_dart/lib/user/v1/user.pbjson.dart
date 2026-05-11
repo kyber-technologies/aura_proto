@@ -30,6 +30,43 @@ final $typed_data.Uint8List userRoleDescriptor = $convert.base64Decode(
     'CghVc2VyUm9sZRIeChpVU0VSX1JPTEVfVVNFUl9VTlNQRUNJRklFRBAAEhcKE1VTRVJfUk9MRV'
     '9NT0RFUkFUT1IQARITCg9VU0VSX1JPTEVfQURNSU4QAg==');
 
+@$core.Deprecated('Use userExistsRequestDescriptor instead')
+const UserExistsRequest$json = {
+  '1': 'UserExistsRequest',
+  '2': [
+    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
+  ],
+};
+
+/// Descriptor for `UserExistsRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List userExistsRequestDescriptor = $convert.base64Decode(
+    'ChFVc2VyRXhpc3RzUmVxdWVzdBIXCgd1c2VyX2lkGAEgASgJUgZ1c2VySWQ=');
+
+@$core.Deprecated('Use userExistsResponseDescriptor instead')
+const UserExistsResponse$json = {
+  '1': 'UserExistsResponse',
+  '2': [
+    {'1': 'exists', '3': 1, '4': 1, '5': 8, '9': 0, '10': 'exists'},
+    {
+      '1': 'error',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error'
+    },
+  ],
+  '8': [
+    {'1': 'result'},
+  ],
+};
+
+/// Descriptor for `UserExistsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List userExistsResponseDescriptor = $convert.base64Decode(
+    'ChJVc2VyRXhpc3RzUmVzcG9uc2USGAoGZXhpc3RzGAEgASgISABSBmV4aXN0cxIoCgVlcnJvch'
+    'gCIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcnJvckIICgZyZXN1bHQ=');
+
 @$core.Deprecated('Use authUserRequestDescriptor instead')
 const AuthUserRequest$json = {
   '1': 'AuthUserRequest',

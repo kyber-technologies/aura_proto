@@ -22,6 +22,149 @@ export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 export 'user.pbenum.dart';
 
+class UserExistsRequest extends $pb.GeneratedMessage {
+  factory UserExistsRequest({
+    $core.String? userId,
+  }) {
+    final result = create();
+    if (userId != null) result.userId = userId;
+    return result;
+  }
+
+  UserExistsRequest._();
+
+  factory UserExistsRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory UserExistsRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UserExistsRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UserExistsRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UserExistsRequest copyWith(void Function(UserExistsRequest) updates) =>
+      super.copyWith((message) => updates(message as UserExistsRequest))
+          as UserExistsRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UserExistsRequest create() => UserExistsRequest._();
+  @$core.override
+  UserExistsRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static UserExistsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UserExistsRequest>(create);
+  static UserExistsRequest? _defaultInstance;
+
+  /// User ID of the user.
+  @$pb.TagNumber(1)
+  $core.String get userId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set userId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasUserId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUserId() => $_clearField(1);
+}
+
+enum UserExistsResponse_Result { exists, error, notSet }
+
+class UserExistsResponse extends $pb.GeneratedMessage {
+  factory UserExistsResponse({
+    $core.bool? exists,
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (exists != null) result.exists = exists;
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  UserExistsResponse._();
+
+  factory UserExistsResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory UserExistsResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static const $core.Map<$core.int, UserExistsResponse_Result>
+      _UserExistsResponse_ResultByTag = {
+    1: UserExistsResponse_Result.exists,
+    2: UserExistsResponse_Result.error,
+    0: UserExistsResponse_Result.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UserExistsResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOB(1, _omitFieldNames ? '' : 'exists')
+    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UserExistsResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UserExistsResponse copyWith(void Function(UserExistsResponse) updates) =>
+      super.copyWith((message) => updates(message as UserExistsResponse))
+          as UserExistsResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UserExistsResponse create() => UserExistsResponse._();
+  @$core.override
+  UserExistsResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static UserExistsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UserExistsResponse>(create);
+  static UserExistsResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  UserExistsResponse_Result whichResult() =>
+      _UserExistsResponse_ResultByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  void clearResult() => $_clearField($_whichOneof(0));
+
+  /// Whether the user exists.
+  @$pb.TagNumber(1)
+  $core.bool get exists => $_getBF(0);
+  @$pb.TagNumber(1)
+  set exists($core.bool value) => $_setBool(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasExists() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearExists() => $_clearField(1);
+
+  /// Error, if any.
+  @$pb.TagNumber(2)
+  $1.Error get error => $_getN(1);
+  @$pb.TagNumber(2)
+  set error($1.Error value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasError() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearError() => $_clearField(2);
+  @$pb.TagNumber(2)
+  $1.Error ensureError() => $_ensure(1);
+}
+
 /// Request message for authenticating a user.
 class AuthUserRequest extends $pb.GeneratedMessage {
   factory AuthUserRequest({
