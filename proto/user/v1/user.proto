@@ -49,7 +49,7 @@ message UserExistsRequest {
 // Response message for checking if a user exists.
 message UserExistsResponse {
   // Error, if user does not exist or any other error.
-  common.v1.Error error = 1;
+  optional common.v1.Error error = 1;
 }
 
 // Request message for authenticating a user.
