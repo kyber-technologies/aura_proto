@@ -423,6 +423,43 @@ final $typed_data.Uint8List blockUserResponseDescriptor = $convert.base64Decode(
     'ChFCbG9ja1VzZXJSZXNwb25zZRIrCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUg'
     'VlcnJvcogBAUIICgZfZXJyb3I=');
 
+@$core.Deprecated('Use isBlockedRequestDescriptor instead')
+const IsBlockedRequest$json = {
+  '1': 'IsBlockedRequest',
+  '2': [
+    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
+  ],
+};
+
+/// Descriptor for `IsBlockedRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List isBlockedRequestDescriptor = $convert.base64Decode(
+    'ChBJc0Jsb2NrZWRSZXF1ZXN0EhcKB3VzZXJfaWQYASABKAlSBnVzZXJJZA==');
+
+@$core.Deprecated('Use isBlockedResponseDescriptor instead')
+const IsBlockedResponse$json = {
+  '1': 'IsBlockedResponse',
+  '2': [
+    {'1': 'blocked', '3': 1, '4': 1, '5': 8, '9': 0, '10': 'blocked'},
+    {
+      '1': 'error',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error'
+    },
+  ],
+  '8': [
+    {'1': 'result'},
+  ],
+};
+
+/// Descriptor for `IsBlockedResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List isBlockedResponseDescriptor = $convert.base64Decode(
+    'ChFJc0Jsb2NrZWRSZXNwb25zZRIaCgdibG9ja2VkGAEgASgISABSB2Jsb2NrZWQSKAoFZXJyb3'
+    'IYAiABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJyb3JCCAoGcmVzdWx0');
+
 @$core.Deprecated('Use userDescriptor instead')
 const User$json = {
   '1': 'User',

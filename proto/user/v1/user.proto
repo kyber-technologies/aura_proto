@@ -43,6 +43,11 @@ service UserService {
   //
   // Requires Authentication: Only the user itself can block or unblock.
   rpc BlockUser(BlockUserRequest) returns (BlockUserResponse);
+
+  // Check if a user is blocked.
+  //
+  // Requires Authentication: Only authenticated users can do this.
+  rpc IsBlocked(IsBlockedRequest) returns (IsBlockedResponse);
 }
 
 // Request message for checking if a user exists.
@@ -178,6 +183,19 @@ message BlockUserRequest {
 message BlockUserResponse {
   // Error, if any.
   optional common.v1.Error error = 1;
+}
+
+// Request for checking the blocking status of a user.
+message IsBlockedRequest {
+  string user_id = 1;
+}
+
+// Response for checking the blocking status of a user.
+message IsBlockedResponse {
+  oneof result {
+    bool blocked = 1;
+    common.v1.Error error = 2;
+  }
 }
 
 // An application user.

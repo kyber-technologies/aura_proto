@@ -115,6 +115,16 @@ class UserServiceClient extends $grpc.Client {
     return $createUnaryCall(_$blockUser, request, options: options);
   }
 
+  /// Check if a user is blocked.
+  ///
+  /// Requires Authentication: Only authenticated users can do this.
+  $grpc.ResponseFuture<$0.IsBlockedResponse> isBlocked(
+    $0.IsBlockedRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$isBlocked, request, options: options);
+  }
+
   // method descriptors
 
   static final _$userExists =
@@ -162,6 +172,11 @@ class UserServiceClient extends $grpc.Client {
           '/user.v1.UserService/BlockUser',
           ($0.BlockUserRequest value) => value.writeToBuffer(),
           $0.BlockUserResponse.fromBuffer);
+  static final _$isBlocked =
+      $grpc.ClientMethod<$0.IsBlockedRequest, $0.IsBlockedResponse>(
+          '/user.v1.UserService/IsBlocked',
+          ($0.IsBlockedRequest value) => value.writeToBuffer(),
+          $0.IsBlockedResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('user.v1.UserService')
@@ -236,6 +251,13 @@ abstract class UserServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.BlockUserRequest.fromBuffer(value),
         ($0.BlockUserResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.IsBlockedRequest, $0.IsBlockedResponse>(
+        'IsBlocked',
+        isBlocked_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.IsBlockedRequest.fromBuffer(value),
+        ($0.IsBlockedResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.UserExistsResponse> userExists_Pre($grpc.ServiceCall $call,
@@ -309,4 +331,12 @@ abstract class UserServiceBase extends $grpc.Service {
 
   $async.Future<$0.BlockUserResponse> blockUser(
       $grpc.ServiceCall call, $0.BlockUserRequest request);
+
+  $async.Future<$0.IsBlockedResponse> isBlocked_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.IsBlockedRequest> $request) async {
+    return isBlocked($call, await $request);
+  }
+
+  $async.Future<$0.IsBlockedResponse> isBlocked(
+      $grpc.ServiceCall call, $0.IsBlockedRequest request);
 }
