@@ -1104,6 +1104,134 @@ class SearchUsersResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(1);
 }
 
+/// Request message for blocking a user.
+class BlockUserRequest extends $pb.GeneratedMessage {
+  factory BlockUserRequest({
+    $core.String? userId,
+    $core.bool? block,
+  }) {
+    final result = create();
+    if (userId != null) result.userId = userId;
+    if (block != null) result.block = block;
+    return result;
+  }
+
+  BlockUserRequest._();
+
+  factory BlockUserRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BlockUserRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BlockUserRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
+    ..aOB(2, _omitFieldNames ? '' : 'block')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BlockUserRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BlockUserRequest copyWith(void Function(BlockUserRequest) updates) =>
+      super.copyWith((message) => updates(message as BlockUserRequest))
+          as BlockUserRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BlockUserRequest create() => BlockUserRequest._();
+  @$core.override
+  BlockUserRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static BlockUserRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BlockUserRequest>(create);
+  static BlockUserRequest? _defaultInstance;
+
+  /// ID of the user to block.
+  @$pb.TagNumber(1)
+  $core.String get userId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set userId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasUserId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUserId() => $_clearField(1);
+
+  /// Whether to block or unblock the user.
+  @$pb.TagNumber(2)
+  $core.bool get block => $_getBF(1);
+  @$pb.TagNumber(2)
+  set block($core.bool value) => $_setBool(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasBlock() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearBlock() => $_clearField(2);
+}
+
+/// Response message for blocking a user.
+class BlockUserResponse extends $pb.GeneratedMessage {
+  factory BlockUserResponse({
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  BlockUserResponse._();
+
+  factory BlockUserResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BlockUserResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BlockUserResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BlockUserResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BlockUserResponse copyWith(void Function(BlockUserResponse) updates) =>
+      super.copyWith((message) => updates(message as BlockUserResponse))
+          as BlockUserResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BlockUserResponse create() => BlockUserResponse._();
+  @$core.override
+  BlockUserResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static BlockUserResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BlockUserResponse>(create);
+  static BlockUserResponse? _defaultInstance;
+
+  /// Error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+}
+
 /// An application user.
 ///
 /// Should only be used internally or by administrators.

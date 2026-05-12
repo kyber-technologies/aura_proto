@@ -38,6 +38,11 @@ service UserService {
   //
   // Requires Authentication: All authenticated users can search for users.
   rpc SearchUsers(SearchUsersRequest) returns (SearchUsersResponse);
+
+  // Blocks a user.
+  //
+  // Requires Authentication: Only the user itself can block or unblock.
+  rpc BlockUser(BlockUserRequest) returns (BlockUserResponse);
 }
 
 // Request message for checking if a user exists.
@@ -159,6 +164,20 @@ message SearchUsersResponse {
   repeated UserProfile users = 1;
   // Error, if any.
   optional common.v1.Error error = 2;
+}
+
+// Request message for blocking a user.
+message BlockUserRequest {
+  // ID of the user to block.
+  string user_id = 1;
+  // Whether to block or unblock the user.
+  bool block = 2;
+}
+
+// Response message for blocking a user.
+message BlockUserResponse {
+  // Error, if any.
+  optional common.v1.Error error = 1;
 }
 
 // An application user.

@@ -40,6 +40,13 @@ class ErrorCode extends $pb.ProtobufEnum {
   static const ErrorCode ERROR_CODE_INVALID_FORMAT =
       ErrorCode._(5, _omitEnumNames ? '' : 'ERROR_CODE_INVALID_FORMAT');
 
+  /// Indicates the user is not allowed to perform this action.
+  ///
+  /// Unlike `ERROR_CODE_UNAUTHORIZED`,
+  /// this error is caused by policy violation or permission restrictions.
+  static const ErrorCode ERROR_CODE_RESTRICTED =
+      ErrorCode._(6, _omitEnumNames ? '' : 'ERROR_CODE_RESTRICTED');
+
   static const $core.List<ErrorCode> values = <ErrorCode>[
     ERROR_CODE_UNSPECIFIED,
     ERROR_CODE_INTERNAL,
@@ -47,10 +54,11 @@ class ErrorCode extends $pb.ProtobufEnum {
     ERROR_CODE_NOT_FOUND,
     ERROR_CODE_ALREADY_EXISTS,
     ERROR_CODE_INVALID_FORMAT,
+    ERROR_CODE_RESTRICTED,
   ];
 
   static final $core.List<ErrorCode?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 5);
+      $pb.ProtobufEnum.$_initByValueList(values, 6);
   static ErrorCode? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 

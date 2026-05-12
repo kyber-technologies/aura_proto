@@ -41,4 +41,9 @@ enum ErrorCode {
   ERROR_CODE_ALREADY_EXISTS = 4;
   // Indicates the request format was invalid.
   ERROR_CODE_INVALID_FORMAT = 5;
+  // Indicates the user is not allowed to perform this action.
+  //
+  // Unlike `ERROR_CODE_UNAUTHORIZED`,
+  // this error is caused by policy violation or permission restrictions.
+  ERROR_CODE_RESTRICTED = 6;
 }

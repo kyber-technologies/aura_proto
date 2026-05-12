@@ -105,6 +105,16 @@ class UserServiceClient extends $grpc.Client {
     return $createUnaryCall(_$searchUsers, request, options: options);
   }
 
+  /// Blocks a user.
+  ///
+  /// Requires Authentication: Only the user itself can block or unblock.
+  $grpc.ResponseFuture<$0.BlockUserResponse> blockUser(
+    $0.BlockUserRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$blockUser, request, options: options);
+  }
+
   // method descriptors
 
   static final _$userExists =
@@ -147,6 +157,11 @@ class UserServiceClient extends $grpc.Client {
           '/user.v1.UserService/SearchUsers',
           ($0.SearchUsersRequest value) => value.writeToBuffer(),
           $0.SearchUsersResponse.fromBuffer);
+  static final _$blockUser =
+      $grpc.ClientMethod<$0.BlockUserRequest, $0.BlockUserResponse>(
+          '/user.v1.UserService/BlockUser',
+          ($0.BlockUserRequest value) => value.writeToBuffer(),
+          $0.BlockUserResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('user.v1.UserService')
@@ -214,6 +229,13 @@ abstract class UserServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.SearchUsersRequest.fromBuffer(value),
             ($0.SearchUsersResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.BlockUserRequest, $0.BlockUserResponse>(
+        'BlockUser',
+        blockUser_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.BlockUserRequest.fromBuffer(value),
+        ($0.BlockUserResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.UserExistsResponse> userExists_Pre($grpc.ServiceCall $call,
@@ -279,4 +301,12 @@ abstract class UserServiceBase extends $grpc.Service {
 
   $async.Future<$0.SearchUsersResponse> searchUsers(
       $grpc.ServiceCall call, $0.SearchUsersRequest request);
+
+  $async.Future<$0.BlockUserResponse> blockUser_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.BlockUserRequest> $request) async {
+    return blockUser($call, await $request);
+  }
+
+  $async.Future<$0.BlockUserResponse> blockUser(
+      $grpc.ServiceCall call, $0.BlockUserRequest request);
 }

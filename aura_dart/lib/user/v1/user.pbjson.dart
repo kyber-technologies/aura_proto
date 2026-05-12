@@ -384,6 +384,45 @@ final $typed_data.Uint8List searchUsersResponseDescriptor = $convert.base64Decod
     'lsZVIFdXNlcnMSKwoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJyb3KIAQFC'
     'CAoGX2Vycm9y');
 
+@$core.Deprecated('Use blockUserRequestDescriptor instead')
+const BlockUserRequest$json = {
+  '1': 'BlockUserRequest',
+  '2': [
+    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
+    {'1': 'block', '3': 2, '4': 1, '5': 8, '10': 'block'},
+  ],
+};
+
+/// Descriptor for `BlockUserRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List blockUserRequestDescriptor = $convert.base64Decode(
+    'ChBCbG9ja1VzZXJSZXF1ZXN0EhcKB3VzZXJfaWQYASABKAlSBnVzZXJJZBIUCgVibG9jaxgCIA'
+    'EoCFIFYmxvY2s=');
+
+@$core.Deprecated('Use blockUserResponseDescriptor instead')
+const BlockUserResponse$json = {
+  '1': 'BlockUserResponse',
+  '2': [
+    {
+      '1': 'error',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_error'},
+  ],
+};
+
+/// Descriptor for `BlockUserResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List blockUserResponseDescriptor = $convert.base64Decode(
+    'ChFCbG9ja1VzZXJSZXNwb25zZRIrCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUg'
+    'VlcnJvcogBAUIICgZfZXJyb3I=');
+
 @$core.Deprecated('Use userDescriptor instead')
 const User$json = {
   '1': 'User',
