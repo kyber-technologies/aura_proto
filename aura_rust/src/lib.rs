@@ -130,6 +130,63 @@ impl Into<user::v1::User> for User {
     }
 }
 
+/// See [user::v1::Notification].
+#[derive(Clone, Debug, PartialEq, Eq, Hash, SurrealValue)]
+pub struct Notification {
+    pub message: String,
+    pub ty: NotificationType,
+}
+
+impl TryFrom<user::v1::Notification> for Notification {
+    type Error = ErrorCode;
+
+    fn try_from(value: user::v1::Notification) -> Result<Self, Self::Error> {
+        Ok(Self {
+            message: value.message,
+            ty: NotificationType::try_from(value.notification.ok_or(ErrorCode::InvalidFormat)?)?,
+        })
+    }
+}
+
+impl Into<user::v1::Notification> for Notification {
+    fn into(self) -> user::v1::Notification {
+        user::v1::Notification {
+            message: self.message,
+            notification: Some(self.ty.into()),
+        }
+    }
+}
+
+/// See [user::v1::notification::Notification].
+#[derive(Clone, Debug, PartialEq, Eq, Hash, SurrealValue)]
+pub enum NotificationType {
+    Chat { channel_id: String },
+}
+
+impl TryFrom<user::v1::notification::Notification> for NotificationType {
+    type Error = ErrorCode;
+
+    fn try_from(value: user::v1::notification::Notification) -> Result<Self, Self::Error> {
+        match value {
+            user::v1::notification::Notification::Chat(chat) => Ok(Self::Chat {
+                channel_id: chat.channel_id,
+            }),
+        }
+    }
+}
+
+impl Into<user::v1::notification::Notification> for NotificationType {
+    fn into(self) -> user::v1::notification::Notification {
+        match self {
+            NotificationType::Chat { channel_id } => {
+                user::v1::notification::Notification::Chat(user::v1::ChatNotification {
+                    channel_id,
+                })
+            }
+        }
+    }
+}
+
 /// See [resource::v1::ResourceId].
 #[derive(Clone, Debug, PartialEq, Eq, Hash, SurrealValue)]
 pub struct ResourceId {

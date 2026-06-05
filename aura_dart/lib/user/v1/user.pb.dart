@@ -1374,6 +1374,113 @@ class IsBlockedResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(1);
 }
 
+/// Request for getting user notifications.
+class GetNotificationsRequest extends $pb.GeneratedMessage {
+  factory GetNotificationsRequest() => create();
+
+  GetNotificationsRequest._();
+
+  factory GetNotificationsRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetNotificationsRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetNotificationsRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetNotificationsRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetNotificationsRequest copyWith(
+          void Function(GetNotificationsRequest) updates) =>
+      super.copyWith((message) => updates(message as GetNotificationsRequest))
+          as GetNotificationsRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetNotificationsRequest create() => GetNotificationsRequest._();
+  @$core.override
+  GetNotificationsRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetNotificationsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetNotificationsRequest>(create);
+  static GetNotificationsRequest? _defaultInstance;
+}
+
+/// Response for getting user notifications.
+class GetNotificationsResponse extends $pb.GeneratedMessage {
+  factory GetNotificationsResponse({
+    $core.Iterable<Notification>? notifications,
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (notifications != null) result.notifications.addAll(notifications);
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  GetNotificationsResponse._();
+
+  factory GetNotificationsResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetNotificationsResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetNotificationsResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..pPM<Notification>(1, _omitFieldNames ? '' : 'notifications',
+        subBuilder: Notification.create)
+    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetNotificationsResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetNotificationsResponse copyWith(
+          void Function(GetNotificationsResponse) updates) =>
+      super.copyWith((message) => updates(message as GetNotificationsResponse))
+          as GetNotificationsResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetNotificationsResponse create() => GetNotificationsResponse._();
+  @$core.override
+  GetNotificationsResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetNotificationsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetNotificationsResponse>(create);
+  static GetNotificationsResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $pb.PbList<Notification> get notifications => $_getList(0);
+
+  /// Error, if any.
+  @$pb.TagNumber(2)
+  $1.Error get error => $_getN(1);
+  @$pb.TagNumber(2)
+  set error($1.Error value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasError() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearError() => $_clearField(2);
+  @$pb.TagNumber(2)
+  $1.Error ensureError() => $_ensure(1);
+}
+
 /// An application user.
 ///
 /// Should only be used internally or by administrators.
@@ -1599,6 +1706,148 @@ class UserProfile extends $pb.GeneratedMessage {
   void clearIcon() => $_clearField(4);
   @$pb.TagNumber(4)
   $2.ResourceId ensureIcon() => $_ensure(3);
+}
+
+enum Notification_Notification { chat, notSet }
+
+/// A user notification.
+class Notification extends $pb.GeneratedMessage {
+  factory Notification({
+    ChatNotification? chat,
+    $core.String? message,
+  }) {
+    final result = create();
+    if (chat != null) result.chat = chat;
+    if (message != null) result.message = message;
+    return result;
+  }
+
+  Notification._();
+
+  factory Notification.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory Notification.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static const $core.Map<$core.int, Notification_Notification>
+      _Notification_NotificationByTag = {
+    1: Notification_Notification.chat,
+    0: Notification_Notification.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Notification',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..oo(0, [1])
+    ..aOM<ChatNotification>(1, _omitFieldNames ? '' : 'chat',
+        subBuilder: ChatNotification.create)
+    ..aOS(2, _omitFieldNames ? '' : 'message')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  Notification clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  Notification copyWith(void Function(Notification) updates) =>
+      super.copyWith((message) => updates(message as Notification))
+          as Notification;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static Notification create() => Notification._();
+  @$core.override
+  Notification createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static Notification getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<Notification>(create);
+  static Notification? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  Notification_Notification whichNotification() =>
+      _Notification_NotificationByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(1)
+  void clearNotification() => $_clearField($_whichOneof(0));
+
+  /// A chat notification.
+  @$pb.TagNumber(1)
+  ChatNotification get chat => $_getN(0);
+  @$pb.TagNumber(1)
+  set chat(ChatNotification value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasChat() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChat() => $_clearField(1);
+  @$pb.TagNumber(1)
+  ChatNotification ensureChat() => $_ensure(0);
+
+  /// Message of the notification.
+  @$pb.TagNumber(2)
+  $core.String get message => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set message($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasMessage() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMessage() => $_clearField(2);
+}
+
+/// A chat notification.
+class ChatNotification extends $pb.GeneratedMessage {
+  factory ChatNotification({
+    $core.String? channelId,
+  }) {
+    final result = create();
+    if (channelId != null) result.channelId = channelId;
+    return result;
+  }
+
+  ChatNotification._();
+
+  factory ChatNotification.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ChatNotification.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ChatNotification',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ChatNotification clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ChatNotification copyWith(void Function(ChatNotification) updates) =>
+      super.copyWith((message) => updates(message as ChatNotification))
+          as ChatNotification;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ChatNotification create() => ChatNotification._();
+  @$core.override
+  ChatNotification createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ChatNotification getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ChatNotification>(create);
+  static ChatNotification? _defaultInstance;
+
+  /// ID of the chat channel.
+  @$pb.TagNumber(1)
+  $core.String get channelId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set channelId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasChannelId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChannelId() => $_clearField(1);
 }
 
 const $core.bool _omitFieldNames =

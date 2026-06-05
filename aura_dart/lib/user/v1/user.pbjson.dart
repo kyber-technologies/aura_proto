@@ -460,6 +460,49 @@ final $typed_data.Uint8List isBlockedResponseDescriptor = $convert.base64Decode(
     'ChFJc0Jsb2NrZWRSZXNwb25zZRIaCgdibG9ja2VkGAEgASgISABSB2Jsb2NrZWQSKAoFZXJyb3'
     'IYAiABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJyb3JCCAoGcmVzdWx0');
 
+@$core.Deprecated('Use getNotificationsRequestDescriptor instead')
+const GetNotificationsRequest$json = {
+  '1': 'GetNotificationsRequest',
+};
+
+/// Descriptor for `GetNotificationsRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getNotificationsRequestDescriptor =
+    $convert.base64Decode('ChdHZXROb3RpZmljYXRpb25zUmVxdWVzdA==');
+
+@$core.Deprecated('Use getNotificationsResponseDescriptor instead')
+const GetNotificationsResponse$json = {
+  '1': 'GetNotificationsResponse',
+  '2': [
+    {
+      '1': 'notifications',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.user.v1.Notification',
+      '10': 'notifications'
+    },
+    {
+      '1': 'error',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_error'},
+  ],
+};
+
+/// Descriptor for `GetNotificationsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getNotificationsResponseDescriptor = $convert.base64Decode(
+    'ChhHZXROb3RpZmljYXRpb25zUmVzcG9uc2USOwoNbm90aWZpY2F0aW9ucxgBIAMoCzIVLnVzZX'
+    'IudjEuTm90aWZpY2F0aW9uUg1ub3RpZmljYXRpb25zEisKBWVycm9yGAIgASgLMhAuY29tbW9u'
+    'LnYxLkVycm9ySABSBWVycm9yiAEBQggKBl9lcnJvcg==');
+
 @$core.Deprecated('Use userDescriptor instead')
 const User$json = {
   '1': 'User',
@@ -524,3 +567,40 @@ final $typed_data.Uint8List userProfileDescriptor = $convert.base64Decode(
     'CgtVc2VyUHJvZmlsZRIXCgd1c2VyX2lkGAEgASgJUgZ1c2VySWQSGgoIdXNlcm5hbWUYAiABKA'
     'lSCHVzZXJuYW1lEiUKBHJvbGUYAyABKA4yES51c2VyLnYxLlVzZXJSb2xlUgRyb2xlEisKBGlj'
     'b24YBCABKAsyFy5yZXNvdXJjZS52MS5SZXNvdXJjZUlkUgRpY29u');
+
+@$core.Deprecated('Use notificationDescriptor instead')
+const Notification$json = {
+  '1': 'Notification',
+  '2': [
+    {'1': 'message', '3': 2, '4': 1, '5': 9, '10': 'message'},
+    {
+      '1': 'chat',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.user.v1.ChatNotification',
+      '9': 0,
+      '10': 'chat'
+    },
+  ],
+  '8': [
+    {'1': 'notification'},
+  ],
+};
+
+/// Descriptor for `Notification`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List notificationDescriptor = $convert.base64Decode(
+    'CgxOb3RpZmljYXRpb24SGAoHbWVzc2FnZRgCIAEoCVIHbWVzc2FnZRIvCgRjaGF0GAEgASgLMh'
+    'kudXNlci52MS5DaGF0Tm90aWZpY2F0aW9uSABSBGNoYXRCDgoMbm90aWZpY2F0aW9u');
+
+@$core.Deprecated('Use chatNotificationDescriptor instead')
+const ChatNotification$json = {
+  '1': 'ChatNotification',
+  '2': [
+    {'1': 'channel_id', '3': 1, '4': 1, '5': 9, '10': 'channelId'},
+  ],
+};
+
+/// Descriptor for `ChatNotification`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List chatNotificationDescriptor = $convert.base64Decode(
+    'ChBDaGF0Tm90aWZpY2F0aW9uEh0KCmNoYW5uZWxfaWQYASABKAlSCWNoYW5uZWxJZA==');

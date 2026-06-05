@@ -48,6 +48,11 @@ service UserService {
   //
   // Requires Authentication: Only authenticated users can do this.
   rpc IsBlocked(IsBlockedRequest) returns (IsBlockedResponse);
+
+  // Get user notifications.
+  //
+  // Requires Authentication: Only authenticated users can do this.
+  rpc GetNotifications(GetNotificationsRequest) returns (GetNotificationsResponse);
 }
 
 // Request message for checking if a user exists.
@@ -198,6 +203,16 @@ message IsBlockedResponse {
   }
 }
 
+// Request for getting user notifications.
+message GetNotificationsRequest {}
+
+// Response for getting user notifications.
+message GetNotificationsResponse {
+  repeated Notification notifications = 1;
+  // Error, if any.
+  optional common.v1.Error error = 2;
+}
+
 // An application user.
 //
 // Should only be used internally or by administrators.
@@ -238,4 +253,21 @@ enum UserRole {
   USER_ROLE_MODERATOR = 1;
   // An administrator user.
   USER_ROLE_ADMIN = 2;
+}
+
+// A user notification.
+message Notification {
+  // Message of the notification.
+  string message = 2;
+  // The type of the notification.
+  oneof notification {
+    // A chat notification.
+    ChatNotification chat = 1;
+  }
+}
+
+// A chat notification.
+message ChatNotification {
+  // ID of the chat channel.
+  string channel_id = 1;
 }

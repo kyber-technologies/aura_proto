@@ -45,10 +45,10 @@ packages:
     dependency: transitive
     description:
       name: google_cloud
-      sha256: fbcde933b2d8600c3cdb2328f8f4c47628ec29a39e9cef85dee535c7868993c4
+      sha256: b385e20726ef5315d302c5933bfb728103116c5be2d3d17094b01a82da538c1f
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.1"
+    version: "0.5.0"
   google_identity_services_web:
     dependency: transitive
     description:
@@ -61,10 +61,10 @@ packages:
     dependency: transitive
     description:
       name: googleapis_auth
-      sha256: "661738b763d3e524de69df53bf4e03943e4e01e98265cebcc6684871b06a5379"
+      sha256: "2a8895c3885197f96bb2fd91ee0ae77b53ff3874c7b1f1eadb6566248e880958"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.0"
+    version: "2.3.1"
   grpc:
     dependency: "direct main"
     description:
@@ -97,14 +97,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.2"
-  io:
-    dependency: transitive
-    description:
-      name: io
-      sha256: dfd5a80599cf0165756e3181807ed3e77daf6dd4137caaad72d0b7931597650b
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.5"
   lints:
     dependency: "direct dev"
     description:
@@ -117,10 +109,10 @@ packages:
     dependency: transitive
     description:
       name: meta
-      sha256: df0c643f44ad098eb37988027a8e2b2b5a031fd3977f06bbfd3a76637e8df739
+      sha256: c82594181e3312f3d0695fc95aaaf7758d75b8d4ae2bbecf223b9fd5109a059d
       url: "https://pub.dev"
     source: hosted
-    version: "1.18.2"
+    version: "1.18.3"
   path:
     dependency: transitive
     description:
@@ -137,14 +129,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.0"
-  shelf:
-    dependency: transitive
-    description:
-      name: shelf
-      sha256: e7dd780a7ffb623c57850b33f43309312fc863fb6aa3d276a754bb299839ef12
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.4.2"
   source_span:
     dependency: transitive
     description:
@@ -161,14 +145,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.12.1"
-  stream_channel:
-    dependency: transitive
-    description:
-      name: stream_channel
-      sha256: "969e04c80b8bcdf826f8f16579c7b14d780458bd97f56d107d3950fdbeef059d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.4"
   string_scanner:
     dependency: transitive
     description:

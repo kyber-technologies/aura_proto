@@ -86,11 +86,6 @@
       ]
     },
     {
-      "name": "meta",
-      "version": "1.18.2",
-      "dependencies": []
-    },
-    {
       "name": "http",
       "version": "1.6.0",
       "dependencies": [
@@ -101,8 +96,35 @@
       ]
     },
     {
+      "name": "meta",
+      "version": "1.18.3",
+      "dependencies": []
+    },
+    {
+      "name": "http_parser",
+      "version": "4.1.2",
+      "dependencies": [
+        "collection",
+        "source_span",
+        "string_scanner",
+        "typed_data"
+      ]
+    },
+    {
+      "name": "collection",
+      "version": "1.19.1",
+      "dependencies": []
+    },
+    {
+      "name": "string_scanner",
+      "version": "1.4.1",
+      "dependencies": [
+        "source_span"
+      ]
+    },
+    {
       "name": "googleapis_auth",
-      "version": "2.3.0",
+      "version": "2.3.1",
       "dependencies": [
         "crypto",
         "google_cloud",
@@ -122,50 +144,12 @@
     },
     {
       "name": "google_cloud",
-      "version": "0.4.1",
+      "version": "0.5.0",
       "dependencies": [
         "collection",
         "http",
-        "io",
         "meta",
-        "shelf",
         "stack_trace"
-      ]
-    },
-    {
-      "name": "collection",
-      "version": "1.19.1",
-      "dependencies": []
-    },
-    {
-      "name": "shelf",
-      "version": "1.4.2",
-      "dependencies": [
-        "async",
-        "collection",
-        "http_parser",
-        "path",
-        "stack_trace",
-        "stream_channel"
-      ]
-    },
-    {
-      "name": "http_parser",
-      "version": "4.1.2",
-      "dependencies": [
-        "collection",
-        "source_span",
-        "string_scanner",
-        "typed_data"
-      ]
-    },
-    {
-      "name": "io",
-      "version": "1.0.5",
-      "dependencies": [
-        "meta",
-        "path",
-        "string_scanner"
       ]
     },
     {
@@ -176,23 +160,9 @@
       ]
     },
     {
-      "name": "stream_channel",
-      "version": "2.1.4",
-      "dependencies": [
-        "async"
-      ]
-    },
-    {
       "name": "path",
       "version": "1.9.1",
       "dependencies": []
-    },
-    {
-      "name": "string_scanner",
-      "version": "1.4.1",
-      "dependencies": [
-        "source_span"
-      ]
     },
     {
       "name": "source_span",
