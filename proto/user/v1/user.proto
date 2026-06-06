@@ -48,11 +48,6 @@ service UserService {
   //
   // Requires Authentication: Only authenticated users can do this.
   rpc IsBlocked(IsBlockedRequest) returns (IsBlockedResponse);
-
-  // Get user notifications.
-  //
-  // Requires Authentication: Only authenticated users can do this.
-  rpc GetNotifications(GetNotificationsRequest) returns (GetNotificationsResponse);
 }
 
 // Request message for checking if a user exists.
@@ -203,16 +198,6 @@ message IsBlockedResponse {
   }
 }
 
-// Request for getting user notifications.
-message GetNotificationsRequest {}
-
-// Response for getting user notifications.
-message GetNotificationsResponse {
-  repeated Notification notifications = 1;
-  // Error, if any.
-  optional common.v1.Error error = 2;
-}
-
 // An application user.
 //
 // Should only be used internally or by administrators.
@@ -229,6 +214,8 @@ message User {
   UserRole role = 5;
   // Icon/Avatar of the user.
   resource.v1.ResourceId icon = 6;
+  // Notifications of the user.
+  repeated Notification notifications = 7;
 }
 
 // User profile.

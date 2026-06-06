@@ -460,49 +460,6 @@ final $typed_data.Uint8List isBlockedResponseDescriptor = $convert.base64Decode(
     'ChFJc0Jsb2NrZWRSZXNwb25zZRIaCgdibG9ja2VkGAEgASgISABSB2Jsb2NrZWQSKAoFZXJyb3'
     'IYAiABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJyb3JCCAoGcmVzdWx0');
 
-@$core.Deprecated('Use getNotificationsRequestDescriptor instead')
-const GetNotificationsRequest$json = {
-  '1': 'GetNotificationsRequest',
-};
-
-/// Descriptor for `GetNotificationsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getNotificationsRequestDescriptor =
-    $convert.base64Decode('ChdHZXROb3RpZmljYXRpb25zUmVxdWVzdA==');
-
-@$core.Deprecated('Use getNotificationsResponseDescriptor instead')
-const GetNotificationsResponse$json = {
-  '1': 'GetNotificationsResponse',
-  '2': [
-    {
-      '1': 'notifications',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.user.v1.Notification',
-      '10': 'notifications'
-    },
-    {
-      '1': 'error',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.common.v1.Error',
-      '9': 0,
-      '10': 'error',
-      '17': true
-    },
-  ],
-  '8': [
-    {'1': '_error'},
-  ],
-};
-
-/// Descriptor for `GetNotificationsResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getNotificationsResponseDescriptor = $convert.base64Decode(
-    'ChhHZXROb3RpZmljYXRpb25zUmVzcG9uc2USOwoNbm90aWZpY2F0aW9ucxgBIAMoCzIVLnVzZX'
-    'IudjEuTm90aWZpY2F0aW9uUg1ub3RpZmljYXRpb25zEisKBWVycm9yGAIgASgLMhAuY29tbW9u'
-    'LnYxLkVycm9ySABSBWVycm9yiAEBQggKBl9lcnJvcg==');
-
 @$core.Deprecated('Use userDescriptor instead')
 const User$json = {
   '1': 'User',
@@ -527,6 +484,14 @@ const User$json = {
       '6': '.resource.v1.ResourceId',
       '10': 'icon'
     },
+    {
+      '1': 'notifications',
+      '3': 7,
+      '4': 3,
+      '5': 11,
+      '6': '.user.v1.Notification',
+      '10': 'notifications'
+    },
   ],
 };
 
@@ -535,7 +500,8 @@ final $typed_data.Uint8List userDescriptor = $convert.base64Decode(
     'CgRVc2VyEhcKB3VzZXJfaWQYASABKAlSBnVzZXJJZBIaCgh1c2VybmFtZRgCIAEoCVIIdXNlcm'
     '5hbWUSFAoFZW1haWwYAyABKAlSBWVtYWlsEhoKCHBhc3N3b3JkGAQgASgJUghwYXNzd29yZBIl'
     'CgRyb2xlGAUgASgOMhEudXNlci52MS5Vc2VyUm9sZVIEcm9sZRIrCgRpY29uGAYgASgLMhcucm'
-    'Vzb3VyY2UudjEuUmVzb3VyY2VJZFIEaWNvbg==');
+    'Vzb3VyY2UudjEuUmVzb3VyY2VJZFIEaWNvbhI7Cg1ub3RpZmljYXRpb25zGAcgAygLMhUudXNl'
+    'ci52MS5Ob3RpZmljYXRpb25SDW5vdGlmaWNhdGlvbnM=');
 
 @$core.Deprecated('Use userProfileDescriptor instead')
 const UserProfile$json = {

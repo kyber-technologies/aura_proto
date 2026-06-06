@@ -125,16 +125,6 @@ class UserServiceClient extends $grpc.Client {
     return $createUnaryCall(_$isBlocked, request, options: options);
   }
 
-  /// Get user notifications.
-  ///
-  /// Requires Authentication: Only authenticated users can do this.
-  $grpc.ResponseFuture<$0.GetNotificationsResponse> getNotifications(
-    $0.GetNotificationsRequest request, {
-    $grpc.CallOptions? options,
-  }) {
-    return $createUnaryCall(_$getNotifications, request, options: options);
-  }
-
   // method descriptors
 
   static final _$userExists =
@@ -187,11 +177,6 @@ class UserServiceClient extends $grpc.Client {
           '/user.v1.UserService/IsBlocked',
           ($0.IsBlockedRequest value) => value.writeToBuffer(),
           $0.IsBlockedResponse.fromBuffer);
-  static final _$getNotifications = $grpc.ClientMethod<
-          $0.GetNotificationsRequest, $0.GetNotificationsResponse>(
-      '/user.v1.UserService/GetNotifications',
-      ($0.GetNotificationsRequest value) => value.writeToBuffer(),
-      $0.GetNotificationsResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('user.v1.UserService')
@@ -273,15 +258,6 @@ abstract class UserServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.IsBlockedRequest.fromBuffer(value),
         ($0.IsBlockedResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.GetNotificationsRequest,
-            $0.GetNotificationsResponse>(
-        'GetNotifications',
-        getNotifications_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) =>
-            $0.GetNotificationsRequest.fromBuffer(value),
-        ($0.GetNotificationsResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.UserExistsResponse> userExists_Pre($grpc.ServiceCall $call,
@@ -363,13 +339,4 @@ abstract class UserServiceBase extends $grpc.Service {
 
   $async.Future<$0.IsBlockedResponse> isBlocked(
       $grpc.ServiceCall call, $0.IsBlockedRequest request);
-
-  $async.Future<$0.GetNotificationsResponse> getNotifications_Pre(
-      $grpc.ServiceCall $call,
-      $async.Future<$0.GetNotificationsRequest> $request) async {
-    return getNotifications($call, await $request);
-  }
-
-  $async.Future<$0.GetNotificationsResponse> getNotifications(
-      $grpc.ServiceCall call, $0.GetNotificationsRequest request);
 }
