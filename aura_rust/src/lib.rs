@@ -146,7 +146,7 @@ impl Into<user::v1::User> for User {
 /// See [user::v1::Notification].
 #[derive(Clone, Debug, PartialEq, Eq, Hash, SurrealValue)]
 pub struct Notification {
-    pub message: String,
+    pub timestamp: Timestamp,
     pub ty: NotificationType,
 }
 
@@ -155,7 +155,7 @@ impl TryFrom<user::v1::Notification> for Notification {
 
     fn try_from(value: user::v1::Notification) -> Result<Self, Self::Error> {
         Ok(Self {
-            message: value.message,
+            timestamp: Timestamp::try_from(value.timestamp.ok_or(ErrorCode::InvalidFormat)?)?,
             ty: NotificationType::try_from(value.notification.ok_or(ErrorCode::InvalidFormat)?)?,
         })
     }
@@ -164,7 +164,7 @@ impl TryFrom<user::v1::Notification> for Notification {
 impl Into<user::v1::Notification> for Notification {
     fn into(self) -> user::v1::Notification {
         user::v1::Notification {
-            message: self.message,
+            timestamp: Some(self.timestamp.into()),
             notification: Some(self.ty.into()),
         }
     }
@@ -173,7 +173,15 @@ impl Into<user::v1::Notification> for Notification {
 /// See [user::v1::notification::Notification].
 #[derive(Clone, Debug, PartialEq, Eq, Hash, SurrealValue)]
 pub enum NotificationType {
-    Chat { channel_id: String },
+    Invite {
+        channel_id: String,
+        invited_by: String,
+    },
+    Message {
+        channel_id: String,
+        sender_id: String,
+        content: Content,
+    },
 }
 
 impl TryFrom<user::v1::notification::Notification> for NotificationType {
@@ -181,8 +189,14 @@ impl TryFrom<user::v1::notification::Notification> for NotificationType {
 
     fn try_from(value: user::v1::notification::Notification) -> Result<Self, Self::Error> {
         match value {
-            user::v1::notification::Notification::Chat(chat) => Ok(Self::Chat {
-                channel_id: chat.channel_id,
+            user::v1::notification::Notification::Invite(n) => Ok(NotificationType::Invite {
+                channel_id: n.channel_id,
+                invited_by: n.invited_by,
+            }),
+            user::v1::notification::Notification::Message(n) => Ok(NotificationType::Message {
+                channel_id: n.channel_id,
+                sender_id: n.sender_id,
+                content: n.content.ok_or(ErrorCode::InvalidFormat)?.try_into()?,
             }),
         }
     }
@@ -191,11 +205,22 @@ impl TryFrom<user::v1::notification::Notification> for NotificationType {
 impl Into<user::v1::notification::Notification> for NotificationType {
     fn into(self) -> user::v1::notification::Notification {
         match self {
-            NotificationType::Chat { channel_id } => {
-                user::v1::notification::Notification::Chat(user::v1::ChatNotification {
-                    channel_id,
-                })
-            }
+            NotificationType::Invite {
+                channel_id,
+                invited_by,
+            } => user::v1::notification::Notification::Invite(user::v1::InviteNotification {
+                channel_id,
+                invited_by,
+            }),
+            NotificationType::Message {
+                channel_id,
+                sender_id,
+                content,
+            } => user::v1::notification::Notification::Message(user::v1::MessageNotification {
+                channel_id,
+                sender_id,
+                content: Some(content.into()),
+            }),
         }
     }
 }

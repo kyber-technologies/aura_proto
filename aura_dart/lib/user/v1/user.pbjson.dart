@@ -538,15 +538,31 @@ final $typed_data.Uint8List userProfileDescriptor = $convert.base64Decode(
 const Notification$json = {
   '1': 'Notification',
   '2': [
-    {'1': 'message', '3': 2, '4': 1, '5': 9, '10': 'message'},
     {
-      '1': 'chat',
+      '1': 'timestamp',
       '3': 1,
       '4': 1,
       '5': 11,
-      '6': '.user.v1.ChatNotification',
+      '6': '.common.v1.Timestamp',
+      '10': 'timestamp'
+    },
+    {
+      '1': 'invite',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.user.v1.InviteNotification',
       '9': 0,
-      '10': 'chat'
+      '10': 'invite'
+    },
+    {
+      '1': 'message',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.user.v1.MessageNotification',
+      '9': 0,
+      '10': 'message'
     },
   ],
   '8': [
@@ -556,17 +572,44 @@ const Notification$json = {
 
 /// Descriptor for `Notification`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List notificationDescriptor = $convert.base64Decode(
-    'CgxOb3RpZmljYXRpb24SGAoHbWVzc2FnZRgCIAEoCVIHbWVzc2FnZRIvCgRjaGF0GAEgASgLMh'
-    'kudXNlci52MS5DaGF0Tm90aWZpY2F0aW9uSABSBGNoYXRCDgoMbm90aWZpY2F0aW9u');
+    'CgxOb3RpZmljYXRpb24SMgoJdGltZXN0YW1wGAEgASgLMhQuY29tbW9uLnYxLlRpbWVzdGFtcF'
+    'IJdGltZXN0YW1wEjUKBmludml0ZRgCIAEoCzIbLnVzZXIudjEuSW52aXRlTm90aWZpY2F0aW9u'
+    'SABSBmludml0ZRI4CgdtZXNzYWdlGAMgASgLMhwudXNlci52MS5NZXNzYWdlTm90aWZpY2F0aW'
+    '9uSABSB21lc3NhZ2VCDgoMbm90aWZpY2F0aW9u');
 
-@$core.Deprecated('Use chatNotificationDescriptor instead')
-const ChatNotification$json = {
-  '1': 'ChatNotification',
+@$core.Deprecated('Use inviteNotificationDescriptor instead')
+const InviteNotification$json = {
+  '1': 'InviteNotification',
   '2': [
     {'1': 'channel_id', '3': 1, '4': 1, '5': 9, '10': 'channelId'},
+    {'1': 'invited_by', '3': 2, '4': 1, '5': 9, '10': 'invitedBy'},
   ],
 };
 
-/// Descriptor for `ChatNotification`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List chatNotificationDescriptor = $convert.base64Decode(
-    'ChBDaGF0Tm90aWZpY2F0aW9uEh0KCmNoYW5uZWxfaWQYASABKAlSCWNoYW5uZWxJZA==');
+/// Descriptor for `InviteNotification`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List inviteNotificationDescriptor = $convert.base64Decode(
+    'ChJJbnZpdGVOb3RpZmljYXRpb24SHQoKY2hhbm5lbF9pZBgBIAEoCVIJY2hhbm5lbElkEh0KCm'
+    'ludml0ZWRfYnkYAiABKAlSCWludml0ZWRCeQ==');
+
+@$core.Deprecated('Use messageNotificationDescriptor instead')
+const MessageNotification$json = {
+  '1': 'MessageNotification',
+  '2': [
+    {'1': 'channel_id', '3': 1, '4': 1, '5': 9, '10': 'channelId'},
+    {'1': 'sender_id', '3': 2, '4': 1, '5': 9, '10': 'senderId'},
+    {
+      '1': 'content',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.chat.v1.Content',
+      '10': 'content'
+    },
+  ],
+};
+
+/// Descriptor for `MessageNotification`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List messageNotificationDescriptor = $convert.base64Decode(
+    'ChNNZXNzYWdlTm90aWZpY2F0aW9uEh0KCmNoYW5uZWxfaWQYASABKAlSCWNoYW5uZWxJZBIbCg'
+    'lzZW5kZXJfaWQYAiABKAlSCHNlbmRlcklkEioKB2NvbnRlbnQYAyABKAsyEC5jaGF0LnYxLkNv'
+    'bnRlbnRSB2NvbnRlbnQ=');

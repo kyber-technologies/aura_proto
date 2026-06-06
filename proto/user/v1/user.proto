@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package user.v1;
 
+import "chat/v1/chat.proto";
 import "common/v1/common.proto";
 import "resource/v1/resource.proto";
 
@@ -244,17 +245,31 @@ enum UserRole {
 
 // A user notification.
 message Notification {
-  // Message of the notification.
-  string message = 2;
+  // Timestamp of the notification.
+  common.v1.Timestamp timestamp = 1;
   // The type of the notification.
   oneof notification {
-    // A chat notification.
-    ChatNotification chat = 1;
+    // The user got invited to a user chat.
+    InviteNotification invite = 2;
+    // The user received a message.
+    MessageNotification message = 3;
   }
 }
 
 // A chat notification.
-message ChatNotification {
+message InviteNotification {
   // ID of the chat channel.
   string channel_id = 1;
+  // ID of the user who invited the user.
+  string invited_by = 2;
+}
+
+// A chat message notification.
+message MessageNotification {
+  // ID of the chat channel.
+  string channel_id = 1;
+  // ID of the user who sent the message.
+  string sender_id = 2;
+  // The message content.
+  chat.v1.Content content = 3;
 }

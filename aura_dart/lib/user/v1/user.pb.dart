@@ -14,6 +14,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../chat/v1/chat.pb.dart' as $3;
 import '../../common/v1/common.pb.dart' as $1;
 import '../../resource/v1/resource.pb.dart' as $2;
 import 'user.pbenum.dart';
@@ -1609,16 +1610,18 @@ class UserProfile extends $pb.GeneratedMessage {
   $2.ResourceId ensureIcon() => $_ensure(3);
 }
 
-enum Notification_Notification { chat, notSet }
+enum Notification_Notification { invite, message, notSet }
 
 /// A user notification.
 class Notification extends $pb.GeneratedMessage {
   factory Notification({
-    ChatNotification? chat,
-    $core.String? message,
+    $1.Timestamp? timestamp,
+    InviteNotification? invite,
+    MessageNotification? message,
   }) {
     final result = create();
-    if (chat != null) result.chat = chat;
+    if (timestamp != null) result.timestamp = timestamp;
+    if (invite != null) result.invite = invite;
     if (message != null) result.message = message;
     return result;
   }
@@ -1634,17 +1637,21 @@ class Notification extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, Notification_Notification>
       _Notification_NotificationByTag = {
-    1: Notification_Notification.chat,
+    2: Notification_Notification.invite,
+    3: Notification_Notification.message,
     0: Notification_Notification.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'Notification',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..oo(0, [1])
-    ..aOM<ChatNotification>(1, _omitFieldNames ? '' : 'chat',
-        subBuilder: ChatNotification.create)
-    ..aOS(2, _omitFieldNames ? '' : 'message')
+    ..oo(0, [2, 3])
+    ..aOM<$1.Timestamp>(1, _omitFieldNames ? '' : 'timestamp',
+        subBuilder: $1.Timestamp.create)
+    ..aOM<InviteNotification>(2, _omitFieldNames ? '' : 'invite',
+        subBuilder: InviteNotification.create)
+    ..aOM<MessageNotification>(3, _omitFieldNames ? '' : 'message',
+        subBuilder: MessageNotification.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1666,79 +1673,98 @@ class Notification extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<Notification>(create);
   static Notification? _defaultInstance;
 
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   Notification_Notification whichNotification() =>
       _Notification_NotificationByTag[$_whichOneof(0)]!;
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   void clearNotification() => $_clearField($_whichOneof(0));
 
-  /// A chat notification.
+  /// Timestamp of the notification.
   @$pb.TagNumber(1)
-  ChatNotification get chat => $_getN(0);
+  $1.Timestamp get timestamp => $_getN(0);
   @$pb.TagNumber(1)
-  set chat(ChatNotification value) => $_setField(1, value);
+  set timestamp($1.Timestamp value) => $_setField(1, value);
   @$pb.TagNumber(1)
-  $core.bool hasChat() => $_has(0);
+  $core.bool hasTimestamp() => $_has(0);
   @$pb.TagNumber(1)
-  void clearChat() => $_clearField(1);
+  void clearTimestamp() => $_clearField(1);
   @$pb.TagNumber(1)
-  ChatNotification ensureChat() => $_ensure(0);
+  $1.Timestamp ensureTimestamp() => $_ensure(0);
 
-  /// Message of the notification.
+  /// The user got invited to a user chat.
   @$pb.TagNumber(2)
-  $core.String get message => $_getSZ(1);
+  InviteNotification get invite => $_getN(1);
   @$pb.TagNumber(2)
-  set message($core.String value) => $_setString(1, value);
+  set invite(InviteNotification value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasMessage() => $_has(1);
+  $core.bool hasInvite() => $_has(1);
   @$pb.TagNumber(2)
-  void clearMessage() => $_clearField(2);
+  void clearInvite() => $_clearField(2);
+  @$pb.TagNumber(2)
+  InviteNotification ensureInvite() => $_ensure(1);
+
+  /// The user received a message.
+  @$pb.TagNumber(3)
+  MessageNotification get message => $_getN(2);
+  @$pb.TagNumber(3)
+  set message(MessageNotification value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasMessage() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMessage() => $_clearField(3);
+  @$pb.TagNumber(3)
+  MessageNotification ensureMessage() => $_ensure(2);
 }
 
 /// A chat notification.
-class ChatNotification extends $pb.GeneratedMessage {
-  factory ChatNotification({
+class InviteNotification extends $pb.GeneratedMessage {
+  factory InviteNotification({
     $core.String? channelId,
+    $core.String? invitedBy,
   }) {
     final result = create();
     if (channelId != null) result.channelId = channelId;
+    if (invitedBy != null) result.invitedBy = invitedBy;
     return result;
   }
 
-  ChatNotification._();
+  InviteNotification._();
 
-  factory ChatNotification.fromBuffer($core.List<$core.int> data,
+  factory InviteNotification.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ChatNotification.fromJson($core.String json,
+  factory InviteNotification.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ChatNotification',
+      _omitMessageNames ? '' : 'InviteNotification',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..aOS(2, _omitFieldNames ? '' : 'invitedBy')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ChatNotification clone() => deepCopy();
+  InviteNotification clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ChatNotification copyWith(void Function(ChatNotification) updates) =>
-      super.copyWith((message) => updates(message as ChatNotification))
-          as ChatNotification;
+  InviteNotification copyWith(void Function(InviteNotification) updates) =>
+      super.copyWith((message) => updates(message as InviteNotification))
+          as InviteNotification;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ChatNotification create() => ChatNotification._();
+  static InviteNotification create() => InviteNotification._();
   @$core.override
-  ChatNotification createEmptyInstance() => create();
+  InviteNotification createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ChatNotification getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ChatNotification>(create);
-  static ChatNotification? _defaultInstance;
+  static InviteNotification getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<InviteNotification>(create);
+  static InviteNotification? _defaultInstance;
 
   /// ID of the chat channel.
   @$pb.TagNumber(1)
@@ -1749,6 +1775,101 @@ class ChatNotification extends $pb.GeneratedMessage {
   $core.bool hasChannelId() => $_has(0);
   @$pb.TagNumber(1)
   void clearChannelId() => $_clearField(1);
+
+  /// ID of the user who invited the user.
+  @$pb.TagNumber(2)
+  $core.String get invitedBy => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set invitedBy($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasInvitedBy() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearInvitedBy() => $_clearField(2);
+}
+
+/// A chat message notification.
+class MessageNotification extends $pb.GeneratedMessage {
+  factory MessageNotification({
+    $core.String? channelId,
+    $core.String? senderId,
+    $3.Content? content,
+  }) {
+    final result = create();
+    if (channelId != null) result.channelId = channelId;
+    if (senderId != null) result.senderId = senderId;
+    if (content != null) result.content = content;
+    return result;
+  }
+
+  MessageNotification._();
+
+  factory MessageNotification.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory MessageNotification.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MessageNotification',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..aOS(2, _omitFieldNames ? '' : 'senderId')
+    ..aOM<$3.Content>(3, _omitFieldNames ? '' : 'content',
+        subBuilder: $3.Content.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  MessageNotification clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  MessageNotification copyWith(void Function(MessageNotification) updates) =>
+      super.copyWith((message) => updates(message as MessageNotification))
+          as MessageNotification;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MessageNotification create() => MessageNotification._();
+  @$core.override
+  MessageNotification createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static MessageNotification getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MessageNotification>(create);
+  static MessageNotification? _defaultInstance;
+
+  /// ID of the chat channel.
+  @$pb.TagNumber(1)
+  $core.String get channelId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set channelId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasChannelId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChannelId() => $_clearField(1);
+
+  /// ID of the user who sent the message.
+  @$pb.TagNumber(2)
+  $core.String get senderId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set senderId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasSenderId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSenderId() => $_clearField(2);
+
+  /// The message content.
+  @$pb.TagNumber(3)
+  $3.Content get content => $_getN(2);
+  @$pb.TagNumber(3)
+  set content($3.Content value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasContent() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearContent() => $_clearField(3);
+  @$pb.TagNumber(3)
+  $3.Content ensureContent() => $_ensure(2);
 }
 
 const $core.bool _omitFieldNames =
