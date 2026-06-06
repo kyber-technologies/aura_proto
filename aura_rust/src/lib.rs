@@ -100,6 +100,7 @@ pub struct User {
     pub password: String,
     pub role: i32,
     pub icon: ResourceId,
+    pub notifications: Vec<Notification>,
 }
 
 impl TryFrom<user::v1::User> for User {
@@ -113,6 +114,7 @@ impl TryFrom<user::v1::User> for User {
             password: value.password,
             role: value.role,
             icon: ResourceId::try_from(value.icon.ok_or(ErrorCode::InvalidFormat)?)?,
+            notifications: Vec::new(),
         })
     }
 }
