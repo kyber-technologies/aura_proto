@@ -49,6 +49,11 @@ service UserService {
   //
   // Requires Authentication: Only authenticated users can do this.
   rpc IsBlocked(IsBlockedRequest) returns (IsBlockedResponse);
+
+  // Gets the notifications of a user.
+  //
+  // Requires Authentication: Only authenticated users can do this.
+  rpc Notifications(NotificationsRequest) returns (NotificationsResponse);
 }
 
 // Request message for checking if a user exists.
@@ -188,15 +193,28 @@ message BlockUserResponse {
 
 // Request for checking the blocking status of a user.
 message IsBlockedRequest {
+  // ID of the user to check.
   string user_id = 1;
 }
 
 // Response for checking the blocking status of a user.
 message IsBlockedResponse {
   oneof result {
+    // If the user is blocked.
     bool blocked = 1;
+    // Error, if any.
     common.v1.Error error = 2;
   }
+}
+
+// Request message for getting notifications.
+message NotificationsRequest {
+}
+
+// Response message for getting notifications.
+message NotificationsResponse {
+  repeated Notification notifications = 1;
+  optional common.v1.Error error = 2;
 }
 
 // An application user.
