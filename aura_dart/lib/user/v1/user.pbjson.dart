@@ -527,14 +527,6 @@ const User$json = {
       '6': '.resource.v1.ResourceId',
       '10': 'icon'
     },
-    {
-      '1': 'notifications',
-      '3': 7,
-      '4': 3,
-      '5': 11,
-      '6': '.user.v1.Notification',
-      '10': 'notifications'
-    },
   ],
 };
 
@@ -543,8 +535,7 @@ final $typed_data.Uint8List userDescriptor = $convert.base64Decode(
     'CgRVc2VyEhcKB3VzZXJfaWQYASABKAlSBnVzZXJJZBIaCgh1c2VybmFtZRgCIAEoCVIIdXNlcm'
     '5hbWUSFAoFZW1haWwYAyABKAlSBWVtYWlsEhoKCHBhc3N3b3JkGAQgASgJUghwYXNzd29yZBIl'
     'CgRyb2xlGAUgASgOMhEudXNlci52MS5Vc2VyUm9sZVIEcm9sZRIrCgRpY29uGAYgASgLMhcucm'
-    'Vzb3VyY2UudjEuUmVzb3VyY2VJZFIEaWNvbhI7Cg1ub3RpZmljYXRpb25zGAcgAygLMhUudXNl'
-    'ci52MS5Ob3RpZmljYXRpb25SDW5vdGlmaWNhdGlvbnM=');
+    'Vzb3VyY2UudjEuUmVzb3VyY2VJZFIEaWNvbg==');
 
 @$core.Deprecated('Use userProfileDescriptor instead')
 const UserProfile$json = {
