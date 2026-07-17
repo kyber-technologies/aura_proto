@@ -233,6 +233,8 @@ message User {
   UserRole role = 5;
   // Icon/Avatar of the user.
   resource.v1.ResourceId icon = 6;
+  // Notifications of the user.
+  repeated Notification notifications = 7;
 }
 
 // User profile.

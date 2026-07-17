@@ -100,12 +100,19 @@ pub struct User {
     pub password: String,
     pub role: i32,
     pub icon: ResourceId,
+    pub notifications: Vec<Notification>,
 }
 
 impl TryFrom<user::v1::User> for User {
     type Error = ErrorCode;
 
     fn try_from(value: user::v1::User) -> Result<Self, Self::Error> {
+        let mut notifications = Vec::with_capacity(value.notifications.len());
+
+        for notification in value.notifications {
+            notifications.push(Notification::try_from(notification)?);
+        }
+
         Ok(Self {
             user_id: value.user_id,
             username: value.username,
@@ -113,6 +120,7 @@ impl TryFrom<user::v1::User> for User {
             password: value.password,
             role: value.role,
             icon: ResourceId::try_from(value.icon.ok_or(ErrorCode::InvalidFormat)?)?,
+            notifications,
         })
     }
 }
@@ -126,6 +134,11 @@ impl Into<user::v1::User> for User {
             password: self.password,
             role: self.role,
             icon: Some(self.icon.into()),
+            notifications: self
+                .notifications
+                .into_iter()
+                .map(|n| n.into())
+                .collect::<Vec<_>>(),
         }
     }
 }

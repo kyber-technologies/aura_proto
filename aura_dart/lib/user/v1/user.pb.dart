@@ -1494,6 +1494,7 @@ class User extends $pb.GeneratedMessage {
     $core.String? password,
     UserRole? role,
     $2.ResourceId? icon,
+    $core.Iterable<Notification>? notifications,
   }) {
     final result = create();
     if (userId != null) result.userId = userId;
@@ -1502,6 +1503,7 @@ class User extends $pb.GeneratedMessage {
     if (password != null) result.password = password;
     if (role != null) result.role = role;
     if (icon != null) result.icon = icon;
+    if (notifications != null) result.notifications.addAll(notifications);
     return result;
   }
 
@@ -1526,6 +1528,8 @@ class User extends $pb.GeneratedMessage {
         enumValues: UserRole.values)
     ..aOM<$2.ResourceId>(6, _omitFieldNames ? '' : 'icon',
         subBuilder: $2.ResourceId.create)
+    ..pPM<Notification>(7, _omitFieldNames ? '' : 'notifications',
+        subBuilder: Notification.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1607,6 +1611,10 @@ class User extends $pb.GeneratedMessage {
   void clearIcon() => $_clearField(6);
   @$pb.TagNumber(6)
   $2.ResourceId ensureIcon() => $_ensure(5);
+
+  /// Notifications of the user.
+  @$pb.TagNumber(7)
+  $pb.PbList<Notification> get notifications => $_getList(6);
 }
 
 /// User profile.
