@@ -92,7 +92,7 @@ impl Into<common::v1::Auth> for Auth {
 }
 
 /// See [user::v1::User].
-#[derive(Clone, Debug, PartialEq, Eq, Hash, SurrealValue)]
+#[derive(Clone, Debug, PartialEq, Eq, SurrealValue)]
 pub struct User {
     pub user_id: String,
     pub username: String,
@@ -101,6 +101,7 @@ pub struct User {
     pub role: i32,
     pub icon: ResourceId,
     pub notifications: Vec<Notification>,
+    pub channels: Vec<Channel>,
 }
 
 impl TryFrom<user::v1::User> for User {
@@ -108,9 +109,14 @@ impl TryFrom<user::v1::User> for User {
 
     fn try_from(value: user::v1::User) -> Result<Self, Self::Error> {
         let mut notifications = Vec::with_capacity(value.notifications.len());
+        let mut channels = Vec::with_capacity(value.channels.len());
 
         for notification in value.notifications {
             notifications.push(Notification::try_from(notification)?);
+        }
+
+        for channel in value.channels {
+            channels.push(Channel::try_from(channel)?);
         }
 
         Ok(Self {
@@ -121,6 +127,7 @@ impl TryFrom<user::v1::User> for User {
             role: value.role,
             icon: ResourceId::try_from(value.icon.ok_or(ErrorCode::InvalidFormat)?)?,
             notifications,
+            channels,
         })
     }
 }
@@ -138,6 +145,11 @@ impl Into<user::v1::User> for User {
                 .notifications
                 .into_iter()
                 .map(|n| n.into())
+                .collect::<Vec<_>>(),
+            channels: self
+                .channels
+                .into_iter()
+                .map(|c| c.into())
                 .collect::<Vec<_>>(),
         }
     }

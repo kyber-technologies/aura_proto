@@ -535,6 +535,14 @@ const User$json = {
       '6': '.user.v1.Notification',
       '10': 'notifications'
     },
+    {
+      '1': 'channels',
+      '3': 8,
+      '4': 3,
+      '5': 11,
+      '6': '.chat.v1.Channel',
+      '10': 'channels'
+    },
   ],
 };
 
@@ -544,7 +552,8 @@ final $typed_data.Uint8List userDescriptor = $convert.base64Decode(
     '5hbWUSFAoFZW1haWwYAyABKAlSBWVtYWlsEhoKCHBhc3N3b3JkGAQgASgJUghwYXNzd29yZBIl'
     'CgRyb2xlGAUgASgOMhEudXNlci52MS5Vc2VyUm9sZVIEcm9sZRIrCgRpY29uGAYgASgLMhcucm'
     'Vzb3VyY2UudjEuUmVzb3VyY2VJZFIEaWNvbhI7Cg1ub3RpZmljYXRpb25zGAcgAygLMhUudXNl'
-    'ci52MS5Ob3RpZmljYXRpb25SDW5vdGlmaWNhdGlvbnM=');
+    'ci52MS5Ob3RpZmljYXRpb25SDW5vdGlmaWNhdGlvbnMSLAoIY2hhbm5lbHMYCCADKAsyEC5jaG'
+    'F0LnYxLkNoYW5uZWxSCGNoYW5uZWxz');
 
 @$core.Deprecated('Use userProfileDescriptor instead')
 const UserProfile$json = {

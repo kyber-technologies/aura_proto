@@ -125,7 +125,8 @@ class UserServiceClient extends $grpc.Client {
     return $createUnaryCall(_$isBlocked, request, options: options);
   }
 
-  /// Gets the notifications of a user.
+  /// Pulls the notifications of a user.
+  /// This will "consume" the notifications.
   ///
   /// Requires Authentication: Only authenticated users can do this.
   $grpc.ResponseFuture<$0.NotificationsResponse> notifications(

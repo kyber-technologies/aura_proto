@@ -50,7 +50,8 @@ service UserService {
   // Requires Authentication: Only authenticated users can do this.
   rpc IsBlocked(IsBlockedRequest) returns (IsBlockedResponse);
 
-  // Gets the notifications of a user.
+  // Pulls the notifications of a user.
+  // This will "consume" the notifications.
   //
   // Requires Authentication: Only authenticated users can do this.
   rpc Notifications(NotificationsRequest) returns (NotificationsResponse);
@@ -235,6 +236,8 @@ message User {
   resource.v1.ResourceId icon = 6;
   // Notifications of the user.
   repeated Notification notifications = 7;
+  // Channels the User is in
+  repeated chat.v1.Channel channels = 8;
 }
 
 // User profile.

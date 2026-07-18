@@ -1495,6 +1495,7 @@ class User extends $pb.GeneratedMessage {
     UserRole? role,
     $2.ResourceId? icon,
     $core.Iterable<Notification>? notifications,
+    $core.Iterable<$3.Channel>? channels,
   }) {
     final result = create();
     if (userId != null) result.userId = userId;
@@ -1504,6 +1505,7 @@ class User extends $pb.GeneratedMessage {
     if (role != null) result.role = role;
     if (icon != null) result.icon = icon;
     if (notifications != null) result.notifications.addAll(notifications);
+    if (channels != null) result.channels.addAll(channels);
     return result;
   }
 
@@ -1530,6 +1532,8 @@ class User extends $pb.GeneratedMessage {
         subBuilder: $2.ResourceId.create)
     ..pPM<Notification>(7, _omitFieldNames ? '' : 'notifications',
         subBuilder: Notification.create)
+    ..pPM<$3.Channel>(8, _omitFieldNames ? '' : 'channels',
+        subBuilder: $3.Channel.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1615,6 +1619,10 @@ class User extends $pb.GeneratedMessage {
   /// Notifications of the user.
   @$pb.TagNumber(7)
   $pb.PbList<Notification> get notifications => $_getList(6);
+
+  /// Channels the User is in
+  @$pb.TagNumber(8)
+  $pb.PbList<$3.Channel> get channels => $_getList(7);
 }
 
 /// User profile.
