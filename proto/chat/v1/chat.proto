@@ -12,6 +12,11 @@ service ChatService {
   // Requires Authentication: Only authorized users can create channels.
   rpc CreateChannel(CreateChannelRequest) returns (CreateChannelResponse);
 
+  // Get all channel IDs.
+  //
+  // Requires Authentication: Only authorized users can get channels.
+  rpc GetChannels(GetChannelsRequest) returns (GetChannelsResponse);
+
   // Reads messages from a channel.
   //
   // Requires Authentication: Only authorized & invited users can read messages.
@@ -47,6 +52,16 @@ message CreateChannelResponse {
     // An error that occurred during the create operation, if any.
     common.v1.Error error = 2;
   }
+}
+
+// The request message for getting all channel IDs.
+message GetChannelsRequest {
+}
+
+// The response message for getting all channel IDs.
+message GetChannelsResponse {
+  // The channel IDs.
+  repeated string channel_ids = 1;
 }
 
 // The request message for reading messages.

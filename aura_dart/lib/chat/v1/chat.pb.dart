@@ -201,6 +201,95 @@ class CreateChannelResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(1);
 }
 
+/// The request message for getting all channel IDs.
+class GetChannelsRequest extends $pb.GeneratedMessage {
+  factory GetChannelsRequest() => create();
+
+  GetChannelsRequest._();
+
+  factory GetChannelsRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetChannelsRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetChannelsRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetChannelsRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetChannelsRequest copyWith(void Function(GetChannelsRequest) updates) =>
+      super.copyWith((message) => updates(message as GetChannelsRequest))
+          as GetChannelsRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetChannelsRequest create() => GetChannelsRequest._();
+  @$core.override
+  GetChannelsRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetChannelsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetChannelsRequest>(create);
+  static GetChannelsRequest? _defaultInstance;
+}
+
+/// The response message for getting all channel IDs.
+class GetChannelsResponse extends $pb.GeneratedMessage {
+  factory GetChannelsResponse({
+    $core.Iterable<$core.String>? channelIds,
+  }) {
+    final result = create();
+    if (channelIds != null) result.channelIds.addAll(channelIds);
+    return result;
+  }
+
+  GetChannelsResponse._();
+
+  factory GetChannelsResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetChannelsResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetChannelsResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'channelIds')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetChannelsResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetChannelsResponse copyWith(void Function(GetChannelsResponse) updates) =>
+      super.copyWith((message) => updates(message as GetChannelsResponse))
+          as GetChannelsResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetChannelsResponse create() => GetChannelsResponse._();
+  @$core.override
+  GetChannelsResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetChannelsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetChannelsResponse>(create);
+  static GetChannelsResponse? _defaultInstance;
+
+  /// The channel IDs.
+  @$pb.TagNumber(1)
+  $pb.PbList<$core.String> get channelIds => $_getList(0);
+}
+
 /// The request message for reading messages.
 class ReadMessagesRequest extends $pb.GeneratedMessage {
   factory ReadMessagesRequest({

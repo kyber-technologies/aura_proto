@@ -43,6 +43,16 @@ class ChatServiceClient extends $grpc.Client {
     return $createUnaryCall(_$createChannel, request, options: options);
   }
 
+  /// Get all channel IDs.
+  ///
+  /// Requires Authentication: Only authorized users can get channels.
+  $grpc.ResponseFuture<$0.GetChannelsResponse> getChannels(
+    $0.GetChannelsRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$getChannels, request, options: options);
+  }
+
   /// Reads messages from a channel.
   ///
   /// Requires Authentication: Only authorized & invited users can read messages.
@@ -80,6 +90,11 @@ class ChatServiceClient extends $grpc.Client {
           '/chat.v1.ChatService/CreateChannel',
           ($0.CreateChannelRequest value) => value.writeToBuffer(),
           $0.CreateChannelResponse.fromBuffer);
+  static final _$getChannels =
+      $grpc.ClientMethod<$0.GetChannelsRequest, $0.GetChannelsResponse>(
+          '/chat.v1.ChatService/GetChannels',
+          ($0.GetChannelsRequest value) => value.writeToBuffer(),
+          $0.GetChannelsResponse.fromBuffer);
   static final _$readMessages =
       $grpc.ClientMethod<$0.ReadMessagesRequest, $0.ReadMessagesResponse>(
           '/chat.v1.ChatService/ReadMessages',
@@ -111,6 +126,15 @@ abstract class ChatServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.CreateChannelRequest.fromBuffer(value),
             ($0.CreateChannelResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.GetChannelsRequest, $0.GetChannelsResponse>(
+            'GetChannels',
+            getChannels_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.GetChannelsRequest.fromBuffer(value),
+            ($0.GetChannelsResponse value) => value.writeToBuffer()));
     $addMethod(
         $grpc.ServiceMethod<$0.ReadMessagesRequest, $0.ReadMessagesResponse>(
             'ReadMessages',
@@ -148,6 +172,14 @@ abstract class ChatServiceBase extends $grpc.Service {
 
   $async.Future<$0.CreateChannelResponse> createChannel(
       $grpc.ServiceCall call, $0.CreateChannelRequest request);
+
+  $async.Future<$0.GetChannelsResponse> getChannels_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.GetChannelsRequest> $request) async {
+    return getChannels($call, await $request);
+  }
+
+  $async.Future<$0.GetChannelsResponse> getChannels(
+      $grpc.ServiceCall call, $0.GetChannelsRequest request);
 
   $async.Future<$0.ReadMessagesResponse> readMessages_Pre(
       $grpc.ServiceCall $call,
