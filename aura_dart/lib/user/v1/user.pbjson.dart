@@ -660,12 +660,12 @@ const MessageNotification$json = {
     {'1': 'channel_id', '3': 1, '4': 1, '5': 9, '10': 'channelId'},
     {'1': 'sender_id', '3': 2, '4': 1, '5': 9, '10': 'senderId'},
     {
-      '1': 'content',
+      '1': 'message',
       '3': 3,
       '4': 1,
       '5': 11,
-      '6': '.chat.v1.Content',
-      '10': 'content'
+      '6': '.chat.v1.Message',
+      '10': 'message'
     },
   ],
 };
@@ -673,5 +673,5 @@ const MessageNotification$json = {
 /// Descriptor for `MessageNotification`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List messageNotificationDescriptor = $convert.base64Decode(
     'ChNNZXNzYWdlTm90aWZpY2F0aW9uEh0KCmNoYW5uZWxfaWQYASABKAlSCWNoYW5uZWxJZBIbCg'
-    'lzZW5kZXJfaWQYAiABKAlSCHNlbmRlcklkEioKB2NvbnRlbnQYAyABKAsyEC5jaGF0LnYxLkNv'
-    'bnRlbnRSB2NvbnRlbnQ=');
+    'lzZW5kZXJfaWQYAiABKAlSCHNlbmRlcklkEioKB21lc3NhZ2UYAyABKAsyEC5jaGF0LnYxLk1l'
+    'c3NhZ2VSB21lc3NhZ2U=');

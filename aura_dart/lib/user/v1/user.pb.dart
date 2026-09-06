@@ -1928,12 +1928,12 @@ class MessageNotification extends $pb.GeneratedMessage {
   factory MessageNotification({
     $core.String? channelId,
     $core.String? senderId,
-    $3.Content? content,
+    $3.Message? message,
   }) {
     final result = create();
     if (channelId != null) result.channelId = channelId;
     if (senderId != null) result.senderId = senderId;
-    if (content != null) result.content = content;
+    if (message != null) result.message = message;
     return result;
   }
 
@@ -1952,8 +1952,8 @@ class MessageNotification extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'channelId')
     ..aOS(2, _omitFieldNames ? '' : 'senderId')
-    ..aOM<$3.Content>(3, _omitFieldNames ? '' : 'content',
-        subBuilder: $3.Content.create)
+    ..aOM<$3.Message>(3, _omitFieldNames ? '' : 'message',
+        subBuilder: $3.Message.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1995,17 +1995,17 @@ class MessageNotification extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearSenderId() => $_clearField(2);
 
-  /// The message content.
+  /// The message.
   @$pb.TagNumber(3)
-  $3.Content get content => $_getN(2);
+  $3.Message get message => $_getN(2);
   @$pb.TagNumber(3)
-  set content($3.Content value) => $_setField(3, value);
+  set message($3.Message value) => $_setField(3, value);
   @$pb.TagNumber(3)
-  $core.bool hasContent() => $_has(2);
+  $core.bool hasMessage() => $_has(2);
   @$pb.TagNumber(3)
-  void clearContent() => $_clearField(3);
+  void clearMessage() => $_clearField(3);
   @$pb.TagNumber(3)
-  $3.Content ensureContent() => $_ensure(2);
+  $3.Message ensureMessage() => $_ensure(2);
 }
 
 const $core.bool _omitFieldNames =

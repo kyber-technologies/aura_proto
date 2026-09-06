@@ -125,14 +125,14 @@ message Message {
   string channel_id = 2;
   // The ID of the user who sent the message.
   string user_id = 3;
+  // The timestamp when the message was created.
+  common.v1.Timestamp created_at = 4;
   // The content of the message.
-  Content content = 4;
+  Content content = 5;
 }
 
 // The content of a message.
 message Content {
-  // The timestamp when the message was created.
-  common.v1.Timestamp created_at = 1;
   // The type of content.
   oneof content {
     // The text content of the message.
