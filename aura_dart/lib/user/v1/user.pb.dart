@@ -207,16 +207,18 @@ class AuthUserRequest extends $pb.GeneratedMessage {
   void clearPassword() => $_clearField(2);
 }
 
-enum AuthUserResponse_Result { token, error, notSet }
+enum AuthUserResponse_Result { token, user, error, notSet }
 
 /// Response message for authenticating a user.
 class AuthUserResponse extends $pb.GeneratedMessage {
   factory AuthUserResponse({
     $core.String? token,
+    User? user,
     $1.Error? error,
   }) {
     final result = create();
     if (token != null) result.token = token;
+    if (user != null) result.user = user;
     if (error != null) result.error = error;
     return result;
   }
@@ -233,16 +235,18 @@ class AuthUserResponse extends $pb.GeneratedMessage {
   static const $core.Map<$core.int, AuthUserResponse_Result>
       _AuthUserResponse_ResultByTag = {
     1: AuthUserResponse_Result.token,
-    2: AuthUserResponse_Result.error,
+    2: AuthUserResponse_Result.user,
+    3: AuthUserResponse_Result.error,
     0: AuthUserResponse_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'AuthUserResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..oo(0, [1, 2])
+    ..oo(0, [1, 2, 3])
     ..aOS(1, _omitFieldNames ? '' : 'token')
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+    ..aOM<User>(2, _omitFieldNames ? '' : 'user', subBuilder: User.create)
+    ..aOM<$1.Error>(3, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
     ..hasRequiredFields = false;
 
@@ -267,10 +271,12 @@ class AuthUserResponse extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   AuthUserResponse_Result whichResult() =>
       _AuthUserResponse_ResultByTag[$_whichOneof(0)]!;
   @$pb.TagNumber(1)
   @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   void clearResult() => $_clearField($_whichOneof(0));
 
   /// Authentication token.
@@ -283,17 +289,29 @@ class AuthUserResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearToken() => $_clearField(1);
 
+  /// The user.
+  @$pb.TagNumber(2)
+  User get user => $_getN(1);
+  @$pb.TagNumber(2)
+  set user(User value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasUser() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUser() => $_clearField(2);
+  @$pb.TagNumber(2)
+  User ensureUser() => $_ensure(1);
+
   /// Error, if any.
-  @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
-  @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
-  @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  @$pb.TagNumber(3)
+  $1.Error get error => $_getN(2);
+  @$pb.TagNumber(3)
+  set error($1.Error value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasError() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearError() => $_clearField(3);
+  @$pb.TagNumber(3)
+  $1.Error ensureError() => $_ensure(2);
 }
 
 /// Request message for verifying an email.
@@ -1585,6 +1603,8 @@ class User extends $pb.GeneratedMessage {
   void clearEmail() => $_clearField(3);
 
   /// Password of the user.
+  ///
+  /// When used in an RPC response, the password **must** be empty.
   @$pb.TagNumber(4)
   $core.String get password => $_getSZ(3);
   @$pb.TagNumber(4)

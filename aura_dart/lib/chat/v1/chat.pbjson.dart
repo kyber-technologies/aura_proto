@@ -108,27 +108,6 @@ final $typed_data.Uint8List createChannelResponseDescriptor = $convert.base64Dec
     '5lbEgAUgdjaGFubmVsEigKBWVycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9y'
     'QggKBnJlc3VsdA==');
 
-@$core.Deprecated('Use getChannelsRequestDescriptor instead')
-const GetChannelsRequest$json = {
-  '1': 'GetChannelsRequest',
-};
-
-/// Descriptor for `GetChannelsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getChannelsRequestDescriptor =
-    $convert.base64Decode('ChJHZXRDaGFubmVsc1JlcXVlc3Q=');
-
-@$core.Deprecated('Use getChannelsResponseDescriptor instead')
-const GetChannelsResponse$json = {
-  '1': 'GetChannelsResponse',
-  '2': [
-    {'1': 'channel_ids', '3': 1, '4': 3, '5': 9, '10': 'channelIds'},
-  ],
-};
-
-/// Descriptor for `GetChannelsResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getChannelsResponseDescriptor = $convert.base64Decode(
-    'ChNHZXRDaGFubmVsc1Jlc3BvbnNlEh8KC2NoYW5uZWxfaWRzGAEgAygJUgpjaGFubmVsSWRz');
-
 @$core.Deprecated('Use readMessagesRequestDescriptor instead')
 const ReadMessagesRequest$json = {
   '1': 'ReadMessagesRequest',

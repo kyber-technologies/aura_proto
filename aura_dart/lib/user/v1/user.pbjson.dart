@@ -87,8 +87,17 @@ const AuthUserResponse$json = {
   '2': [
     {'1': 'token', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'token'},
     {
-      '1': 'error',
+      '1': 'user',
       '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.user.v1.User',
+      '9': 0,
+      '10': 'user'
+    },
+    {
+      '1': 'error',
+      '3': 3,
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
@@ -103,8 +112,9 @@ const AuthUserResponse$json = {
 
 /// Descriptor for `AuthUserResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List authUserResponseDescriptor = $convert.base64Decode(
-    'ChBBdXRoVXNlclJlc3BvbnNlEhYKBXRva2VuGAEgASgJSABSBXRva2VuEigKBWVycm9yGAIgAS'
-    'gLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9yQggKBnJlc3VsdA==');
+    'ChBBdXRoVXNlclJlc3BvbnNlEhYKBXRva2VuGAEgASgJSABSBXRva2VuEiMKBHVzZXIYAiABKA'
+    'syDS51c2VyLnYxLlVzZXJIAFIEdXNlchIoCgVlcnJvchgDIAEoCzIQLmNvbW1vbi52MS5FcnJv'
+    'ckgAUgVlcnJvckIICgZyZXN1bHQ=');
 
 @$core.Deprecated('Use verifyEmailRequestDescriptor instead')
 const VerifyEmailRequest$json = {
