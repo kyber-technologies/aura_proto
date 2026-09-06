@@ -82,8 +82,10 @@ message AuthUserResponse {
   oneof result {
     // Authentication token.
     string token = 1;
+    // The user.
+    User user = 2;
     // Error, if any.
-    common.v1.Error error = 2;
+    common.v1.Error error = 3;
   }
 }
 
@@ -229,6 +231,8 @@ message User {
   // Email of the user.
   string email = 3;
   // Password of the user.
+  //
+  // When used in an RPC response, the password **must** be empty.
   string password = 4;
   // Role of the user.
   UserRole role = 5;
