@@ -530,8 +530,16 @@ const User$json = {
       '10': 'role'
     },
     {
-      '1': 'icon',
+      '1': 'created_at',
       '3': 6,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Timestamp',
+      '10': 'createdAt'
+    },
+    {
+      '1': 'icon',
+      '3': 7,
       '4': 1,
       '5': 11,
       '6': '.resource.v1.ResourceId',
@@ -539,7 +547,7 @@ const User$json = {
     },
     {
       '1': 'notifications',
-      '3': 7,
+      '3': 8,
       '4': 3,
       '5': 11,
       '6': '.user.v1.Notification',
@@ -547,7 +555,7 @@ const User$json = {
     },
     {
       '1': 'channels',
-      '3': 8,
+      '3': 9,
       '4': 3,
       '5': 11,
       '6': '.chat.v1.Channel',
@@ -560,10 +568,11 @@ const User$json = {
 final $typed_data.Uint8List userDescriptor = $convert.base64Decode(
     'CgRVc2VyEhcKB3VzZXJfaWQYASABKAlSBnVzZXJJZBIaCgh1c2VybmFtZRgCIAEoCVIIdXNlcm'
     '5hbWUSFAoFZW1haWwYAyABKAlSBWVtYWlsEhoKCHBhc3N3b3JkGAQgASgJUghwYXNzd29yZBIl'
-    'CgRyb2xlGAUgASgOMhEudXNlci52MS5Vc2VyUm9sZVIEcm9sZRIrCgRpY29uGAYgASgLMhcucm'
-    'Vzb3VyY2UudjEuUmVzb3VyY2VJZFIEaWNvbhI7Cg1ub3RpZmljYXRpb25zGAcgAygLMhUudXNl'
-    'ci52MS5Ob3RpZmljYXRpb25SDW5vdGlmaWNhdGlvbnMSLAoIY2hhbm5lbHMYCCADKAsyEC5jaG'
-    'F0LnYxLkNoYW5uZWxSCGNoYW5uZWxz');
+    'CgRyb2xlGAUgASgOMhEudXNlci52MS5Vc2VyUm9sZVIEcm9sZRIzCgpjcmVhdGVkX2F0GAYgAS'
+    'gLMhQuY29tbW9uLnYxLlRpbWVzdGFtcFIJY3JlYXRlZEF0EisKBGljb24YByABKAsyFy5yZXNv'
+    'dXJjZS52MS5SZXNvdXJjZUlkUgRpY29uEjsKDW5vdGlmaWNhdGlvbnMYCCADKAsyFS51c2VyLn'
+    'YxLk5vdGlmaWNhdGlvblINbm90aWZpY2F0aW9ucxIsCghjaGFubmVscxgJIAMoCzIQLmNoYXQu'
+    'djEuQ2hhbm5lbFIIY2hhbm5lbHM=');
 
 @$core.Deprecated('Use userProfileDescriptor instead')
 const UserProfile$json = {
@@ -580,8 +589,16 @@ const UserProfile$json = {
       '10': 'role'
     },
     {
-      '1': 'icon',
+      '1': 'created_at',
       '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Timestamp',
+      '10': 'createdAt'
+    },
+    {
+      '1': 'icon',
+      '3': 5,
       '4': 1,
       '5': 11,
       '6': '.resource.v1.ResourceId',
@@ -593,8 +610,9 @@ const UserProfile$json = {
 /// Descriptor for `UserProfile`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List userProfileDescriptor = $convert.base64Decode(
     'CgtVc2VyUHJvZmlsZRIXCgd1c2VyX2lkGAEgASgJUgZ1c2VySWQSGgoIdXNlcm5hbWUYAiABKA'
-    'lSCHVzZXJuYW1lEiUKBHJvbGUYAyABKA4yES51c2VyLnYxLlVzZXJSb2xlUgRyb2xlEisKBGlj'
-    'b24YBCABKAsyFy5yZXNvdXJjZS52MS5SZXNvdXJjZUlkUgRpY29u');
+    'lSCHVzZXJuYW1lEiUKBHJvbGUYAyABKA4yES51c2VyLnYxLlVzZXJSb2xlUgRyb2xlEjMKCmNy'
+    'ZWF0ZWRfYXQYBCABKAsyFC5jb21tb24udjEuVGltZXN0YW1wUgljcmVhdGVkQXQSKwoEaWNvbh'
+    'gFIAEoCzIXLnJlc291cmNlLnYxLlJlc291cmNlSWRSBGljb24=');
 
 @$core.Deprecated('Use notificationDescriptor instead')
 const Notification$json = {

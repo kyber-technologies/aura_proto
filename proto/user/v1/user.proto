@@ -236,12 +236,14 @@ message User {
   string password = 4;
   // Role of the user.
   UserRole role = 5;
+  // Timestamp when the user was created.
+  common.v1.Timestamp created_at = 6;
   // Icon/Avatar of the user.
-  resource.v1.ResourceId icon = 6;
+  resource.v1.ResourceId icon = 7;
   // Notifications of the user.
-  repeated Notification notifications = 7;
+  repeated Notification notifications = 8;
   // Channels the User is in
-  repeated chat.v1.Channel channels = 8;
+  repeated chat.v1.Channel channels = 9;
 }
 
 // User profile.
@@ -254,8 +256,10 @@ message UserProfile {
   string username = 2;
   // Role of the user.
   UserRole role = 3;
+  // Timestamp when the user was created.
+  common.v1.Timestamp created_at = 4;
   // Icon/Avatar of the user.
-  resource.v1.ResourceId icon = 4;
+  resource.v1.ResourceId icon = 5;
 }
 
 // Role of the user.

@@ -1511,6 +1511,7 @@ class User extends $pb.GeneratedMessage {
     $core.String? email,
     $core.String? password,
     UserRole? role,
+    $1.Timestamp? createdAt,
     $2.ResourceId? icon,
     $core.Iterable<Notification>? notifications,
     $core.Iterable<$3.Channel>? channels,
@@ -1521,6 +1522,7 @@ class User extends $pb.GeneratedMessage {
     if (email != null) result.email = email;
     if (password != null) result.password = password;
     if (role != null) result.role = role;
+    if (createdAt != null) result.createdAt = createdAt;
     if (icon != null) result.icon = icon;
     if (notifications != null) result.notifications.addAll(notifications);
     if (channels != null) result.channels.addAll(channels);
@@ -1546,11 +1548,13 @@ class User extends $pb.GeneratedMessage {
     ..aOS(4, _omitFieldNames ? '' : 'password')
     ..aE<UserRole>(5, _omitFieldNames ? '' : 'role',
         enumValues: UserRole.values)
-    ..aOM<$2.ResourceId>(6, _omitFieldNames ? '' : 'icon',
+    ..aOM<$1.Timestamp>(6, _omitFieldNames ? '' : 'createdAt',
+        subBuilder: $1.Timestamp.create)
+    ..aOM<$2.ResourceId>(7, _omitFieldNames ? '' : 'icon',
         subBuilder: $2.ResourceId.create)
-    ..pPM<Notification>(7, _omitFieldNames ? '' : 'notifications',
+    ..pPM<Notification>(8, _omitFieldNames ? '' : 'notifications',
         subBuilder: Notification.create)
-    ..pPM<$3.Channel>(8, _omitFieldNames ? '' : 'channels',
+    ..pPM<$3.Channel>(9, _omitFieldNames ? '' : 'channels',
         subBuilder: $3.Channel.create)
     ..hasRequiredFields = false;
 
@@ -1624,25 +1628,37 @@ class User extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearRole() => $_clearField(5);
 
+  /// Timestamp when the user was created.
+  @$pb.TagNumber(6)
+  $1.Timestamp get createdAt => $_getN(5);
+  @$pb.TagNumber(6)
+  set createdAt($1.Timestamp value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasCreatedAt() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearCreatedAt() => $_clearField(6);
+  @$pb.TagNumber(6)
+  $1.Timestamp ensureCreatedAt() => $_ensure(5);
+
   /// Icon/Avatar of the user.
-  @$pb.TagNumber(6)
-  $2.ResourceId get icon => $_getN(5);
-  @$pb.TagNumber(6)
-  set icon($2.ResourceId value) => $_setField(6, value);
-  @$pb.TagNumber(6)
-  $core.bool hasIcon() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearIcon() => $_clearField(6);
-  @$pb.TagNumber(6)
-  $2.ResourceId ensureIcon() => $_ensure(5);
+  @$pb.TagNumber(7)
+  $2.ResourceId get icon => $_getN(6);
+  @$pb.TagNumber(7)
+  set icon($2.ResourceId value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasIcon() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearIcon() => $_clearField(7);
+  @$pb.TagNumber(7)
+  $2.ResourceId ensureIcon() => $_ensure(6);
 
   /// Notifications of the user.
-  @$pb.TagNumber(7)
-  $pb.PbList<Notification> get notifications => $_getList(6);
+  @$pb.TagNumber(8)
+  $pb.PbList<Notification> get notifications => $_getList(7);
 
   /// Channels the User is in
-  @$pb.TagNumber(8)
-  $pb.PbList<$3.Channel> get channels => $_getList(7);
+  @$pb.TagNumber(9)
+  $pb.PbList<$3.Channel> get channels => $_getList(8);
 }
 
 /// User profile.
@@ -1653,12 +1669,14 @@ class UserProfile extends $pb.GeneratedMessage {
     $core.String? userId,
     $core.String? username,
     UserRole? role,
+    $1.Timestamp? createdAt,
     $2.ResourceId? icon,
   }) {
     final result = create();
     if (userId != null) result.userId = userId;
     if (username != null) result.username = username;
     if (role != null) result.role = role;
+    if (createdAt != null) result.createdAt = createdAt;
     if (icon != null) result.icon = icon;
     return result;
   }
@@ -1680,7 +1698,9 @@ class UserProfile extends $pb.GeneratedMessage {
     ..aOS(2, _omitFieldNames ? '' : 'username')
     ..aE<UserRole>(3, _omitFieldNames ? '' : 'role',
         enumValues: UserRole.values)
-    ..aOM<$2.ResourceId>(4, _omitFieldNames ? '' : 'icon',
+    ..aOM<$1.Timestamp>(4, _omitFieldNames ? '' : 'createdAt',
+        subBuilder: $1.Timestamp.create)
+    ..aOM<$2.ResourceId>(5, _omitFieldNames ? '' : 'icon',
         subBuilder: $2.ResourceId.create)
     ..hasRequiredFields = false;
 
@@ -1733,17 +1753,29 @@ class UserProfile extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearRole() => $_clearField(3);
 
+  /// Timestamp when the user was created.
+  @$pb.TagNumber(4)
+  $1.Timestamp get createdAt => $_getN(3);
+  @$pb.TagNumber(4)
+  set createdAt($1.Timestamp value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasCreatedAt() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearCreatedAt() => $_clearField(4);
+  @$pb.TagNumber(4)
+  $1.Timestamp ensureCreatedAt() => $_ensure(3);
+
   /// Icon/Avatar of the user.
-  @$pb.TagNumber(4)
-  $2.ResourceId get icon => $_getN(3);
-  @$pb.TagNumber(4)
-  set icon($2.ResourceId value) => $_setField(4, value);
-  @$pb.TagNumber(4)
-  $core.bool hasIcon() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearIcon() => $_clearField(4);
-  @$pb.TagNumber(4)
-  $2.ResourceId ensureIcon() => $_ensure(3);
+  @$pb.TagNumber(5)
+  $2.ResourceId get icon => $_getN(4);
+  @$pb.TagNumber(5)
+  set icon($2.ResourceId value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasIcon() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearIcon() => $_clearField(5);
+  @$pb.TagNumber(5)
+  $2.ResourceId ensureIcon() => $_ensure(4);
 }
 
 enum Notification_Notification { invite, message, notSet }
