@@ -49,12 +49,6 @@ service UserService {
   //
   // Requires Authentication: Only authenticated users can do this.
   rpc IsBlocked(IsBlockedRequest) returns (IsBlockedResponse);
-
-  // Pulls the notifications of a user.
-  // This will "consume" the notifications.
-  //
-  // Requires Authentication: Only authenticated users can do this.
-  rpc Notifications(NotificationsRequest) returns (NotificationsResponse);
 }
 
 // Request message for checking if a user exists.
@@ -79,14 +73,12 @@ message AuthUserRequest {
 
 // Response message for authenticating a user.
 message AuthUserResponse {
-  oneof result {
-    // Authentication token.
-    string token = 1;
-    // The user.
-    User user = 2;
-    // Error, if any.
-    common.v1.Error error = 3;
-  }
+  // Authentication token.
+  string token = 1;
+  // The user.
+  User user = 2;
+  // Error, if any.
+  optional common.v1.Error error = 3;
 }
 
 // Request message for verifying an email.
@@ -210,19 +202,9 @@ message IsBlockedResponse {
   }
 }
 
-// Request message for getting notifications.
-message NotificationsRequest {
-}
-
-// Response message for getting notifications.
-message NotificationsResponse {
-  repeated Notification notifications = 1;
-  optional common.v1.Error error = 2;
-}
-
 // An application user.
 //
-// Should only be used internally or by administrators.
+// When used in an RPC response, the password **must** be empty.
 message User {
   // Unique user identifier.
   string user_id = 1;
@@ -274,14 +256,16 @@ enum UserRole {
 
 // A user notification.
 message Notification {
+  // ID of the notification.
+  string notification_id = 1;
   // Timestamp of the notification.
-  common.v1.Timestamp timestamp = 1;
+  common.v1.Timestamp timestamp = 2;
   // The type of the notification.
   oneof notification {
     // The user got invited to a user chat.
-    InviteNotification invite = 2;
+    InviteNotification invite = 3;
     // The user received a message.
-    MessageNotification message = 3;
+    MessageNotification message = 4;
   }
 }
 

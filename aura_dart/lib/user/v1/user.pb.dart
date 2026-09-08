@@ -207,8 +207,6 @@ class AuthUserRequest extends $pb.GeneratedMessage {
   void clearPassword() => $_clearField(2);
 }
 
-enum AuthUserResponse_Result { token, user, error, notSet }
-
 /// Response message for authenticating a user.
 class AuthUserResponse extends $pb.GeneratedMessage {
   factory AuthUserResponse({
@@ -232,18 +230,10 @@ class AuthUserResponse extends $pb.GeneratedMessage {
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, AuthUserResponse_Result>
-      _AuthUserResponse_ResultByTag = {
-    1: AuthUserResponse_Result.token,
-    2: AuthUserResponse_Result.user,
-    3: AuthUserResponse_Result.error,
-    0: AuthUserResponse_Result.notSet
-  };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'AuthUserResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..oo(0, [1, 2, 3])
     ..aOS(1, _omitFieldNames ? '' : 'token')
     ..aOM<User>(2, _omitFieldNames ? '' : 'user', subBuilder: User.create)
     ..aOM<$1.Error>(3, _omitFieldNames ? '' : 'error',
@@ -268,16 +258,6 @@ class AuthUserResponse extends $pb.GeneratedMessage {
   static AuthUserResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<AuthUserResponse>(create);
   static AuthUserResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  @$pb.TagNumber(2)
-  @$pb.TagNumber(3)
-  AuthUserResponse_Result whichResult() =>
-      _AuthUserResponse_ResultByTag[$_whichOneof(0)]!;
-  @$pb.TagNumber(1)
-  @$pb.TagNumber(2)
-  @$pb.TagNumber(3)
-  void clearResult() => $_clearField($_whichOneof(0));
 
   /// Authentication token.
   @$pb.TagNumber(1)
@@ -1396,114 +1376,9 @@ class IsBlockedResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(1);
 }
 
-/// Request message for getting notifications.
-class NotificationsRequest extends $pb.GeneratedMessage {
-  factory NotificationsRequest() => create();
-
-  NotificationsRequest._();
-
-  factory NotificationsRequest.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory NotificationsRequest.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'NotificationsRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  NotificationsRequest clone() => deepCopy();
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  NotificationsRequest copyWith(void Function(NotificationsRequest) updates) =>
-      super.copyWith((message) => updates(message as NotificationsRequest))
-          as NotificationsRequest;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static NotificationsRequest create() => NotificationsRequest._();
-  @$core.override
-  NotificationsRequest createEmptyInstance() => create();
-  @$core.pragma('dart2js:noInline')
-  static NotificationsRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<NotificationsRequest>(create);
-  static NotificationsRequest? _defaultInstance;
-}
-
-/// Response message for getting notifications.
-class NotificationsResponse extends $pb.GeneratedMessage {
-  factory NotificationsResponse({
-    $core.Iterable<Notification>? notifications,
-    $1.Error? error,
-  }) {
-    final result = create();
-    if (notifications != null) result.notifications.addAll(notifications);
-    if (error != null) result.error = error;
-    return result;
-  }
-
-  NotificationsResponse._();
-
-  factory NotificationsResponse.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory NotificationsResponse.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'NotificationsResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
-      createEmptyInstance: create)
-    ..pPM<Notification>(1, _omitFieldNames ? '' : 'notifications',
-        subBuilder: Notification.create)
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
-        subBuilder: $1.Error.create)
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  NotificationsResponse clone() => deepCopy();
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  NotificationsResponse copyWith(
-          void Function(NotificationsResponse) updates) =>
-      super.copyWith((message) => updates(message as NotificationsResponse))
-          as NotificationsResponse;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static NotificationsResponse create() => NotificationsResponse._();
-  @$core.override
-  NotificationsResponse createEmptyInstance() => create();
-  @$core.pragma('dart2js:noInline')
-  static NotificationsResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<NotificationsResponse>(create);
-  static NotificationsResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $pb.PbList<Notification> get notifications => $_getList(0);
-
-  @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
-  @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
-  @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
-}
-
 /// An application user.
 ///
-/// Should only be used internally or by administrators.
+/// When used in an RPC response, the password **must** be empty.
 class User extends $pb.GeneratedMessage {
   factory User({
     $core.String? userId,
@@ -1783,11 +1658,13 @@ enum Notification_Notification { invite, message, notSet }
 /// A user notification.
 class Notification extends $pb.GeneratedMessage {
   factory Notification({
+    $core.String? notificationId,
     $1.Timestamp? timestamp,
     InviteNotification? invite,
     MessageNotification? message,
   }) {
     final result = create();
+    if (notificationId != null) result.notificationId = notificationId;
     if (timestamp != null) result.timestamp = timestamp;
     if (invite != null) result.invite = invite;
     if (message != null) result.message = message;
@@ -1805,20 +1682,21 @@ class Notification extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, Notification_Notification>
       _Notification_NotificationByTag = {
-    2: Notification_Notification.invite,
-    3: Notification_Notification.message,
+    3: Notification_Notification.invite,
+    4: Notification_Notification.message,
     0: Notification_Notification.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'Notification',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..oo(0, [2, 3])
-    ..aOM<$1.Timestamp>(1, _omitFieldNames ? '' : 'timestamp',
+    ..oo(0, [3, 4])
+    ..aOS(1, _omitFieldNames ? '' : 'notificationId')
+    ..aOM<$1.Timestamp>(2, _omitFieldNames ? '' : 'timestamp',
         subBuilder: $1.Timestamp.create)
-    ..aOM<InviteNotification>(2, _omitFieldNames ? '' : 'invite',
+    ..aOM<InviteNotification>(3, _omitFieldNames ? '' : 'invite',
         subBuilder: InviteNotification.create)
-    ..aOM<MessageNotification>(3, _omitFieldNames ? '' : 'message',
+    ..aOM<MessageNotification>(4, _omitFieldNames ? '' : 'message',
         subBuilder: MessageNotification.create)
     ..hasRequiredFields = false;
 
@@ -1841,49 +1719,59 @@ class Notification extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<Notification>(create);
   static Notification? _defaultInstance;
 
-  @$pb.TagNumber(2)
   @$pb.TagNumber(3)
+  @$pb.TagNumber(4)
   Notification_Notification whichNotification() =>
       _Notification_NotificationByTag[$_whichOneof(0)]!;
-  @$pb.TagNumber(2)
   @$pb.TagNumber(3)
+  @$pb.TagNumber(4)
   void clearNotification() => $_clearField($_whichOneof(0));
 
+  /// ID of the notification.
+  @$pb.TagNumber(1)
+  $core.String get notificationId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set notificationId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasNotificationId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearNotificationId() => $_clearField(1);
+
   /// Timestamp of the notification.
-  @$pb.TagNumber(1)
-  $1.Timestamp get timestamp => $_getN(0);
-  @$pb.TagNumber(1)
-  set timestamp($1.Timestamp value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasTimestamp() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearTimestamp() => $_clearField(1);
-  @$pb.TagNumber(1)
-  $1.Timestamp ensureTimestamp() => $_ensure(0);
+  @$pb.TagNumber(2)
+  $1.Timestamp get timestamp => $_getN(1);
+  @$pb.TagNumber(2)
+  set timestamp($1.Timestamp value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasTimestamp() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearTimestamp() => $_clearField(2);
+  @$pb.TagNumber(2)
+  $1.Timestamp ensureTimestamp() => $_ensure(1);
 
   /// The user got invited to a user chat.
-  @$pb.TagNumber(2)
-  InviteNotification get invite => $_getN(1);
-  @$pb.TagNumber(2)
-  set invite(InviteNotification value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasInvite() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearInvite() => $_clearField(2);
-  @$pb.TagNumber(2)
-  InviteNotification ensureInvite() => $_ensure(1);
+  @$pb.TagNumber(3)
+  InviteNotification get invite => $_getN(2);
+  @$pb.TagNumber(3)
+  set invite(InviteNotification value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasInvite() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearInvite() => $_clearField(3);
+  @$pb.TagNumber(3)
+  InviteNotification ensureInvite() => $_ensure(2);
 
   /// The user received a message.
-  @$pb.TagNumber(3)
-  MessageNotification get message => $_getN(2);
-  @$pb.TagNumber(3)
-  set message(MessageNotification value) => $_setField(3, value);
-  @$pb.TagNumber(3)
-  $core.bool hasMessage() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearMessage() => $_clearField(3);
-  @$pb.TagNumber(3)
-  MessageNotification ensureMessage() => $_ensure(2);
+  @$pb.TagNumber(4)
+  MessageNotification get message => $_getN(3);
+  @$pb.TagNumber(4)
+  set message(MessageNotification value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasMessage() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearMessage() => $_clearField(4);
+  @$pb.TagNumber(4)
+  MessageNotification ensureMessage() => $_ensure(3);
 }
 
 /// A chat notification.
