@@ -13,10 +13,12 @@
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
+import 'package:protobuf/well_known_types/google/protobuf/timestamp.pb.dart'
+    as $2;
 
-import '../../chat/v1/chat.pb.dart' as $3;
+import '../../chat/v1/chat.pb.dart' as $4;
 import '../../common/v1/common.pb.dart' as $1;
-import '../../resource/v1/resource.pb.dart' as $2;
+import '../../resource/v1/resource.pb.dart' as $3;
 import 'user.pbenum.dart';
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
@@ -1386,10 +1388,10 @@ class User extends $pb.GeneratedMessage {
     $core.String? email,
     $core.String? password,
     UserRole? role,
-    $1.Timestamp? createdAt,
-    $2.ResourceId? icon,
+    $2.Timestamp? createdAt,
+    $3.ResourceId? icon,
     $core.Iterable<Notification>? notifications,
-    $core.Iterable<$3.Channel>? channels,
+    $core.Iterable<$4.Channel>? channels,
   }) {
     final result = create();
     if (userId != null) result.userId = userId;
@@ -1423,14 +1425,14 @@ class User extends $pb.GeneratedMessage {
     ..aOS(4, _omitFieldNames ? '' : 'password')
     ..aE<UserRole>(5, _omitFieldNames ? '' : 'role',
         enumValues: UserRole.values)
-    ..aOM<$1.Timestamp>(6, _omitFieldNames ? '' : 'createdAt',
-        subBuilder: $1.Timestamp.create)
-    ..aOM<$2.ResourceId>(7, _omitFieldNames ? '' : 'icon',
-        subBuilder: $2.ResourceId.create)
+    ..aOM<$2.Timestamp>(6, _omitFieldNames ? '' : 'createdAt',
+        subBuilder: $2.Timestamp.create)
+    ..aOM<$3.ResourceId>(7, _omitFieldNames ? '' : 'icon',
+        subBuilder: $3.ResourceId.create)
     ..pPM<Notification>(8, _omitFieldNames ? '' : 'notifications',
         subBuilder: Notification.create)
-    ..pPM<$3.Channel>(9, _omitFieldNames ? '' : 'channels',
-        subBuilder: $3.Channel.create)
+    ..pPM<$4.Channel>(9, _omitFieldNames ? '' : 'channels',
+        subBuilder: $4.Channel.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1505,27 +1507,27 @@ class User extends $pb.GeneratedMessage {
 
   /// Timestamp when the user was created.
   @$pb.TagNumber(6)
-  $1.Timestamp get createdAt => $_getN(5);
+  $2.Timestamp get createdAt => $_getN(5);
   @$pb.TagNumber(6)
-  set createdAt($1.Timestamp value) => $_setField(6, value);
+  set createdAt($2.Timestamp value) => $_setField(6, value);
   @$pb.TagNumber(6)
   $core.bool hasCreatedAt() => $_has(5);
   @$pb.TagNumber(6)
   void clearCreatedAt() => $_clearField(6);
   @$pb.TagNumber(6)
-  $1.Timestamp ensureCreatedAt() => $_ensure(5);
+  $2.Timestamp ensureCreatedAt() => $_ensure(5);
 
   /// Icon/Avatar of the user.
   @$pb.TagNumber(7)
-  $2.ResourceId get icon => $_getN(6);
+  $3.ResourceId get icon => $_getN(6);
   @$pb.TagNumber(7)
-  set icon($2.ResourceId value) => $_setField(7, value);
+  set icon($3.ResourceId value) => $_setField(7, value);
   @$pb.TagNumber(7)
   $core.bool hasIcon() => $_has(6);
   @$pb.TagNumber(7)
   void clearIcon() => $_clearField(7);
   @$pb.TagNumber(7)
-  $2.ResourceId ensureIcon() => $_ensure(6);
+  $3.ResourceId ensureIcon() => $_ensure(6);
 
   /// Notifications of the user.
   @$pb.TagNumber(8)
@@ -1533,7 +1535,7 @@ class User extends $pb.GeneratedMessage {
 
   /// Channels the User is in
   @$pb.TagNumber(9)
-  $pb.PbList<$3.Channel> get channels => $_getList(8);
+  $pb.PbList<$4.Channel> get channels => $_getList(8);
 }
 
 /// User profile.
@@ -1544,8 +1546,8 @@ class UserProfile extends $pb.GeneratedMessage {
     $core.String? userId,
     $core.String? username,
     UserRole? role,
-    $1.Timestamp? createdAt,
-    $2.ResourceId? icon,
+    $2.Timestamp? createdAt,
+    $3.ResourceId? icon,
   }) {
     final result = create();
     if (userId != null) result.userId = userId;
@@ -1573,10 +1575,10 @@ class UserProfile extends $pb.GeneratedMessage {
     ..aOS(2, _omitFieldNames ? '' : 'username')
     ..aE<UserRole>(3, _omitFieldNames ? '' : 'role',
         enumValues: UserRole.values)
-    ..aOM<$1.Timestamp>(4, _omitFieldNames ? '' : 'createdAt',
-        subBuilder: $1.Timestamp.create)
-    ..aOM<$2.ResourceId>(5, _omitFieldNames ? '' : 'icon',
-        subBuilder: $2.ResourceId.create)
+    ..aOM<$2.Timestamp>(4, _omitFieldNames ? '' : 'createdAt',
+        subBuilder: $2.Timestamp.create)
+    ..aOM<$3.ResourceId>(5, _omitFieldNames ? '' : 'icon',
+        subBuilder: $3.ResourceId.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1630,27 +1632,27 @@ class UserProfile extends $pb.GeneratedMessage {
 
   /// Timestamp when the user was created.
   @$pb.TagNumber(4)
-  $1.Timestamp get createdAt => $_getN(3);
+  $2.Timestamp get createdAt => $_getN(3);
   @$pb.TagNumber(4)
-  set createdAt($1.Timestamp value) => $_setField(4, value);
+  set createdAt($2.Timestamp value) => $_setField(4, value);
   @$pb.TagNumber(4)
   $core.bool hasCreatedAt() => $_has(3);
   @$pb.TagNumber(4)
   void clearCreatedAt() => $_clearField(4);
   @$pb.TagNumber(4)
-  $1.Timestamp ensureCreatedAt() => $_ensure(3);
+  $2.Timestamp ensureCreatedAt() => $_ensure(3);
 
   /// Icon/Avatar of the user.
   @$pb.TagNumber(5)
-  $2.ResourceId get icon => $_getN(4);
+  $3.ResourceId get icon => $_getN(4);
   @$pb.TagNumber(5)
-  set icon($2.ResourceId value) => $_setField(5, value);
+  set icon($3.ResourceId value) => $_setField(5, value);
   @$pb.TagNumber(5)
   $core.bool hasIcon() => $_has(4);
   @$pb.TagNumber(5)
   void clearIcon() => $_clearField(5);
   @$pb.TagNumber(5)
-  $2.ResourceId ensureIcon() => $_ensure(4);
+  $3.ResourceId ensureIcon() => $_ensure(4);
 }
 
 enum Notification_Notification { invite, message, notSet }
@@ -1659,7 +1661,7 @@ enum Notification_Notification { invite, message, notSet }
 class Notification extends $pb.GeneratedMessage {
   factory Notification({
     $core.String? notificationId,
-    $1.Timestamp? timestamp,
+    $2.Timestamp? timestamp,
     InviteNotification? invite,
     MessageNotification? message,
   }) {
@@ -1692,8 +1694,8 @@ class Notification extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..oo(0, [3, 4])
     ..aOS(1, _omitFieldNames ? '' : 'notificationId')
-    ..aOM<$1.Timestamp>(2, _omitFieldNames ? '' : 'timestamp',
-        subBuilder: $1.Timestamp.create)
+    ..aOM<$2.Timestamp>(2, _omitFieldNames ? '' : 'timestamp',
+        subBuilder: $2.Timestamp.create)
     ..aOM<InviteNotification>(3, _omitFieldNames ? '' : 'invite',
         subBuilder: InviteNotification.create)
     ..aOM<MessageNotification>(4, _omitFieldNames ? '' : 'message',
@@ -1739,15 +1741,15 @@ class Notification extends $pb.GeneratedMessage {
 
   /// Timestamp of the notification.
   @$pb.TagNumber(2)
-  $1.Timestamp get timestamp => $_getN(1);
+  $2.Timestamp get timestamp => $_getN(1);
   @$pb.TagNumber(2)
-  set timestamp($1.Timestamp value) => $_setField(2, value);
+  set timestamp($2.Timestamp value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasTimestamp() => $_has(1);
   @$pb.TagNumber(2)
   void clearTimestamp() => $_clearField(2);
   @$pb.TagNumber(2)
-  $1.Timestamp ensureTimestamp() => $_ensure(1);
+  $2.Timestamp ensureTimestamp() => $_ensure(1);
 
   /// The user got invited to a user chat.
   @$pb.TagNumber(3)
@@ -1848,7 +1850,7 @@ class MessageNotification extends $pb.GeneratedMessage {
   factory MessageNotification({
     $core.String? channelId,
     $core.String? senderId,
-    $3.Message? message,
+    $4.Message? message,
   }) {
     final result = create();
     if (channelId != null) result.channelId = channelId;
@@ -1872,8 +1874,8 @@ class MessageNotification extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'channelId')
     ..aOS(2, _omitFieldNames ? '' : 'senderId')
-    ..aOM<$3.Message>(3, _omitFieldNames ? '' : 'message',
-        subBuilder: $3.Message.create)
+    ..aOM<$4.Message>(3, _omitFieldNames ? '' : 'message',
+        subBuilder: $4.Message.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1917,15 +1919,15 @@ class MessageNotification extends $pb.GeneratedMessage {
 
   /// The message.
   @$pb.TagNumber(3)
-  $3.Message get message => $_getN(2);
+  $4.Message get message => $_getN(2);
   @$pb.TagNumber(3)
-  set message($3.Message value) => $_setField(3, value);
+  set message($4.Message value) => $_setField(3, value);
   @$pb.TagNumber(3)
   $core.bool hasMessage() => $_has(2);
   @$pb.TagNumber(3)
   void clearMessage() => $_clearField(3);
   @$pb.TagNumber(3)
-  $3.Message ensureMessage() => $_ensure(2);
+  $4.Message ensureMessage() => $_ensure(2);
 }
 
 const $core.bool _omitFieldNames =

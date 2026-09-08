@@ -484,7 +484,7 @@ const User$json = {
       '3': 6,
       '4': 1,
       '5': 11,
-      '6': '.common.v1.Timestamp',
+      '6': '.google.protobuf.Timestamp',
       '10': 'createdAt'
     },
     {
@@ -518,11 +518,11 @@ const User$json = {
 final $typed_data.Uint8List userDescriptor = $convert.base64Decode(
     'CgRVc2VyEhcKB3VzZXJfaWQYASABKAlSBnVzZXJJZBIaCgh1c2VybmFtZRgCIAEoCVIIdXNlcm'
     '5hbWUSFAoFZW1haWwYAyABKAlSBWVtYWlsEhoKCHBhc3N3b3JkGAQgASgJUghwYXNzd29yZBIl'
-    'CgRyb2xlGAUgASgOMhEudXNlci52MS5Vc2VyUm9sZVIEcm9sZRIzCgpjcmVhdGVkX2F0GAYgAS'
-    'gLMhQuY29tbW9uLnYxLlRpbWVzdGFtcFIJY3JlYXRlZEF0EisKBGljb24YByABKAsyFy5yZXNv'
-    'dXJjZS52MS5SZXNvdXJjZUlkUgRpY29uEjsKDW5vdGlmaWNhdGlvbnMYCCADKAsyFS51c2VyLn'
-    'YxLk5vdGlmaWNhdGlvblINbm90aWZpY2F0aW9ucxIsCghjaGFubmVscxgJIAMoCzIQLmNoYXQu'
-    'djEuQ2hhbm5lbFIIY2hhbm5lbHM=');
+    'CgRyb2xlGAUgASgOMhEudXNlci52MS5Vc2VyUm9sZVIEcm9sZRI5CgpjcmVhdGVkX2F0GAYgAS'
+    'gLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJY3JlYXRlZEF0EisKBGljb24YByABKAsy'
+    'Fy5yZXNvdXJjZS52MS5SZXNvdXJjZUlkUgRpY29uEjsKDW5vdGlmaWNhdGlvbnMYCCADKAsyFS'
+    '51c2VyLnYxLk5vdGlmaWNhdGlvblINbm90aWZpY2F0aW9ucxIsCghjaGFubmVscxgJIAMoCzIQ'
+    'LmNoYXQudjEuQ2hhbm5lbFIIY2hhbm5lbHM=');
 
 @$core.Deprecated('Use userProfileDescriptor instead')
 const UserProfile$json = {
@@ -543,7 +543,7 @@ const UserProfile$json = {
       '3': 4,
       '4': 1,
       '5': 11,
-      '6': '.common.v1.Timestamp',
+      '6': '.google.protobuf.Timestamp',
       '10': 'createdAt'
     },
     {
@@ -560,9 +560,9 @@ const UserProfile$json = {
 /// Descriptor for `UserProfile`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List userProfileDescriptor = $convert.base64Decode(
     'CgtVc2VyUHJvZmlsZRIXCgd1c2VyX2lkGAEgASgJUgZ1c2VySWQSGgoIdXNlcm5hbWUYAiABKA'
-    'lSCHVzZXJuYW1lEiUKBHJvbGUYAyABKA4yES51c2VyLnYxLlVzZXJSb2xlUgRyb2xlEjMKCmNy'
-    'ZWF0ZWRfYXQYBCABKAsyFC5jb21tb24udjEuVGltZXN0YW1wUgljcmVhdGVkQXQSKwoEaWNvbh'
-    'gFIAEoCzIXLnJlc291cmNlLnYxLlJlc291cmNlSWRSBGljb24=');
+    'lSCHVzZXJuYW1lEiUKBHJvbGUYAyABKA4yES51c2VyLnYxLlVzZXJSb2xlUgRyb2xlEjkKCmNy'
+    'ZWF0ZWRfYXQYBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgljcmVhdGVkQXQSKw'
+    'oEaWNvbhgFIAEoCzIXLnJlc291cmNlLnYxLlJlc291cmNlSWRSBGljb24=');
 
 @$core.Deprecated('Use notificationDescriptor instead')
 const Notification$json = {
@@ -574,7 +574,7 @@ const Notification$json = {
       '3': 2,
       '4': 1,
       '5': 11,
-      '6': '.common.v1.Timestamp',
+      '6': '.google.protobuf.Timestamp',
       '10': 'timestamp'
     },
     {
@@ -604,10 +604,10 @@ const Notification$json = {
 /// Descriptor for `Notification`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List notificationDescriptor = $convert.base64Decode(
     'CgxOb3RpZmljYXRpb24SJwoPbm90aWZpY2F0aW9uX2lkGAEgASgJUg5ub3RpZmljYXRpb25JZB'
-    'IyCgl0aW1lc3RhbXAYAiABKAsyFC5jb21tb24udjEuVGltZXN0YW1wUgl0aW1lc3RhbXASNQoG'
-    'aW52aXRlGAMgASgLMhsudXNlci52MS5JbnZpdGVOb3RpZmljYXRpb25IAFIGaW52aXRlEjgKB2'
-    '1lc3NhZ2UYBCABKAsyHC51c2VyLnYxLk1lc3NhZ2VOb3RpZmljYXRpb25IAFIHbWVzc2FnZUIO'
-    'Cgxub3RpZmljYXRpb24=');
+    'I4Cgl0aW1lc3RhbXAYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgl0aW1lc3Rh'
+    'bXASNQoGaW52aXRlGAMgASgLMhsudXNlci52MS5JbnZpdGVOb3RpZmljYXRpb25IAFIGaW52aX'
+    'RlEjgKB21lc3NhZ2UYBCABKAsyHC51c2VyLnYxLk1lc3NhZ2VOb3RpZmljYXRpb25IAFIHbWVz'
+    'c2FnZUIOCgxub3RpZmljYXRpb24=');
 
 @$core.Deprecated('Use inviteNotificationDescriptor instead')
 const InviteNotification$json = {

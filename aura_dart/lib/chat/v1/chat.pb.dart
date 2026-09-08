@@ -13,9 +13,11 @@
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
+import 'package:protobuf/well_known_types/google/protobuf/timestamp.pb.dart'
+    as $2;
 
 import '../../common/v1/common.pb.dart' as $1;
-import '../../resource/v1/resource.pb.dart' as $2;
+import '../../resource/v1/resource.pb.dart' as $3;
 import 'chat.pbenum.dart';
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
@@ -206,7 +208,7 @@ class ReadMessagesRequest extends $pb.GeneratedMessage {
   factory ReadMessagesRequest({
     $core.String? channelId,
     $core.int? limit,
-    $1.Timestamp? startTime,
+    $2.Timestamp? startTime,
   }) {
     final result = create();
     if (channelId != null) result.channelId = channelId;
@@ -230,8 +232,8 @@ class ReadMessagesRequest extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'channelId')
     ..aI(2, _omitFieldNames ? '' : 'limit', fieldType: $pb.PbFieldType.OU3)
-    ..aOM<$1.Timestamp>(3, _omitFieldNames ? '' : 'startTime',
-        subBuilder: $1.Timestamp.create)
+    ..aOM<$2.Timestamp>(3, _omitFieldNames ? '' : 'startTime',
+        subBuilder: $2.Timestamp.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -275,15 +277,15 @@ class ReadMessagesRequest extends $pb.GeneratedMessage {
 
   /// The timestamp to start reading from.
   @$pb.TagNumber(3)
-  $1.Timestamp get startTime => $_getN(2);
+  $2.Timestamp get startTime => $_getN(2);
   @$pb.TagNumber(3)
-  set startTime($1.Timestamp value) => $_setField(3, value);
+  set startTime($2.Timestamp value) => $_setField(3, value);
   @$pb.TagNumber(3)
   $core.bool hasStartTime() => $_has(2);
   @$pb.TagNumber(3)
   void clearStartTime() => $_clearField(3);
   @$pb.TagNumber(3)
-  $1.Timestamp ensureStartTime() => $_ensure(2);
+  $2.Timestamp ensureStartTime() => $_ensure(2);
 }
 
 class ReadMessagesResponse extends $pb.GeneratedMessage {
@@ -738,7 +740,7 @@ class Message extends $pb.GeneratedMessage {
     $core.String? messageId,
     $core.String? channelId,
     $core.String? userId,
-    $1.Timestamp? createdAt,
+    $2.Timestamp? createdAt,
     Content? content,
   }) {
     final result = create();
@@ -766,8 +768,8 @@ class Message extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'messageId')
     ..aOS(2, _omitFieldNames ? '' : 'channelId')
     ..aOS(3, _omitFieldNames ? '' : 'userId')
-    ..aOM<$1.Timestamp>(4, _omitFieldNames ? '' : 'createdAt',
-        subBuilder: $1.Timestamp.create)
+    ..aOM<$2.Timestamp>(4, _omitFieldNames ? '' : 'createdAt',
+        subBuilder: $2.Timestamp.create)
     ..aOM<Content>(5, _omitFieldNames ? '' : 'content',
         subBuilder: Content.create)
     ..hasRequiredFields = false;
@@ -822,15 +824,15 @@ class Message extends $pb.GeneratedMessage {
 
   /// The timestamp when the message was created.
   @$pb.TagNumber(4)
-  $1.Timestamp get createdAt => $_getN(3);
+  $2.Timestamp get createdAt => $_getN(3);
   @$pb.TagNumber(4)
-  set createdAt($1.Timestamp value) => $_setField(4, value);
+  set createdAt($2.Timestamp value) => $_setField(4, value);
   @$pb.TagNumber(4)
   $core.bool hasCreatedAt() => $_has(3);
   @$pb.TagNumber(4)
   void clearCreatedAt() => $_clearField(4);
   @$pb.TagNumber(4)
-  $1.Timestamp ensureCreatedAt() => $_ensure(3);
+  $2.Timestamp ensureCreatedAt() => $_ensure(3);
 
   /// The content of the message.
   @$pb.TagNumber(5)
@@ -851,7 +853,7 @@ enum Content_Content { text, resource, notSet }
 class Content extends $pb.GeneratedMessage {
   factory Content({
     $core.String? text,
-    $2.ResourceId? resource,
+    $3.ResourceId? resource,
   }) {
     final result = create();
     if (text != null) result.text = text;
@@ -879,8 +881,8 @@ class Content extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..oo(0, [2, 3])
     ..aOS(2, _omitFieldNames ? '' : 'text')
-    ..aOM<$2.ResourceId>(3, _omitFieldNames ? '' : 'resource',
-        subBuilder: $2.ResourceId.create)
+    ..aOM<$3.ResourceId>(3, _omitFieldNames ? '' : 'resource',
+        subBuilder: $3.ResourceId.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -920,15 +922,15 @@ class Content extends $pb.GeneratedMessage {
 
   /// The resource content of the message.
   @$pb.TagNumber(3)
-  $2.ResourceId get resource => $_getN(1);
+  $3.ResourceId get resource => $_getN(1);
   @$pb.TagNumber(3)
-  set resource($2.ResourceId value) => $_setField(3, value);
+  set resource($3.ResourceId value) => $_setField(3, value);
   @$pb.TagNumber(3)
   $core.bool hasResource() => $_has(1);
   @$pb.TagNumber(3)
   void clearResource() => $_clearField(3);
   @$pb.TagNumber(3)
-  $2.ResourceId ensureResource() => $_ensure(1);
+  $3.ResourceId ensureResource() => $_ensure(1);
 }
 
 const $core.bool _omitFieldNames =

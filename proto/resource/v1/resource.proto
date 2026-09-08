@@ -3,6 +3,7 @@ syntax = "proto3";
 package resource.v1;
 
 import "common/v1/common.proto";
+import "google/protobuf/timestamp.proto";
 
 // Service for managing resources.
 service ResourceService {
@@ -89,7 +90,7 @@ message ResourceMeta {
   // The size of the resource in bytes.
   int32 size = 1;
   // The last time the resource changed.
-  common.v1.Timestamp timestamp = 2;
+  google.protobuf.Timestamp timestamp = 2;
   // Additional metadata for the resource.
   map<string, string> metadata = 3;
 }

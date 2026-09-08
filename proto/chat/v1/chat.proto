@@ -3,6 +3,7 @@ syntax = "proto3";
 package chat.v1;
 
 import "common/v1/common.proto";
+import "google/protobuf/timestamp.proto";
 import "resource/v1/resource.proto";
 
 // The chat service provides methods for sending messages.
@@ -56,7 +57,7 @@ message ReadMessagesRequest {
   // The maximum number of messages to load.
   uint32 limit = 2;
   // The timestamp to start reading from.
-  common.v1.Timestamp start_time = 3;
+  google.protobuf.Timestamp start_time = 3;
 }
 
 message ReadMessagesResponse {
@@ -126,7 +127,7 @@ message Message {
   // The ID of the user who sent the message.
   string user_id = 3;
   // The timestamp when the message was created.
-  common.v1.Timestamp created_at = 4;
+  google.protobuf.Timestamp created_at = 4;
   // The content of the message.
   Content content = 5;
 }

@@ -4,6 +4,7 @@ package user.v1;
 
 import "chat/v1/chat.proto";
 import "common/v1/common.proto";
+import "google/protobuf/timestamp.proto";
 import "resource/v1/resource.proto";
 
 // Service for managing users.
@@ -219,7 +220,7 @@ message User {
   // Role of the user.
   UserRole role = 5;
   // Timestamp when the user was created.
-  common.v1.Timestamp created_at = 6;
+  google.protobuf.Timestamp created_at = 6;
   // Icon/Avatar of the user.
   resource.v1.ResourceId icon = 7;
   // Notifications of the user.
@@ -239,7 +240,7 @@ message UserProfile {
   // Role of the user.
   UserRole role = 3;
   // Timestamp when the user was created.
-  common.v1.Timestamp created_at = 4;
+  google.protobuf.Timestamp created_at = 4;
   // Icon/Avatar of the user.
   resource.v1.ResourceId icon = 5;
 }
@@ -259,7 +260,7 @@ message Notification {
   // ID of the notification.
   string notification_id = 1;
   // Timestamp of the notification.
-  common.v1.Timestamp timestamp = 2;
+  google.protobuf.Timestamp timestamp = 2;
   // The type of the notification.
   oneof notification {
     // The user got invited to a user chat.

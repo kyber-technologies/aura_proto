@@ -13,6 +13,8 @@
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
+import 'package:protobuf/well_known_types/google/protobuf/timestamp.pb.dart'
+    as $2;
 
 import '../../common/v1/common.pb.dart' as $1;
 
@@ -575,7 +577,7 @@ class ResourceId extends $pb.GeneratedMessage {
 class ResourceMeta extends $pb.GeneratedMessage {
   factory ResourceMeta({
     $core.int? size,
-    $1.Timestamp? timestamp,
+    $2.Timestamp? timestamp,
     $core.Iterable<$core.MapEntry<$core.String, $core.String>>? metadata,
   }) {
     final result = create();
@@ -599,8 +601,8 @@ class ResourceMeta extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
     ..aI(1, _omitFieldNames ? '' : 'size')
-    ..aOM<$1.Timestamp>(2, _omitFieldNames ? '' : 'timestamp',
-        subBuilder: $1.Timestamp.create)
+    ..aOM<$2.Timestamp>(2, _omitFieldNames ? '' : 'timestamp',
+        subBuilder: $2.Timestamp.create)
     ..m<$core.String, $core.String>(3, _omitFieldNames ? '' : 'metadata',
         entryClassName: 'ResourceMeta.MetadataEntry',
         keyFieldType: $pb.PbFieldType.OS,
@@ -639,15 +641,15 @@ class ResourceMeta extends $pb.GeneratedMessage {
 
   /// The last time the resource changed.
   @$pb.TagNumber(2)
-  $1.Timestamp get timestamp => $_getN(1);
+  $2.Timestamp get timestamp => $_getN(1);
   @$pb.TagNumber(2)
-  set timestamp($1.Timestamp value) => $_setField(2, value);
+  set timestamp($2.Timestamp value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasTimestamp() => $_has(1);
   @$pb.TagNumber(2)
   void clearTimestamp() => $_clearField(2);
   @$pb.TagNumber(2)
-  $1.Timestamp ensureTimestamp() => $_ensure(1);
+  $2.Timestamp ensureTimestamp() => $_ensure(1);
 
   /// Additional metadata for the resource.
   @$pb.TagNumber(3)

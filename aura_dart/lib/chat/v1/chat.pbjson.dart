@@ -119,7 +119,7 @@ const ReadMessagesRequest$json = {
       '3': 3,
       '4': 1,
       '5': 11,
-      '6': '.common.v1.Timestamp',
+      '6': '.google.protobuf.Timestamp',
       '10': 'startTime'
     },
   ],
@@ -128,8 +128,8 @@ const ReadMessagesRequest$json = {
 /// Descriptor for `ReadMessagesRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List readMessagesRequestDescriptor = $convert.base64Decode(
     'ChNSZWFkTWVzc2FnZXNSZXF1ZXN0Eh0KCmNoYW5uZWxfaWQYASABKAlSCWNoYW5uZWxJZBIUCg'
-    'VsaW1pdBgCIAEoDVIFbGltaXQSMwoKc3RhcnRfdGltZRgDIAEoCzIULmNvbW1vbi52MS5UaW1l'
-    'c3RhbXBSCXN0YXJ0VGltZQ==');
+    'VsaW1pdBgCIAEoDVIFbGltaXQSOQoKc3RhcnRfdGltZRgDIAEoCzIaLmdvb2dsZS5wcm90b2J1'
+    'Zi5UaW1lc3RhbXBSCXN0YXJ0VGltZQ==');
 
 @$core.Deprecated('Use readMessagesResponseDescriptor instead')
 const ReadMessagesResponse$json = {
@@ -313,7 +313,7 @@ const Message$json = {
       '3': 4,
       '4': 1,
       '5': 11,
-      '6': '.common.v1.Timestamp',
+      '6': '.google.protobuf.Timestamp',
       '10': 'createdAt'
     },
     {
@@ -330,9 +330,9 @@ const Message$json = {
 /// Descriptor for `Message`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List messageDescriptor = $convert.base64Decode(
     'CgdNZXNzYWdlEh0KCm1lc3NhZ2VfaWQYASABKAlSCW1lc3NhZ2VJZBIdCgpjaGFubmVsX2lkGA'
-    'IgASgJUgljaGFubmVsSWQSFwoHdXNlcl9pZBgDIAEoCVIGdXNlcklkEjMKCmNyZWF0ZWRfYXQY'
-    'BCABKAsyFC5jb21tb24udjEuVGltZXN0YW1wUgljcmVhdGVkQXQSKgoHY29udGVudBgFIAEoCz'
-    'IQLmNoYXQudjEuQ29udGVudFIHY29udGVudA==');
+    'IgASgJUgljaGFubmVsSWQSFwoHdXNlcl9pZBgDIAEoCVIGdXNlcklkEjkKCmNyZWF0ZWRfYXQY'
+    'BCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgljcmVhdGVkQXQSKgoHY29udGVudB'
+    'gFIAEoCzIQLmNoYXQudjEuQ29udGVudFIHY29udGVudA==');
 
 @$core.Deprecated('Use contentDescriptor instead')
 const Content$json = {
