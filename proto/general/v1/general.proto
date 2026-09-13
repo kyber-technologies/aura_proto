@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package general.v1;
 
-import "google/protobuf/descriptor.proto";
-
 // Service for general server mechanics.
 service GeneralService {
   // Get the server configuration.
@@ -75,5 +73,14 @@ message GetServicesRequest {
 //
 // Only available in testing mode.
 message GetServicesResponse {
-  repeated google.protobuf.ServiceDescriptorProto services = 1;
+  // A list of available services.
+  repeated ServiceDescriptor services = 1;
+}
+
+// A descriptor for a service.
+message ServiceDescriptor {
+  // The name of the service.
+  string name = 1;
+  // The names of the methods.
+  repeated string methods = 2;
 }

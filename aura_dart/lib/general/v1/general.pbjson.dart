@@ -106,7 +106,7 @@ const GetServicesResponse$json = {
       '3': 1,
       '4': 3,
       '5': 11,
-      '6': '.google.protobuf.ServiceDescriptorProto',
+      '6': '.general.v1.ServiceDescriptor',
       '10': 'services'
     },
   ],
@@ -114,5 +114,19 @@ const GetServicesResponse$json = {
 
 /// Descriptor for `GetServicesResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getServicesResponseDescriptor = $convert.base64Decode(
-    'ChNHZXRTZXJ2aWNlc1Jlc3BvbnNlEkMKCHNlcnZpY2VzGAEgAygLMicuZ29vZ2xlLnByb3RvYn'
-    'VmLlNlcnZpY2VEZXNjcmlwdG9yUHJvdG9SCHNlcnZpY2Vz');
+    'ChNHZXRTZXJ2aWNlc1Jlc3BvbnNlEjkKCHNlcnZpY2VzGAEgAygLMh0uZ2VuZXJhbC52MS5TZX'
+    'J2aWNlRGVzY3JpcHRvclIIc2VydmljZXM=');
+
+@$core.Deprecated('Use serviceDescriptorDescriptor instead')
+const ServiceDescriptor$json = {
+  '1': 'ServiceDescriptor',
+  '2': [
+    {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
+    {'1': 'methods', '3': 2, '4': 3, '5': 9, '10': 'methods'},
+  ],
+};
+
+/// Descriptor for `ServiceDescriptor`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List serviceDescriptorDescriptor = $convert.base64Decode(
+    'ChFTZXJ2aWNlRGVzY3JpcHRvchISCgRuYW1lGAEgASgJUgRuYW1lEhgKB21ldGhvZHMYAiADKA'
+    'lSB21ldGhvZHM=');

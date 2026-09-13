@@ -14,8 +14,6 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/descriptor.pb.dart' as $1;
-
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 /// A request to get the server configuration.
@@ -372,7 +370,7 @@ class GetServicesRequest extends $pb.GeneratedMessage {
 /// Only available in testing mode.
 class GetServicesResponse extends $pb.GeneratedMessage {
   factory GetServicesResponse({
-    $core.Iterable<$1.ServiceDescriptorProto>? services,
+    $core.Iterable<ServiceDescriptor>? services,
   }) {
     final result = create();
     if (services != null) result.services.addAll(services);
@@ -392,8 +390,9 @@ class GetServicesResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'GetServicesResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'general.v1'),
       createEmptyInstance: create)
-    ..pPM<$1.ServiceDescriptorProto>(1, _omitFieldNames ? '' : 'services',
-        subBuilder: $1.ServiceDescriptorProto.create);
+    ..pPM<ServiceDescriptor>(1, _omitFieldNames ? '' : 'services',
+        subBuilder: ServiceDescriptor.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetServicesResponse clone() => deepCopy();
@@ -414,8 +413,72 @@ class GetServicesResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GetServicesResponse>(create);
   static GetServicesResponse? _defaultInstance;
 
+  /// A list of available services.
   @$pb.TagNumber(1)
-  $pb.PbList<$1.ServiceDescriptorProto> get services => $_getList(0);
+  $pb.PbList<ServiceDescriptor> get services => $_getList(0);
+}
+
+/// A descriptor for a service.
+class ServiceDescriptor extends $pb.GeneratedMessage {
+  factory ServiceDescriptor({
+    $core.String? name,
+    $core.Iterable<$core.String>? methods,
+  }) {
+    final result = create();
+    if (name != null) result.name = name;
+    if (methods != null) result.methods.addAll(methods);
+    return result;
+  }
+
+  ServiceDescriptor._();
+
+  factory ServiceDescriptor.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ServiceDescriptor.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ServiceDescriptor',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'general.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..pPS(2, _omitFieldNames ? '' : 'methods')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ServiceDescriptor clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ServiceDescriptor copyWith(void Function(ServiceDescriptor) updates) =>
+      super.copyWith((message) => updates(message as ServiceDescriptor))
+          as ServiceDescriptor;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ServiceDescriptor create() => ServiceDescriptor._();
+  @$core.override
+  ServiceDescriptor createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ServiceDescriptor getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ServiceDescriptor>(create);
+  static ServiceDescriptor? _defaultInstance;
+
+  /// The name of the service.
+  @$pb.TagNumber(1)
+  $core.String get name => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set name($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasName() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearName() => $_clearField(1);
+
+  /// The names of the methods.
+  @$pb.TagNumber(2)
+  $pb.PbList<$core.String> get methods => $_getList(1);
 }
 
 const $core.bool _omitFieldNames =

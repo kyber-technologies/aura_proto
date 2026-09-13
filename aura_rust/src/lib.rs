@@ -1,4 +1,3 @@
-pub use prost::Message;
 pub use prost_types as types;
 
 pub const FILE_DESCRIPTOR_SET: &[u8] = tonic::include_file_descriptor_set!("descriptor");
