@@ -87,3 +87,32 @@ const GetEmailTokenResponse$json = {
 final $typed_data.Uint8List getEmailTokenResponseDescriptor =
     $convert.base64Decode(
         'ChVHZXRFbWFpbFRva2VuUmVzcG9uc2USFAoFdG9rZW4YASABKAlSBXRva2Vu');
+
+@$core.Deprecated('Use getServicesRequestDescriptor instead')
+const GetServicesRequest$json = {
+  '1': 'GetServicesRequest',
+};
+
+/// Descriptor for `GetServicesRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getServicesRequestDescriptor =
+    $convert.base64Decode('ChJHZXRTZXJ2aWNlc1JlcXVlc3Q=');
+
+@$core.Deprecated('Use getServicesResponseDescriptor instead')
+const GetServicesResponse$json = {
+  '1': 'GetServicesResponse',
+  '2': [
+    {
+      '1': 'services',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.google.protobuf.ServiceDescriptorProto',
+      '10': 'services'
+    },
+  ],
+};
+
+/// Descriptor for `GetServicesResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getServicesResponseDescriptor = $convert.base64Decode(
+    'ChNHZXRTZXJ2aWNlc1Jlc3BvbnNlEkMKCHNlcnZpY2VzGAEgAygLMicuZ29vZ2xlLnByb3RvYn'
+    'VmLlNlcnZpY2VEZXNjcmlwdG9yUHJvdG9SCHNlcnZpY2Vz');

@@ -61,6 +61,16 @@ class GeneralServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getEmailToken, request, options: options);
   }
 
+  /// Get a list of available services.
+  ///
+  /// Only available in testing mode.
+  $grpc.ResponseFuture<$0.GetServicesResponse> getServices(
+    $0.GetServicesRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$getServices, request, options: options);
+  }
+
   // method descriptors
 
   static final _$getConfig =
@@ -78,6 +88,11 @@ class GeneralServiceClient extends $grpc.Client {
           '/general.v1.GeneralService/GetEmailToken',
           ($0.GetEmailTokenRequest value) => value.writeToBuffer(),
           $0.GetEmailTokenResponse.fromBuffer);
+  static final _$getServices =
+      $grpc.ClientMethod<$0.GetServicesRequest, $0.GetServicesResponse>(
+          '/general.v1.GeneralService/GetServices',
+          ($0.GetServicesRequest value) => value.writeToBuffer(),
+          $0.GetServicesResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('general.v1.GeneralService')
@@ -108,6 +123,15 @@ abstract class GeneralServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.GetEmailTokenRequest.fromBuffer(value),
             ($0.GetEmailTokenResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.GetServicesRequest, $0.GetServicesResponse>(
+            'GetServices',
+            getServices_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.GetServicesRequest.fromBuffer(value),
+            ($0.GetServicesResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.GetConfigResponse> getConfig_Pre($grpc.ServiceCall $call,
@@ -134,4 +158,12 @@ abstract class GeneralServiceBase extends $grpc.Service {
 
   $async.Future<$0.GetEmailTokenResponse> getEmailToken(
       $grpc.ServiceCall call, $0.GetEmailTokenRequest request);
+
+  $async.Future<$0.GetServicesResponse> getServices_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.GetServicesRequest> $request) async {
+    return getServices($call, await $request);
+  }
+
+  $async.Future<$0.GetServicesResponse> getServices(
+      $grpc.ServiceCall call, $0.GetServicesRequest request);
 }

@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package general.v1;
 
+import "google/protobuf/descriptor.proto";
+
 // Service for general server mechanics.
 service GeneralService {
   // Get the server configuration.
@@ -16,6 +18,11 @@ service GeneralService {
   //
   // Only available in testing mode.
   rpc GetEmailToken(GetEmailTokenRequest) returns (GetEmailTokenResponse);
+
+  // Get a list of available services.
+  //
+  // Only available in testing mode.
+  rpc GetServices(GetServicesRequest) returns (GetServicesResponse);
 }
 
 // A request to get the server configuration.
@@ -56,4 +63,17 @@ message GetEmailTokenRequest {
 message GetEmailTokenResponse {
   // The email verification token.
   string token = 1;
+}
+
+// A request to get a list of available services.
+//
+// Only available in testing mode.
+message GetServicesRequest {
+}
+
+// A response from a request to get a list of available services.
+//
+// Only available in testing mode.
+message GetServicesResponse {
+  repeated google.protobuf.ServiceDescriptorProto services = 1;
 }

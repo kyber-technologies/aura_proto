@@ -14,6 +14,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../google/protobuf/descriptor.pb.dart' as $1;
+
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 /// A request to get the server configuration.
@@ -322,6 +324,98 @@ class GetEmailTokenResponse extends $pb.GeneratedMessage {
   $core.bool hasToken() => $_has(0);
   @$pb.TagNumber(1)
   void clearToken() => $_clearField(1);
+}
+
+/// A request to get a list of available services.
+///
+/// Only available in testing mode.
+class GetServicesRequest extends $pb.GeneratedMessage {
+  factory GetServicesRequest() => create();
+
+  GetServicesRequest._();
+
+  factory GetServicesRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetServicesRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetServicesRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'general.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetServicesRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetServicesRequest copyWith(void Function(GetServicesRequest) updates) =>
+      super.copyWith((message) => updates(message as GetServicesRequest))
+          as GetServicesRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetServicesRequest create() => GetServicesRequest._();
+  @$core.override
+  GetServicesRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetServicesRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetServicesRequest>(create);
+  static GetServicesRequest? _defaultInstance;
+}
+
+/// A response from a request to get a list of available services.
+///
+/// Only available in testing mode.
+class GetServicesResponse extends $pb.GeneratedMessage {
+  factory GetServicesResponse({
+    $core.Iterable<$1.ServiceDescriptorProto>? services,
+  }) {
+    final result = create();
+    if (services != null) result.services.addAll(services);
+    return result;
+  }
+
+  GetServicesResponse._();
+
+  factory GetServicesResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetServicesResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetServicesResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'general.v1'),
+      createEmptyInstance: create)
+    ..pPM<$1.ServiceDescriptorProto>(1, _omitFieldNames ? '' : 'services',
+        subBuilder: $1.ServiceDescriptorProto.create);
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetServicesResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetServicesResponse copyWith(void Function(GetServicesResponse) updates) =>
+      super.copyWith((message) => updates(message as GetServicesResponse))
+          as GetServicesResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetServicesResponse create() => GetServicesResponse._();
+  @$core.override
+  GetServicesResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetServicesResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetServicesResponse>(create);
+  static GetServicesResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $pb.PbList<$1.ServiceDescriptorProto> get services => $_getList(0);
 }
 
 const $core.bool _omitFieldNames =
