@@ -67,9 +67,9 @@ message UserExistsResponse {
 // Request message for authenticating a user.
 message AuthUserRequest {
   // User ID of the user. Required if no token is provided.
-  string user_id = 1;
+  optional string user_id = 1;
   // Password of the user. Required if no token is provided.
-  string password = 2;
+  optional string password = 2;
 }
 
 // Response message for authenticating a user.
