@@ -319,6 +319,148 @@ class DeleteChannelResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(0);
 }
 
+/// The request message for setting a user's permission in a channel.
+class SetUserPermRequest extends $pb.GeneratedMessage {
+  factory SetUserPermRequest({
+    $core.String? userId,
+    $core.String? channelId,
+    ChannelPermission? permission,
+  }) {
+    final result = create();
+    if (userId != null) result.userId = userId;
+    if (channelId != null) result.channelId = channelId;
+    if (permission != null) result.permission = permission;
+    return result;
+  }
+
+  SetUserPermRequest._();
+
+  factory SetUserPermRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory SetUserPermRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SetUserPermRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..aE<ChannelPermission>(3, _omitFieldNames ? '' : 'permission',
+        enumValues: ChannelPermission.values)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  SetUserPermRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  SetUserPermRequest copyWith(void Function(SetUserPermRequest) updates) =>
+      super.copyWith((message) => updates(message as SetUserPermRequest))
+          as SetUserPermRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SetUserPermRequest create() => SetUserPermRequest._();
+  @$core.override
+  SetUserPermRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static SetUserPermRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SetUserPermRequest>(create);
+  static SetUserPermRequest? _defaultInstance;
+
+  /// The target User ID.
+  @$pb.TagNumber(1)
+  $core.String get userId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set userId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasUserId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUserId() => $_clearField(1);
+
+  /// The ID of the channel to set the permission for.
+  @$pb.TagNumber(2)
+  $core.String get channelId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set channelId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasChannelId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearChannelId() => $_clearField(2);
+
+  /// The permission to set.
+  @$pb.TagNumber(3)
+  ChannelPermission get permission => $_getN(2);
+  @$pb.TagNumber(3)
+  set permission(ChannelPermission value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasPermission() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPermission() => $_clearField(3);
+}
+
+/// The response message for setting a user's permission in a channel.
+class SetUserPermResponse extends $pb.GeneratedMessage {
+  factory SetUserPermResponse({
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  SetUserPermResponse._();
+
+  factory SetUserPermResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory SetUserPermResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SetUserPermResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  SetUserPermResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  SetUserPermResponse copyWith(void Function(SetUserPermResponse) updates) =>
+      super.copyWith((message) => updates(message as SetUserPermResponse))
+          as SetUserPermResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SetUserPermResponse create() => SetUserPermResponse._();
+  @$core.override
+  SetUserPermResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static SetUserPermResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SetUserPermResponse>(create);
+  static SetUserPermResponse? _defaultInstance;
+
+  /// The error that occurred during the set operation, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+}
+
 /// The request message for (un)inviting a user to a channel.
 class InviteChannelRequest extends $pb.GeneratedMessage {
   factory InviteChannelRequest({

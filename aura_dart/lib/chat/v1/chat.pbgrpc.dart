@@ -53,6 +53,16 @@ class ChatServiceClient extends $grpc.Client {
     return $createUnaryCall(_$deleteChannel, request, options: options);
   }
 
+  /// Sets the user channel permission.
+  ///
+  /// Requires Authentication: Only authorized users can set user permissions.
+  $grpc.ResponseFuture<$0.SetUserPermResponse> setUserPerm(
+    $0.SetUserPermRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$setUserPerm, request, options: options);
+  }
+
   /// (Un)invite a user to a channel.
   ///
   /// Requires Authentication: Only authorized users can invite users.
@@ -105,6 +115,11 @@ class ChatServiceClient extends $grpc.Client {
           '/chat.v1.ChatService/DeleteChannel',
           ($0.DeleteChannelRequest value) => value.writeToBuffer(),
           $0.DeleteChannelResponse.fromBuffer);
+  static final _$setUserPerm =
+      $grpc.ClientMethod<$0.SetUserPermRequest, $0.SetUserPermResponse>(
+          '/chat.v1.ChatService/SetUserPerm',
+          ($0.SetUserPermRequest value) => value.writeToBuffer(),
+          $0.SetUserPermResponse.fromBuffer);
   static final _$inviteChannel =
       $grpc.ClientMethod<$0.InviteChannelRequest, $0.InviteChannelResponse>(
           '/chat.v1.ChatService/InviteChannel',
@@ -150,6 +165,15 @@ abstract class ChatServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.DeleteChannelRequest.fromBuffer(value),
             ($0.DeleteChannelResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.SetUserPermRequest, $0.SetUserPermResponse>(
+            'SetUserPerm',
+            setUserPerm_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.SetUserPermRequest.fromBuffer(value),
+            ($0.SetUserPermResponse value) => value.writeToBuffer()));
     $addMethod(
         $grpc.ServiceMethod<$0.InviteChannelRequest, $0.InviteChannelResponse>(
             'InviteChannel',
@@ -205,6 +229,14 @@ abstract class ChatServiceBase extends $grpc.Service {
 
   $async.Future<$0.DeleteChannelResponse> deleteChannel(
       $grpc.ServiceCall call, $0.DeleteChannelRequest request);
+
+  $async.Future<$0.SetUserPermResponse> setUserPerm_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.SetUserPermRequest> $request) async {
+    return setUserPerm($call, await $request);
+  }
+
+  $async.Future<$0.SetUserPermResponse> setUserPerm(
+      $grpc.ServiceCall call, $0.SetUserPermRequest request);
 
   $async.Future<$0.InviteChannelResponse> inviteChannel_Pre(
       $grpc.ServiceCall $call,

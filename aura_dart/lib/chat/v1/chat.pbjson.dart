@@ -145,6 +145,54 @@ final $typed_data.Uint8List deleteChannelResponseDescriptor = $convert.base64Dec
     'ChVEZWxldGVDaGFubmVsUmVzcG9uc2USKwoFZXJyb3IYASABKAsyEC5jb21tb24udjEuRXJyb3'
     'JIAFIFZXJyb3KIAQFCCAoGX2Vycm9y');
 
+@$core.Deprecated('Use setUserPermRequestDescriptor instead')
+const SetUserPermRequest$json = {
+  '1': 'SetUserPermRequest',
+  '2': [
+    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
+    {'1': 'channel_id', '3': 2, '4': 1, '5': 9, '10': 'channelId'},
+    {
+      '1': 'permission',
+      '3': 3,
+      '4': 1,
+      '5': 14,
+      '6': '.chat.v1.ChannelPermission',
+      '10': 'permission'
+    },
+  ],
+};
+
+/// Descriptor for `SetUserPermRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List setUserPermRequestDescriptor = $convert.base64Decode(
+    'ChJTZXRVc2VyUGVybVJlcXVlc3QSFwoHdXNlcl9pZBgBIAEoCVIGdXNlcklkEh0KCmNoYW5uZW'
+    'xfaWQYAiABKAlSCWNoYW5uZWxJZBI6CgpwZXJtaXNzaW9uGAMgASgOMhouY2hhdC52MS5DaGFu'
+    'bmVsUGVybWlzc2lvblIKcGVybWlzc2lvbg==');
+
+@$core.Deprecated('Use setUserPermResponseDescriptor instead')
+const SetUserPermResponse$json = {
+  '1': 'SetUserPermResponse',
+  '2': [
+    {
+      '1': 'error',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_error'},
+  ],
+};
+
+/// Descriptor for `SetUserPermResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List setUserPermResponseDescriptor = $convert.base64Decode(
+    'ChNTZXRVc2VyUGVybVJlc3BvbnNlEisKBWVycm9yGAEgASgLMhAuY29tbW9uLnYxLkVycm9ySA'
+    'BSBWVycm9yiAEBQggKBl9lcnJvcg==');
+
 @$core.Deprecated('Use inviteChannelRequestDescriptor instead')
 const InviteChannelRequest$json = {
   '1': 'InviteChannelRequest',
