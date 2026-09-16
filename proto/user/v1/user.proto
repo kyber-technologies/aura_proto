@@ -276,6 +276,8 @@ message InviteNotification {
   string channel_id = 1;
   // ID of the user who invited the user.
   string invited_by = 2;
+  // Whether the user was uninvited.
+  bool uninvited = 3;
 }
 
 // A chat message notification.

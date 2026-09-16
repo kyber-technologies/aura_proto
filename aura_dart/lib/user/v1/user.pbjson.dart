@@ -635,13 +635,15 @@ const InviteNotification$json = {
   '2': [
     {'1': 'channel_id', '3': 1, '4': 1, '5': 9, '10': 'channelId'},
     {'1': 'invited_by', '3': 2, '4': 1, '5': 9, '10': 'invitedBy'},
+    {'1': 'uninvited', '3': 3, '4': 1, '5': 8, '10': 'uninvited'},
   ],
 };
 
 /// Descriptor for `InviteNotification`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List inviteNotificationDescriptor = $convert.base64Decode(
     'ChJJbnZpdGVOb3RpZmljYXRpb24SHQoKY2hhbm5lbF9pZBgBIAEoCVIJY2hhbm5lbElkEh0KCm'
-    'ludml0ZWRfYnkYAiABKAlSCWludml0ZWRCeQ==');
+    'ludml0ZWRfYnkYAiABKAlSCWludml0ZWRCeRIcCgl1bmludml0ZWQYAyABKAhSCXVuaW52aXRl'
+    'ZA==');
 
 @$core.Deprecated('Use messageNotificationDescriptor instead')
 const MessageNotification$json = {

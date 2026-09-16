@@ -1781,10 +1781,12 @@ class InviteNotification extends $pb.GeneratedMessage {
   factory InviteNotification({
     $core.String? channelId,
     $core.String? invitedBy,
+    $core.bool? uninvited,
   }) {
     final result = create();
     if (channelId != null) result.channelId = channelId;
     if (invitedBy != null) result.invitedBy = invitedBy;
+    if (uninvited != null) result.uninvited = uninvited;
     return result;
   }
 
@@ -1803,6 +1805,7 @@ class InviteNotification extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'channelId')
     ..aOS(2, _omitFieldNames ? '' : 'invitedBy')
+    ..aOB(3, _omitFieldNames ? '' : 'uninvited')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1843,6 +1846,16 @@ class InviteNotification extends $pb.GeneratedMessage {
   $core.bool hasInvitedBy() => $_has(1);
   @$pb.TagNumber(2)
   void clearInvitedBy() => $_clearField(2);
+
+  /// Whether the user was uninvited.
+  @$pb.TagNumber(3)
+  $core.bool get uninvited => $_getBF(2);
+  @$pb.TagNumber(3)
+  set uninvited($core.bool value) => $_setBool(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasUninvited() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearUninvited() => $_clearField(3);
 }
 
 /// A chat message notification.
