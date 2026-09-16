@@ -18,6 +18,12 @@ service ChatService {
   // Requires Authentication: Only authorized users can delete channels.
   rpc DeleteChannel(DeleteChannelRequest) returns (DeleteChannelResponse);
 
+  // Sets the user channel permission.
+  //
+  // Requires Authentication: Only authorized users can set user permissions.
+  rpc SetUserPerm(SetUserPermRequest)
+      returns (SetUserPermResponse);
+
   // (Un)invite a user to a channel.
   //
   // Requires Authentication: Only authorized users can invite users.
@@ -69,6 +75,22 @@ message DeleteChannelRequest {
 // The response message for deleting a channel.
 message DeleteChannelResponse {
   // The error that occurred during the delete operation, if any.
+  optional common.v1.Error error = 1;
+}
+
+// The request message for setting a user's permission in a channel.
+message SetUserPermRequest {
+  // The target User ID.
+  string user_id = 1;
+  // The ID of the channel to set the permission for.
+  string channel_id = 2;
+  // The permission to set.
+  ChannelPermission permission = 3;
+}
+
+// The response message for setting a user's permission in a channel.
+message SetUserPermResponse {
+  // The error that occurred during the set operation, if any.
   optional common.v1.Error error = 1;
 }
 
