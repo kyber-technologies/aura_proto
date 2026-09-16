@@ -188,7 +188,7 @@ class AuthUserRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<AuthUserRequest>(create);
   static AuthUserRequest? _defaultInstance;
 
-  /// User ID of the user.
+  /// User ID of the user. Required if no token is provided.
   @$pb.TagNumber(1)
   $core.String get userId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -198,7 +198,7 @@ class AuthUserRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearUserId() => $_clearField(1);
 
-  /// Password of the user.
+  /// Password of the user. Required if no token is provided.
   @$pb.TagNumber(2)
   $core.String get password => $_getSZ(1);
   @$pb.TagNumber(2)

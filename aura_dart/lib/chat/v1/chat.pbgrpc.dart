@@ -43,6 +43,26 @@ class ChatServiceClient extends $grpc.Client {
     return $createUnaryCall(_$createChannel, request, options: options);
   }
 
+  /// Delete a channel.
+  ///
+  /// Requires Authentication: Only authorized users can delete channels.
+  $grpc.ResponseFuture<$0.DeleteChannelResponse> deleteChannel(
+    $0.DeleteChannelRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$deleteChannel, request, options: options);
+  }
+
+  /// (Un)invite a user to a channel.
+  ///
+  /// Requires Authentication: Only authorized users can invite users.
+  $grpc.ResponseFuture<$0.InviteChannelResponse> inviteChannel(
+    $0.InviteChannelRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$inviteChannel, request, options: options);
+  }
+
   /// Reads messages from a channel.
   ///
   /// Requires Authentication: Only authorized & invited users can read messages.
@@ -80,6 +100,16 @@ class ChatServiceClient extends $grpc.Client {
           '/chat.v1.ChatService/CreateChannel',
           ($0.CreateChannelRequest value) => value.writeToBuffer(),
           $0.CreateChannelResponse.fromBuffer);
+  static final _$deleteChannel =
+      $grpc.ClientMethod<$0.DeleteChannelRequest, $0.DeleteChannelResponse>(
+          '/chat.v1.ChatService/DeleteChannel',
+          ($0.DeleteChannelRequest value) => value.writeToBuffer(),
+          $0.DeleteChannelResponse.fromBuffer);
+  static final _$inviteChannel =
+      $grpc.ClientMethod<$0.InviteChannelRequest, $0.InviteChannelResponse>(
+          '/chat.v1.ChatService/InviteChannel',
+          ($0.InviteChannelRequest value) => value.writeToBuffer(),
+          $0.InviteChannelResponse.fromBuffer);
   static final _$readMessages =
       $grpc.ClientMethod<$0.ReadMessagesRequest, $0.ReadMessagesResponse>(
           '/chat.v1.ChatService/ReadMessages',
@@ -111,6 +141,24 @@ abstract class ChatServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.CreateChannelRequest.fromBuffer(value),
             ($0.CreateChannelResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.DeleteChannelRequest, $0.DeleteChannelResponse>(
+            'DeleteChannel',
+            deleteChannel_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.DeleteChannelRequest.fromBuffer(value),
+            ($0.DeleteChannelResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.InviteChannelRequest, $0.InviteChannelResponse>(
+            'InviteChannel',
+            inviteChannel_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.InviteChannelRequest.fromBuffer(value),
+            ($0.InviteChannelResponse value) => value.writeToBuffer()));
     $addMethod(
         $grpc.ServiceMethod<$0.ReadMessagesRequest, $0.ReadMessagesResponse>(
             'ReadMessages',
@@ -148,6 +196,24 @@ abstract class ChatServiceBase extends $grpc.Service {
 
   $async.Future<$0.CreateChannelResponse> createChannel(
       $grpc.ServiceCall call, $0.CreateChannelRequest request);
+
+  $async.Future<$0.DeleteChannelResponse> deleteChannel_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.DeleteChannelRequest> $request) async {
+    return deleteChannel($call, await $request);
+  }
+
+  $async.Future<$0.DeleteChannelResponse> deleteChannel(
+      $grpc.ServiceCall call, $0.DeleteChannelRequest request);
+
+  $async.Future<$0.InviteChannelResponse> inviteChannel_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.InviteChannelRequest> $request) async {
+    return inviteChannel($call, await $request);
+  }
+
+  $async.Future<$0.InviteChannelResponse> inviteChannel(
+      $grpc.ServiceCall call, $0.InviteChannelRequest request);
 
   $async.Future<$0.ReadMessagesResponse> readMessages_Pre(
       $grpc.ServiceCall $call,

@@ -13,6 +13,16 @@ service ChatService {
   // Requires Authentication: Only authorized users can create channels.
   rpc CreateChannel(CreateChannelRequest) returns (CreateChannelResponse);
 
+  // Delete a channel.
+  //
+  // Requires Authentication: Only authorized users can delete channels.
+  rpc DeleteChannel(DeleteChannelRequest) returns (DeleteChannelResponse);
+
+  // (Un)invite a user to a channel.
+  //
+  // Requires Authentication: Only authorized users can invite users.
+  rpc InviteChannel(InviteChannelRequest) returns (InviteChannelResponse);
+
   // Reads messages from a channel.
   //
   // Requires Authentication: Only authorized & invited users can read messages.
@@ -48,6 +58,34 @@ message CreateChannelResponse {
     // An error that occurred during the create operation, if any.
     common.v1.Error error = 2;
   }
+}
+
+// The request message for deleting a channel.
+message DeleteChannelRequest {
+  // The ID of the channel to delete.
+  string channel_id = 1;
+}
+
+// The response message for deleting a channel.
+message DeleteChannelResponse {
+  // The error that occurred during the delete operation, if any.
+  optional common.v1.Error error = 1;
+}
+
+// The request message for (un)inviting a user to a channel.
+message InviteChannelRequest {
+  // The ID of the channel to invite to.
+  string channel_id = 1;
+  // The ID of the user to invite.
+  string user_id = 2;
+  // Whether to uninvite the user.
+  bool uninvite = 3;
+}
+
+// The response message for (un)inviting a user to a channel.
+message InviteChannelResponse {
+  // The error that occurred during the invite operation, if any.
+  optional common.v1.Error error = 1;
 }
 
 // The request message for reading messages.

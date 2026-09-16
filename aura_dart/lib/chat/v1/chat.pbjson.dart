@@ -108,6 +108,83 @@ final $typed_data.Uint8List createChannelResponseDescriptor = $convert.base64Dec
     '5lbEgAUgdjaGFubmVsEigKBWVycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9y'
     'QggKBnJlc3VsdA==');
 
+@$core.Deprecated('Use deleteChannelRequestDescriptor instead')
+const DeleteChannelRequest$json = {
+  '1': 'DeleteChannelRequest',
+  '2': [
+    {'1': 'channel_id', '3': 1, '4': 1, '5': 9, '10': 'channelId'},
+  ],
+};
+
+/// Descriptor for `DeleteChannelRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List deleteChannelRequestDescriptor = $convert.base64Decode(
+    'ChREZWxldGVDaGFubmVsUmVxdWVzdBIdCgpjaGFubmVsX2lkGAEgASgJUgljaGFubmVsSWQ=');
+
+@$core.Deprecated('Use deleteChannelResponseDescriptor instead')
+const DeleteChannelResponse$json = {
+  '1': 'DeleteChannelResponse',
+  '2': [
+    {
+      '1': 'error',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_error'},
+  ],
+};
+
+/// Descriptor for `DeleteChannelResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List deleteChannelResponseDescriptor = $convert.base64Decode(
+    'ChVEZWxldGVDaGFubmVsUmVzcG9uc2USKwoFZXJyb3IYASABKAsyEC5jb21tb24udjEuRXJyb3'
+    'JIAFIFZXJyb3KIAQFCCAoGX2Vycm9y');
+
+@$core.Deprecated('Use inviteChannelRequestDescriptor instead')
+const InviteChannelRequest$json = {
+  '1': 'InviteChannelRequest',
+  '2': [
+    {'1': 'channel_id', '3': 1, '4': 1, '5': 9, '10': 'channelId'},
+    {'1': 'user_id', '3': 2, '4': 1, '5': 9, '10': 'userId'},
+    {'1': 'uninvite', '3': 3, '4': 1, '5': 8, '10': 'uninvite'},
+  ],
+};
+
+/// Descriptor for `InviteChannelRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List inviteChannelRequestDescriptor = $convert.base64Decode(
+    'ChRJbnZpdGVDaGFubmVsUmVxdWVzdBIdCgpjaGFubmVsX2lkGAEgASgJUgljaGFubmVsSWQSFw'
+    'oHdXNlcl9pZBgCIAEoCVIGdXNlcklkEhoKCHVuaW52aXRlGAMgASgIUgh1bmludml0ZQ==');
+
+@$core.Deprecated('Use inviteChannelResponseDescriptor instead')
+const InviteChannelResponse$json = {
+  '1': 'InviteChannelResponse',
+  '2': [
+    {
+      '1': 'error',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_error'},
+  ],
+};
+
+/// Descriptor for `InviteChannelResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List inviteChannelResponseDescriptor = $convert.base64Decode(
+    'ChVJbnZpdGVDaGFubmVsUmVzcG9uc2USKwoFZXJyb3IYASABKAsyEC5jb21tb24udjEuRXJyb3'
+    'JIAFIFZXJyb3KIAQFCCAoGX2Vycm9y');
+
 @$core.Deprecated('Use readMessagesRequestDescriptor instead')
 const ReadMessagesRequest$json = {
   '1': 'ReadMessagesRequest',

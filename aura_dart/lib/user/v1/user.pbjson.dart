@@ -71,15 +71,35 @@ final $typed_data.Uint8List userExistsResponseDescriptor = $convert.base64Decode
 const AuthUserRequest$json = {
   '1': 'AuthUserRequest',
   '2': [
-    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
-    {'1': 'password', '3': 2, '4': 1, '5': 9, '10': 'password'},
+    {
+      '1': 'user_id',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '9': 0,
+      '10': 'userId',
+      '17': true
+    },
+    {
+      '1': 'password',
+      '3': 2,
+      '4': 1,
+      '5': 9,
+      '9': 1,
+      '10': 'password',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_user_id'},
+    {'1': '_password'},
   ],
 };
 
 /// Descriptor for `AuthUserRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List authUserRequestDescriptor = $convert.base64Decode(
-    'Cg9BdXRoVXNlclJlcXVlc3QSFwoHdXNlcl9pZBgBIAEoCVIGdXNlcklkEhoKCHBhc3N3b3JkGA'
-    'IgASgJUghwYXNzd29yZA==');
+    'Cg9BdXRoVXNlclJlcXVlc3QSHAoHdXNlcl9pZBgBIAEoCUgAUgZ1c2VySWSIAQESHwoIcGFzc3'
+    'dvcmQYAiABKAlIAVIIcGFzc3dvcmSIAQFCCgoIX3VzZXJfaWRCCwoJX3Bhc3N3b3Jk');
 
 @$core.Deprecated('Use authUserResponseDescriptor instead')
 const AuthUserResponse$json = {

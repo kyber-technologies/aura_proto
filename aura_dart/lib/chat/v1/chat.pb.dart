@@ -203,6 +203,264 @@ class CreateChannelResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(1);
 }
 
+/// The request message for deleting a channel.
+class DeleteChannelRequest extends $pb.GeneratedMessage {
+  factory DeleteChannelRequest({
+    $core.String? channelId,
+  }) {
+    final result = create();
+    if (channelId != null) result.channelId = channelId;
+    return result;
+  }
+
+  DeleteChannelRequest._();
+
+  factory DeleteChannelRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory DeleteChannelRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DeleteChannelRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DeleteChannelRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DeleteChannelRequest copyWith(void Function(DeleteChannelRequest) updates) =>
+      super.copyWith((message) => updates(message as DeleteChannelRequest))
+          as DeleteChannelRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DeleteChannelRequest create() => DeleteChannelRequest._();
+  @$core.override
+  DeleteChannelRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static DeleteChannelRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DeleteChannelRequest>(create);
+  static DeleteChannelRequest? _defaultInstance;
+
+  /// The ID of the channel to delete.
+  @$pb.TagNumber(1)
+  $core.String get channelId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set channelId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasChannelId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChannelId() => $_clearField(1);
+}
+
+/// The response message for deleting a channel.
+class DeleteChannelResponse extends $pb.GeneratedMessage {
+  factory DeleteChannelResponse({
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  DeleteChannelResponse._();
+
+  factory DeleteChannelResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory DeleteChannelResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DeleteChannelResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DeleteChannelResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DeleteChannelResponse copyWith(
+          void Function(DeleteChannelResponse) updates) =>
+      super.copyWith((message) => updates(message as DeleteChannelResponse))
+          as DeleteChannelResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DeleteChannelResponse create() => DeleteChannelResponse._();
+  @$core.override
+  DeleteChannelResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static DeleteChannelResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DeleteChannelResponse>(create);
+  static DeleteChannelResponse? _defaultInstance;
+
+  /// The error that occurred during the delete operation, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+}
+
+/// The request message for (un)inviting a user to a channel.
+class InviteChannelRequest extends $pb.GeneratedMessage {
+  factory InviteChannelRequest({
+    $core.String? channelId,
+    $core.String? userId,
+    $core.bool? uninvite,
+  }) {
+    final result = create();
+    if (channelId != null) result.channelId = channelId;
+    if (userId != null) result.userId = userId;
+    if (uninvite != null) result.uninvite = uninvite;
+    return result;
+  }
+
+  InviteChannelRequest._();
+
+  factory InviteChannelRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory InviteChannelRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'InviteChannelRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..aOS(2, _omitFieldNames ? '' : 'userId')
+    ..aOB(3, _omitFieldNames ? '' : 'uninvite')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  InviteChannelRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  InviteChannelRequest copyWith(void Function(InviteChannelRequest) updates) =>
+      super.copyWith((message) => updates(message as InviteChannelRequest))
+          as InviteChannelRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static InviteChannelRequest create() => InviteChannelRequest._();
+  @$core.override
+  InviteChannelRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static InviteChannelRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<InviteChannelRequest>(create);
+  static InviteChannelRequest? _defaultInstance;
+
+  /// The ID of the channel to invite to.
+  @$pb.TagNumber(1)
+  $core.String get channelId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set channelId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasChannelId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChannelId() => $_clearField(1);
+
+  /// The ID of the user to invite.
+  @$pb.TagNumber(2)
+  $core.String get userId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set userId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasUserId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUserId() => $_clearField(2);
+
+  /// Whether to uninvite the user.
+  @$pb.TagNumber(3)
+  $core.bool get uninvite => $_getBF(2);
+  @$pb.TagNumber(3)
+  set uninvite($core.bool value) => $_setBool(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasUninvite() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearUninvite() => $_clearField(3);
+}
+
+/// The response message for (un)inviting a user to a channel.
+class InviteChannelResponse extends $pb.GeneratedMessage {
+  factory InviteChannelResponse({
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  InviteChannelResponse._();
+
+  factory InviteChannelResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory InviteChannelResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'InviteChannelResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  InviteChannelResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  InviteChannelResponse copyWith(
+          void Function(InviteChannelResponse) updates) =>
+      super.copyWith((message) => updates(message as InviteChannelResponse))
+          as InviteChannelResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static InviteChannelResponse create() => InviteChannelResponse._();
+  @$core.override
+  InviteChannelResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static InviteChannelResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<InviteChannelResponse>(create);
+  static InviteChannelResponse? _defaultInstance;
+
+  /// The error that occurred during the invite operation, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+}
+
 /// The request message for reading messages.
 class ReadMessagesRequest extends $pb.GeneratedMessage {
   factory ReadMessagesRequest({
