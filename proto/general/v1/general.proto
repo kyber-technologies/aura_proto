@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package general.v1;
+import "user/v1/user.proto";
 
 // Service for general server mechanics.
 service GeneralService {
@@ -21,6 +22,8 @@ service GeneralService {
   //
   // Only available in testing mode.
   rpc GetServices(GetServicesRequest) returns (GetServicesResponse);
+
+  rpc GetTestUsers(GetTestUsersRequest) returns (GetTestUsersResponse);
 }
 
 // A request to get the server configuration.
@@ -75,6 +78,24 @@ message GetServicesRequest {
 message GetServicesResponse {
   // A list of available services.
   repeated ServiceDescriptor services = 1;
+}
+
+// A request for getting test user data.
+//
+// Only available in testing mode.
+message GetTestUsersRequest {
+}
+
+// A response for getting test user data.
+//
+// Only available in testing mode.
+message GetTestUsersResponse {
+  // A normal test user.
+  user.v1.User user = 1;
+  // A moderator test user.
+  user.v1.User moderator = 2;
+  // An admin test user.
+  user.v1.User admin = 3;
 }
 
 // A descriptor for a service.

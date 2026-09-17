@@ -71,6 +71,13 @@ class GeneralServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getServices, request, options: options);
   }
 
+  $grpc.ResponseFuture<$0.GetTestUsersResponse> getTestUsers(
+    $0.GetTestUsersRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$getTestUsers, request, options: options);
+  }
+
   // method descriptors
 
   static final _$getConfig =
@@ -93,6 +100,11 @@ class GeneralServiceClient extends $grpc.Client {
           '/general.v1.GeneralService/GetServices',
           ($0.GetServicesRequest value) => value.writeToBuffer(),
           $0.GetServicesResponse.fromBuffer);
+  static final _$getTestUsers =
+      $grpc.ClientMethod<$0.GetTestUsersRequest, $0.GetTestUsersResponse>(
+          '/general.v1.GeneralService/GetTestUsers',
+          ($0.GetTestUsersRequest value) => value.writeToBuffer(),
+          $0.GetTestUsersResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('general.v1.GeneralService')
@@ -132,6 +144,15 @@ abstract class GeneralServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.GetServicesRequest.fromBuffer(value),
             ($0.GetServicesResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.GetTestUsersRequest, $0.GetTestUsersResponse>(
+            'GetTestUsers',
+            getTestUsers_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.GetTestUsersRequest.fromBuffer(value),
+            ($0.GetTestUsersResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.GetConfigResponse> getConfig_Pre($grpc.ServiceCall $call,
@@ -166,4 +187,13 @@ abstract class GeneralServiceBase extends $grpc.Service {
 
   $async.Future<$0.GetServicesResponse> getServices(
       $grpc.ServiceCall call, $0.GetServicesRequest request);
+
+  $async.Future<$0.GetTestUsersResponse> getTestUsers_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.GetTestUsersRequest> $request) async {
+    return getTestUsers($call, await $request);
+  }
+
+  $async.Future<$0.GetTestUsersResponse> getTestUsers(
+      $grpc.ServiceCall call, $0.GetTestUsersRequest request);
 }

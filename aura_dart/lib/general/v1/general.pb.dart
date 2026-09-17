@@ -14,6 +14,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../user/v1/user.pb.dart' as $1;
+
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 /// A request to get the server configuration.
@@ -416,6 +418,139 @@ class GetServicesResponse extends $pb.GeneratedMessage {
   /// A list of available services.
   @$pb.TagNumber(1)
   $pb.PbList<ServiceDescriptor> get services => $_getList(0);
+}
+
+/// A request for getting test user data.
+///
+/// Only available in testing mode.
+class GetTestUsersRequest extends $pb.GeneratedMessage {
+  factory GetTestUsersRequest() => create();
+
+  GetTestUsersRequest._();
+
+  factory GetTestUsersRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetTestUsersRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetTestUsersRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'general.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetTestUsersRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetTestUsersRequest copyWith(void Function(GetTestUsersRequest) updates) =>
+      super.copyWith((message) => updates(message as GetTestUsersRequest))
+          as GetTestUsersRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetTestUsersRequest create() => GetTestUsersRequest._();
+  @$core.override
+  GetTestUsersRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetTestUsersRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetTestUsersRequest>(create);
+  static GetTestUsersRequest? _defaultInstance;
+}
+
+/// A response for getting test user data.
+///
+/// Only available in testing mode.
+class GetTestUsersResponse extends $pb.GeneratedMessage {
+  factory GetTestUsersResponse({
+    $1.User? user,
+    $1.User? moderator,
+    $1.User? admin,
+  }) {
+    final result = create();
+    if (user != null) result.user = user;
+    if (moderator != null) result.moderator = moderator;
+    if (admin != null) result.admin = admin;
+    return result;
+  }
+
+  GetTestUsersResponse._();
+
+  factory GetTestUsersResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetTestUsersResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetTestUsersResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'general.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.User>(1, _omitFieldNames ? '' : 'user', subBuilder: $1.User.create)
+    ..aOM<$1.User>(2, _omitFieldNames ? '' : 'moderator',
+        subBuilder: $1.User.create)
+    ..aOM<$1.User>(3, _omitFieldNames ? '' : 'admin',
+        subBuilder: $1.User.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetTestUsersResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetTestUsersResponse copyWith(void Function(GetTestUsersResponse) updates) =>
+      super.copyWith((message) => updates(message as GetTestUsersResponse))
+          as GetTestUsersResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetTestUsersResponse create() => GetTestUsersResponse._();
+  @$core.override
+  GetTestUsersResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetTestUsersResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetTestUsersResponse>(create);
+  static GetTestUsersResponse? _defaultInstance;
+
+  /// A normal test user.
+  @$pb.TagNumber(1)
+  $1.User get user => $_getN(0);
+  @$pb.TagNumber(1)
+  set user($1.User value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasUser() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUser() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.User ensureUser() => $_ensure(0);
+
+  /// A moderator test user.
+  @$pb.TagNumber(2)
+  $1.User get moderator => $_getN(1);
+  @$pb.TagNumber(2)
+  set moderator($1.User value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasModerator() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearModerator() => $_clearField(2);
+  @$pb.TagNumber(2)
+  $1.User ensureModerator() => $_ensure(1);
+
+  /// An admin test user.
+  @$pb.TagNumber(3)
+  $1.User get admin => $_getN(2);
+  @$pb.TagNumber(3)
+  set admin($1.User value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasAdmin() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAdmin() => $_clearField(3);
+  @$pb.TagNumber(3)
+  $1.User ensureAdmin() => $_ensure(2);
 }
 
 /// A descriptor for a service.
