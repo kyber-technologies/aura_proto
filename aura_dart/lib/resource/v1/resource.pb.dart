@@ -13,8 +13,9 @@
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
+import 'package:protobuf/well_known_types/google/protobuf/empty.pb.dart' as $2;
 import 'package:protobuf/well_known_types/google/protobuf/timestamp.pb.dart'
-    as $2;
+    as $3;
 
 import '../../common/v1/common.pb.dart' as $1;
 
@@ -609,16 +610,18 @@ class ResourceId extends $pb.GeneratedMessage {
   void clearKey() => $_clearField(2);
 }
 
-enum ResourceNamespace_Namespace { user, channel, notSet }
+enum ResourceNamespace_Namespace { aura, userIcon, channel, notSet }
 
 /// The resource namespace of a resource ID.
 class ResourceNamespace extends $pb.GeneratedMessage {
   factory ResourceNamespace({
-    $core.String? user,
+    $2.Empty? aura,
+    $2.Empty? userIcon,
     $core.String? channel,
   }) {
     final result = create();
-    if (user != null) result.user = user;
+    if (aura != null) result.aura = aura;
+    if (userIcon != null) result.userIcon = userIcon;
     if (channel != null) result.channel = channel;
     return result;
   }
@@ -634,17 +637,21 @@ class ResourceNamespace extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, ResourceNamespace_Namespace>
       _ResourceNamespace_NamespaceByTag = {
-    1: ResourceNamespace_Namespace.user,
-    2: ResourceNamespace_Namespace.channel,
+    1: ResourceNamespace_Namespace.aura,
+    2: ResourceNamespace_Namespace.userIcon,
+    23: ResourceNamespace_Namespace.channel,
     0: ResourceNamespace_Namespace.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'ResourceNamespace',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
-    ..oo(0, [1, 2])
-    ..aOS(1, _omitFieldNames ? '' : 'user')
-    ..aOS(2, _omitFieldNames ? '' : 'channel')
+    ..oo(0, [1, 2, 23])
+    ..aOM<$2.Empty>(1, _omitFieldNames ? '' : 'aura',
+        subBuilder: $2.Empty.create)
+    ..aOM<$2.Empty>(2, _omitFieldNames ? '' : 'userIcon',
+        subBuilder: $2.Empty.create)
+    ..aOS(23, _omitFieldNames ? '' : 'channel')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -668,38 +675,54 @@ class ResourceNamespace extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   @$pb.TagNumber(2)
+  @$pb.TagNumber(23)
   ResourceNamespace_Namespace whichNamespace() =>
       _ResourceNamespace_NamespaceByTag[$_whichOneof(0)]!;
   @$pb.TagNumber(1)
   @$pb.TagNumber(2)
+  @$pb.TagNumber(23)
   void clearNamespace() => $_clearField($_whichOneof(0));
 
-  /// The namespace is a user.
+  /// The namespace is the built-in aura namespace.
   @$pb.TagNumber(1)
-  $core.String get user => $_getSZ(0);
+  $2.Empty get aura => $_getN(0);
   @$pb.TagNumber(1)
-  set user($core.String value) => $_setString(0, value);
+  set aura($2.Empty value) => $_setField(1, value);
   @$pb.TagNumber(1)
-  $core.bool hasUser() => $_has(0);
+  $core.bool hasAura() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUser() => $_clearField(1);
+  void clearAura() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $2.Empty ensureAura() => $_ensure(0);
+
+  /// The namespace is a user's icon.
+  @$pb.TagNumber(2)
+  $2.Empty get userIcon => $_getN(1);
+  @$pb.TagNumber(2)
+  set userIcon($2.Empty value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasUserIcon() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUserIcon() => $_clearField(2);
+  @$pb.TagNumber(2)
+  $2.Empty ensureUserIcon() => $_ensure(1);
 
   /// The namespace is a channel.
-  @$pb.TagNumber(2)
-  $core.String get channel => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set channel($core.String value) => $_setString(1, value);
-  @$pb.TagNumber(2)
-  $core.bool hasChannel() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearChannel() => $_clearField(2);
+  @$pb.TagNumber(23)
+  $core.String get channel => $_getSZ(2);
+  @$pb.TagNumber(23)
+  set channel($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(23)
+  $core.bool hasChannel() => $_has(2);
+  @$pb.TagNumber(23)
+  void clearChannel() => $_clearField(23);
 }
 
 /// The metadata for a resource.
 class ResourceMeta extends $pb.GeneratedMessage {
   factory ResourceMeta({
     $core.int? size,
-    $2.Timestamp? timestamp,
+    $3.Timestamp? timestamp,
     $core.Iterable<$core.MapEntry<$core.String, $core.String>>? metadata,
   }) {
     final result = create();
@@ -723,8 +746,8 @@ class ResourceMeta extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
     ..aI(1, _omitFieldNames ? '' : 'size')
-    ..aOM<$2.Timestamp>(2, _omitFieldNames ? '' : 'timestamp',
-        subBuilder: $2.Timestamp.create)
+    ..aOM<$3.Timestamp>(2, _omitFieldNames ? '' : 'timestamp',
+        subBuilder: $3.Timestamp.create)
     ..m<$core.String, $core.String>(3, _omitFieldNames ? '' : 'metadata',
         entryClassName: 'ResourceMeta.MetadataEntry',
         keyFieldType: $pb.PbFieldType.OS,
@@ -763,15 +786,15 @@ class ResourceMeta extends $pb.GeneratedMessage {
 
   /// The last time the resource changed.
   @$pb.TagNumber(2)
-  $2.Timestamp get timestamp => $_getN(1);
+  $3.Timestamp get timestamp => $_getN(1);
   @$pb.TagNumber(2)
-  set timestamp($2.Timestamp value) => $_setField(2, value);
+  set timestamp($3.Timestamp value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasTimestamp() => $_has(1);
   @$pb.TagNumber(2)
   void clearTimestamp() => $_clearField(2);
   @$pb.TagNumber(2)
-  $2.Timestamp ensureTimestamp() => $_ensure(1);
+  $3.Timestamp ensureTimestamp() => $_ensure(1);
 
   /// Additional metadata for the resource.
   @$pb.TagNumber(3)

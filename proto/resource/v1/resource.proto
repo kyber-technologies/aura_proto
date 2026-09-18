@@ -96,8 +96,8 @@ message ResourceNamespace {
   oneof namespace {
     // The namespace is the built-in aura namespace.
     google.protobuf.Empty aura = 1;
-    // The namespace is a user.
-    string user = 2;
+    // The namespace is a user's icon.
+    google.protobuf.Empty user_icon = 2;
     // The namespace is a channel.
     string channel = 23;
   }

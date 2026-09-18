@@ -218,8 +218,25 @@ final $typed_data.Uint8List resourceIdDescriptor = $convert.base64Decode(
 const ResourceNamespace$json = {
   '1': 'ResourceNamespace',
   '2': [
-    {'1': 'user', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'user'},
-    {'1': 'channel', '3': 2, '4': 1, '5': 9, '9': 0, '10': 'channel'},
+    {
+      '1': 'aura',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Empty',
+      '9': 0,
+      '10': 'aura'
+    },
+    {
+      '1': 'user_icon',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Empty',
+      '9': 0,
+      '10': 'userIcon'
+    },
+    {'1': 'channel', '3': 23, '4': 1, '5': 9, '9': 0, '10': 'channel'},
   ],
   '8': [
     {'1': 'namespace'},
@@ -228,8 +245,9 @@ const ResourceNamespace$json = {
 
 /// Descriptor for `ResourceNamespace`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List resourceNamespaceDescriptor = $convert.base64Decode(
-    'ChFSZXNvdXJjZU5hbWVzcGFjZRIUCgR1c2VyGAEgASgJSABSBHVzZXISGgoHY2hhbm5lbBgCIA'
-    'EoCUgAUgdjaGFubmVsQgsKCW5hbWVzcGFjZQ==');
+    'ChFSZXNvdXJjZU5hbWVzcGFjZRIsCgRhdXJhGAEgASgLMhYuZ29vZ2xlLnByb3RvYnVmLkVtcH'
+    'R5SABSBGF1cmESNQoJdXNlcl9pY29uGAIgASgLMhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5SABS'
+    'CHVzZXJJY29uEhoKB2NoYW5uZWwYFyABKAlIAFIHY2hhbm5lbEILCgluYW1lc3BhY2U=');
 
 @$core.Deprecated('Use resourceMetaDescriptor instead')
 const ResourceMeta$json = {
