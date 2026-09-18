@@ -3,6 +3,7 @@ syntax = "proto3";
 package resource.v1;
 
 import "common/v1/common.proto";
+import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 
 // Service for managing resources.
@@ -93,10 +94,12 @@ message ResourceId {
 // The resource namespace of a resource ID.
 message ResourceNamespace {
   oneof namespace {
+    // The namespace is the built-in aura namespace.
+    google.protobuf.Empty aura = 1;
     // The namespace is a user.
-    string user = 1;
+    string user = 2;
     // The namespace is a channel.
-    string channel = 2;
+    string channel = 23;
   }
 }
 
