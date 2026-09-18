@@ -25,8 +25,8 @@ service ResourceService {
 
 // Request for uploading a resource.
 message UploadRequest {
-  // The ID of the resource to upload.
-  ResourceId resource_id = 1;
+  // The namespace of the resource.
+  string namespace = 1;
   // The payload of the resource to upload.
   oneof payload {
     // The metadata of the resource to upload.
@@ -38,8 +38,13 @@ message UploadRequest {
 
 // Response for uploading a resource.
 message UploadResponse {
-  // The error, if any, that occurred during the upload.
-  optional common.v1.Error error = 1;
+  // The result of the upload.
+  oneof result {
+    // The complete resource ID of the resource.
+    ResourceId resource_id = 1;
+    // The error, if any, that occurred during the upload.
+    common.v1.Error error = 2;
+  }
 }
 
 // Request for downloading a resource.
@@ -79,7 +84,7 @@ message GetResourceMetaResponse {
 
 // The unique identifier for a resource.
 message ResourceId {
-  // The namespace of the resource. Can be a channel, user or other entity.
+  // The namespace of the resource.
   string namespace = 1;
   // The key of the resource within the namespace.
   string key = 2;

@@ -25,12 +25,12 @@ enum UploadRequest_Payload { meta, data, notSet }
 /// Request for uploading a resource.
 class UploadRequest extends $pb.GeneratedMessage {
   factory UploadRequest({
-    ResourceId? resourceId,
+    $core.String? namespace,
     ResourceMeta? meta,
     $core.List<$core.int>? data,
   }) {
     final result = create();
-    if (resourceId != null) result.resourceId = resourceId;
+    if (namespace != null) result.namespace = namespace;
     if (meta != null) result.meta = meta;
     if (data != null) result.data = data;
     return result;
@@ -56,8 +56,7 @@ class UploadRequest extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
     ..oo(0, [2, 3])
-    ..aOM<ResourceId>(1, _omitFieldNames ? '' : 'resourceId',
-        subBuilder: ResourceId.create)
+    ..aOS(1, _omitFieldNames ? '' : 'namespace')
     ..aOM<ResourceMeta>(2, _omitFieldNames ? '' : 'meta',
         subBuilder: ResourceMeta.create)
     ..a<$core.List<$core.int>>(
@@ -91,17 +90,15 @@ class UploadRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearPayload() => $_clearField($_whichOneof(0));
 
-  /// The ID of the resource to upload.
+  /// The namespace of the resource.
   @$pb.TagNumber(1)
-  ResourceId get resourceId => $_getN(0);
+  $core.String get namespace => $_getSZ(0);
   @$pb.TagNumber(1)
-  set resourceId(ResourceId value) => $_setField(1, value);
+  set namespace($core.String value) => $_setString(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasResourceId() => $_has(0);
+  $core.bool hasNamespace() => $_has(0);
   @$pb.TagNumber(1)
-  void clearResourceId() => $_clearField(1);
-  @$pb.TagNumber(1)
-  ResourceId ensureResourceId() => $_ensure(0);
+  void clearNamespace() => $_clearField(1);
 
   /// The metadata of the resource to upload.
   @$pb.TagNumber(2)
@@ -126,12 +123,16 @@ class UploadRequest extends $pb.GeneratedMessage {
   void clearData() => $_clearField(3);
 }
 
+enum UploadResponse_Result { resourceId, error, notSet }
+
 /// Response for uploading a resource.
 class UploadResponse extends $pb.GeneratedMessage {
   factory UploadResponse({
+    ResourceId? resourceId,
     $1.Error? error,
   }) {
     final result = create();
+    if (resourceId != null) result.resourceId = resourceId;
     if (error != null) result.error = error;
     return result;
   }
@@ -145,11 +146,20 @@ class UploadResponse extends $pb.GeneratedMessage {
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
+  static const $core.Map<$core.int, UploadResponse_Result>
+      _UploadResponse_ResultByTag = {
+    1: UploadResponse_Result.resourceId,
+    2: UploadResponse_Result.error,
+    0: UploadResponse_Result.notSet
+  };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'UploadResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
-    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
+    ..oo(0, [1, 2])
+    ..aOM<ResourceId>(1, _omitFieldNames ? '' : 'resourceId',
+        subBuilder: ResourceId.create)
+    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
     ..hasRequiredFields = false;
 
@@ -172,17 +182,37 @@ class UploadResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<UploadResponse>(create);
   static UploadResponse? _defaultInstance;
 
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  UploadResponse_Result whichResult() =>
+      _UploadResponse_ResultByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  void clearResult() => $_clearField($_whichOneof(0));
+
+  /// The complete resource ID of the resource.
+  @$pb.TagNumber(1)
+  ResourceId get resourceId => $_getN(0);
+  @$pb.TagNumber(1)
+  set resourceId(ResourceId value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasResourceId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearResourceId() => $_clearField(1);
+  @$pb.TagNumber(1)
+  ResourceId ensureResourceId() => $_ensure(0);
+
   /// The error, if any, that occurred during the upload.
-  @$pb.TagNumber(1)
-  $1.Error get error => $_getN(0);
-  @$pb.TagNumber(1)
-  set error($1.Error value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasError() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearError() => $_clearField(1);
-  @$pb.TagNumber(1)
-  $1.Error ensureError() => $_ensure(0);
+  @$pb.TagNumber(2)
+  $1.Error get error => $_getN(1);
+  @$pb.TagNumber(2)
+  set error($1.Error value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasError() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearError() => $_clearField(2);
+  @$pb.TagNumber(2)
+  $1.Error ensureError() => $_ensure(1);
 }
 
 /// Request for downloading a resource.
@@ -552,7 +582,7 @@ class ResourceId extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ResourceId>(create);
   static ResourceId? _defaultInstance;
 
-  /// The namespace of the resource. Can be a channel, user or other entity.
+  /// The namespace of the resource.
   @$pb.TagNumber(1)
   $core.String get namespace => $_getSZ(0);
   @$pb.TagNumber(1)
