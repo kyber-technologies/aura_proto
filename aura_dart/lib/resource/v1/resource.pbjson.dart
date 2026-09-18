@@ -19,7 +19,14 @@ import 'dart:typed_data' as $typed_data;
 const UploadRequest$json = {
   '1': 'UploadRequest',
   '2': [
-    {'1': 'namespace', '3': 1, '4': 1, '5': 9, '10': 'namespace'},
+    {
+      '1': 'namespace',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.resource.v1.ResourceNamespace',
+      '10': 'namespace'
+    },
     {
       '1': 'meta',
       '3': 2,
@@ -38,9 +45,9 @@ const UploadRequest$json = {
 
 /// Descriptor for `UploadRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List uploadRequestDescriptor = $convert.base64Decode(
-    'Cg1VcGxvYWRSZXF1ZXN0EhwKCW5hbWVzcGFjZRgBIAEoCVIJbmFtZXNwYWNlEi8KBG1ldGEYAi'
-    'ABKAsyGS5yZXNvdXJjZS52MS5SZXNvdXJjZU1ldGFIAFIEbWV0YRIUCgRkYXRhGAMgASgMSABS'
-    'BGRhdGFCCQoHcGF5bG9hZA==');
+    'Cg1VcGxvYWRSZXF1ZXN0EjwKCW5hbWVzcGFjZRgBIAEoCzIeLnJlc291cmNlLnYxLlJlc291cm'
+    'NlTmFtZXNwYWNlUgluYW1lc3BhY2USLwoEbWV0YRgCIAEoCzIZLnJlc291cmNlLnYxLlJlc291'
+    'cmNlTWV0YUgAUgRtZXRhEhQKBGRhdGEYAyABKAxIAFIEZGF0YUIJCgdwYXlsb2Fk');
 
 @$core.Deprecated('Use uploadResponseDescriptor instead')
 const UploadResponse$json = {
@@ -190,15 +197,39 @@ final $typed_data.Uint8List getResourceMetaResponseDescriptor = $convert.base64D
 const ResourceId$json = {
   '1': 'ResourceId',
   '2': [
-    {'1': 'namespace', '3': 1, '4': 1, '5': 9, '10': 'namespace'},
+    {
+      '1': 'namespace',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.resource.v1.ResourceNamespace',
+      '10': 'namespace'
+    },
     {'1': 'key', '3': 2, '4': 1, '5': 9, '10': 'key'},
   ],
 };
 
 /// Descriptor for `ResourceId`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List resourceIdDescriptor = $convert.base64Decode(
-    'CgpSZXNvdXJjZUlkEhwKCW5hbWVzcGFjZRgBIAEoCVIJbmFtZXNwYWNlEhAKA2tleRgCIAEoCV'
-    'IDa2V5');
+    'CgpSZXNvdXJjZUlkEjwKCW5hbWVzcGFjZRgBIAEoCzIeLnJlc291cmNlLnYxLlJlc291cmNlTm'
+    'FtZXNwYWNlUgluYW1lc3BhY2USEAoDa2V5GAIgASgJUgNrZXk=');
+
+@$core.Deprecated('Use resourceNamespaceDescriptor instead')
+const ResourceNamespace$json = {
+  '1': 'ResourceNamespace',
+  '2': [
+    {'1': 'user', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'user'},
+    {'1': 'channel', '3': 2, '4': 1, '5': 9, '9': 0, '10': 'channel'},
+  ],
+  '8': [
+    {'1': 'namespace'},
+  ],
+};
+
+/// Descriptor for `ResourceNamespace`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List resourceNamespaceDescriptor = $convert.base64Decode(
+    'ChFSZXNvdXJjZU5hbWVzcGFjZRIUCgR1c2VyGAEgASgJSABSBHVzZXISGgoHY2hhbm5lbBgCIA'
+    'EoCUgAUgdjaGFubmVsQgsKCW5hbWVzcGFjZQ==');
 
 @$core.Deprecated('Use resourceMetaDescriptor instead')
 const ResourceMeta$json = {

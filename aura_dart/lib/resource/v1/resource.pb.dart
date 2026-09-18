@@ -25,7 +25,7 @@ enum UploadRequest_Payload { meta, data, notSet }
 /// Request for uploading a resource.
 class UploadRequest extends $pb.GeneratedMessage {
   factory UploadRequest({
-    $core.String? namespace,
+    ResourceNamespace? namespace,
     ResourceMeta? meta,
     $core.List<$core.int>? data,
   }) {
@@ -56,7 +56,8 @@ class UploadRequest extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
     ..oo(0, [2, 3])
-    ..aOS(1, _omitFieldNames ? '' : 'namespace')
+    ..aOM<ResourceNamespace>(1, _omitFieldNames ? '' : 'namespace',
+        subBuilder: ResourceNamespace.create)
     ..aOM<ResourceMeta>(2, _omitFieldNames ? '' : 'meta',
         subBuilder: ResourceMeta.create)
     ..a<$core.List<$core.int>>(
@@ -92,13 +93,15 @@ class UploadRequest extends $pb.GeneratedMessage {
 
   /// The namespace of the resource.
   @$pb.TagNumber(1)
-  $core.String get namespace => $_getSZ(0);
+  ResourceNamespace get namespace => $_getN(0);
   @$pb.TagNumber(1)
-  set namespace($core.String value) => $_setString(0, value);
+  set namespace(ResourceNamespace value) => $_setField(1, value);
   @$pb.TagNumber(1)
   $core.bool hasNamespace() => $_has(0);
   @$pb.TagNumber(1)
   void clearNamespace() => $_clearField(1);
+  @$pb.TagNumber(1)
+  ResourceNamespace ensureNamespace() => $_ensure(0);
 
   /// The metadata of the resource to upload.
   @$pb.TagNumber(2)
@@ -538,7 +541,7 @@ class GetResourceMetaResponse extends $pb.GeneratedMessage {
 /// The unique identifier for a resource.
 class ResourceId extends $pb.GeneratedMessage {
   factory ResourceId({
-    $core.String? namespace,
+    ResourceNamespace? namespace,
     $core.String? key,
   }) {
     final result = create();
@@ -560,7 +563,8 @@ class ResourceId extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'ResourceId',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'namespace')
+    ..aOM<ResourceNamespace>(1, _omitFieldNames ? '' : 'namespace',
+        subBuilder: ResourceNamespace.create)
     ..aOS(2, _omitFieldNames ? '' : 'key')
     ..hasRequiredFields = false;
 
@@ -584,13 +588,15 @@ class ResourceId extends $pb.GeneratedMessage {
 
   /// The namespace of the resource.
   @$pb.TagNumber(1)
-  $core.String get namespace => $_getSZ(0);
+  ResourceNamespace get namespace => $_getN(0);
   @$pb.TagNumber(1)
-  set namespace($core.String value) => $_setString(0, value);
+  set namespace(ResourceNamespace value) => $_setField(1, value);
   @$pb.TagNumber(1)
   $core.bool hasNamespace() => $_has(0);
   @$pb.TagNumber(1)
   void clearNamespace() => $_clearField(1);
+  @$pb.TagNumber(1)
+  ResourceNamespace ensureNamespace() => $_ensure(0);
 
   /// The key of the resource within the namespace.
   @$pb.TagNumber(2)
@@ -601,6 +607,92 @@ class ResourceId extends $pb.GeneratedMessage {
   $core.bool hasKey() => $_has(1);
   @$pb.TagNumber(2)
   void clearKey() => $_clearField(2);
+}
+
+enum ResourceNamespace_Namespace { user, channel, notSet }
+
+/// The resource namespace of a resource ID.
+class ResourceNamespace extends $pb.GeneratedMessage {
+  factory ResourceNamespace({
+    $core.String? user,
+    $core.String? channel,
+  }) {
+    final result = create();
+    if (user != null) result.user = user;
+    if (channel != null) result.channel = channel;
+    return result;
+  }
+
+  ResourceNamespace._();
+
+  factory ResourceNamespace.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ResourceNamespace.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static const $core.Map<$core.int, ResourceNamespace_Namespace>
+      _ResourceNamespace_NamespaceByTag = {
+    1: ResourceNamespace_Namespace.user,
+    2: ResourceNamespace_Namespace.channel,
+    0: ResourceNamespace_Namespace.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ResourceNamespace',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
+      createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOS(1, _omitFieldNames ? '' : 'user')
+    ..aOS(2, _omitFieldNames ? '' : 'channel')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ResourceNamespace clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ResourceNamespace copyWith(void Function(ResourceNamespace) updates) =>
+      super.copyWith((message) => updates(message as ResourceNamespace))
+          as ResourceNamespace;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ResourceNamespace create() => ResourceNamespace._();
+  @$core.override
+  ResourceNamespace createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ResourceNamespace getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ResourceNamespace>(create);
+  static ResourceNamespace? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  ResourceNamespace_Namespace whichNamespace() =>
+      _ResourceNamespace_NamespaceByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  void clearNamespace() => $_clearField($_whichOneof(0));
+
+  /// The namespace is a user.
+  @$pb.TagNumber(1)
+  $core.String get user => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set user($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasUser() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUser() => $_clearField(1);
+
+  /// The namespace is a channel.
+  @$pb.TagNumber(2)
+  $core.String get channel => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set channel($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasChannel() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearChannel() => $_clearField(2);
 }
 
 /// The metadata for a resource.
