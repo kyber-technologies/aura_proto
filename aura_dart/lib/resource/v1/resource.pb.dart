@@ -723,11 +723,13 @@ class ResourceMeta extends $pb.GeneratedMessage {
   factory ResourceMeta({
     $core.int? size,
     $3.Timestamp? timestamp,
+    $core.String? name,
     $core.Iterable<$core.MapEntry<$core.String, $core.String>>? metadata,
   }) {
     final result = create();
     if (size != null) result.size = size;
     if (timestamp != null) result.timestamp = timestamp;
+    if (name != null) result.name = name;
     if (metadata != null) result.metadata.addEntries(metadata);
     return result;
   }
@@ -748,7 +750,8 @@ class ResourceMeta extends $pb.GeneratedMessage {
     ..aI(1, _omitFieldNames ? '' : 'size')
     ..aOM<$3.Timestamp>(2, _omitFieldNames ? '' : 'timestamp',
         subBuilder: $3.Timestamp.create)
-    ..m<$core.String, $core.String>(3, _omitFieldNames ? '' : 'metadata',
+    ..aOS(3, _omitFieldNames ? '' : 'name')
+    ..m<$core.String, $core.String>(4, _omitFieldNames ? '' : 'metadata',
         entryClassName: 'ResourceMeta.MetadataEntry',
         keyFieldType: $pb.PbFieldType.OS,
         valueFieldType: $pb.PbFieldType.OS,
@@ -796,9 +799,19 @@ class ResourceMeta extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $3.Timestamp ensureTimestamp() => $_ensure(1);
 
-  /// Additional metadata for the resource.
+  /// The name of the resource (e.g. file name).
   @$pb.TagNumber(3)
-  $pb.PbMap<$core.String, $core.String> get metadata => $_getMap(2);
+  $core.String get name => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set name($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasName() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearName() => $_clearField(3);
+
+  /// Additional metadata for the resource.
+  @$pb.TagNumber(4)
+  $pb.PbMap<$core.String, $core.String> get metadata => $_getMap(3);
 }
 
 const $core.bool _omitFieldNames =
