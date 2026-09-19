@@ -1,7 +1,5 @@
 library;
 
-import 'package:aura_dart/resource/v1/resource.pb.dart';
-
 // Chat
 export 'chat/v1/chat.pb.dart';
 export 'chat/v1/chat.pbenum.dart';
@@ -26,8 +24,3 @@ export 'user/v1/user.pb.dart';
 export 'user/v1/user.pbenum.dart';
 export 'user/v1/user.pbgrpc.dart';
 export 'user/v1/user.pbjson.dart';
-
-final ResourceId defaultUserIcon = ResourceId(
-  namespace: 'aura',
-  key: 'default_icon.png',
-);
