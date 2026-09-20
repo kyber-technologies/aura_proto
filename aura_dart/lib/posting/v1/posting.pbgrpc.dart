@@ -21,8 +21,8 @@ import 'posting.pb.dart' as $0;
 export 'posting.pb.dart';
 
 /// Service for managing resources.
-@$pb.GrpcServiceName('posting.v1.ResourceService')
-class ResourceServiceClient extends $grpc.Client {
+@$pb.GrpcServiceName('posting.v1.PostingService')
+class PostingServiceClient extends $grpc.Client {
   /// The hostname for this service.
   static const $core.String defaultHost = '';
 
@@ -31,7 +31,7 @@ class ResourceServiceClient extends $grpc.Client {
     '',
   ];
 
-  ResourceServiceClient(super.channel, {super.options, super.interceptors});
+  PostingServiceClient(super.channel, {super.options, super.interceptors});
 
   $grpc.ResponseFuture<$0.RecommendationsResponse> recommendations(
     $0.RecommendationsRequest request, {
@@ -90,45 +90,57 @@ class ResourceServiceClient extends $grpc.Client {
     return $createUnaryCall(_$searchPosts, request, options: options);
   }
 
+  $grpc.ResponseFuture<$0.LikePostResponse> likePost(
+    $0.LikePostRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$likePost, request, options: options);
+  }
+
   // method descriptors
 
   static final _$recommendations =
       $grpc.ClientMethod<$0.RecommendationsRequest, $0.RecommendationsResponse>(
-          '/posting.v1.ResourceService/Recommendations',
+          '/posting.v1.PostingService/Recommendations',
           ($0.RecommendationsRequest value) => value.writeToBuffer(),
           $0.RecommendationsResponse.fromBuffer);
   static final _$publish =
       $grpc.ClientMethod<$0.PublishRequest, $0.PublishResponse>(
-          '/posting.v1.ResourceService/Publish',
+          '/posting.v1.PostingService/Publish',
           ($0.PublishRequest value) => value.writeToBuffer(),
           $0.PublishResponse.fromBuffer);
   static final _$unpublish =
       $grpc.ClientMethod<$0.UnpublishRequest, $0.UnpublishResponse>(
-          '/posting.v1.ResourceService/Unpublish',
+          '/posting.v1.PostingService/Unpublish',
           ($0.UnpublishRequest value) => value.writeToBuffer(),
           $0.UnpublishResponse.fromBuffer);
   static final _$getPost =
       $grpc.ClientMethod<$0.GetPostRequest, $0.GetPostResponse>(
-          '/posting.v1.ResourceService/GetPost',
+          '/posting.v1.PostingService/GetPost',
           ($0.GetPostRequest value) => value.writeToBuffer(),
           $0.GetPostResponse.fromBuffer);
   static final _$getPostsOf =
       $grpc.ClientMethod<$0.GetPostsOfRequest, $0.GetPostsOfResponse>(
-          '/posting.v1.ResourceService/GetPostsOf',
+          '/posting.v1.PostingService/GetPostsOf',
           ($0.GetPostsOfRequest value) => value.writeToBuffer(),
           $0.GetPostsOfResponse.fromBuffer);
   static final _$searchPosts =
       $grpc.ClientMethod<$0.SearchPostsRequest, $0.SearchPostsResponse>(
-          '/posting.v1.ResourceService/SearchPosts',
+          '/posting.v1.PostingService/SearchPosts',
           ($0.SearchPostsRequest value) => value.writeToBuffer(),
           $0.SearchPostsResponse.fromBuffer);
+  static final _$likePost =
+      $grpc.ClientMethod<$0.LikePostRequest, $0.LikePostResponse>(
+          '/posting.v1.PostingService/LikePost',
+          ($0.LikePostRequest value) => value.writeToBuffer(),
+          $0.LikePostResponse.fromBuffer);
 }
 
-@$pb.GrpcServiceName('posting.v1.ResourceService')
-abstract class ResourceServiceBase extends $grpc.Service {
-  $core.String get $name => 'posting.v1.ResourceService';
+@$pb.GrpcServiceName('posting.v1.PostingService')
+abstract class PostingServiceBase extends $grpc.Service {
+  $core.String get $name => 'posting.v1.PostingService';
 
-  ResourceServiceBase() {
+  PostingServiceBase() {
     $addMethod($grpc.ServiceMethod<$0.RecommendationsRequest,
             $0.RecommendationsResponse>(
         'Recommendations',
@@ -175,6 +187,13 @@ abstract class ResourceServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.SearchPostsRequest.fromBuffer(value),
             ($0.SearchPostsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.LikePostRequest, $0.LikePostResponse>(
+        'LikePost',
+        likePost_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.LikePostRequest.fromBuffer(value),
+        ($0.LikePostResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.RecommendationsResponse> recommendations_Pre(
@@ -225,4 +244,12 @@ abstract class ResourceServiceBase extends $grpc.Service {
 
   $async.Future<$0.SearchPostsResponse> searchPosts(
       $grpc.ServiceCall call, $0.SearchPostsRequest request);
+
+  $async.Future<$0.LikePostResponse> likePost_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.LikePostRequest> $request) async {
+    return likePost($call, await $request);
+  }
+
+  $async.Future<$0.LikePostResponse> likePost(
+      $grpc.ServiceCall call, $0.LikePostRequest request);
 }

@@ -858,6 +858,134 @@ class SearchPostsResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(1);
 }
 
+/// Request for liking a post.
+class LikePostRequest extends $pb.GeneratedMessage {
+  factory LikePostRequest({
+    $core.String? postId,
+    $core.bool? dislike,
+  }) {
+    final result = create();
+    if (postId != null) result.postId = postId;
+    if (dislike != null) result.dislike = dislike;
+    return result;
+  }
+
+  LikePostRequest._();
+
+  factory LikePostRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory LikePostRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'LikePostRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'postId')
+    ..aOB(2, _omitFieldNames ? '' : 'dislike')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  LikePostRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  LikePostRequest copyWith(void Function(LikePostRequest) updates) =>
+      super.copyWith((message) => updates(message as LikePostRequest))
+          as LikePostRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static LikePostRequest create() => LikePostRequest._();
+  @$core.override
+  LikePostRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static LikePostRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<LikePostRequest>(create);
+  static LikePostRequest? _defaultInstance;
+
+  /// The ID of the post.
+  @$pb.TagNumber(1)
+  $core.String get postId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set postId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasPostId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPostId() => $_clearField(1);
+
+  /// If this is a dislike.
+  @$pb.TagNumber(2)
+  $core.bool get dislike => $_getBF(1);
+  @$pb.TagNumber(2)
+  set dislike($core.bool value) => $_setBool(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasDislike() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDislike() => $_clearField(2);
+}
+
+/// Response for liking a post.
+class LikePostResponse extends $pb.GeneratedMessage {
+  factory LikePostResponse({
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  LikePostResponse._();
+
+  factory LikePostResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory LikePostResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'LikePostResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  LikePostResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  LikePostResponse copyWith(void Function(LikePostResponse) updates) =>
+      super.copyWith((message) => updates(message as LikePostResponse))
+          as LikePostResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static LikePostResponse create() => LikePostResponse._();
+  @$core.override
+  LikePostResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static LikePostResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<LikePostResponse>(create);
+  static LikePostResponse? _defaultInstance;
+
+  /// Error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+}
+
 class Post extends $pb.GeneratedMessage {
   factory Post({
     $core.String? postId,
@@ -865,6 +993,10 @@ class Post extends $pb.GeneratedMessage {
     $2.Content? content,
     $3.Timestamp? timestamp,
     $core.String? parent,
+    $core.int? likeCount,
+    $core.int? dislikeCount,
+    $core.bool? liked,
+    $core.bool? disliked,
   }) {
     final result = create();
     if (postId != null) result.postId = postId;
@@ -872,6 +1004,10 @@ class Post extends $pb.GeneratedMessage {
     if (content != null) result.content = content;
     if (timestamp != null) result.timestamp = timestamp;
     if (parent != null) result.parent = parent;
+    if (likeCount != null) result.likeCount = likeCount;
+    if (dislikeCount != null) result.dislikeCount = dislikeCount;
+    if (liked != null) result.liked = liked;
+    if (disliked != null) result.disliked = disliked;
     return result;
   }
 
@@ -895,6 +1031,11 @@ class Post extends $pb.GeneratedMessage {
     ..aOM<$3.Timestamp>(4, _omitFieldNames ? '' : 'timestamp',
         subBuilder: $3.Timestamp.create)
     ..aOS(5, _omitFieldNames ? '' : 'parent')
+    ..aI(6, _omitFieldNames ? '' : 'likeCount', fieldType: $pb.PbFieldType.OU3)
+    ..aI(7, _omitFieldNames ? '' : 'dislikeCount',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aOB(8, _omitFieldNames ? '' : 'liked')
+    ..aOB(9, _omitFieldNames ? '' : 'disliked')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -915,7 +1056,7 @@ class Post extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Post>(create);
   static Post? _defaultInstance;
 
-  /// A unique post identifier.
+  /// A unique post ID.
   @$pb.TagNumber(1)
   $core.String get postId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -970,6 +1111,46 @@ class Post extends $pb.GeneratedMessage {
   $core.bool hasParent() => $_has(4);
   @$pb.TagNumber(5)
   void clearParent() => $_clearField(5);
+
+  /// Number of users who like this post.
+  @$pb.TagNumber(6)
+  $core.int get likeCount => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set likeCount($core.int value) => $_setUnsignedInt32(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasLikeCount() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearLikeCount() => $_clearField(6);
+
+  /// Number of users who dislike this post.
+  @$pb.TagNumber(7)
+  $core.int get dislikeCount => $_getIZ(6);
+  @$pb.TagNumber(7)
+  set dislikeCount($core.int value) => $_setUnsignedInt32(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasDislikeCount() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearDislikeCount() => $_clearField(7);
+
+  /// Whether the requesting user likes this post.
+  @$pb.TagNumber(8)
+  $core.bool get liked => $_getBF(7);
+  @$pb.TagNumber(8)
+  set liked($core.bool value) => $_setBool(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasLiked() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearLiked() => $_clearField(8);
+
+  /// Whether the requesting user dislikes this post.
+  @$pb.TagNumber(9)
+  $core.bool get disliked => $_getBF(8);
+  @$pb.TagNumber(9)
+  set disliked($core.bool value) => $_setBool(8, value);
+  @$pb.TagNumber(9)
+  $core.bool hasDisliked() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearDisliked() => $_clearField(9);
 }
 
 const $core.bool _omitFieldNames =

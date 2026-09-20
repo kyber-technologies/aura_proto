@@ -306,6 +306,45 @@ final $typed_data.Uint8List searchPostsResponseDescriptor = $convert.base64Decod
     'Vwb3N0cxIrCgVlcnJvchgCIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcnJvcogBAUIICgZf'
     'ZXJyb3I=');
 
+@$core.Deprecated('Use likePostRequestDescriptor instead')
+const LikePostRequest$json = {
+  '1': 'LikePostRequest',
+  '2': [
+    {'1': 'post_id', '3': 1, '4': 1, '5': 9, '10': 'postId'},
+    {'1': 'dislike', '3': 2, '4': 1, '5': 8, '10': 'dislike'},
+  ],
+};
+
+/// Descriptor for `LikePostRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List likePostRequestDescriptor = $convert.base64Decode(
+    'Cg9MaWtlUG9zdFJlcXVlc3QSFwoHcG9zdF9pZBgBIAEoCVIGcG9zdElkEhgKB2Rpc2xpa2UYAi'
+    'ABKAhSB2Rpc2xpa2U=');
+
+@$core.Deprecated('Use likePostResponseDescriptor instead')
+const LikePostResponse$json = {
+  '1': 'LikePostResponse',
+  '2': [
+    {
+      '1': 'error',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_error'},
+  ],
+};
+
+/// Descriptor for `LikePostResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List likePostResponseDescriptor = $convert.base64Decode(
+    'ChBMaWtlUG9zdFJlc3BvbnNlEisKBWVycm9yGAEgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBW'
+    'Vycm9yiAEBQggKBl9lcnJvcg==');
+
 @$core.Deprecated('Use postDescriptor instead')
 const Post$json = {
   '1': 'Post',
@@ -329,6 +368,10 @@ const Post$json = {
       '10': 'timestamp'
     },
     {'1': 'parent', '3': 5, '4': 1, '5': 9, '9': 0, '10': 'parent', '17': true},
+    {'1': 'like_count', '3': 6, '4': 1, '5': 13, '10': 'likeCount'},
+    {'1': 'dislike_count', '3': 7, '4': 1, '5': 13, '10': 'dislikeCount'},
+    {'1': 'liked', '3': 8, '4': 1, '5': 8, '10': 'liked'},
+    {'1': 'disliked', '3': 9, '4': 1, '5': 8, '10': 'disliked'},
   ],
   '8': [
     {'1': '_parent'},
@@ -340,4 +383,6 @@ final $typed_data.Uint8List postDescriptor = $convert.base64Decode(
     'CgRQb3N0EhcKB3Bvc3RfaWQYASABKAlSBnBvc3RJZBIbCglhdXRob3JfaWQYAiABKAlSCGF1dG'
     'hvcklkEi4KB2NvbnRlbnQYAyABKAsyFC5yZXNvdXJjZS52MS5Db250ZW50Ugdjb250ZW50EjgK'
     'CXRpbWVzdGFtcBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCXRpbWVzdGFtcB'
-    'IbCgZwYXJlbnQYBSABKAlIAFIGcGFyZW50iAEBQgkKB19wYXJlbnQ=');
+    'IbCgZwYXJlbnQYBSABKAlIAFIGcGFyZW50iAEBEh0KCmxpa2VfY291bnQYBiABKA1SCWxpa2VD'
+    'b3VudBIjCg1kaXNsaWtlX2NvdW50GAcgASgNUgxkaXNsaWtlQ291bnQSFAoFbGlrZWQYCCABKA'
+    'hSBWxpa2VkEhoKCGRpc2xpa2VkGAkgASgIUghkaXNsaWtlZEIJCgdfcGFyZW50');
