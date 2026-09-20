@@ -1,0 +1,150 @@
+syntax = "proto3";
+
+package posting.v1;
+
+import "common/v1/common.proto";
+import "google/protobuf/timestamp.proto";
+import "resource/v1/resource.proto";
+
+// Service for managing resources.
+service ResourceService {
+  rpc Recommendations(RecommendationsRequest) returns (RecommendationsResponse);
+
+  // Publish a new post.
+  //
+  // Requires Authentication: Only authenticated users can publish posts.
+  rpc Publish(PublishRequest) returns (PublishResponse);
+
+  // Unpublish (delete) a post.
+  //
+  // Requires Authentication: Only authorized users can delete posts.
+  rpc Unpublish(UnpublishRequest) returns (UnpublishResponse);
+
+  // Get a specific post.
+  //
+  // Requires Authentication: Only authenticated users can get posts.
+  rpc GetPost(GetPostRequest) returns (GetPostResponse);
+
+  // Get posts of a user.
+  //
+  // Requires Authentication: Only authenticated users can get posts.
+  rpc GetPostsOf(GetPostsOfRequest) returns (GetPostsOfResponse);
+
+  // Search posts.
+  //
+  // Requires Authentication: Only authenticated users can search posts.
+  rpc SearchPosts(SearchPostsRequest) returns (SearchPostsResponse);
+}
+
+// Request for getting recommendations.
+message RecommendationsRequest {
+  // The maximum number of recommendations to return.
+  uint32 limit = 1;
+  // The index of the page to return.
+  uint32 index = 2;
+}
+
+// Response for getting recommendations.
+message RecommendationsResponse {
+  // The returned posts.
+  repeated Post posts = 1;
+  // Error, if any.
+  optional common.v1.Error error = 2;
+}
+
+// Request for publishing a new post.
+message PublishRequest {
+  // The post content.
+  resource.v1.Content content = 1;
+  // The optional parent post ID.
+  //
+  // If set, this post is a comment under the specified post.
+  optional string parent = 2;
+}
+
+// Response for publishing a new post.
+message PublishResponse {
+  // The result of the operation.
+  oneof result {
+    // The published post.
+    Post post = 1;
+    // Error, if any.
+    common.v1.Error error = 2;
+  }
+}
+
+// Request for unpublishing a post.
+message UnpublishRequest {
+  // The post ID to delete.
+  string post_id = 1;
+}
+
+// Response for unpublishing a post.
+message UnpublishResponse {
+  // Error, if any.
+  optional common.v1.Error error = 1;
+}
+
+// Request for getting a post.
+message GetPostRequest {
+  // The post ID to get.
+  string post_id = 1;
+}
+
+// Response for getting a post.
+message GetPostResponse {
+  // The result of the operation.
+  oneof result {
+    // The requested post.
+    Post post = 1;
+    // Error, if any.
+    common.v1.Error error = 2;
+  }
+}
+
+// Request for getting posts of a user.
+message GetPostsOfRequest {
+  // The user ID of the author.
+  string author_id = 1;
+  // The maximum number of posts to return.
+  uint32 limit = 2;
+  // The timestamp to start from.
+  google.protobuf.Timestamp start_at = 3;
+}
+
+// Response for getting posts of a user.
+message GetPostsOfResponse {
+  // The posts of the user.
+  repeated Post posts = 1;
+  // Error, if any.
+  optional common.v1.Error error = 2;
+}
+
+// Request for searching posts.
+message SearchPostsRequest {
+  // The search query.
+  string query = 1;
+}
+
+// Response for searching posts.
+message SearchPostsResponse {
+  // The search results.
+  repeated Post posts = 1;
+  // Error, if any.
+  optional common.v1.Error error = 2;
+}
+
+message Post {
+  // A unique post identifier.
+  string post_id = 1;
+  // The user ID of the post author.
+  string author_id = 2;
+  // The post content.
+  resource.v1.Content content = 3;
+  // The last time the post changed.
+  google.protobuf.Timestamp timestamp = 4;
+  // The optional parent post ID.
+  //
+  // If set, this post is a comment under the specified post.
+  optional string parent = 5;
+}

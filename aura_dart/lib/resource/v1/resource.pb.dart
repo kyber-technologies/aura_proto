@@ -814,6 +814,92 @@ class ResourceMeta extends $pb.GeneratedMessage {
   $pb.PbMap<$core.String, $core.String> get metadata => $_getMap(3);
 }
 
+enum Content_Content { text, resource, notSet }
+
+/// The content of a message or post.
+class Content extends $pb.GeneratedMessage {
+  factory Content({
+    $core.String? text,
+    ResourceId? resource,
+  }) {
+    final result = create();
+    if (text != null) result.text = text;
+    if (resource != null) result.resource = resource;
+    return result;
+  }
+
+  Content._();
+
+  factory Content.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory Content.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static const $core.Map<$core.int, Content_Content> _Content_ContentByTag = {
+    2: Content_Content.text,
+    3: Content_Content.resource,
+    0: Content_Content.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Content',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
+      createEmptyInstance: create)
+    ..oo(0, [2, 3])
+    ..aOS(2, _omitFieldNames ? '' : 'text')
+    ..aOM<ResourceId>(3, _omitFieldNames ? '' : 'resource',
+        subBuilder: ResourceId.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  Content clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  Content copyWith(void Function(Content) updates) =>
+      super.copyWith((message) => updates(message as Content)) as Content;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static Content create() => Content._();
+  @$core.override
+  Content createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static Content getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Content>(create);
+  static Content? _defaultInstance;
+
+  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
+  Content_Content whichContent() => _Content_ContentByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
+  void clearContent() => $_clearField($_whichOneof(0));
+
+  /// The text content of the message.
+  @$pb.TagNumber(2)
+  $core.String get text => $_getSZ(0);
+  @$pb.TagNumber(2)
+  set text($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(2)
+  $core.bool hasText() => $_has(0);
+  @$pb.TagNumber(2)
+  void clearText() => $_clearField(2);
+
+  /// The resource content of the message.
+  @$pb.TagNumber(3)
+  ResourceId get resource => $_getN(1);
+  @$pb.TagNumber(3)
+  set resource(ResourceId value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasResource() => $_has(1);
+  @$pb.TagNumber(3)
+  void clearResource() => $_clearField(3);
+  @$pb.TagNumber(3)
+  ResourceId ensureResource() => $_ensure(1);
+}
+
 const $core.bool _omitFieldNames =
     $core.bool.fromEnvironment('protobuf.omit_field_names');
 const $core.bool _omitMessageNames =

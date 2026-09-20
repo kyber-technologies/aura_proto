@@ -114,3 +114,14 @@ message ResourceMeta {
   // Additional metadata for the resource.
   map<string, string> metadata = 4;
 }
+
+// The content of a message or post.
+message Content {
+  // The type of content.
+  oneof content {
+    // The text content of the message.
+    string text = 2;
+    // The resource content of the message.
+    resource.v1.ResourceId resource = 3;
+  }
+}

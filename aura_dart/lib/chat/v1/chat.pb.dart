@@ -758,7 +758,7 @@ class ReadMessagesResponse extends $pb.GeneratedMessage {
 class SendMessageRequest extends $pb.GeneratedMessage {
   factory SendMessageRequest({
     $core.String? channelId,
-    Content? content,
+    $3.Content? content,
   }) {
     final result = create();
     if (channelId != null) result.channelId = channelId;
@@ -780,8 +780,8 @@ class SendMessageRequest extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'channelId')
-    ..aOM<Content>(2, _omitFieldNames ? '' : 'content',
-        subBuilder: Content.create)
+    ..aOM<$3.Content>(2, _omitFieldNames ? '' : 'content',
+        subBuilder: $3.Content.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -815,15 +815,15 @@ class SendMessageRequest extends $pb.GeneratedMessage {
 
   /// The message content.
   @$pb.TagNumber(2)
-  Content get content => $_getN(1);
+  $3.Content get content => $_getN(1);
   @$pb.TagNumber(2)
-  set content(Content value) => $_setField(2, value);
+  set content($3.Content value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasContent() => $_has(1);
   @$pb.TagNumber(2)
   void clearContent() => $_clearField(2);
   @$pb.TagNumber(2)
-  Content ensureContent() => $_ensure(1);
+  $3.Content ensureContent() => $_ensure(1);
 }
 
 enum SendMessageResponse_Result { message, error, notSet }
@@ -1141,7 +1141,7 @@ class Message extends $pb.GeneratedMessage {
     $core.String? channelId,
     $core.String? userId,
     $2.Timestamp? createdAt,
-    Content? content,
+    $3.Content? content,
   }) {
     final result = create();
     if (messageId != null) result.messageId = messageId;
@@ -1170,8 +1170,8 @@ class Message extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'userId')
     ..aOM<$2.Timestamp>(4, _omitFieldNames ? '' : 'createdAt',
         subBuilder: $2.Timestamp.create)
-    ..aOM<Content>(5, _omitFieldNames ? '' : 'content',
-        subBuilder: Content.create)
+    ..aOM<$3.Content>(5, _omitFieldNames ? '' : 'content',
+        subBuilder: $3.Content.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1236,101 +1236,15 @@ class Message extends $pb.GeneratedMessage {
 
   /// The content of the message.
   @$pb.TagNumber(5)
-  Content get content => $_getN(4);
+  $3.Content get content => $_getN(4);
   @$pb.TagNumber(5)
-  set content(Content value) => $_setField(5, value);
+  set content($3.Content value) => $_setField(5, value);
   @$pb.TagNumber(5)
   $core.bool hasContent() => $_has(4);
   @$pb.TagNumber(5)
   void clearContent() => $_clearField(5);
   @$pb.TagNumber(5)
-  Content ensureContent() => $_ensure(4);
-}
-
-enum Content_Content { text, resource, notSet }
-
-/// The content of a message.
-class Content extends $pb.GeneratedMessage {
-  factory Content({
-    $core.String? text,
-    $3.ResourceId? resource,
-  }) {
-    final result = create();
-    if (text != null) result.text = text;
-    if (resource != null) result.resource = resource;
-    return result;
-  }
-
-  Content._();
-
-  factory Content.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory Content.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static const $core.Map<$core.int, Content_Content> _Content_ContentByTag = {
-    2: Content_Content.text,
-    3: Content_Content.resource,
-    0: Content_Content.notSet
-  };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'Content',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
-      createEmptyInstance: create)
-    ..oo(0, [2, 3])
-    ..aOS(2, _omitFieldNames ? '' : 'text')
-    ..aOM<$3.ResourceId>(3, _omitFieldNames ? '' : 'resource',
-        subBuilder: $3.ResourceId.create)
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Content clone() => deepCopy();
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Content copyWith(void Function(Content) updates) =>
-      super.copyWith((message) => updates(message as Content)) as Content;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static Content create() => Content._();
-  @$core.override
-  Content createEmptyInstance() => create();
-  @$core.pragma('dart2js:noInline')
-  static Content getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Content>(create);
-  static Content? _defaultInstance;
-
-  @$pb.TagNumber(2)
-  @$pb.TagNumber(3)
-  Content_Content whichContent() => _Content_ContentByTag[$_whichOneof(0)]!;
-  @$pb.TagNumber(2)
-  @$pb.TagNumber(3)
-  void clearContent() => $_clearField($_whichOneof(0));
-
-  /// The text content of the message.
-  @$pb.TagNumber(2)
-  $core.String get text => $_getSZ(0);
-  @$pb.TagNumber(2)
-  set text($core.String value) => $_setString(0, value);
-  @$pb.TagNumber(2)
-  $core.bool hasText() => $_has(0);
-  @$pb.TagNumber(2)
-  void clearText() => $_clearField(2);
-
-  /// The resource content of the message.
-  @$pb.TagNumber(3)
-  $3.ResourceId get resource => $_getN(1);
-  @$pb.TagNumber(3)
-  set resource($3.ResourceId value) => $_setField(3, value);
-  @$pb.TagNumber(3)
-  $core.bool hasResource() => $_has(1);
-  @$pb.TagNumber(3)
-  void clearResource() => $_clearField(3);
-  @$pb.TagNumber(3)
-  $3.ResourceId ensureResource() => $_ensure(1);
+  $3.Content ensureContent() => $_ensure(4);
 }
 
 const $core.bool _omitFieldNames =

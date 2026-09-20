@@ -292,3 +292,28 @@ final $typed_data.Uint8List resourceMetaDescriptor = $convert.base64Decode(
     'ZRJDCghtZXRhZGF0YRgEIAMoCzInLnJlc291cmNlLnYxLlJlc291cmNlTWV0YS5NZXRhZGF0YU'
     'VudHJ5UghtZXRhZGF0YRo7Cg1NZXRhZGF0YUVudHJ5EhAKA2tleRgBIAEoCVIDa2V5EhQKBXZh'
     'bHVlGAIgASgJUgV2YWx1ZToCOAE=');
+
+@$core.Deprecated('Use contentDescriptor instead')
+const Content$json = {
+  '1': 'Content',
+  '2': [
+    {'1': 'text', '3': 2, '4': 1, '5': 9, '9': 0, '10': 'text'},
+    {
+      '1': 'resource',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.resource.v1.ResourceId',
+      '9': 0,
+      '10': 'resource'
+    },
+  ],
+  '8': [
+    {'1': 'content'},
+  ],
+};
+
+/// Descriptor for `Content`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List contentDescriptor = $convert.base64Decode(
+    'CgdDb250ZW50EhQKBHRleHQYAiABKAlIAFIEdGV4dBI1CghyZXNvdXJjZRgDIAEoCzIXLnJlc2'
+    '91cmNlLnYxLlJlc291cmNlSWRIAFIIcmVzb3VyY2VCCQoHY29udGVudA==');

@@ -32,3 +32,9 @@ pub mod general {
         tonic::include_proto!("general.v1");
     }
 }
+
+pub mod posting {
+    pub mod v1 {
+        tonic::include_proto!("posting.v1");
+    }
+}

@@ -15,12 +15,17 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class ChannelPermission extends $pb.ProtobufEnum {
+  /// The user has read-only access.
   static const ChannelPermission CHANNEL_PERMISSION_READ_ONLY_UNSPECIFIED =
       ChannelPermission._(
           0, _omitEnumNames ? '' : 'CHANNEL_PERMISSION_READ_ONLY_UNSPECIFIED');
+
+  /// The user has read and write access.
   static const ChannelPermission CHANNEL_PERMISSION_READ_WRITE =
       ChannelPermission._(
           1, _omitEnumNames ? '' : 'CHANNEL_PERMISSION_READ_WRITE');
+
+  /// The user has elevated privileges over the channel and members.
   static const ChannelPermission CHANNEL_PERMISSION_MANAGER =
       ChannelPermission._(
           2, _omitEnumNames ? '' : 'CHANNEL_PERMISSION_MANAGER');

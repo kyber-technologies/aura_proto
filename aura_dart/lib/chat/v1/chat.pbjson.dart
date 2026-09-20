@@ -300,7 +300,7 @@ const SendMessageRequest$json = {
       '3': 2,
       '4': 1,
       '5': 11,
-      '6': '.chat.v1.Content',
+      '6': '.resource.v1.Content',
       '10': 'content'
     },
   ],
@@ -308,8 +308,8 @@ const SendMessageRequest$json = {
 
 /// Descriptor for `SendMessageRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List sendMessageRequestDescriptor = $convert.base64Decode(
-    'ChJTZW5kTWVzc2FnZVJlcXVlc3QSHQoKY2hhbm5lbF9pZBgBIAEoCVIJY2hhbm5lbElkEioKB2'
-    'NvbnRlbnQYAiABKAsyEC5jaGF0LnYxLkNvbnRlbnRSB2NvbnRlbnQ=');
+    'ChJTZW5kTWVzc2FnZVJlcXVlc3QSHQoKY2hhbm5lbF9pZBgBIAEoCVIJY2hhbm5lbElkEi4KB2'
+    'NvbnRlbnQYAiABKAsyFC5yZXNvdXJjZS52MS5Db250ZW50Ugdjb250ZW50');
 
 @$core.Deprecated('Use sendMessageResponseDescriptor instead')
 const SendMessageResponse$json = {
@@ -446,7 +446,7 @@ const Message$json = {
       '3': 5,
       '4': 1,
       '5': 11,
-      '6': '.chat.v1.Content',
+      '6': '.resource.v1.Content',
       '10': 'content'
     },
   ],
@@ -456,30 +456,5 @@ const Message$json = {
 final $typed_data.Uint8List messageDescriptor = $convert.base64Decode(
     'CgdNZXNzYWdlEh0KCm1lc3NhZ2VfaWQYASABKAlSCW1lc3NhZ2VJZBIdCgpjaGFubmVsX2lkGA'
     'IgASgJUgljaGFubmVsSWQSFwoHdXNlcl9pZBgDIAEoCVIGdXNlcklkEjkKCmNyZWF0ZWRfYXQY'
-    'BCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgljcmVhdGVkQXQSKgoHY29udGVudB'
-    'gFIAEoCzIQLmNoYXQudjEuQ29udGVudFIHY29udGVudA==');
-
-@$core.Deprecated('Use contentDescriptor instead')
-const Content$json = {
-  '1': 'Content',
-  '2': [
-    {'1': 'text', '3': 2, '4': 1, '5': 9, '9': 0, '10': 'text'},
-    {
-      '1': 'resource',
-      '3': 3,
-      '4': 1,
-      '5': 11,
-      '6': '.resource.v1.ResourceId',
-      '9': 0,
-      '10': 'resource'
-    },
-  ],
-  '8': [
-    {'1': 'content'},
-  ],
-};
-
-/// Descriptor for `Content`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List contentDescriptor = $convert.base64Decode(
-    'CgdDb250ZW50EhQKBHRleHQYAiABKAlIAFIEdGV4dBI1CghyZXNvdXJjZRgDIAEoCzIXLnJlc2'
-    '91cmNlLnYxLlJlc291cmNlSWRIAFIIcmVzb3VyY2VCCQoHY29udGVudA==');
+    'BCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgljcmVhdGVkQXQSLgoHY29udGVudB'
+    'gFIAEoCzIULnJlc291cmNlLnYxLkNvbnRlbnRSB2NvbnRlbnQ=');

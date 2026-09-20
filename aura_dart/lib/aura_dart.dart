@@ -24,3 +24,8 @@ export 'user/v1/user.pb.dart';
 export 'user/v1/user.pbenum.dart';
 export 'user/v1/user.pbgrpc.dart';
 export 'user/v1/user.pbjson.dart';
+// Posting
+export 'posting/v1/posting.pb.dart';
+export 'posting/v1/posting.pbenum.dart';
+export 'posting/v1/posting.pbgrpc.dart';
+export 'posting/v1/posting.pbjson.dart';

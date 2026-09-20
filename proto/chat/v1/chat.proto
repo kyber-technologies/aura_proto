@@ -132,7 +132,7 @@ message SendMessageRequest {
   // The ID of the channel to send the message to.
   string channel_id = 1;
   // The message content.
-  Content content = 2;
+  resource.v1.Content content = 2;
 }
 
 // The response message for sending a message.
@@ -173,8 +173,11 @@ message Channel {
 }
 
 enum ChannelPermission {
+  // The user has read-only access.
   CHANNEL_PERMISSION_READ_ONLY_UNSPECIFIED = 0;
+  // The user has read and write access.
   CHANNEL_PERMISSION_READ_WRITE = 1;
+  // The user has elevated privileges over the channel and members.
   CHANNEL_PERMISSION_MANAGER = 2;
 }
 
@@ -189,16 +192,5 @@ message Message {
   // The timestamp when the message was created.
   google.protobuf.Timestamp created_at = 4;
   // The content of the message.
-  Content content = 5;
-}
-
-// The content of a message.
-message Content {
-  // The type of content.
-  oneof content {
-    // The text content of the message.
-    string text = 2;
-    // The resource content of the message.
-    resource.v1.ResourceId resource = 3;
-  }
+  resource.v1.Content content = 5;
 }
