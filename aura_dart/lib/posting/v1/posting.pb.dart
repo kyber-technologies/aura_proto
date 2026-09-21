@@ -743,9 +743,13 @@ class GetPostsOfResponse extends $pb.GeneratedMessage {
 class SearchPostsRequest extends $pb.GeneratedMessage {
   factory SearchPostsRequest({
     $core.String? query,
+    $core.int? limit,
+    $3.Timestamp? startAt,
   }) {
     final result = create();
     if (query != null) result.query = query;
+    if (limit != null) result.limit = limit;
+    if (startAt != null) result.startAt = startAt;
     return result;
   }
 
@@ -763,6 +767,9 @@ class SearchPostsRequest extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'query')
+    ..aI(2, _omitFieldNames ? '' : 'limit', fieldType: $pb.PbFieldType.OU3)
+    ..aOM<$3.Timestamp>(3, _omitFieldNames ? '' : 'startAt',
+        subBuilder: $3.Timestamp.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -793,6 +800,28 @@ class SearchPostsRequest extends $pb.GeneratedMessage {
   $core.bool hasQuery() => $_has(0);
   @$pb.TagNumber(1)
   void clearQuery() => $_clearField(1);
+
+  /// The maximum number of posts to return.
+  @$pb.TagNumber(2)
+  $core.int get limit => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set limit($core.int value) => $_setUnsignedInt32(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasLimit() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLimit() => $_clearField(2);
+
+  /// The timestamp to start from.
+  @$pb.TagNumber(3)
+  $3.Timestamp get startAt => $_getN(2);
+  @$pb.TagNumber(3)
+  set startAt($3.Timestamp value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasStartAt() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearStartAt() => $_clearField(3);
+  @$pb.TagNumber(3)
+  $3.Timestamp ensureStartAt() => $_ensure(2);
 }
 
 /// Response for searching posts.

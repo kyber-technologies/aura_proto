@@ -280,12 +280,23 @@ const SearchPostsRequest$json = {
   '1': 'SearchPostsRequest',
   '2': [
     {'1': 'query', '3': 1, '4': 1, '5': 9, '10': 'query'},
+    {'1': 'limit', '3': 2, '4': 1, '5': 13, '10': 'limit'},
+    {
+      '1': 'start_at',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Timestamp',
+      '10': 'startAt'
+    },
   ],
 };
 
 /// Descriptor for `SearchPostsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List searchPostsRequestDescriptor = $convert
-    .base64Decode('ChJTZWFyY2hQb3N0c1JlcXVlc3QSFAoFcXVlcnkYASABKAlSBXF1ZXJ5');
+final $typed_data.Uint8List searchPostsRequestDescriptor = $convert.base64Decode(
+    'ChJTZWFyY2hQb3N0c1JlcXVlc3QSFAoFcXVlcnkYASABKAlSBXF1ZXJ5EhQKBWxpbWl0GAIgAS'
+    'gNUgVsaW1pdBI1CghzdGFydF9hdBgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBS'
+    'B3N0YXJ0QXQ=');
 
 @$core.Deprecated('Use searchPostsResponseDescriptor instead')
 const SearchPostsResponse$json = {
