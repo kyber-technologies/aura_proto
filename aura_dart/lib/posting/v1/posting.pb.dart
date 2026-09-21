@@ -18,8 +18,11 @@ import 'package:protobuf/well_known_types/google/protobuf/timestamp.pb.dart'
 
 import '../../common/v1/common.pb.dart' as $1;
 import '../../resource/v1/resource.pb.dart' as $2;
+import 'posting.pbenum.dart';
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
+
+export 'posting.pbenum.dart';
 
 /// Request for getting recommendations.
 class RecommendationsRequest extends $pb.GeneratedMessage {
@@ -858,11 +861,11 @@ class SearchPostsResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(1);
 }
 
-/// Request for liking a post.
-class LikePostRequest extends $pb.GeneratedMessage {
-  factory LikePostRequest({
+/// Request for reacting to a post.
+class ReactToPostRequest extends $pb.GeneratedMessage {
+  factory ReactToPostRequest({
     $core.String? postId,
-    $core.bool? dislike,
+    PostReaction? dislike,
   }) {
     final result = create();
     if (postId != null) result.postId = postId;
@@ -870,41 +873,42 @@ class LikePostRequest extends $pb.GeneratedMessage {
     return result;
   }
 
-  LikePostRequest._();
+  ReactToPostRequest._();
 
-  factory LikePostRequest.fromBuffer($core.List<$core.int> data,
+  factory ReactToPostRequest.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory LikePostRequest.fromJson($core.String json,
+  factory ReactToPostRequest.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'LikePostRequest',
+      _omitMessageNames ? '' : 'ReactToPostRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'postId')
-    ..aOB(2, _omitFieldNames ? '' : 'dislike')
+    ..aE<PostReaction>(2, _omitFieldNames ? '' : 'dislike',
+        enumValues: PostReaction.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  LikePostRequest clone() => deepCopy();
+  ReactToPostRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  LikePostRequest copyWith(void Function(LikePostRequest) updates) =>
-      super.copyWith((message) => updates(message as LikePostRequest))
-          as LikePostRequest;
+  ReactToPostRequest copyWith(void Function(ReactToPostRequest) updates) =>
+      super.copyWith((message) => updates(message as ReactToPostRequest))
+          as ReactToPostRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static LikePostRequest create() => LikePostRequest._();
+  static ReactToPostRequest create() => ReactToPostRequest._();
   @$core.override
-  LikePostRequest createEmptyInstance() => create();
+  ReactToPostRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static LikePostRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<LikePostRequest>(create);
-  static LikePostRequest? _defaultInstance;
+  static ReactToPostRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ReactToPostRequest>(create);
+  static ReactToPostRequest? _defaultInstance;
 
   /// The ID of the post.
   @$pb.TagNumber(1)
@@ -916,20 +920,20 @@ class LikePostRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPostId() => $_clearField(1);
 
-  /// If this is a dislike.
+  /// The reaction.
   @$pb.TagNumber(2)
-  $core.bool get dislike => $_getBF(1);
+  PostReaction get dislike => $_getN(1);
   @$pb.TagNumber(2)
-  set dislike($core.bool value) => $_setBool(1, value);
+  set dislike(PostReaction value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasDislike() => $_has(1);
   @$pb.TagNumber(2)
   void clearDislike() => $_clearField(2);
 }
 
-/// Response for liking a post.
-class LikePostResponse extends $pb.GeneratedMessage {
-  factory LikePostResponse({
+/// Response for reacting to a post.
+class ReactToPostResponse extends $pb.GeneratedMessage {
+  factory ReactToPostResponse({
     $1.Error? error,
   }) {
     final result = create();
@@ -937,17 +941,17 @@ class LikePostResponse extends $pb.GeneratedMessage {
     return result;
   }
 
-  LikePostResponse._();
+  ReactToPostResponse._();
 
-  factory LikePostResponse.fromBuffer($core.List<$core.int> data,
+  factory ReactToPostResponse.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory LikePostResponse.fromJson($core.String json,
+  factory ReactToPostResponse.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'LikePostResponse',
+      _omitMessageNames ? '' : 'ReactToPostResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
     ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
@@ -955,23 +959,23 @@ class LikePostResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  LikePostResponse clone() => deepCopy();
+  ReactToPostResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  LikePostResponse copyWith(void Function(LikePostResponse) updates) =>
-      super.copyWith((message) => updates(message as LikePostResponse))
-          as LikePostResponse;
+  ReactToPostResponse copyWith(void Function(ReactToPostResponse) updates) =>
+      super.copyWith((message) => updates(message as ReactToPostResponse))
+          as ReactToPostResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static LikePostResponse create() => LikePostResponse._();
+  static ReactToPostResponse create() => ReactToPostResponse._();
   @$core.override
-  LikePostResponse createEmptyInstance() => create();
+  ReactToPostResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static LikePostResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<LikePostResponse>(create);
-  static LikePostResponse? _defaultInstance;
+  static ReactToPostResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ReactToPostResponse>(create);
+  static ReactToPostResponse? _defaultInstance;
 
   /// Error, if any.
   @$pb.TagNumber(1)
@@ -993,10 +997,7 @@ class Post extends $pb.GeneratedMessage {
     $2.Content? content,
     $3.Timestamp? timestamp,
     $core.String? parent,
-    $core.int? likeCount,
-    $core.int? dislikeCount,
-    $core.bool? liked,
-    $core.bool? disliked,
+    $core.Iterable<$core.MapEntry<$core.String, $core.int>>? reactions,
   }) {
     final result = create();
     if (postId != null) result.postId = postId;
@@ -1004,10 +1005,7 @@ class Post extends $pb.GeneratedMessage {
     if (content != null) result.content = content;
     if (timestamp != null) result.timestamp = timestamp;
     if (parent != null) result.parent = parent;
-    if (likeCount != null) result.likeCount = likeCount;
-    if (dislikeCount != null) result.dislikeCount = dislikeCount;
-    if (liked != null) result.liked = liked;
-    if (disliked != null) result.disliked = disliked;
+    if (reactions != null) result.reactions.addEntries(reactions);
     return result;
   }
 
@@ -1031,11 +1029,11 @@ class Post extends $pb.GeneratedMessage {
     ..aOM<$3.Timestamp>(4, _omitFieldNames ? '' : 'timestamp',
         subBuilder: $3.Timestamp.create)
     ..aOS(5, _omitFieldNames ? '' : 'parent')
-    ..aI(6, _omitFieldNames ? '' : 'likeCount', fieldType: $pb.PbFieldType.OU3)
-    ..aI(7, _omitFieldNames ? '' : 'dislikeCount',
-        fieldType: $pb.PbFieldType.OU3)
-    ..aOB(8, _omitFieldNames ? '' : 'liked')
-    ..aOB(9, _omitFieldNames ? '' : 'disliked')
+    ..m<$core.String, $core.int>(6, _omitFieldNames ? '' : 'reactions',
+        entryClassName: 'Post.ReactionsEntry',
+        keyFieldType: $pb.PbFieldType.OS,
+        valueFieldType: $pb.PbFieldType.OU3,
+        packageName: const $pb.PackageName('posting.v1'))
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1112,45 +1110,11 @@ class Post extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearParent() => $_clearField(5);
 
-  /// Number of users who like this post.
+  /// The reactions to this post.
+  ///
+  /// Every string corresponds to a `PostReaction`.
   @$pb.TagNumber(6)
-  $core.int get likeCount => $_getIZ(5);
-  @$pb.TagNumber(6)
-  set likeCount($core.int value) => $_setUnsignedInt32(5, value);
-  @$pb.TagNumber(6)
-  $core.bool hasLikeCount() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearLikeCount() => $_clearField(6);
-
-  /// Number of users who dislike this post.
-  @$pb.TagNumber(7)
-  $core.int get dislikeCount => $_getIZ(6);
-  @$pb.TagNumber(7)
-  set dislikeCount($core.int value) => $_setUnsignedInt32(6, value);
-  @$pb.TagNumber(7)
-  $core.bool hasDislikeCount() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearDislikeCount() => $_clearField(7);
-
-  /// Whether the requesting user likes this post.
-  @$pb.TagNumber(8)
-  $core.bool get liked => $_getBF(7);
-  @$pb.TagNumber(8)
-  set liked($core.bool value) => $_setBool(7, value);
-  @$pb.TagNumber(8)
-  $core.bool hasLiked() => $_has(7);
-  @$pb.TagNumber(8)
-  void clearLiked() => $_clearField(8);
-
-  /// Whether the requesting user dislikes this post.
-  @$pb.TagNumber(9)
-  $core.bool get disliked => $_getBF(8);
-  @$pb.TagNumber(9)
-  set disliked($core.bool value) => $_setBool(8, value);
-  @$pb.TagNumber(9)
-  $core.bool hasDisliked() => $_has(8);
-  @$pb.TagNumber(9)
-  void clearDisliked() => $_clearField(9);
+  $pb.PbMap<$core.String, $core.int> get reactions => $_getMap(5);
 }
 
 const $core.bool _omitFieldNames =

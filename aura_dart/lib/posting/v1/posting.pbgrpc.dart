@@ -90,11 +90,14 @@ class PostingServiceClient extends $grpc.Client {
     return $createUnaryCall(_$searchPosts, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.LikePostResponse> likePost(
-    $0.LikePostRequest request, {
+  /// React to a post.
+  ///
+  /// Requires Authentication: Only authenticated users can react to posts.
+  $grpc.ResponseFuture<$0.ReactToPostResponse> reactToPost(
+    $0.ReactToPostRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$likePost, request, options: options);
+    return $createUnaryCall(_$reactToPost, request, options: options);
   }
 
   // method descriptors
@@ -129,11 +132,11 @@ class PostingServiceClient extends $grpc.Client {
           '/posting.v1.PostingService/SearchPosts',
           ($0.SearchPostsRequest value) => value.writeToBuffer(),
           $0.SearchPostsResponse.fromBuffer);
-  static final _$likePost =
-      $grpc.ClientMethod<$0.LikePostRequest, $0.LikePostResponse>(
-          '/posting.v1.PostingService/LikePost',
-          ($0.LikePostRequest value) => value.writeToBuffer(),
-          $0.LikePostResponse.fromBuffer);
+  static final _$reactToPost =
+      $grpc.ClientMethod<$0.ReactToPostRequest, $0.ReactToPostResponse>(
+          '/posting.v1.PostingService/ReactToPost',
+          ($0.ReactToPostRequest value) => value.writeToBuffer(),
+          $0.ReactToPostResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('posting.v1.PostingService')
@@ -187,13 +190,15 @@ abstract class PostingServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.SearchPostsRequest.fromBuffer(value),
             ($0.SearchPostsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.LikePostRequest, $0.LikePostResponse>(
-        'LikePost',
-        likePost_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $0.LikePostRequest.fromBuffer(value),
-        ($0.LikePostResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.ReactToPostRequest, $0.ReactToPostResponse>(
+            'ReactToPost',
+            reactToPost_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.ReactToPostRequest.fromBuffer(value),
+            ($0.ReactToPostResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.RecommendationsResponse> recommendations_Pre(
@@ -245,11 +250,11 @@ abstract class PostingServiceBase extends $grpc.Service {
   $async.Future<$0.SearchPostsResponse> searchPosts(
       $grpc.ServiceCall call, $0.SearchPostsRequest request);
 
-  $async.Future<$0.LikePostResponse> likePost_Pre($grpc.ServiceCall $call,
-      $async.Future<$0.LikePostRequest> $request) async {
-    return likePost($call, await $request);
+  $async.Future<$0.ReactToPostResponse> reactToPost_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.ReactToPostRequest> $request) async {
+    return reactToPost($call, await $request);
   }
 
-  $async.Future<$0.LikePostResponse> likePost(
-      $grpc.ServiceCall call, $0.LikePostRequest request);
+  $async.Future<$0.ReactToPostResponse> reactToPost(
+      $grpc.ServiceCall call, $0.ReactToPostRequest request);
 }

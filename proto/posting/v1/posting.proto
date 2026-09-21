@@ -35,7 +35,10 @@ service PostingService {
   // Requires Authentication: Only authenticated users can search posts.
   rpc SearchPosts(SearchPostsRequest) returns (SearchPostsResponse);
 
-  rpc LikePost(LikePostRequest) returns (LikePostResponse);
+  // React to a post.
+  //
+  // Requires Authentication: Only authenticated users can react to posts.
+  rpc ReactToPost(ReactToPostRequest) returns (ReactToPostResponse);
 }
 
 // Request for getting recommendations.
@@ -136,16 +139,16 @@ message SearchPostsResponse {
   optional common.v1.Error error = 2;
 }
 
-// Request for liking a post.
-message LikePostRequest {
+// Request for reacting to a post.
+message ReactToPostRequest {
   // The ID of the post.
   string post_id = 1;
-  // If this is a dislike.
-  bool dislike = 2;
+  // The reaction.
+  PostReaction dislike = 2;
 }
 
-// Response for liking a post.
-message LikePostResponse {
+// Response for reacting to a post.
+message ReactToPostResponse {
   // Error, if any.
   optional common.v1.Error error = 1;
 }
@@ -163,12 +166,18 @@ message Post {
   //
   // If set, this post is a comment under the specified post.
   optional string parent = 5;
-  // Number of users who like this post.
-  uint32 like_count = 6;
-  // Number of users who dislike this post.
-  uint32 dislike_count = 7;
-  // Whether the requesting user likes this post.
-  bool liked = 8;
-  // Whether the requesting user dislikes this post.
-  bool disliked = 9;
+  // The reactions to this post.
+  //
+  // Every string corresponds to a `PostReaction`.
+  map<string, uint32> reactions = 6;
+}
+
+// A reaction to a post from a user.
+enum PostReaction {
+  // No reaction.
+  POST_REACTION_UNSPECIFIED = 0;
+  // A like reaction.
+  POST_REACTION_LIKE = 1;
+  // A dislike reaction.
+  POST_REACTION_DISLIKE = 2;
 }
