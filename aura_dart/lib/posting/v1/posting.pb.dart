@@ -998,6 +998,7 @@ class Post extends $pb.GeneratedMessage {
     $3.Timestamp? timestamp,
     $core.String? parent,
     $core.Iterable<$core.MapEntry<$core.String, $core.int>>? reactions,
+    PostReaction? reaction,
   }) {
     final result = create();
     if (postId != null) result.postId = postId;
@@ -1006,6 +1007,7 @@ class Post extends $pb.GeneratedMessage {
     if (timestamp != null) result.timestamp = timestamp;
     if (parent != null) result.parent = parent;
     if (reactions != null) result.reactions.addEntries(reactions);
+    if (reaction != null) result.reaction = reaction;
     return result;
   }
 
@@ -1034,6 +1036,8 @@ class Post extends $pb.GeneratedMessage {
         keyFieldType: $pb.PbFieldType.OS,
         valueFieldType: $pb.PbFieldType.OU3,
         packageName: const $pb.PackageName('posting.v1'))
+    ..aE<PostReaction>(7, _omitFieldNames ? '' : 'reaction',
+        enumValues: PostReaction.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1110,11 +1114,21 @@ class Post extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearParent() => $_clearField(5);
 
-  /// The reactions to this post.
+  /// The reactions of all users to this post.
   ///
   /// Every string corresponds to a `PostReaction`.
   @$pb.TagNumber(6)
   $pb.PbMap<$core.String, $core.int> get reactions => $_getMap(5);
+
+  /// The reaction of the current user to this post.
+  @$pb.TagNumber(7)
+  PostReaction get reaction => $_getN(6);
+  @$pb.TagNumber(7)
+  set reaction(PostReaction value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasReaction() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearReaction() => $_clearField(7);
 }
 
 const $core.bool _omitFieldNames =
