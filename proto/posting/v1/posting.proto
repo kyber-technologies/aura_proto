@@ -148,7 +148,7 @@ message ReactToPostRequest {
   // The ID of the post.
   string post_id = 1;
   // The reaction.
-  PostReaction dislike = 2;
+  PostReaction reaction = 2;
 }
 
 // Response for reacting to a post.

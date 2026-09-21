@@ -338,20 +338,20 @@ const ReactToPostRequest$json = {
   '2': [
     {'1': 'post_id', '3': 1, '4': 1, '5': 9, '10': 'postId'},
     {
-      '1': 'dislike',
+      '1': 'reaction',
       '3': 2,
       '4': 1,
       '5': 14,
       '6': '.posting.v1.PostReaction',
-      '10': 'dislike'
+      '10': 'reaction'
     },
   ],
 };
 
 /// Descriptor for `ReactToPostRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List reactToPostRequestDescriptor = $convert.base64Decode(
-    'ChJSZWFjdFRvUG9zdFJlcXVlc3QSFwoHcG9zdF9pZBgBIAEoCVIGcG9zdElkEjIKB2Rpc2xpa2'
-    'UYAiABKA4yGC5wb3N0aW5nLnYxLlBvc3RSZWFjdGlvblIHZGlzbGlrZQ==');
+    'ChJSZWFjdFRvUG9zdFJlcXVlc3QSFwoHcG9zdF9pZBgBIAEoCVIGcG9zdElkEjQKCHJlYWN0aW'
+    '9uGAIgASgOMhgucG9zdGluZy52MS5Qb3N0UmVhY3Rpb25SCHJlYWN0aW9u');
 
 @$core.Deprecated('Use reactToPostResponseDescriptor instead')
 const ReactToPostResponse$json = {

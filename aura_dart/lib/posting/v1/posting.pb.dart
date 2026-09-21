@@ -894,11 +894,11 @@ class SearchPostsResponse extends $pb.GeneratedMessage {
 class ReactToPostRequest extends $pb.GeneratedMessage {
   factory ReactToPostRequest({
     $core.String? postId,
-    PostReaction? dislike,
+    PostReaction? reaction,
   }) {
     final result = create();
     if (postId != null) result.postId = postId;
-    if (dislike != null) result.dislike = dislike;
+    if (reaction != null) result.reaction = reaction;
     return result;
   }
 
@@ -916,7 +916,7 @@ class ReactToPostRequest extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'postId')
-    ..aE<PostReaction>(2, _omitFieldNames ? '' : 'dislike',
+    ..aE<PostReaction>(2, _omitFieldNames ? '' : 'reaction',
         enumValues: PostReaction.values)
     ..hasRequiredFields = false;
 
@@ -951,13 +951,13 @@ class ReactToPostRequest extends $pb.GeneratedMessage {
 
   /// The reaction.
   @$pb.TagNumber(2)
-  PostReaction get dislike => $_getN(1);
+  PostReaction get reaction => $_getN(1);
   @$pb.TagNumber(2)
-  set dislike(PostReaction value) => $_setField(2, value);
+  set reaction(PostReaction value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasDislike() => $_has(1);
+  $core.bool hasReaction() => $_has(1);
   @$pb.TagNumber(2)
-  void clearDislike() => $_clearField(2);
+  void clearReaction() => $_clearField(2);
 }
 
 /// Response for reacting to a post.
