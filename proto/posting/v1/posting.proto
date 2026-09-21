@@ -166,10 +166,12 @@ message Post {
   //
   // If set, this post is a comment under the specified post.
   optional string parent = 5;
-  // The reactions to this post.
+  // The reactions of all users to this post.
   //
   // Every string corresponds to a `PostReaction`.
   map<string, uint32> reactions = 6;
+  // The reaction of the current user to this post.
+  PostReaction reaction = 7;
 }
 
 // A reaction to a post from a user.
