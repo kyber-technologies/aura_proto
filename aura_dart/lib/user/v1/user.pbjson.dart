@@ -483,6 +483,45 @@ final $typed_data.Uint8List isBlockedResponseDescriptor = $convert.base64Decode(
     'ChFJc0Jsb2NrZWRSZXNwb25zZRIaCgdibG9ja2VkGAEgASgISABSB2Jsb2NrZWQSKAoFZXJyb3'
     'IYAiABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJyb3JCCAoGcmVzdWx0');
 
+@$core.Deprecated('Use followRequestDescriptor instead')
+const FollowRequest$json = {
+  '1': 'FollowRequest',
+  '2': [
+    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
+    {'1': 'unfollow', '3': 2, '4': 1, '5': 8, '10': 'unfollow'},
+  ],
+};
+
+/// Descriptor for `FollowRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List followRequestDescriptor = $convert.base64Decode(
+    'Cg1Gb2xsb3dSZXF1ZXN0EhcKB3VzZXJfaWQYASABKAlSBnVzZXJJZBIaCgh1bmZvbGxvdxgCIA'
+    'EoCFIIdW5mb2xsb3c=');
+
+@$core.Deprecated('Use followResponseDescriptor instead')
+const FollowResponse$json = {
+  '1': 'FollowResponse',
+  '2': [
+    {
+      '1': 'error',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_error'},
+  ],
+};
+
+/// Descriptor for `FollowResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List followResponseDescriptor = $convert.base64Decode(
+    'Cg5Gb2xsb3dSZXNwb25zZRIrCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcn'
+    'JvcogBAUIICgZfZXJyb3I=');
+
 @$core.Deprecated('Use userDescriptor instead')
 const User$json = {
   '1': 'User',
@@ -531,6 +570,8 @@ const User$json = {
       '6': '.chat.v1.Channel',
       '10': 'channels'
     },
+    {'1': 'followers', '3': 10, '4': 3, '5': 9, '10': 'followers'},
+    {'1': 'following', '3': 11, '4': 3, '5': 9, '10': 'following'},
   ],
 };
 
@@ -542,7 +583,8 @@ final $typed_data.Uint8List userDescriptor = $convert.base64Decode(
     'gLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJY3JlYXRlZEF0EisKBGljb24YByABKAsy'
     'Fy5yZXNvdXJjZS52MS5SZXNvdXJjZUlkUgRpY29uEjsKDW5vdGlmaWNhdGlvbnMYCCADKAsyFS'
     '51c2VyLnYxLk5vdGlmaWNhdGlvblINbm90aWZpY2F0aW9ucxIsCghjaGFubmVscxgJIAMoCzIQ'
-    'LmNoYXQudjEuQ2hhbm5lbFIIY2hhbm5lbHM=');
+    'LmNoYXQudjEuQ2hhbm5lbFIIY2hhbm5lbHMSHAoJZm9sbG93ZXJzGAogAygJUglmb2xsb3dlcn'
+    'MSHAoJZm9sbG93aW5nGAsgAygJUglmb2xsb3dpbmc=');
 
 @$core.Deprecated('Use userProfileDescriptor instead')
 const UserProfile$json = {
@@ -574,6 +616,8 @@ const UserProfile$json = {
       '6': '.resource.v1.ResourceId',
       '10': 'icon'
     },
+    {'1': 'followers', '3': 6, '4': 1, '5': 13, '10': 'followers'},
+    {'1': 'following', '3': 7, '4': 1, '5': 13, '10': 'following'},
   ],
 };
 
@@ -582,7 +626,8 @@ final $typed_data.Uint8List userProfileDescriptor = $convert.base64Decode(
     'CgtVc2VyUHJvZmlsZRIXCgd1c2VyX2lkGAEgASgJUgZ1c2VySWQSGgoIdXNlcm5hbWUYAiABKA'
     'lSCHVzZXJuYW1lEiUKBHJvbGUYAyABKA4yES51c2VyLnYxLlVzZXJSb2xlUgRyb2xlEjkKCmNy'
     'ZWF0ZWRfYXQYBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgljcmVhdGVkQXQSKw'
-    'oEaWNvbhgFIAEoCzIXLnJlc291cmNlLnYxLlJlc291cmNlSWRSBGljb24=');
+    'oEaWNvbhgFIAEoCzIXLnJlc291cmNlLnYxLlJlc291cmNlSWRSBGljb24SHAoJZm9sbG93ZXJz'
+    'GAYgASgNUglmb2xsb3dlcnMSHAoJZm9sbG93aW5nGAcgASgNUglmb2xsb3dpbmc=');
 
 @$core.Deprecated('Use notificationDescriptor instead')
 const Notification$json = {

@@ -1378,6 +1378,134 @@ class IsBlockedResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(1);
 }
 
+/// Request for following a user.
+class FollowRequest extends $pb.GeneratedMessage {
+  factory FollowRequest({
+    $core.String? userId,
+    $core.bool? unfollow,
+  }) {
+    final result = create();
+    if (userId != null) result.userId = userId;
+    if (unfollow != null) result.unfollow = unfollow;
+    return result;
+  }
+
+  FollowRequest._();
+
+  factory FollowRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory FollowRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'FollowRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
+    ..aOB(2, _omitFieldNames ? '' : 'unfollow')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  FollowRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  FollowRequest copyWith(void Function(FollowRequest) updates) =>
+      super.copyWith((message) => updates(message as FollowRequest))
+          as FollowRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static FollowRequest create() => FollowRequest._();
+  @$core.override
+  FollowRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static FollowRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<FollowRequest>(create);
+  static FollowRequest? _defaultInstance;
+
+  /// ID of the user to follow.
+  @$pb.TagNumber(1)
+  $core.String get userId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set userId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasUserId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUserId() => $_clearField(1);
+
+  /// Whether to unfollow the user.
+  @$pb.TagNumber(2)
+  $core.bool get unfollow => $_getBF(1);
+  @$pb.TagNumber(2)
+  set unfollow($core.bool value) => $_setBool(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasUnfollow() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUnfollow() => $_clearField(2);
+}
+
+/// Response for following a user.
+class FollowResponse extends $pb.GeneratedMessage {
+  factory FollowResponse({
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  FollowResponse._();
+
+  factory FollowResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory FollowResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'FollowResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  FollowResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  FollowResponse copyWith(void Function(FollowResponse) updates) =>
+      super.copyWith((message) => updates(message as FollowResponse))
+          as FollowResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static FollowResponse create() => FollowResponse._();
+  @$core.override
+  FollowResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static FollowResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<FollowResponse>(create);
+  static FollowResponse? _defaultInstance;
+
+  /// Error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+}
+
 /// An application user.
 ///
 /// When used in an RPC response, the password **must** be empty.
@@ -1392,6 +1520,8 @@ class User extends $pb.GeneratedMessage {
     $3.ResourceId? icon,
     $core.Iterable<Notification>? notifications,
     $core.Iterable<$4.Channel>? channels,
+    $core.Iterable<$core.String>? followers,
+    $core.Iterable<$core.String>? following,
   }) {
     final result = create();
     if (userId != null) result.userId = userId;
@@ -1403,6 +1533,8 @@ class User extends $pb.GeneratedMessage {
     if (icon != null) result.icon = icon;
     if (notifications != null) result.notifications.addAll(notifications);
     if (channels != null) result.channels.addAll(channels);
+    if (followers != null) result.followers.addAll(followers);
+    if (following != null) result.following.addAll(following);
     return result;
   }
 
@@ -1433,6 +1565,8 @@ class User extends $pb.GeneratedMessage {
         subBuilder: Notification.create)
     ..pPM<$4.Channel>(9, _omitFieldNames ? '' : 'channels',
         subBuilder: $4.Channel.create)
+    ..pPS(10, _omitFieldNames ? '' : 'followers')
+    ..pPS(11, _omitFieldNames ? '' : 'following')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1536,6 +1670,14 @@ class User extends $pb.GeneratedMessage {
   /// Channels the User is in
   @$pb.TagNumber(9)
   $pb.PbList<$4.Channel> get channels => $_getList(8);
+
+  /// The followers of the user.
+  @$pb.TagNumber(10)
+  $pb.PbList<$core.String> get followers => $_getList(9);
+
+  /// The users the user is following.
+  @$pb.TagNumber(11)
+  $pb.PbList<$core.String> get following => $_getList(10);
 }
 
 /// User profile.
@@ -1548,6 +1690,8 @@ class UserProfile extends $pb.GeneratedMessage {
     UserRole? role,
     $2.Timestamp? createdAt,
     $3.ResourceId? icon,
+    $core.int? followers,
+    $core.int? following,
   }) {
     final result = create();
     if (userId != null) result.userId = userId;
@@ -1555,6 +1699,8 @@ class UserProfile extends $pb.GeneratedMessage {
     if (role != null) result.role = role;
     if (createdAt != null) result.createdAt = createdAt;
     if (icon != null) result.icon = icon;
+    if (followers != null) result.followers = followers;
+    if (following != null) result.following = following;
     return result;
   }
 
@@ -1579,6 +1725,8 @@ class UserProfile extends $pb.GeneratedMessage {
         subBuilder: $2.Timestamp.create)
     ..aOM<$3.ResourceId>(5, _omitFieldNames ? '' : 'icon',
         subBuilder: $3.ResourceId.create)
+    ..aI(6, _omitFieldNames ? '' : 'followers', fieldType: $pb.PbFieldType.OU3)
+    ..aI(7, _omitFieldNames ? '' : 'following', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1653,6 +1801,26 @@ class UserProfile extends $pb.GeneratedMessage {
   void clearIcon() => $_clearField(5);
   @$pb.TagNumber(5)
   $3.ResourceId ensureIcon() => $_ensure(4);
+
+  /// The number of followers the user has.
+  @$pb.TagNumber(6)
+  $core.int get followers => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set followers($core.int value) => $_setUnsignedInt32(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasFollowers() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearFollowers() => $_clearField(6);
+
+  /// The number of users the user is following.
+  @$pb.TagNumber(7)
+  $core.int get following => $_getIZ(6);
+  @$pb.TagNumber(7)
+  set following($core.int value) => $_setUnsignedInt32(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasFollowing() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearFollowing() => $_clearField(7);
 }
 
 enum Notification_Notification { invite, message, notSet }

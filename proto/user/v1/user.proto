@@ -50,6 +50,11 @@ service UserService {
   //
   // Requires Authentication: Only authenticated users can do this.
   rpc IsBlocked(IsBlockedRequest) returns (IsBlockedResponse);
+
+  // Follows a user.
+  //
+  // Requires Authentication: Only authenticated users can do this.
+  rpc Follow(FollowRequest) returns (FollowResponse);
 }
 
 // Request message for checking if a user exists.
@@ -203,6 +208,20 @@ message IsBlockedResponse {
   }
 }
 
+// Request for following a user.
+message FollowRequest {
+  // ID of the user to follow.
+  string user_id = 1;
+  // Whether to unfollow the user.
+  bool unfollow = 2;
+}
+
+// Response for following a user.
+message FollowResponse {
+  // Error, if any.
+  optional common.v1.Error error = 1;
+}
+
 // An application user.
 //
 // When used in an RPC response, the password **must** be empty.
@@ -227,6 +246,10 @@ message User {
   repeated Notification notifications = 8;
   // Channels the User is in
   repeated chat.v1.Channel channels = 9;
+  // The followers of the user.
+  repeated string followers = 10;
+  // The users the user is following.
+  repeated string following = 11;
 }
 
 // User profile.
@@ -243,6 +266,10 @@ message UserProfile {
   google.protobuf.Timestamp created_at = 4;
   // Icon/Avatar of the user.
   resource.v1.ResourceId icon = 5;
+  // The number of followers the user has.
+  uint32 followers = 6;
+  // The number of users the user is following.
+  uint32 following = 7;
 }
 
 // Role of the user.

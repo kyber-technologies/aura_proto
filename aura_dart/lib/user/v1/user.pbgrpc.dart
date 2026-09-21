@@ -125,6 +125,16 @@ class UserServiceClient extends $grpc.Client {
     return $createUnaryCall(_$isBlocked, request, options: options);
   }
 
+  /// Follows a user.
+  ///
+  /// Requires Authentication: Only authenticated users can do this.
+  $grpc.ResponseFuture<$0.FollowResponse> follow(
+    $0.FollowRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$follow, request, options: options);
+  }
+
   // method descriptors
 
   static final _$userExists =
@@ -177,6 +187,11 @@ class UserServiceClient extends $grpc.Client {
           '/user.v1.UserService/IsBlocked',
           ($0.IsBlockedRequest value) => value.writeToBuffer(),
           $0.IsBlockedResponse.fromBuffer);
+  static final _$follow =
+      $grpc.ClientMethod<$0.FollowRequest, $0.FollowResponse>(
+          '/user.v1.UserService/Follow',
+          ($0.FollowRequest value) => value.writeToBuffer(),
+          $0.FollowResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('user.v1.UserService')
@@ -258,6 +273,13 @@ abstract class UserServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.IsBlockedRequest.fromBuffer(value),
         ($0.IsBlockedResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.FollowRequest, $0.FollowResponse>(
+        'Follow',
+        follow_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.FollowRequest.fromBuffer(value),
+        ($0.FollowResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.UserExistsResponse> userExists_Pre($grpc.ServiceCall $call,
@@ -339,4 +361,12 @@ abstract class UserServiceBase extends $grpc.Service {
 
   $async.Future<$0.IsBlockedResponse> isBlocked(
       $grpc.ServiceCall call, $0.IsBlockedRequest request);
+
+  $async.Future<$0.FollowResponse> follow_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.FollowRequest> $request) async {
+    return follow($call, await $request);
+  }
+
+  $async.Future<$0.FollowResponse> follow(
+      $grpc.ServiceCall call, $0.FollowRequest request);
 }
