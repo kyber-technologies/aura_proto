@@ -37,4 +37,6 @@ enum ErrorCode {
   // Unlike `ERROR_CODE_UNAUTHORIZED`,
   // this error is caused by policy violation or permission restrictions.
   ERROR_CODE_RESTRICTED = 6;
+  // The requested resource is unwanted by the user.
+  ERROR_CODE_UNWANTED = 7;
 }

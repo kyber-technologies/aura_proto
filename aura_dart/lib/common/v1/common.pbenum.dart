@@ -47,6 +47,10 @@ class ErrorCode extends $pb.ProtobufEnum {
   static const ErrorCode ERROR_CODE_RESTRICTED =
       ErrorCode._(6, _omitEnumNames ? '' : 'ERROR_CODE_RESTRICTED');
 
+  /// The requested resource is unwanted by the user.
+  static const ErrorCode ERROR_CODE_UNWANTED =
+      ErrorCode._(7, _omitEnumNames ? '' : 'ERROR_CODE_UNWANTED');
+
   static const $core.List<ErrorCode> values = <ErrorCode>[
     ERROR_CODE_UNSPECIFIED,
     ERROR_CODE_INTERNAL,
@@ -55,10 +59,11 @@ class ErrorCode extends $pb.ProtobufEnum {
     ERROR_CODE_ALREADY_EXISTS,
     ERROR_CODE_INVALID_FORMAT,
     ERROR_CODE_RESTRICTED,
+    ERROR_CODE_UNWANTED,
   ];
 
   static final $core.List<ErrorCode?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 6);
+      $pb.ProtobufEnum.$_initByValueList(values, 7);
   static ErrorCode? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
