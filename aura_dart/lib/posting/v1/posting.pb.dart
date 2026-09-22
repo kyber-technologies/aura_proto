@@ -442,10 +442,10 @@ class UnpublishResponse extends $pb.GeneratedMessage {
 /// Request for getting posts.
 class GetRequest extends $pb.GeneratedMessage {
   factory GetRequest({
-    $core.String? postId,
+    $core.Iterable<$core.String>? postId,
   }) {
     final result = create();
-    if (postId != null) result.postId = postId;
+    if (postId != null) result.postId.addAll(postId);
     return result;
   }
 
@@ -462,7 +462,7 @@ class GetRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'GetRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'postId')
+    ..pPS(1, _omitFieldNames ? '' : 'postId')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -483,15 +483,9 @@ class GetRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GetRequest>(create);
   static GetRequest? _defaultInstance;
 
-  /// The post ID to get.
+  /// The post IDs to get.
   @$pb.TagNumber(1)
-  $core.String get postId => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set postId($core.String value) => $_setString(0, value);
-  @$pb.TagNumber(1)
-  $core.bool hasPostId() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearPostId() => $_clearField(1);
+  $pb.PbList<$core.String> get postId => $_getList(0);
 }
 
 /// Response for getting posts.
