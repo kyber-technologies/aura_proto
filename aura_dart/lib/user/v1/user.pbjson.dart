@@ -331,12 +331,12 @@ const GetResponse$json = {
   '1': 'GetResponse',
   '2': [
     {
-      '1': 'user',
+      '1': 'users',
       '3': 1,
       '4': 3,
       '5': 11,
       '6': '.user.v1.UserProfile',
-      '10': 'user'
+      '10': 'users'
     },
     {
       '1': 'error',
@@ -351,8 +351,8 @@ const GetResponse$json = {
 
 /// Descriptor for `GetResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getResponseDescriptor = $convert.base64Decode(
-    'CgtHZXRSZXNwb25zZRIoCgR1c2VyGAEgAygLMhQudXNlci52MS5Vc2VyUHJvZmlsZVIEdXNlch'
-    'ImCgVlcnJvchgCIAEoCzIQLmNvbW1vbi52MS5FcnJvclIFZXJyb3I=');
+    'CgtHZXRSZXNwb25zZRIqCgV1c2VycxgBIAMoCzIULnVzZXIudjEuVXNlclByb2ZpbGVSBXVzZX'
+    'JzEiYKBWVycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9yUgVlcnJvcg==');
 
 @$core.Deprecated('Use searchRequestDescriptor instead')
 const SearchRequest$json = {

@@ -886,11 +886,11 @@ class GetRequest extends $pb.GeneratedMessage {
 /// Response message for getting users.
 class GetResponse extends $pb.GeneratedMessage {
   factory GetResponse({
-    $core.Iterable<UserProfile>? user,
+    $core.Iterable<UserProfile>? users,
     $1.Error? error,
   }) {
     final result = create();
-    if (user != null) result.user.addAll(user);
+    if (users != null) result.users.addAll(users);
     if (error != null) result.error = error;
     return result;
   }
@@ -908,7 +908,7 @@ class GetResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'GetResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..pPM<UserProfile>(1, _omitFieldNames ? '' : 'user',
+    ..pPM<UserProfile>(1, _omitFieldNames ? '' : 'users',
         subBuilder: UserProfile.create)
     ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
@@ -935,7 +935,7 @@ class GetResponse extends $pb.GeneratedMessage {
 
   /// The returned user profiles.
   @$pb.TagNumber(1)
-  $pb.PbList<UserProfile> get user => $_getList(0);
+  $pb.PbList<UserProfile> get users => $_getList(0);
 
   /// The error, if any.
   @$pb.TagNumber(2)

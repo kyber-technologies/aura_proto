@@ -156,7 +156,7 @@ message GetRequest {
 // Response message for getting users.
 message GetResponse {
   // The returned user profiles.
-  repeated UserProfile user = 1;
+  repeated UserProfile users = 1;
   // The error, if any.
   common.v1.Error error = 2;
 }
