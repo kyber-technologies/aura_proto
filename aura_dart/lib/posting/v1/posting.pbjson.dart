@@ -49,14 +49,7 @@ final $typed_data.Uint8List recommendationsRequestDescriptor =
 const RecommendationsResponse$json = {
   '1': 'RecommendationsResponse',
   '2': [
-    {
-      '1': 'posts',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.posting.v1.Post',
-      '10': 'posts'
-    },
+    {'1': 'post_ids', '3': 1, '4': 3, '5': 9, '10': 'postIds'},
     {
       '1': 'error',
       '3': 2,
@@ -75,9 +68,8 @@ const RecommendationsResponse$json = {
 
 /// Descriptor for `RecommendationsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List recommendationsResponseDescriptor = $convert.base64Decode(
-    'ChdSZWNvbW1lbmRhdGlvbnNSZXNwb25zZRImCgVwb3N0cxgBIAMoCzIQLnBvc3RpbmcudjEuUG'
-    '9zdFIFcG9zdHMSKwoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJyb3KIAQFC'
-    'CAoGX2Vycm9y');
+    'ChdSZWNvbW1lbmRhdGlvbnNSZXNwb25zZRIZCghwb3N0X2lkcxgBIAMoCVIHcG9zdElkcxIrCg'
+    'VlcnJvchgCIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcnJvcogBAUIICgZfZXJyb3I=');
 
 @$core.Deprecated('Use publishRequestDescriptor instead')
 const PublishRequest$json = {

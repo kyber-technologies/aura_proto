@@ -51,8 +51,8 @@ message RecommendationsRequest {
 
 // Response for getting recommendations.
 message RecommendationsResponse {
-  // The returned posts.
-  repeated Post posts = 1;
+  // The returned posts IDs.
+  repeated string post_ids = 1;
   // Error, if any.
   optional common.v1.Error error = 2;
 }

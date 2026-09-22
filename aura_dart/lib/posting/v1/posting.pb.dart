@@ -97,11 +97,11 @@ class RecommendationsRequest extends $pb.GeneratedMessage {
 /// Response for getting recommendations.
 class RecommendationsResponse extends $pb.GeneratedMessage {
   factory RecommendationsResponse({
-    $core.Iterable<Post>? posts,
+    $core.Iterable<$core.String>? postIds,
     $1.Error? error,
   }) {
     final result = create();
-    if (posts != null) result.posts.addAll(posts);
+    if (postIds != null) result.postIds.addAll(postIds);
     if (error != null) result.error = error;
     return result;
   }
@@ -119,7 +119,7 @@ class RecommendationsResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'RecommendationsResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
-    ..pPM<Post>(1, _omitFieldNames ? '' : 'posts', subBuilder: Post.create)
+    ..pPS(1, _omitFieldNames ? '' : 'postIds')
     ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
     ..hasRequiredFields = false;
@@ -144,9 +144,9 @@ class RecommendationsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<RecommendationsResponse>(create);
   static RecommendationsResponse? _defaultInstance;
 
-  /// The returned posts.
+  /// The returned posts IDs.
   @$pb.TagNumber(1)
-  $pb.PbList<Post> get posts => $_getList(0);
+  $pb.PbList<$core.String> get postIds => $_getList(0);
 
   /// Error, if any.
   @$pb.TagNumber(2)
