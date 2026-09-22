@@ -61,7 +61,7 @@ class PostingServiceClient extends $grpc.Client {
     return $createUnaryCall(_$unpublish, request, options: options);
   }
 
-  /// Get a specific post.
+  /// Get multiple posts.
   ///
   /// Requires Authentication: Only authenticated users can get posts.
   $grpc.ResponseFuture<$0.GetResponse> get(

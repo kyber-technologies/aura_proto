@@ -18,7 +18,7 @@ service ResourceService {
   // Requires Authentication: Only authorized users can download resources.
   rpc Download(DownloadRequest) returns (stream DownloadResponse);
 
-  // Get the metadata of a resource.
+  // Get metadata of resources.
   //
   // Requires Authentication: Only authorized users can get resource metadata.
   rpc Meta(MetaRequest) returns (MetaResponse);
@@ -62,25 +62,23 @@ message DownloadResponse {
     ResourceMeta meta = 1;
     // The raw data of the resource.
     bytes data = 2;
+    // The error, if any.
     common.v1.Error error = 3;
   }
 }
 
-// Request for getting resource meta.
+// Request for getting resource metas.
 message MetaRequest {
-  // The ID of the resource to get.
-  ResourceId resource_id = 1;
+  // The IDs of the resources to get.
+  repeated ResourceId resource_id = 1;
 }
 
-// Response for getting resource meta.
+// Response for getting resource metas.
 message MetaResponse {
-  // The result of the get request.
-  oneof result {
-    // The returned resource meta of the resource.
-    ResourceMeta meta = 1;
-    // The error, if any, that occurred during the get request.
-    common.v1.Error error = 2;
-  }
+  // The returned resource metas of the resource.
+  repeated ResourceMeta meta = 1;
+  // The error, if any.
+  optional common.v1.Error error = 2;
 }
 
 // The unique identifier for a resource.

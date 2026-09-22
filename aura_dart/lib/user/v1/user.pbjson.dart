@@ -318,13 +318,13 @@ final $typed_data.Uint8List updateResponseDescriptor = $convert.base64Decode(
 const GetRequest$json = {
   '1': 'GetRequest',
   '2': [
-    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
+    {'1': 'user_id', '3': 1, '4': 3, '5': 9, '10': 'userId'},
   ],
 };
 
 /// Descriptor for `GetRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getRequestDescriptor = $convert
-    .base64Decode('CgpHZXRSZXF1ZXN0EhcKB3VzZXJfaWQYASABKAlSBnVzZXJJZA==');
+    .base64Decode('CgpHZXRSZXF1ZXN0EhcKB3VzZXJfaWQYASADKAlSBnVzZXJJZA==');
 
 @$core.Deprecated('Use getResponseDescriptor instead')
 const GetResponse$json = {
@@ -333,10 +333,9 @@ const GetResponse$json = {
     {
       '1': 'user',
       '3': 1,
-      '4': 1,
+      '4': 3,
       '5': 11,
       '6': '.user.v1.UserProfile',
-      '9': 0,
       '10': 'user'
     },
     {
@@ -345,19 +344,15 @@ const GetResponse$json = {
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
-      '9': 0,
       '10': 'error'
     },
-  ],
-  '8': [
-    {'1': 'result'},
   ],
 };
 
 /// Descriptor for `GetResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getResponseDescriptor = $convert.base64Decode(
-    'CgtHZXRSZXNwb25zZRIqCgR1c2VyGAEgASgLMhQudXNlci52MS5Vc2VyUHJvZmlsZUgAUgR1c2'
-    'VyEigKBWVycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9yQggKBnJlc3VsdA==');
+    'CgtHZXRSZXNwb25zZRIoCgR1c2VyGAEgAygLMhQudXNlci52MS5Vc2VyUHJvZmlsZVIEdXNlch'
+    'ImCgVlcnJvchgCIAEoCzIQLmNvbW1vbi52MS5FcnJvclIFZXJyb3I=');
 
 @$core.Deprecated('Use searchRequestDescriptor instead')
 const SearchRequest$json = {

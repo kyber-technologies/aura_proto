@@ -85,9 +85,9 @@ class UserServiceClient extends $grpc.Client {
     return $createUnaryCall(_$update, request, options: options);
   }
 
-  /// Gets a user by ID.
+  /// Get multiple users by ID.
   ///
-  /// Requires Authentication: All authenticated users can get a user.
+  /// Requires Authentication: All authenticated users can get multiple users.
   $grpc.ResponseFuture<$0.GetResponse> get(
     $0.GetRequest request, {
     $grpc.CallOptions? options,

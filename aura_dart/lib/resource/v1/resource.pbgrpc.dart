@@ -55,7 +55,7 @@ class ResourceServiceClient extends $grpc.Client {
         options: options);
   }
 
-  /// Get the metadata of a resource.
+  /// Get metadata of resources.
   ///
   /// Requires Authentication: Only authorized users can get resource metadata.
   $grpc.ResponseFuture<$0.MetaResponse> meta(

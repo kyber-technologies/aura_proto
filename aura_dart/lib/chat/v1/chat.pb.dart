@@ -190,7 +190,7 @@ class CreateChannelResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   Channel ensureChannel() => $_ensure(0);
 
-  /// An error that occurred during the create operation, if any.
+  /// The error, if any.
   @$pb.TagNumber(2)
   $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)
@@ -306,7 +306,7 @@ class DeleteChannelResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<DeleteChannelResponse>(create);
   static DeleteChannelResponse? _defaultInstance;
 
-  /// The error that occurred during the delete operation, if any.
+  /// The error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)
@@ -448,7 +448,7 @@ class SetUserPermResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<SetUserPermResponse>(create);
   static SetUserPermResponse? _defaultInstance;
 
-  /// The error that occurred during the set operation, if any.
+  /// The error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)
@@ -589,7 +589,7 @@ class InviteResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<InviteResponse>(create);
   static InviteResponse? _defaultInstance;
 
-  /// The error that occurred during the invite operation, if any.
+  /// The error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)
@@ -740,7 +740,7 @@ class ReadResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $pb.PbList<Message> get messages => $_getList(0);
 
-  /// An error that occurred during the read operation, if any.
+  /// The error, if any.
   @$pb.TagNumber(2)
   $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)
@@ -904,7 +904,7 @@ class SendResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   Message ensureMessage() => $_ensure(0);
 
-  /// An error that occurred during the send operation.
+  /// The error, if any.
   @$pb.TagNumber(2)
   $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)
@@ -1020,7 +1020,7 @@ class DeleteMessageResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<DeleteMessageResponse>(create);
   static DeleteMessageResponse? _defaultInstance;
 
-  /// The error that occurred during the delete operation, if any.
+  /// The error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)

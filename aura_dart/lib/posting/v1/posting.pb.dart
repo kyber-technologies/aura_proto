@@ -146,7 +146,7 @@ class FeedResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $pb.PbList<$core.String> get postIds => $_getList(0);
 
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(2)
   $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)
@@ -311,7 +311,7 @@ class PublishResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   Post ensurePost() => $_ensure(0);
 
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(2)
   $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)
@@ -426,7 +426,7 @@ class UnpublishResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<UnpublishResponse>(create);
   static UnpublishResponse? _defaultInstance;
 
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)
@@ -439,7 +439,7 @@ class UnpublishResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(0);
 }
 
-/// Request for getting a post.
+/// Request for getting posts.
 class GetRequest extends $pb.GeneratedMessage {
   factory GetRequest({
     $core.String? postId,
@@ -494,16 +494,14 @@ class GetRequest extends $pb.GeneratedMessage {
   void clearPostId() => $_clearField(1);
 }
 
-enum GetResponse_Result { post, error, notSet }
-
-/// Response for getting a post.
+/// Response for getting posts.
 class GetResponse extends $pb.GeneratedMessage {
   factory GetResponse({
-    Post? post,
+    $core.Iterable<Post>? post,
     $1.Error? error,
   }) {
     final result = create();
-    if (post != null) result.post = post;
+    if (post != null) result.post.addAll(post);
     if (error != null) result.error = error;
     return result;
   }
@@ -517,18 +515,11 @@ class GetResponse extends $pb.GeneratedMessage {
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, GetResponse_Result>
-      _GetResponse_ResultByTag = {
-    1: GetResponse_Result.post,
-    2: GetResponse_Result.error,
-    0: GetResponse_Result.notSet
-  };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'GetResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
-    ..oo(0, [1, 2])
-    ..aOM<Post>(1, _omitFieldNames ? '' : 'post', subBuilder: Post.create)
+    ..pPM<Post>(1, _omitFieldNames ? '' : 'post', subBuilder: Post.create)
     ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
     ..hasRequiredFields = false;
@@ -552,27 +543,11 @@ class GetResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GetResponse>(create);
   static GetResponse? _defaultInstance;
 
+  /// The requested posts.
   @$pb.TagNumber(1)
-  @$pb.TagNumber(2)
-  GetResponse_Result whichResult() =>
-      _GetResponse_ResultByTag[$_whichOneof(0)]!;
-  @$pb.TagNumber(1)
-  @$pb.TagNumber(2)
-  void clearResult() => $_clearField($_whichOneof(0));
+  $pb.PbList<Post> get post => $_getList(0);
 
-  /// The requested post.
-  @$pb.TagNumber(1)
-  Post get post => $_getN(0);
-  @$pb.TagNumber(1)
-  set post(Post value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasPost() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearPost() => $_clearField(1);
-  @$pb.TagNumber(1)
-  Post ensurePost() => $_ensure(0);
-
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(2)
   $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)
@@ -723,7 +698,7 @@ class GetOfResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $pb.PbList<Post> get posts => $_getList(0);
 
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(2)
   $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)
@@ -874,7 +849,7 @@ class SearchResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $pb.PbList<Post> get posts => $_getList(0);
 
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(2)
   $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)
@@ -1003,7 +978,7 @@ class ReactResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ReactResponse>(create);
   static ReactResponse? _defaultInstance;
 
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)

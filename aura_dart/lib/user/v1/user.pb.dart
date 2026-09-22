@@ -127,7 +127,7 @@ class ExistsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ExistsResponse>(create);
   static ExistsResponse? _defaultInstance;
 
-  /// Error, if user does not exist or any other error.
+  /// The error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)
@@ -283,7 +283,7 @@ class AuthResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   User ensureUser() => $_ensure(1);
 
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(3)
   $1.Error get error => $_getN(2);
   @$pb.TagNumber(3)
@@ -398,7 +398,7 @@ class VerifyEmailResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<VerifyEmailResponse>(create);
   static VerifyEmailResponse? _defaultInstance;
 
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)
@@ -565,7 +565,7 @@ class CreateResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<CreateResponse>(create);
   static CreateResponse? _defaultInstance;
 
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)
@@ -680,7 +680,7 @@ class DeleteResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<DeleteResponse>(create);
   static DeleteResponse? _defaultInstance;
 
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)
@@ -821,7 +821,7 @@ class UpdateResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<UpdateResponse>(create);
   static UpdateResponse? _defaultInstance;
 
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)
@@ -834,13 +834,13 @@ class UpdateResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(0);
 }
 
-/// Request message for getting a user.
+/// Request message for getting users.
 class GetRequest extends $pb.GeneratedMessage {
   factory GetRequest({
-    $core.String? userId,
+    $core.Iterable<$core.String>? userId,
   }) {
     final result = create();
-    if (userId != null) result.userId = userId;
+    if (userId != null) result.userId.addAll(userId);
     return result;
   }
 
@@ -857,7 +857,7 @@ class GetRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'GetRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'userId')
+    ..pPS(1, _omitFieldNames ? '' : 'userId')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -878,27 +878,19 @@ class GetRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GetRequest>(create);
   static GetRequest? _defaultInstance;
 
-  /// ID of the user to get.
+  /// IDs of the users to get.
   @$pb.TagNumber(1)
-  $core.String get userId => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set userId($core.String value) => $_setString(0, value);
-  @$pb.TagNumber(1)
-  $core.bool hasUserId() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearUserId() => $_clearField(1);
+  $pb.PbList<$core.String> get userId => $_getList(0);
 }
 
-enum GetResponse_Result { user, error, notSet }
-
-/// Response message for getting a user.
+/// Response message for getting users.
 class GetResponse extends $pb.GeneratedMessage {
   factory GetResponse({
-    UserProfile? user,
+    $core.Iterable<UserProfile>? user,
     $1.Error? error,
   }) {
     final result = create();
-    if (user != null) result.user = user;
+    if (user != null) result.user.addAll(user);
     if (error != null) result.error = error;
     return result;
   }
@@ -912,18 +904,11 @@ class GetResponse extends $pb.GeneratedMessage {
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, GetResponse_Result>
-      _GetResponse_ResultByTag = {
-    1: GetResponse_Result.user,
-    2: GetResponse_Result.error,
-    0: GetResponse_Result.notSet
-  };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'GetResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..oo(0, [1, 2])
-    ..aOM<UserProfile>(1, _omitFieldNames ? '' : 'user',
+    ..pPM<UserProfile>(1, _omitFieldNames ? '' : 'user',
         subBuilder: UserProfile.create)
     ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
@@ -948,27 +933,11 @@ class GetResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GetResponse>(create);
   static GetResponse? _defaultInstance;
 
+  /// The returned user profiles.
   @$pb.TagNumber(1)
-  @$pb.TagNumber(2)
-  GetResponse_Result whichResult() =>
-      _GetResponse_ResultByTag[$_whichOneof(0)]!;
-  @$pb.TagNumber(1)
-  @$pb.TagNumber(2)
-  void clearResult() => $_clearField($_whichOneof(0));
+  $pb.PbList<UserProfile> get user => $_getList(0);
 
-  /// User profile.
-  @$pb.TagNumber(1)
-  UserProfile get user => $_getN(0);
-  @$pb.TagNumber(1)
-  set user(UserProfile value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasUser() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearUser() => $_clearField(1);
-  @$pb.TagNumber(1)
-  UserProfile ensureUser() => $_ensure(0);
-
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(2)
   $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)
@@ -1091,7 +1060,7 @@ class SearchResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $pb.PbList<UserProfile> get users => $_getList(0);
 
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(2)
   $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)
@@ -1219,7 +1188,7 @@ class BlockResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<BlockResponse>(create);
   static BlockResponse? _defaultInstance;
 
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)
@@ -1364,7 +1333,7 @@ class IsBlockedResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearBlocked() => $_clearField(1);
 
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(2)
   $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)
@@ -1492,7 +1461,7 @@ class FollowResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<FollowResponse>(create);
   static FollowResponse? _defaultInstance;
 
-  /// Error, if any.
+  /// The error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)

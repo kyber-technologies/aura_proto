@@ -374,6 +374,7 @@ class DownloadResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearData() => $_clearField(2);
 
+  /// The error, if any.
   @$pb.TagNumber(3)
   $1.Error get error => $_getN(2);
   @$pb.TagNumber(3)
@@ -386,13 +387,13 @@ class DownloadResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(2);
 }
 
-/// Request for getting resource meta.
+/// Request for getting resource metas.
 class MetaRequest extends $pb.GeneratedMessage {
   factory MetaRequest({
-    ResourceId? resourceId,
+    $core.Iterable<ResourceId>? resourceId,
   }) {
     final result = create();
-    if (resourceId != null) result.resourceId = resourceId;
+    if (resourceId != null) result.resourceId.addAll(resourceId);
     return result;
   }
 
@@ -409,7 +410,7 @@ class MetaRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'MetaRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
-    ..aOM<ResourceId>(1, _omitFieldNames ? '' : 'resourceId',
+    ..pPM<ResourceId>(1, _omitFieldNames ? '' : 'resourceId',
         subBuilder: ResourceId.create)
     ..hasRequiredFields = false;
 
@@ -432,29 +433,19 @@ class MetaRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MetaRequest>(create);
   static MetaRequest? _defaultInstance;
 
-  /// The ID of the resource to get.
+  /// The IDs of the resources to get.
   @$pb.TagNumber(1)
-  ResourceId get resourceId => $_getN(0);
-  @$pb.TagNumber(1)
-  set resourceId(ResourceId value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasResourceId() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearResourceId() => $_clearField(1);
-  @$pb.TagNumber(1)
-  ResourceId ensureResourceId() => $_ensure(0);
+  $pb.PbList<ResourceId> get resourceId => $_getList(0);
 }
 
-enum MetaResponse_Result { meta, error, notSet }
-
-/// Response for getting resource meta.
+/// Response for getting resource metas.
 class MetaResponse extends $pb.GeneratedMessage {
   factory MetaResponse({
-    ResourceMeta? meta,
+    $core.Iterable<ResourceMeta>? meta,
     $1.Error? error,
   }) {
     final result = create();
-    if (meta != null) result.meta = meta;
+    if (meta != null) result.meta.addAll(meta);
     if (error != null) result.error = error;
     return result;
   }
@@ -468,18 +459,11 @@ class MetaResponse extends $pb.GeneratedMessage {
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, MetaResponse_Result>
-      _MetaResponse_ResultByTag = {
-    1: MetaResponse_Result.meta,
-    2: MetaResponse_Result.error,
-    0: MetaResponse_Result.notSet
-  };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'MetaResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
-    ..oo(0, [1, 2])
-    ..aOM<ResourceMeta>(1, _omitFieldNames ? '' : 'meta',
+    ..pPM<ResourceMeta>(1, _omitFieldNames ? '' : 'meta',
         subBuilder: ResourceMeta.create)
     ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
@@ -504,27 +488,11 @@ class MetaResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MetaResponse>(create);
   static MetaResponse? _defaultInstance;
 
+  /// The returned resource metas of the resource.
   @$pb.TagNumber(1)
-  @$pb.TagNumber(2)
-  MetaResponse_Result whichResult() =>
-      _MetaResponse_ResultByTag[$_whichOneof(0)]!;
-  @$pb.TagNumber(1)
-  @$pb.TagNumber(2)
-  void clearResult() => $_clearField($_whichOneof(0));
+  $pb.PbList<ResourceMeta> get meta => $_getList(0);
 
-  /// The returned resource meta of the resource.
-  @$pb.TagNumber(1)
-  ResourceMeta get meta => $_getN(0);
-  @$pb.TagNumber(1)
-  set meta(ResourceMeta value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasMeta() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearMeta() => $_clearField(1);
-  @$pb.TagNumber(1)
-  ResourceMeta ensureMeta() => $_ensure(0);
-
-  /// The error, if any, that occurred during the get request.
+  /// The error, if any.
   @$pb.TagNumber(2)
   $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)

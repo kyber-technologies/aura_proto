@@ -31,9 +31,9 @@ service UserService {
   // Requires Authentication: Only the user itself can update his own account.
   rpc Update(UpdateRequest) returns (UpdateResponse);
 
-  // Gets a user by ID.
+  // Get multiple users by ID.
   //
-  // Requires Authentication: All authenticated users can get a user.
+  // Requires Authentication: All authenticated users can get multiple users.
   rpc Get(GetRequest) returns (GetResponse);
 
   // Searches for users by query.
@@ -65,7 +65,7 @@ message ExistsRequest {
 
 // Response message for checking if a user exists.
 message ExistsResponse {
-  // Error, if user does not exist or any other error.
+  // The error, if any.
   optional common.v1.Error error = 1;
 }
 
@@ -83,7 +83,7 @@ message AuthResponse {
   string token = 1;
   // The user.
   User user = 2;
-  // Error, if any.
+  // The error, if any.
   optional common.v1.Error error = 3;
 }
 
@@ -95,7 +95,7 @@ message VerifyEmailRequest {
 
 // Response message for verifying an email.
 message VerifyEmailResponse {
-  // Error, if any.
+  // The error, if any.
   optional common.v1.Error error = 1;
 }
 
@@ -115,7 +115,7 @@ message CreateRequest {
 
 // Response message for creating a user.
 message CreateResponse {
-  // Error, if any.
+  // The error, if any.
   optional common.v1.Error error = 1;
 }
 
@@ -127,7 +127,7 @@ message DeleteRequest {
 
 // Response message for deleting a user.
 message DeleteResponse {
-  // Error, if any.
+  // The error, if any.
   optional common.v1.Error error = 1;
 }
 
@@ -143,25 +143,22 @@ message UpdateRequest {
 
 // Response message for updating a user.
 message UpdateResponse {
-  // Error, if any.
+  // The error, if any.
   optional common.v1.Error error = 1;
 }
 
-// Request message for getting a user.
+// Request message for getting users.
 message GetRequest {
-  // ID of the user to get.
-  string user_id = 1;
+  // IDs of the users to get.
+  repeated string user_id = 1;
 }
 
-// Response message for getting a user.
+// Response message for getting users.
 message GetResponse {
-  // One of the following results.
-  oneof result {
-    // User profile.
-    UserProfile user = 1;
-    // Error, if any.
-    common.v1.Error error = 2;
-  }
+  // The returned user profiles.
+  repeated UserProfile user = 1;
+  // The error, if any.
+  common.v1.Error error = 2;
 }
 
 // Request message for searching users.
@@ -174,7 +171,7 @@ message SearchRequest {
 message SearchResponse {
   // List of users matching the query.
   repeated UserProfile users = 1;
-  // Error, if any.
+  // The error, if any.
   optional common.v1.Error error = 2;
 }
 
@@ -188,7 +185,7 @@ message BlockRequest {
 
 // Response message for blocking a user.
 message BlockResponse {
-  // Error, if any.
+  // The error, if any.
   optional common.v1.Error error = 1;
 }
 
@@ -203,7 +200,7 @@ message IsBlockedResponse {
   oneof result {
     // If the user is blocked.
     bool blocked = 1;
-    // Error, if any.
+    // The error, if any.
     common.v1.Error error = 2;
   }
 }
@@ -218,7 +215,7 @@ message FollowRequest {
 
 // Response for following a user.
 message FollowResponse {
-  // Error, if any.
+  // The error, if any.
   optional common.v1.Error error = 1;
 }
 

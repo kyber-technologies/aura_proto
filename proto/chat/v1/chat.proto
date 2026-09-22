@@ -61,7 +61,7 @@ message CreateChannelResponse {
   oneof result {
     // The channel that was created.
     Channel channel = 1;
-    // An error that occurred during the create operation, if any.
+    // The error, if any.
     common.v1.Error error = 2;
   }
 }
@@ -74,7 +74,7 @@ message DeleteChannelRequest {
 
 // The response message for deleting a channel.
 message DeleteChannelResponse {
-  // The error that occurred during the delete operation, if any.
+  // The error, if any.
   optional common.v1.Error error = 1;
 }
 
@@ -90,7 +90,7 @@ message SetUserPermRequest {
 
 // The response message for setting a user's permission in a channel.
 message SetUserPermResponse {
-  // The error that occurred during the set operation, if any.
+  // The error, if any.
   optional common.v1.Error error = 1;
 }
 
@@ -106,7 +106,7 @@ message InviteRequest {
 
 // The response message for inviting a user to a channel.
 message InviteResponse {
-  // The error that occurred during the invite operation, if any.
+  // The error, if any.
   optional common.v1.Error error = 1;
 }
 
@@ -123,7 +123,7 @@ message ReadRequest {
 message ReadResponse {
   // The messages read from the channel.
   repeated Message messages = 1;
-  // An error that occurred during the read operation, if any.
+  // The error, if any.
   optional common.v1.Error error = 2;
 }
 
@@ -141,7 +141,7 @@ message SendResponse {
   oneof result {
     // The created message.
     Message message = 1;
-    // An error that occurred during the send operation.
+    // The error, if any.
     common.v1.Error error = 2;
   }
 }
@@ -154,7 +154,7 @@ message DeleteMessageRequest {
 
 // The response message for deleting a message.
 message DeleteMessageResponse {
-  // The error that occurred during the delete operation, if any.
+  // The error, if any.
   optional common.v1.Error error = 1;
 }
 

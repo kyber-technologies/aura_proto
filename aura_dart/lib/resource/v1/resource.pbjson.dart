@@ -145,7 +145,7 @@ const MetaRequest$json = {
     {
       '1': 'resource_id',
       '3': 1,
-      '4': 1,
+      '4': 3,
       '5': 11,
       '6': '.resource.v1.ResourceId',
       '10': 'resourceId'
@@ -155,7 +155,7 @@ const MetaRequest$json = {
 
 /// Descriptor for `MetaRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List metaRequestDescriptor = $convert.base64Decode(
-    'CgtNZXRhUmVxdWVzdBI4CgtyZXNvdXJjZV9pZBgBIAEoCzIXLnJlc291cmNlLnYxLlJlc291cm'
+    'CgtNZXRhUmVxdWVzdBI4CgtyZXNvdXJjZV9pZBgBIAMoCzIXLnJlc291cmNlLnYxLlJlc291cm'
     'NlSWRSCnJlc291cmNlSWQ=');
 
 @$core.Deprecated('Use metaResponseDescriptor instead')
@@ -165,10 +165,9 @@ const MetaResponse$json = {
     {
       '1': 'meta',
       '3': 1,
-      '4': 1,
+      '4': 3,
       '5': 11,
       '6': '.resource.v1.ResourceMeta',
-      '9': 0,
       '10': 'meta'
     },
     {
@@ -178,19 +177,20 @@ const MetaResponse$json = {
       '5': 11,
       '6': '.common.v1.Error',
       '9': 0,
-      '10': 'error'
+      '10': 'error',
+      '17': true
     },
   ],
   '8': [
-    {'1': 'result'},
+    {'1': '_error'},
   ],
 };
 
 /// Descriptor for `MetaResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List metaResponseDescriptor = $convert.base64Decode(
-    'CgxNZXRhUmVzcG9uc2USLwoEbWV0YRgBIAEoCzIZLnJlc291cmNlLnYxLlJlc291cmNlTWV0YU'
-    'gAUgRtZXRhEigKBWVycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9yQggKBnJl'
-    'c3VsdA==');
+    'CgxNZXRhUmVzcG9uc2USLQoEbWV0YRgBIAMoCzIZLnJlc291cmNlLnYxLlJlc291cmNlTWV0YV'
+    'IEbWV0YRIrCgVlcnJvchgCIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcnJvcogBAUIICgZf'
+    'ZXJyb3I=');
 
 @$core.Deprecated('Use resourceIdDescriptor instead')
 const ResourceId$json = {

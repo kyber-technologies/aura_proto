@@ -183,10 +183,9 @@ const GetResponse$json = {
     {
       '1': 'post',
       '3': 1,
-      '4': 1,
+      '4': 3,
       '5': 11,
       '6': '.posting.v1.Post',
-      '9': 0,
       '10': 'post'
     },
     {
@@ -195,19 +194,15 @@ const GetResponse$json = {
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
-      '9': 0,
       '10': 'error'
     },
-  ],
-  '8': [
-    {'1': 'result'},
   ],
 };
 
 /// Descriptor for `GetResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getResponseDescriptor = $convert.base64Decode(
-    'CgtHZXRSZXNwb25zZRImCgRwb3N0GAEgASgLMhAucG9zdGluZy52MS5Qb3N0SABSBHBvc3QSKA'
-    'oFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJyb3JCCAoGcmVzdWx0');
+    'CgtHZXRSZXNwb25zZRIkCgRwb3N0GAEgAygLMhAucG9zdGluZy52MS5Qb3N0UgRwb3N0EiYKBW'
+    'Vycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9yUgVlcnJvcg==');
 
 @$core.Deprecated('Use getOfRequestDescriptor instead')
 const GetOfRequest$json = {

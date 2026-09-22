@@ -21,7 +21,7 @@ service PostingService {
   // Requires Authentication: Only authorized users can delete posts.
   rpc Unpublish(UnpublishRequest) returns (UnpublishResponse);
 
-  // Get a specific post.
+  // Get multiple posts.
   //
   // Requires Authentication: Only authenticated users can get posts.
   rpc Get(GetRequest) returns (GetResponse);
@@ -54,7 +54,7 @@ message FeedRequest {
 message FeedResponse {
   // The returned post IDs.
   repeated string post_ids = 1;
-  // Error, if any.
+  // The error, if any.
   optional common.v1.Error error = 2;
 }
 
@@ -74,7 +74,7 @@ message PublishResponse {
   oneof result {
     // The published post.
     Post post = 1;
-    // Error, if any.
+    // The error, if any.
     common.v1.Error error = 2;
   }
 }
@@ -87,25 +87,22 @@ message UnpublishRequest {
 
 // Response for unpublishing a post.
 message UnpublishResponse {
-  // Error, if any.
+  // The error, if any.
   optional common.v1.Error error = 1;
 }
 
-// Request for getting a post.
+// Request for getting posts.
 message GetRequest {
   // The post ID to get.
   string post_id = 1;
 }
 
-// Response for getting a post.
+// Response for getting posts.
 message GetResponse {
-  // The result of the operation.
-  oneof result {
-    // The requested post.
-    Post post = 1;
-    // Error, if any.
-    common.v1.Error error = 2;
-  }
+  // The requested posts.
+  repeated Post post = 1;
+  // The error, if any.
+  common.v1.Error error = 2;
 }
 
 // Request for getting posts of a user.
@@ -122,7 +119,7 @@ message GetOfRequest {
 message GetOfResponse {
   // The posts of the user.
   repeated Post posts = 1;
-  // Error, if any.
+  // The error, if any.
   optional common.v1.Error error = 2;
 }
 
@@ -140,7 +137,7 @@ message SearchRequest {
 message SearchResponse {
   // The search results.
   repeated Post posts = 1;
-  // Error, if any.
+  // The error, if any.
   optional common.v1.Error error = 2;
 }
 
@@ -154,7 +151,7 @@ message ReactRequest {
 
 // Response for reacting to a post.
 message ReactResponse {
-  // Error, if any.
+  // The error, if any.
   optional common.v1.Error error = 1;
 }
 
