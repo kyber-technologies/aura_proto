@@ -34,11 +34,11 @@ class GeneralServiceClient extends $grpc.Client {
   GeneralServiceClient(super.channel, {super.options, super.interceptors});
 
   /// Get the server configuration.
-  $grpc.ResponseFuture<$0.GetConfigResponse> getConfig(
-    $0.GetConfigRequest request, {
+  $grpc.ResponseFuture<$0.ConfigResponse> config(
+    $0.ConfigRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$getConfig, request, options: options);
+    return $createUnaryCall(_$config, request, options: options);
   }
 
   /// Clear the server state for a new test.
@@ -54,57 +54,57 @@ class GeneralServiceClient extends $grpc.Client {
   /// Get an email verification token.
   ///
   /// Only available in testing mode.
-  $grpc.ResponseFuture<$0.GetEmailTokenResponse> getEmailToken(
-    $0.GetEmailTokenRequest request, {
+  $grpc.ResponseFuture<$0.EmailTokenResponse> emailToken(
+    $0.EmailTokenRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$getEmailToken, request, options: options);
+    return $createUnaryCall(_$emailToken, request, options: options);
   }
 
   /// Get a list of available services.
   ///
   /// Only available in testing mode.
-  $grpc.ResponseFuture<$0.GetServicesResponse> getServices(
-    $0.GetServicesRequest request, {
+  $grpc.ResponseFuture<$0.ServicesResponse> services(
+    $0.ServicesRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$getServices, request, options: options);
+    return $createUnaryCall(_$services, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.GetTestUsersResponse> getTestUsers(
-    $0.GetTestUsersRequest request, {
+  $grpc.ResponseFuture<$0.TestUsersResponse> testUsers(
+    $0.TestUsersRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$getTestUsers, request, options: options);
+    return $createUnaryCall(_$testUsers, request, options: options);
   }
 
   // method descriptors
 
-  static final _$getConfig =
-      $grpc.ClientMethod<$0.GetConfigRequest, $0.GetConfigResponse>(
-          '/general.v1.GeneralService/GetConfig',
-          ($0.GetConfigRequest value) => value.writeToBuffer(),
-          $0.GetConfigResponse.fromBuffer);
+  static final _$config =
+      $grpc.ClientMethod<$0.ConfigRequest, $0.ConfigResponse>(
+          '/general.v1.GeneralService/Config',
+          ($0.ConfigRequest value) => value.writeToBuffer(),
+          $0.ConfigResponse.fromBuffer);
   static final _$clearState =
       $grpc.ClientMethod<$0.ClearStateRequest, $0.ClearStateResponse>(
           '/general.v1.GeneralService/ClearState',
           ($0.ClearStateRequest value) => value.writeToBuffer(),
           $0.ClearStateResponse.fromBuffer);
-  static final _$getEmailToken =
-      $grpc.ClientMethod<$0.GetEmailTokenRequest, $0.GetEmailTokenResponse>(
-          '/general.v1.GeneralService/GetEmailToken',
-          ($0.GetEmailTokenRequest value) => value.writeToBuffer(),
-          $0.GetEmailTokenResponse.fromBuffer);
-  static final _$getServices =
-      $grpc.ClientMethod<$0.GetServicesRequest, $0.GetServicesResponse>(
-          '/general.v1.GeneralService/GetServices',
-          ($0.GetServicesRequest value) => value.writeToBuffer(),
-          $0.GetServicesResponse.fromBuffer);
-  static final _$getTestUsers =
-      $grpc.ClientMethod<$0.GetTestUsersRequest, $0.GetTestUsersResponse>(
-          '/general.v1.GeneralService/GetTestUsers',
-          ($0.GetTestUsersRequest value) => value.writeToBuffer(),
-          $0.GetTestUsersResponse.fromBuffer);
+  static final _$emailToken =
+      $grpc.ClientMethod<$0.EmailTokenRequest, $0.EmailTokenResponse>(
+          '/general.v1.GeneralService/EmailToken',
+          ($0.EmailTokenRequest value) => value.writeToBuffer(),
+          $0.EmailTokenResponse.fromBuffer);
+  static final _$services =
+      $grpc.ClientMethod<$0.ServicesRequest, $0.ServicesResponse>(
+          '/general.v1.GeneralService/Services',
+          ($0.ServicesRequest value) => value.writeToBuffer(),
+          $0.ServicesResponse.fromBuffer);
+  static final _$testUsers =
+      $grpc.ClientMethod<$0.TestUsersRequest, $0.TestUsersResponse>(
+          '/general.v1.GeneralService/TestUsers',
+          ($0.TestUsersRequest value) => value.writeToBuffer(),
+          $0.TestUsersResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('general.v1.GeneralService')
@@ -112,13 +112,13 @@ abstract class GeneralServiceBase extends $grpc.Service {
   $core.String get $name => 'general.v1.GeneralService';
 
   GeneralServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.GetConfigRequest, $0.GetConfigResponse>(
-        'GetConfig',
-        getConfig_Pre,
+    $addMethod($grpc.ServiceMethod<$0.ConfigRequest, $0.ConfigResponse>(
+        'Config',
+        config_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.GetConfigRequest.fromBuffer(value),
-        ($0.GetConfigResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $0.ConfigRequest.fromBuffer(value),
+        ($0.ConfigResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.ClearStateRequest, $0.ClearStateResponse>(
         'ClearState',
         clearState_Pre,
@@ -126,42 +126,36 @@ abstract class GeneralServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.ClearStateRequest.fromBuffer(value),
         ($0.ClearStateResponse value) => value.writeToBuffer()));
-    $addMethod(
-        $grpc.ServiceMethod<$0.GetEmailTokenRequest, $0.GetEmailTokenResponse>(
-            'GetEmailToken',
-            getEmailToken_Pre,
-            false,
-            false,
-            ($core.List<$core.int> value) =>
-                $0.GetEmailTokenRequest.fromBuffer(value),
-            ($0.GetEmailTokenResponse value) => value.writeToBuffer()));
-    $addMethod(
-        $grpc.ServiceMethod<$0.GetServicesRequest, $0.GetServicesResponse>(
-            'GetServices',
-            getServices_Pre,
-            false,
-            false,
-            ($core.List<$core.int> value) =>
-                $0.GetServicesRequest.fromBuffer(value),
-            ($0.GetServicesResponse value) => value.writeToBuffer()));
-    $addMethod(
-        $grpc.ServiceMethod<$0.GetTestUsersRequest, $0.GetTestUsersResponse>(
-            'GetTestUsers',
-            getTestUsers_Pre,
-            false,
-            false,
-            ($core.List<$core.int> value) =>
-                $0.GetTestUsersRequest.fromBuffer(value),
-            ($0.GetTestUsersResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.EmailTokenRequest, $0.EmailTokenResponse>(
+        'EmailToken',
+        emailToken_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.EmailTokenRequest.fromBuffer(value),
+        ($0.EmailTokenResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.ServicesRequest, $0.ServicesResponse>(
+        'Services',
+        services_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.ServicesRequest.fromBuffer(value),
+        ($0.ServicesResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.TestUsersRequest, $0.TestUsersResponse>(
+        'TestUsers',
+        testUsers_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.TestUsersRequest.fromBuffer(value),
+        ($0.TestUsersResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.GetConfigResponse> getConfig_Pre($grpc.ServiceCall $call,
-      $async.Future<$0.GetConfigRequest> $request) async {
-    return getConfig($call, await $request);
+  $async.Future<$0.ConfigResponse> config_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.ConfigRequest> $request) async {
+    return config($call, await $request);
   }
 
-  $async.Future<$0.GetConfigResponse> getConfig(
-      $grpc.ServiceCall call, $0.GetConfigRequest request);
+  $async.Future<$0.ConfigResponse> config(
+      $grpc.ServiceCall call, $0.ConfigRequest request);
 
   $async.Future<$0.ClearStateResponse> clearState_Pre($grpc.ServiceCall $call,
       $async.Future<$0.ClearStateRequest> $request) async {
@@ -171,29 +165,27 @@ abstract class GeneralServiceBase extends $grpc.Service {
   $async.Future<$0.ClearStateResponse> clearState(
       $grpc.ServiceCall call, $0.ClearStateRequest request);
 
-  $async.Future<$0.GetEmailTokenResponse> getEmailToken_Pre(
-      $grpc.ServiceCall $call,
-      $async.Future<$0.GetEmailTokenRequest> $request) async {
-    return getEmailToken($call, await $request);
+  $async.Future<$0.EmailTokenResponse> emailToken_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.EmailTokenRequest> $request) async {
+    return emailToken($call, await $request);
   }
 
-  $async.Future<$0.GetEmailTokenResponse> getEmailToken(
-      $grpc.ServiceCall call, $0.GetEmailTokenRequest request);
+  $async.Future<$0.EmailTokenResponse> emailToken(
+      $grpc.ServiceCall call, $0.EmailTokenRequest request);
 
-  $async.Future<$0.GetServicesResponse> getServices_Pre($grpc.ServiceCall $call,
-      $async.Future<$0.GetServicesRequest> $request) async {
-    return getServices($call, await $request);
+  $async.Future<$0.ServicesResponse> services_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.ServicesRequest> $request) async {
+    return services($call, await $request);
   }
 
-  $async.Future<$0.GetServicesResponse> getServices(
-      $grpc.ServiceCall call, $0.GetServicesRequest request);
+  $async.Future<$0.ServicesResponse> services(
+      $grpc.ServiceCall call, $0.ServicesRequest request);
 
-  $async.Future<$0.GetTestUsersResponse> getTestUsers_Pre(
-      $grpc.ServiceCall $call,
-      $async.Future<$0.GetTestUsersRequest> $request) async {
-    return getTestUsers($call, await $request);
+  $async.Future<$0.TestUsersResponse> testUsers_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.TestUsersRequest> $request) async {
+    return testUsers($call, await $request);
   }
 
-  $async.Future<$0.GetTestUsersResponse> getTestUsers(
-      $grpc.ServiceCall call, $0.GetTestUsersRequest request);
+  $async.Future<$0.TestUsersResponse> testUsers(
+      $grpc.ServiceCall call, $0.TestUsersRequest request);
 }

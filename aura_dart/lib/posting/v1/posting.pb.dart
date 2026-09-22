@@ -24,9 +24,9 @@ export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 export 'posting.pbenum.dart';
 
-/// Request for getting recommendations.
-class RecommendationsRequest extends $pb.GeneratedMessage {
-  factory RecommendationsRequest({
+/// Request for getting the user feed.
+class FeedRequest extends $pb.GeneratedMessage {
+  factory FeedRequest({
     $core.int? limit,
     $core.int? index,
   }) {
@@ -36,17 +36,17 @@ class RecommendationsRequest extends $pb.GeneratedMessage {
     return result;
   }
 
-  RecommendationsRequest._();
+  FeedRequest._();
 
-  factory RecommendationsRequest.fromBuffer($core.List<$core.int> data,
+  factory FeedRequest.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory RecommendationsRequest.fromJson($core.String json,
+  factory FeedRequest.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'RecommendationsRequest',
+      _omitMessageNames ? '' : 'FeedRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
     ..aI(1, _omitFieldNames ? '' : 'limit', fieldType: $pb.PbFieldType.OU3)
@@ -54,24 +54,23 @@ class RecommendationsRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RecommendationsRequest clone() => deepCopy();
+  FeedRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RecommendationsRequest copyWith(
-          void Function(RecommendationsRequest) updates) =>
-      super.copyWith((message) => updates(message as RecommendationsRequest))
-          as RecommendationsRequest;
+  FeedRequest copyWith(void Function(FeedRequest) updates) =>
+      super.copyWith((message) => updates(message as FeedRequest))
+          as FeedRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static RecommendationsRequest create() => RecommendationsRequest._();
+  static FeedRequest create() => FeedRequest._();
   @$core.override
-  RecommendationsRequest createEmptyInstance() => create();
+  FeedRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static RecommendationsRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<RecommendationsRequest>(create);
-  static RecommendationsRequest? _defaultInstance;
+  static FeedRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<FeedRequest>(create);
+  static FeedRequest? _defaultInstance;
 
   /// The maximum number of recommendations to return.
   @$pb.TagNumber(1)
@@ -94,9 +93,9 @@ class RecommendationsRequest extends $pb.GeneratedMessage {
   void clearIndex() => $_clearField(2);
 }
 
-/// Response for getting recommendations.
-class RecommendationsResponse extends $pb.GeneratedMessage {
-  factory RecommendationsResponse({
+/// Response for getting the user feed.
+class FeedResponse extends $pb.GeneratedMessage {
+  factory FeedResponse({
     $core.Iterable<$core.String>? postIds,
     $1.Error? error,
   }) {
@@ -106,17 +105,17 @@ class RecommendationsResponse extends $pb.GeneratedMessage {
     return result;
   }
 
-  RecommendationsResponse._();
+  FeedResponse._();
 
-  factory RecommendationsResponse.fromBuffer($core.List<$core.int> data,
+  factory FeedResponse.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory RecommendationsResponse.fromJson($core.String json,
+  factory FeedResponse.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'RecommendationsResponse',
+      _omitMessageNames ? '' : 'FeedResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
     ..pPS(1, _omitFieldNames ? '' : 'postIds')
@@ -125,26 +124,25 @@ class RecommendationsResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RecommendationsResponse clone() => deepCopy();
+  FeedResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RecommendationsResponse copyWith(
-          void Function(RecommendationsResponse) updates) =>
-      super.copyWith((message) => updates(message as RecommendationsResponse))
-          as RecommendationsResponse;
+  FeedResponse copyWith(void Function(FeedResponse) updates) =>
+      super.copyWith((message) => updates(message as FeedResponse))
+          as FeedResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static RecommendationsResponse create() => RecommendationsResponse._();
+  static FeedResponse create() => FeedResponse._();
   @$core.override
-  RecommendationsResponse createEmptyInstance() => create();
+  FeedResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static RecommendationsResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<RecommendationsResponse>(create);
-  static RecommendationsResponse? _defaultInstance;
+  static FeedResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<FeedResponse>(create);
+  static FeedResponse? _defaultInstance;
 
-  /// The returned posts IDs.
+  /// The returned post IDs.
   @$pb.TagNumber(1)
   $pb.PbList<$core.String> get postIds => $_getList(0);
 
@@ -442,8 +440,8 @@ class UnpublishResponse extends $pb.GeneratedMessage {
 }
 
 /// Request for getting a post.
-class GetPostRequest extends $pb.GeneratedMessage {
-  factory GetPostRequest({
+class GetRequest extends $pb.GeneratedMessage {
+  factory GetRequest({
     $core.String? postId,
   }) {
     final result = create();
@@ -451,40 +449,39 @@ class GetPostRequest extends $pb.GeneratedMessage {
     return result;
   }
 
-  GetPostRequest._();
+  GetRequest._();
 
-  factory GetPostRequest.fromBuffer($core.List<$core.int> data,
+  factory GetRequest.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory GetPostRequest.fromJson($core.String json,
+  factory GetRequest.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'GetPostRequest',
+      _omitMessageNames ? '' : 'GetRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'postId')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetPostRequest clone() => deepCopy();
+  GetRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetPostRequest copyWith(void Function(GetPostRequest) updates) =>
-      super.copyWith((message) => updates(message as GetPostRequest))
-          as GetPostRequest;
+  GetRequest copyWith(void Function(GetRequest) updates) =>
+      super.copyWith((message) => updates(message as GetRequest)) as GetRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static GetPostRequest create() => GetPostRequest._();
+  static GetRequest create() => GetRequest._();
   @$core.override
-  GetPostRequest createEmptyInstance() => create();
+  GetRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static GetPostRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<GetPostRequest>(create);
-  static GetPostRequest? _defaultInstance;
+  static GetRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetRequest>(create);
+  static GetRequest? _defaultInstance;
 
   /// The post ID to get.
   @$pb.TagNumber(1)
@@ -497,11 +494,11 @@ class GetPostRequest extends $pb.GeneratedMessage {
   void clearPostId() => $_clearField(1);
 }
 
-enum GetPostResponse_Result { post, error, notSet }
+enum GetResponse_Result { post, error, notSet }
 
 /// Response for getting a post.
-class GetPostResponse extends $pb.GeneratedMessage {
-  factory GetPostResponse({
+class GetResponse extends $pb.GeneratedMessage {
+  factory GetResponse({
     Post? post,
     $1.Error? error,
   }) {
@@ -511,23 +508,23 @@ class GetPostResponse extends $pb.GeneratedMessage {
     return result;
   }
 
-  GetPostResponse._();
+  GetResponse._();
 
-  factory GetPostResponse.fromBuffer($core.List<$core.int> data,
+  factory GetResponse.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory GetPostResponse.fromJson($core.String json,
+  factory GetResponse.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, GetPostResponse_Result>
-      _GetPostResponse_ResultByTag = {
-    1: GetPostResponse_Result.post,
-    2: GetPostResponse_Result.error,
-    0: GetPostResponse_Result.notSet
+  static const $core.Map<$core.int, GetResponse_Result>
+      _GetResponse_ResultByTag = {
+    1: GetResponse_Result.post,
+    2: GetResponse_Result.error,
+    0: GetResponse_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'GetPostResponse',
+      _omitMessageNames ? '' : 'GetResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
@@ -537,28 +534,28 @@ class GetPostResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetPostResponse clone() => deepCopy();
+  GetResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetPostResponse copyWith(void Function(GetPostResponse) updates) =>
-      super.copyWith((message) => updates(message as GetPostResponse))
-          as GetPostResponse;
+  GetResponse copyWith(void Function(GetResponse) updates) =>
+      super.copyWith((message) => updates(message as GetResponse))
+          as GetResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static GetPostResponse create() => GetPostResponse._();
+  static GetResponse create() => GetResponse._();
   @$core.override
-  GetPostResponse createEmptyInstance() => create();
+  GetResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static GetPostResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<GetPostResponse>(create);
-  static GetPostResponse? _defaultInstance;
+  static GetResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetResponse>(create);
+  static GetResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
   @$pb.TagNumber(2)
-  GetPostResponse_Result whichResult() =>
-      _GetPostResponse_ResultByTag[$_whichOneof(0)]!;
+  GetResponse_Result whichResult() =>
+      _GetResponse_ResultByTag[$_whichOneof(0)]!;
   @$pb.TagNumber(1)
   @$pb.TagNumber(2)
   void clearResult() => $_clearField($_whichOneof(0));
@@ -589,8 +586,8 @@ class GetPostResponse extends $pb.GeneratedMessage {
 }
 
 /// Request for getting posts of a user.
-class GetPostsOfRequest extends $pb.GeneratedMessage {
-  factory GetPostsOfRequest({
+class GetOfRequest extends $pb.GeneratedMessage {
+  factory GetOfRequest({
     $core.String? authorId,
     $core.int? limit,
     $3.Timestamp? startAt,
@@ -602,17 +599,17 @@ class GetPostsOfRequest extends $pb.GeneratedMessage {
     return result;
   }
 
-  GetPostsOfRequest._();
+  GetOfRequest._();
 
-  factory GetPostsOfRequest.fromBuffer($core.List<$core.int> data,
+  factory GetOfRequest.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory GetPostsOfRequest.fromJson($core.String json,
+  factory GetOfRequest.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'GetPostsOfRequest',
+      _omitMessageNames ? '' : 'GetOfRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'authorId')
@@ -622,23 +619,23 @@ class GetPostsOfRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetPostsOfRequest clone() => deepCopy();
+  GetOfRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetPostsOfRequest copyWith(void Function(GetPostsOfRequest) updates) =>
-      super.copyWith((message) => updates(message as GetPostsOfRequest))
-          as GetPostsOfRequest;
+  GetOfRequest copyWith(void Function(GetOfRequest) updates) =>
+      super.copyWith((message) => updates(message as GetOfRequest))
+          as GetOfRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static GetPostsOfRequest create() => GetPostsOfRequest._();
+  static GetOfRequest create() => GetOfRequest._();
   @$core.override
-  GetPostsOfRequest createEmptyInstance() => create();
+  GetOfRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static GetPostsOfRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<GetPostsOfRequest>(create);
-  static GetPostsOfRequest? _defaultInstance;
+  static GetOfRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetOfRequest>(create);
+  static GetOfRequest? _defaultInstance;
 
   /// The user ID of the author.
   @$pb.TagNumber(1)
@@ -674,8 +671,8 @@ class GetPostsOfRequest extends $pb.GeneratedMessage {
 }
 
 /// Response for getting posts of a user.
-class GetPostsOfResponse extends $pb.GeneratedMessage {
-  factory GetPostsOfResponse({
+class GetOfResponse extends $pb.GeneratedMessage {
+  factory GetOfResponse({
     $core.Iterable<Post>? posts,
     $1.Error? error,
   }) {
@@ -685,17 +682,17 @@ class GetPostsOfResponse extends $pb.GeneratedMessage {
     return result;
   }
 
-  GetPostsOfResponse._();
+  GetOfResponse._();
 
-  factory GetPostsOfResponse.fromBuffer($core.List<$core.int> data,
+  factory GetOfResponse.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory GetPostsOfResponse.fromJson($core.String json,
+  factory GetOfResponse.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'GetPostsOfResponse',
+      _omitMessageNames ? '' : 'GetOfResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
     ..pPM<Post>(1, _omitFieldNames ? '' : 'posts', subBuilder: Post.create)
@@ -704,23 +701,23 @@ class GetPostsOfResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetPostsOfResponse clone() => deepCopy();
+  GetOfResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetPostsOfResponse copyWith(void Function(GetPostsOfResponse) updates) =>
-      super.copyWith((message) => updates(message as GetPostsOfResponse))
-          as GetPostsOfResponse;
+  GetOfResponse copyWith(void Function(GetOfResponse) updates) =>
+      super.copyWith((message) => updates(message as GetOfResponse))
+          as GetOfResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static GetPostsOfResponse create() => GetPostsOfResponse._();
+  static GetOfResponse create() => GetOfResponse._();
   @$core.override
-  GetPostsOfResponse createEmptyInstance() => create();
+  GetOfResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static GetPostsOfResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<GetPostsOfResponse>(create);
-  static GetPostsOfResponse? _defaultInstance;
+  static GetOfResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetOfResponse>(create);
+  static GetOfResponse? _defaultInstance;
 
   /// The posts of the user.
   @$pb.TagNumber(1)
@@ -740,8 +737,8 @@ class GetPostsOfResponse extends $pb.GeneratedMessage {
 }
 
 /// Request for searching posts.
-class SearchPostsRequest extends $pb.GeneratedMessage {
-  factory SearchPostsRequest({
+class SearchRequest extends $pb.GeneratedMessage {
+  factory SearchRequest({
     $core.String? query,
     $core.int? limit,
     $3.Timestamp? startAt,
@@ -753,17 +750,17 @@ class SearchPostsRequest extends $pb.GeneratedMessage {
     return result;
   }
 
-  SearchPostsRequest._();
+  SearchRequest._();
 
-  factory SearchPostsRequest.fromBuffer($core.List<$core.int> data,
+  factory SearchRequest.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory SearchPostsRequest.fromJson($core.String json,
+  factory SearchRequest.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'SearchPostsRequest',
+      _omitMessageNames ? '' : 'SearchRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'query')
@@ -773,23 +770,23 @@ class SearchPostsRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SearchPostsRequest clone() => deepCopy();
+  SearchRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SearchPostsRequest copyWith(void Function(SearchPostsRequest) updates) =>
-      super.copyWith((message) => updates(message as SearchPostsRequest))
-          as SearchPostsRequest;
+  SearchRequest copyWith(void Function(SearchRequest) updates) =>
+      super.copyWith((message) => updates(message as SearchRequest))
+          as SearchRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static SearchPostsRequest create() => SearchPostsRequest._();
+  static SearchRequest create() => SearchRequest._();
   @$core.override
-  SearchPostsRequest createEmptyInstance() => create();
+  SearchRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static SearchPostsRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<SearchPostsRequest>(create);
-  static SearchPostsRequest? _defaultInstance;
+  static SearchRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SearchRequest>(create);
+  static SearchRequest? _defaultInstance;
 
   /// The search query.
   @$pb.TagNumber(1)
@@ -825,8 +822,8 @@ class SearchPostsRequest extends $pb.GeneratedMessage {
 }
 
 /// Response for searching posts.
-class SearchPostsResponse extends $pb.GeneratedMessage {
-  factory SearchPostsResponse({
+class SearchResponse extends $pb.GeneratedMessage {
+  factory SearchResponse({
     $core.Iterable<Post>? posts,
     $1.Error? error,
   }) {
@@ -836,17 +833,17 @@ class SearchPostsResponse extends $pb.GeneratedMessage {
     return result;
   }
 
-  SearchPostsResponse._();
+  SearchResponse._();
 
-  factory SearchPostsResponse.fromBuffer($core.List<$core.int> data,
+  factory SearchResponse.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory SearchPostsResponse.fromJson($core.String json,
+  factory SearchResponse.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'SearchPostsResponse',
+      _omitMessageNames ? '' : 'SearchResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
     ..pPM<Post>(1, _omitFieldNames ? '' : 'posts', subBuilder: Post.create)
@@ -855,23 +852,23 @@ class SearchPostsResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SearchPostsResponse clone() => deepCopy();
+  SearchResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SearchPostsResponse copyWith(void Function(SearchPostsResponse) updates) =>
-      super.copyWith((message) => updates(message as SearchPostsResponse))
-          as SearchPostsResponse;
+  SearchResponse copyWith(void Function(SearchResponse) updates) =>
+      super.copyWith((message) => updates(message as SearchResponse))
+          as SearchResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static SearchPostsResponse create() => SearchPostsResponse._();
+  static SearchResponse create() => SearchResponse._();
   @$core.override
-  SearchPostsResponse createEmptyInstance() => create();
+  SearchResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static SearchPostsResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<SearchPostsResponse>(create);
-  static SearchPostsResponse? _defaultInstance;
+  static SearchResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SearchResponse>(create);
+  static SearchResponse? _defaultInstance;
 
   /// The search results.
   @$pb.TagNumber(1)
@@ -891,8 +888,8 @@ class SearchPostsResponse extends $pb.GeneratedMessage {
 }
 
 /// Request for reacting to a post.
-class ReactToPostRequest extends $pb.GeneratedMessage {
-  factory ReactToPostRequest({
+class ReactRequest extends $pb.GeneratedMessage {
+  factory ReactRequest({
     $core.String? postId,
     PostReaction? reaction,
   }) {
@@ -902,17 +899,17 @@ class ReactToPostRequest extends $pb.GeneratedMessage {
     return result;
   }
 
-  ReactToPostRequest._();
+  ReactRequest._();
 
-  factory ReactToPostRequest.fromBuffer($core.List<$core.int> data,
+  factory ReactRequest.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ReactToPostRequest.fromJson($core.String json,
+  factory ReactRequest.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ReactToPostRequest',
+      _omitMessageNames ? '' : 'ReactRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'postId')
@@ -921,23 +918,23 @@ class ReactToPostRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ReactToPostRequest clone() => deepCopy();
+  ReactRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ReactToPostRequest copyWith(void Function(ReactToPostRequest) updates) =>
-      super.copyWith((message) => updates(message as ReactToPostRequest))
-          as ReactToPostRequest;
+  ReactRequest copyWith(void Function(ReactRequest) updates) =>
+      super.copyWith((message) => updates(message as ReactRequest))
+          as ReactRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ReactToPostRequest create() => ReactToPostRequest._();
+  static ReactRequest create() => ReactRequest._();
   @$core.override
-  ReactToPostRequest createEmptyInstance() => create();
+  ReactRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ReactToPostRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ReactToPostRequest>(create);
-  static ReactToPostRequest? _defaultInstance;
+  static ReactRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ReactRequest>(create);
+  static ReactRequest? _defaultInstance;
 
   /// The ID of the post.
   @$pb.TagNumber(1)
@@ -961,8 +958,8 @@ class ReactToPostRequest extends $pb.GeneratedMessage {
 }
 
 /// Response for reacting to a post.
-class ReactToPostResponse extends $pb.GeneratedMessage {
-  factory ReactToPostResponse({
+class ReactResponse extends $pb.GeneratedMessage {
+  factory ReactResponse({
     $1.Error? error,
   }) {
     final result = create();
@@ -970,17 +967,17 @@ class ReactToPostResponse extends $pb.GeneratedMessage {
     return result;
   }
 
-  ReactToPostResponse._();
+  ReactResponse._();
 
-  factory ReactToPostResponse.fromBuffer($core.List<$core.int> data,
+  factory ReactResponse.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ReactToPostResponse.fromJson($core.String json,
+  factory ReactResponse.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ReactToPostResponse',
+      _omitMessageNames ? '' : 'ReactResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
     ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
@@ -988,23 +985,23 @@ class ReactToPostResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ReactToPostResponse clone() => deepCopy();
+  ReactResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ReactToPostResponse copyWith(void Function(ReactToPostResponse) updates) =>
-      super.copyWith((message) => updates(message as ReactToPostResponse))
-          as ReactToPostResponse;
+  ReactResponse copyWith(void Function(ReactResponse) updates) =>
+      super.copyWith((message) => updates(message as ReactResponse))
+          as ReactResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ReactToPostResponse create() => ReactToPostResponse._();
+  static ReactResponse create() => ReactResponse._();
   @$core.override
-  ReactToPostResponse createEmptyInstance() => create();
+  ReactResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ReactToPostResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ReactToPostResponse>(create);
-  static ReactToPostResponse? _defaultInstance;
+  static ReactResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ReactResponse>(create);
+  static ReactResponse? _defaultInstance;
 
   /// Error, if any.
   @$pb.TagNumber(1)

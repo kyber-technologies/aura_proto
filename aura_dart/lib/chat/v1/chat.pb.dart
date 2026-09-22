@@ -461,9 +461,9 @@ class SetUserPermResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(0);
 }
 
-/// The request message for (un)inviting a user to a channel.
-class InviteChannelRequest extends $pb.GeneratedMessage {
-  factory InviteChannelRequest({
+/// The request message for inviting a user to a channel.
+class InviteRequest extends $pb.GeneratedMessage {
+  factory InviteRequest({
     $core.String? channelId,
     $core.String? userId,
     $core.bool? uninvite,
@@ -475,17 +475,17 @@ class InviteChannelRequest extends $pb.GeneratedMessage {
     return result;
   }
 
-  InviteChannelRequest._();
+  InviteRequest._();
 
-  factory InviteChannelRequest.fromBuffer($core.List<$core.int> data,
+  factory InviteRequest.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory InviteChannelRequest.fromJson($core.String json,
+  factory InviteRequest.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'InviteChannelRequest',
+      _omitMessageNames ? '' : 'InviteRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'channelId')
@@ -494,23 +494,23 @@ class InviteChannelRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  InviteChannelRequest clone() => deepCopy();
+  InviteRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  InviteChannelRequest copyWith(void Function(InviteChannelRequest) updates) =>
-      super.copyWith((message) => updates(message as InviteChannelRequest))
-          as InviteChannelRequest;
+  InviteRequest copyWith(void Function(InviteRequest) updates) =>
+      super.copyWith((message) => updates(message as InviteRequest))
+          as InviteRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static InviteChannelRequest create() => InviteChannelRequest._();
+  static InviteRequest create() => InviteRequest._();
   @$core.override
-  InviteChannelRequest createEmptyInstance() => create();
+  InviteRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static InviteChannelRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<InviteChannelRequest>(create);
-  static InviteChannelRequest? _defaultInstance;
+  static InviteRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<InviteRequest>(create);
+  static InviteRequest? _defaultInstance;
 
   /// The ID of the channel to invite to.
   @$pb.TagNumber(1)
@@ -543,9 +543,9 @@ class InviteChannelRequest extends $pb.GeneratedMessage {
   void clearUninvite() => $_clearField(3);
 }
 
-/// The response message for (un)inviting a user to a channel.
-class InviteChannelResponse extends $pb.GeneratedMessage {
-  factory InviteChannelResponse({
+/// The response message for inviting a user to a channel.
+class InviteResponse extends $pb.GeneratedMessage {
+  factory InviteResponse({
     $1.Error? error,
   }) {
     final result = create();
@@ -553,17 +553,17 @@ class InviteChannelResponse extends $pb.GeneratedMessage {
     return result;
   }
 
-  InviteChannelResponse._();
+  InviteResponse._();
 
-  factory InviteChannelResponse.fromBuffer($core.List<$core.int> data,
+  factory InviteResponse.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory InviteChannelResponse.fromJson($core.String json,
+  factory InviteResponse.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'InviteChannelResponse',
+      _omitMessageNames ? '' : 'InviteResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
@@ -571,24 +571,23 @@ class InviteChannelResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  InviteChannelResponse clone() => deepCopy();
+  InviteResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  InviteChannelResponse copyWith(
-          void Function(InviteChannelResponse) updates) =>
-      super.copyWith((message) => updates(message as InviteChannelResponse))
-          as InviteChannelResponse;
+  InviteResponse copyWith(void Function(InviteResponse) updates) =>
+      super.copyWith((message) => updates(message as InviteResponse))
+          as InviteResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static InviteChannelResponse create() => InviteChannelResponse._();
+  static InviteResponse create() => InviteResponse._();
   @$core.override
-  InviteChannelResponse createEmptyInstance() => create();
+  InviteResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static InviteChannelResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<InviteChannelResponse>(create);
-  static InviteChannelResponse? _defaultInstance;
+  static InviteResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<InviteResponse>(create);
+  static InviteResponse? _defaultInstance;
 
   /// The error that occurred during the invite operation, if any.
   @$pb.TagNumber(1)
@@ -604,8 +603,8 @@ class InviteChannelResponse extends $pb.GeneratedMessage {
 }
 
 /// The request message for reading messages.
-class ReadMessagesRequest extends $pb.GeneratedMessage {
-  factory ReadMessagesRequest({
+class ReadRequest extends $pb.GeneratedMessage {
+  factory ReadRequest({
     $core.String? channelId,
     $core.int? limit,
     $2.Timestamp? startTime,
@@ -617,17 +616,17 @@ class ReadMessagesRequest extends $pb.GeneratedMessage {
     return result;
   }
 
-  ReadMessagesRequest._();
+  ReadRequest._();
 
-  factory ReadMessagesRequest.fromBuffer($core.List<$core.int> data,
+  factory ReadRequest.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ReadMessagesRequest.fromJson($core.String json,
+  factory ReadRequest.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ReadMessagesRequest',
+      _omitMessageNames ? '' : 'ReadRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'channelId')
@@ -637,23 +636,23 @@ class ReadMessagesRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ReadMessagesRequest clone() => deepCopy();
+  ReadRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ReadMessagesRequest copyWith(void Function(ReadMessagesRequest) updates) =>
-      super.copyWith((message) => updates(message as ReadMessagesRequest))
-          as ReadMessagesRequest;
+  ReadRequest copyWith(void Function(ReadRequest) updates) =>
+      super.copyWith((message) => updates(message as ReadRequest))
+          as ReadRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ReadMessagesRequest create() => ReadMessagesRequest._();
+  static ReadRequest create() => ReadRequest._();
   @$core.override
-  ReadMessagesRequest createEmptyInstance() => create();
+  ReadRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ReadMessagesRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ReadMessagesRequest>(create);
-  static ReadMessagesRequest? _defaultInstance;
+  static ReadRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ReadRequest>(create);
+  static ReadRequest? _defaultInstance;
 
   /// The ID of the channel to read messages from.
   @$pb.TagNumber(1)
@@ -688,8 +687,8 @@ class ReadMessagesRequest extends $pb.GeneratedMessage {
   $2.Timestamp ensureStartTime() => $_ensure(2);
 }
 
-class ReadMessagesResponse extends $pb.GeneratedMessage {
-  factory ReadMessagesResponse({
+class ReadResponse extends $pb.GeneratedMessage {
+  factory ReadResponse({
     $core.Iterable<Message>? messages,
     $1.Error? error,
   }) {
@@ -699,17 +698,17 @@ class ReadMessagesResponse extends $pb.GeneratedMessage {
     return result;
   }
 
-  ReadMessagesResponse._();
+  ReadResponse._();
 
-  factory ReadMessagesResponse.fromBuffer($core.List<$core.int> data,
+  factory ReadResponse.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ReadMessagesResponse.fromJson($core.String json,
+  factory ReadResponse.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ReadMessagesResponse',
+      _omitMessageNames ? '' : 'ReadResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..pPM<Message>(1, _omitFieldNames ? '' : 'messages',
@@ -719,23 +718,23 @@ class ReadMessagesResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ReadMessagesResponse clone() => deepCopy();
+  ReadResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ReadMessagesResponse copyWith(void Function(ReadMessagesResponse) updates) =>
-      super.copyWith((message) => updates(message as ReadMessagesResponse))
-          as ReadMessagesResponse;
+  ReadResponse copyWith(void Function(ReadResponse) updates) =>
+      super.copyWith((message) => updates(message as ReadResponse))
+          as ReadResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ReadMessagesResponse create() => ReadMessagesResponse._();
+  static ReadResponse create() => ReadResponse._();
   @$core.override
-  ReadMessagesResponse createEmptyInstance() => create();
+  ReadResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ReadMessagesResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ReadMessagesResponse>(create);
-  static ReadMessagesResponse? _defaultInstance;
+  static ReadResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ReadResponse>(create);
+  static ReadResponse? _defaultInstance;
 
   /// The messages read from the channel.
   @$pb.TagNumber(1)
@@ -755,8 +754,8 @@ class ReadMessagesResponse extends $pb.GeneratedMessage {
 }
 
 /// The request message for sending a message.
-class SendMessageRequest extends $pb.GeneratedMessage {
-  factory SendMessageRequest({
+class SendRequest extends $pb.GeneratedMessage {
+  factory SendRequest({
     $core.String? channelId,
     $3.Content? content,
   }) {
@@ -766,17 +765,17 @@ class SendMessageRequest extends $pb.GeneratedMessage {
     return result;
   }
 
-  SendMessageRequest._();
+  SendRequest._();
 
-  factory SendMessageRequest.fromBuffer($core.List<$core.int> data,
+  factory SendRequest.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory SendMessageRequest.fromJson($core.String json,
+  factory SendRequest.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'SendMessageRequest',
+      _omitMessageNames ? '' : 'SendRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'channelId')
@@ -785,23 +784,23 @@ class SendMessageRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SendMessageRequest clone() => deepCopy();
+  SendRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SendMessageRequest copyWith(void Function(SendMessageRequest) updates) =>
-      super.copyWith((message) => updates(message as SendMessageRequest))
-          as SendMessageRequest;
+  SendRequest copyWith(void Function(SendRequest) updates) =>
+      super.copyWith((message) => updates(message as SendRequest))
+          as SendRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static SendMessageRequest create() => SendMessageRequest._();
+  static SendRequest create() => SendRequest._();
   @$core.override
-  SendMessageRequest createEmptyInstance() => create();
+  SendRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static SendMessageRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<SendMessageRequest>(create);
-  static SendMessageRequest? _defaultInstance;
+  static SendRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SendRequest>(create);
+  static SendRequest? _defaultInstance;
 
   /// The ID of the channel to send the message to.
   @$pb.TagNumber(1)
@@ -826,11 +825,11 @@ class SendMessageRequest extends $pb.GeneratedMessage {
   $3.Content ensureContent() => $_ensure(1);
 }
 
-enum SendMessageResponse_Result { message, error, notSet }
+enum SendResponse_Result { message, error, notSet }
 
 /// The response message for sending a message.
-class SendMessageResponse extends $pb.GeneratedMessage {
-  factory SendMessageResponse({
+class SendResponse extends $pb.GeneratedMessage {
+  factory SendResponse({
     Message? message,
     $1.Error? error,
   }) {
@@ -840,23 +839,23 @@ class SendMessageResponse extends $pb.GeneratedMessage {
     return result;
   }
 
-  SendMessageResponse._();
+  SendResponse._();
 
-  factory SendMessageResponse.fromBuffer($core.List<$core.int> data,
+  factory SendResponse.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory SendMessageResponse.fromJson($core.String json,
+  factory SendResponse.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, SendMessageResponse_Result>
-      _SendMessageResponse_ResultByTag = {
-    1: SendMessageResponse_Result.message,
-    2: SendMessageResponse_Result.error,
-    0: SendMessageResponse_Result.notSet
+  static const $core.Map<$core.int, SendResponse_Result>
+      _SendResponse_ResultByTag = {
+    1: SendResponse_Result.message,
+    2: SendResponse_Result.error,
+    0: SendResponse_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'SendMessageResponse',
+      _omitMessageNames ? '' : 'SendResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
@@ -867,28 +866,28 @@ class SendMessageResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SendMessageResponse clone() => deepCopy();
+  SendResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SendMessageResponse copyWith(void Function(SendMessageResponse) updates) =>
-      super.copyWith((message) => updates(message as SendMessageResponse))
-          as SendMessageResponse;
+  SendResponse copyWith(void Function(SendResponse) updates) =>
+      super.copyWith((message) => updates(message as SendResponse))
+          as SendResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static SendMessageResponse create() => SendMessageResponse._();
+  static SendResponse create() => SendResponse._();
   @$core.override
-  SendMessageResponse createEmptyInstance() => create();
+  SendResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static SendMessageResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<SendMessageResponse>(create);
-  static SendMessageResponse? _defaultInstance;
+  static SendResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SendResponse>(create);
+  static SendResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
   @$pb.TagNumber(2)
-  SendMessageResponse_Result whichResult() =>
-      _SendMessageResponse_ResultByTag[$_whichOneof(0)]!;
+  SendResponse_Result whichResult() =>
+      _SendResponse_ResultByTag[$_whichOneof(0)]!;
   @$pb.TagNumber(1)
   @$pb.TagNumber(2)
   void clearResult() => $_clearField($_whichOneof(0));

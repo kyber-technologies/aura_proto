@@ -33,11 +33,12 @@ class PostingServiceClient extends $grpc.Client {
 
   PostingServiceClient(super.channel, {super.options, super.interceptors});
 
-  $grpc.ResponseFuture<$0.RecommendationsResponse> recommendations(
-    $0.RecommendationsRequest request, {
+  /// Request for getting the user feed.
+  $grpc.ResponseFuture<$0.FeedResponse> feed(
+    $0.FeedRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$recommendations, request, options: options);
+    return $createUnaryCall(_$feed, request, options: options);
   }
 
   /// Publish a new post.
@@ -63,50 +64,49 @@ class PostingServiceClient extends $grpc.Client {
   /// Get a specific post.
   ///
   /// Requires Authentication: Only authenticated users can get posts.
-  $grpc.ResponseFuture<$0.GetPostResponse> getPost(
-    $0.GetPostRequest request, {
+  $grpc.ResponseFuture<$0.GetResponse> get(
+    $0.GetRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$getPost, request, options: options);
+    return $createUnaryCall(_$get, request, options: options);
   }
 
   /// Get posts of a user.
   ///
   /// Requires Authentication: Only authenticated users can get posts.
-  $grpc.ResponseFuture<$0.GetPostsOfResponse> getPostsOf(
-    $0.GetPostsOfRequest request, {
+  $grpc.ResponseFuture<$0.GetOfResponse> getOf(
+    $0.GetOfRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$getPostsOf, request, options: options);
+    return $createUnaryCall(_$getOf, request, options: options);
   }
 
   /// Search posts.
   ///
   /// Requires Authentication: Only authenticated users can search posts.
-  $grpc.ResponseFuture<$0.SearchPostsResponse> searchPosts(
-    $0.SearchPostsRequest request, {
+  $grpc.ResponseFuture<$0.SearchResponse> search(
+    $0.SearchRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$searchPosts, request, options: options);
+    return $createUnaryCall(_$search, request, options: options);
   }
 
   /// React to a post.
   ///
   /// Requires Authentication: Only authenticated users can react to posts.
-  $grpc.ResponseFuture<$0.ReactToPostResponse> reactToPost(
-    $0.ReactToPostRequest request, {
+  $grpc.ResponseFuture<$0.ReactResponse> react(
+    $0.ReactRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$reactToPost, request, options: options);
+    return $createUnaryCall(_$react, request, options: options);
   }
 
   // method descriptors
 
-  static final _$recommendations =
-      $grpc.ClientMethod<$0.RecommendationsRequest, $0.RecommendationsResponse>(
-          '/posting.v1.PostingService/Recommendations',
-          ($0.RecommendationsRequest value) => value.writeToBuffer(),
-          $0.RecommendationsResponse.fromBuffer);
+  static final _$feed = $grpc.ClientMethod<$0.FeedRequest, $0.FeedResponse>(
+      '/posting.v1.PostingService/Feed',
+      ($0.FeedRequest value) => value.writeToBuffer(),
+      $0.FeedResponse.fromBuffer);
   static final _$publish =
       $grpc.ClientMethod<$0.PublishRequest, $0.PublishResponse>(
           '/posting.v1.PostingService/Publish',
@@ -117,26 +117,23 @@ class PostingServiceClient extends $grpc.Client {
           '/posting.v1.PostingService/Unpublish',
           ($0.UnpublishRequest value) => value.writeToBuffer(),
           $0.UnpublishResponse.fromBuffer);
-  static final _$getPost =
-      $grpc.ClientMethod<$0.GetPostRequest, $0.GetPostResponse>(
-          '/posting.v1.PostingService/GetPost',
-          ($0.GetPostRequest value) => value.writeToBuffer(),
-          $0.GetPostResponse.fromBuffer);
-  static final _$getPostsOf =
-      $grpc.ClientMethod<$0.GetPostsOfRequest, $0.GetPostsOfResponse>(
-          '/posting.v1.PostingService/GetPostsOf',
-          ($0.GetPostsOfRequest value) => value.writeToBuffer(),
-          $0.GetPostsOfResponse.fromBuffer);
-  static final _$searchPosts =
-      $grpc.ClientMethod<$0.SearchPostsRequest, $0.SearchPostsResponse>(
-          '/posting.v1.PostingService/SearchPosts',
-          ($0.SearchPostsRequest value) => value.writeToBuffer(),
-          $0.SearchPostsResponse.fromBuffer);
-  static final _$reactToPost =
-      $grpc.ClientMethod<$0.ReactToPostRequest, $0.ReactToPostResponse>(
-          '/posting.v1.PostingService/ReactToPost',
-          ($0.ReactToPostRequest value) => value.writeToBuffer(),
-          $0.ReactToPostResponse.fromBuffer);
+  static final _$get = $grpc.ClientMethod<$0.GetRequest, $0.GetResponse>(
+      '/posting.v1.PostingService/Get',
+      ($0.GetRequest value) => value.writeToBuffer(),
+      $0.GetResponse.fromBuffer);
+  static final _$getOf = $grpc.ClientMethod<$0.GetOfRequest, $0.GetOfResponse>(
+      '/posting.v1.PostingService/GetOf',
+      ($0.GetOfRequest value) => value.writeToBuffer(),
+      $0.GetOfResponse.fromBuffer);
+  static final _$search =
+      $grpc.ClientMethod<$0.SearchRequest, $0.SearchResponse>(
+          '/posting.v1.PostingService/Search',
+          ($0.SearchRequest value) => value.writeToBuffer(),
+          $0.SearchResponse.fromBuffer);
+  static final _$react = $grpc.ClientMethod<$0.ReactRequest, $0.ReactResponse>(
+      '/posting.v1.PostingService/React',
+      ($0.ReactRequest value) => value.writeToBuffer(),
+      $0.ReactResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('posting.v1.PostingService')
@@ -144,15 +141,13 @@ abstract class PostingServiceBase extends $grpc.Service {
   $core.String get $name => 'posting.v1.PostingService';
 
   PostingServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.RecommendationsRequest,
-            $0.RecommendationsResponse>(
-        'Recommendations',
-        recommendations_Pre,
+    $addMethod($grpc.ServiceMethod<$0.FeedRequest, $0.FeedResponse>(
+        'Feed',
+        feed_Pre,
         false,
         false,
-        ($core.List<$core.int> value) =>
-            $0.RecommendationsRequest.fromBuffer(value),
-        ($0.RecommendationsResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $0.FeedRequest.fromBuffer(value),
+        ($0.FeedResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.PublishRequest, $0.PublishResponse>(
         'Publish',
         publish_Pre,
@@ -167,48 +162,43 @@ abstract class PostingServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.UnpublishRequest.fromBuffer(value),
         ($0.UnpublishResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.GetPostRequest, $0.GetPostResponse>(
-        'GetPost',
-        getPost_Pre,
+    $addMethod($grpc.ServiceMethod<$0.GetRequest, $0.GetResponse>(
+        'Get',
+        get_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.GetPostRequest.fromBuffer(value),
-        ($0.GetPostResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.GetPostsOfRequest, $0.GetPostsOfResponse>(
-        'GetPostsOf',
-        getPostsOf_Pre,
+        ($core.List<$core.int> value) => $0.GetRequest.fromBuffer(value),
+        ($0.GetResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.GetOfRequest, $0.GetOfResponse>(
+        'GetOf',
+        getOf_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.GetPostsOfRequest.fromBuffer(value),
-        ($0.GetPostsOfResponse value) => value.writeToBuffer()));
-    $addMethod(
-        $grpc.ServiceMethod<$0.SearchPostsRequest, $0.SearchPostsResponse>(
-            'SearchPosts',
-            searchPosts_Pre,
-            false,
-            false,
-            ($core.List<$core.int> value) =>
-                $0.SearchPostsRequest.fromBuffer(value),
-            ($0.SearchPostsResponse value) => value.writeToBuffer()));
-    $addMethod(
-        $grpc.ServiceMethod<$0.ReactToPostRequest, $0.ReactToPostResponse>(
-            'ReactToPost',
-            reactToPost_Pre,
-            false,
-            false,
-            ($core.List<$core.int> value) =>
-                $0.ReactToPostRequest.fromBuffer(value),
-            ($0.ReactToPostResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $0.GetOfRequest.fromBuffer(value),
+        ($0.GetOfResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.SearchRequest, $0.SearchResponse>(
+        'Search',
+        search_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.SearchRequest.fromBuffer(value),
+        ($0.SearchResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.ReactRequest, $0.ReactResponse>(
+        'React',
+        react_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.ReactRequest.fromBuffer(value),
+        ($0.ReactResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.RecommendationsResponse> recommendations_Pre(
-      $grpc.ServiceCall $call,
-      $async.Future<$0.RecommendationsRequest> $request) async {
-    return recommendations($call, await $request);
+  $async.Future<$0.FeedResponse> feed_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.FeedRequest> $request) async {
+    return feed($call, await $request);
   }
 
-  $async.Future<$0.RecommendationsResponse> recommendations(
-      $grpc.ServiceCall call, $0.RecommendationsRequest request);
+  $async.Future<$0.FeedResponse> feed(
+      $grpc.ServiceCall call, $0.FeedRequest request);
 
   $async.Future<$0.PublishResponse> publish_Pre($grpc.ServiceCall $call,
       $async.Future<$0.PublishRequest> $request) async {
@@ -226,35 +216,35 @@ abstract class PostingServiceBase extends $grpc.Service {
   $async.Future<$0.UnpublishResponse> unpublish(
       $grpc.ServiceCall call, $0.UnpublishRequest request);
 
-  $async.Future<$0.GetPostResponse> getPost_Pre($grpc.ServiceCall $call,
-      $async.Future<$0.GetPostRequest> $request) async {
-    return getPost($call, await $request);
+  $async.Future<$0.GetResponse> get_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.GetRequest> $request) async {
+    return get($call, await $request);
   }
 
-  $async.Future<$0.GetPostResponse> getPost(
-      $grpc.ServiceCall call, $0.GetPostRequest request);
+  $async.Future<$0.GetResponse> get(
+      $grpc.ServiceCall call, $0.GetRequest request);
 
-  $async.Future<$0.GetPostsOfResponse> getPostsOf_Pre($grpc.ServiceCall $call,
-      $async.Future<$0.GetPostsOfRequest> $request) async {
-    return getPostsOf($call, await $request);
+  $async.Future<$0.GetOfResponse> getOf_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.GetOfRequest> $request) async {
+    return getOf($call, await $request);
   }
 
-  $async.Future<$0.GetPostsOfResponse> getPostsOf(
-      $grpc.ServiceCall call, $0.GetPostsOfRequest request);
+  $async.Future<$0.GetOfResponse> getOf(
+      $grpc.ServiceCall call, $0.GetOfRequest request);
 
-  $async.Future<$0.SearchPostsResponse> searchPosts_Pre($grpc.ServiceCall $call,
-      $async.Future<$0.SearchPostsRequest> $request) async {
-    return searchPosts($call, await $request);
+  $async.Future<$0.SearchResponse> search_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.SearchRequest> $request) async {
+    return search($call, await $request);
   }
 
-  $async.Future<$0.SearchPostsResponse> searchPosts(
-      $grpc.ServiceCall call, $0.SearchPostsRequest request);
+  $async.Future<$0.SearchResponse> search(
+      $grpc.ServiceCall call, $0.SearchRequest request);
 
-  $async.Future<$0.ReactToPostResponse> reactToPost_Pre($grpc.ServiceCall $call,
-      $async.Future<$0.ReactToPostRequest> $request) async {
-    return reactToPost($call, await $request);
+  $async.Future<$0.ReactResponse> react_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.ReactRequest> $request) async {
+    return react($call, await $request);
   }
 
-  $async.Future<$0.ReactToPostResponse> reactToPost(
-      $grpc.ServiceCall call, $0.ReactToPostRequest request);
+  $async.Future<$0.ReactResponse> react(
+      $grpc.ServiceCall call, $0.ReactRequest request);
 }

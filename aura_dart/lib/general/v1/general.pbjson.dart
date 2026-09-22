@@ -15,18 +15,18 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-@$core.Deprecated('Use getConfigRequestDescriptor instead')
-const GetConfigRequest$json = {
-  '1': 'GetConfigRequest',
+@$core.Deprecated('Use configRequestDescriptor instead')
+const ConfigRequest$json = {
+  '1': 'ConfigRequest',
 };
 
-/// Descriptor for `GetConfigRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getConfigRequestDescriptor =
-    $convert.base64Decode('ChBHZXRDb25maWdSZXF1ZXN0');
+/// Descriptor for `ConfigRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List configRequestDescriptor =
+    $convert.base64Decode('Cg1Db25maWdSZXF1ZXN0');
 
-@$core.Deprecated('Use getConfigResponseDescriptor instead')
-const GetConfigResponse$json = {
-  '1': 'GetConfigResponse',
+@$core.Deprecated('Use configResponseDescriptor instead')
+const ConfigResponse$json = {
+  '1': 'ConfigResponse',
   '2': [
     {'1': 'version', '3': 1, '4': 1, '5': 9, '10': 'version'},
     {
@@ -39,10 +39,10 @@ const GetConfigResponse$json = {
   ],
 };
 
-/// Descriptor for `GetConfigResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getConfigResponseDescriptor = $convert.base64Decode(
-    'ChFHZXRDb25maWdSZXNwb25zZRIYCgd2ZXJzaW9uGAEgASgJUgd2ZXJzaW9uEi4KE3Jlc291cm'
-    'NlX2NodW5rX3NpemUYAiABKA1SEXJlc291cmNlQ2h1bmtTaXpl');
+/// Descriptor for `ConfigResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List configResponseDescriptor = $convert.base64Decode(
+    'Cg5Db25maWdSZXNwb25zZRIYCgd2ZXJzaW9uGAEgASgJUgd2ZXJzaW9uEi4KE3Jlc291cmNlX2'
+    'NodW5rX3NpemUYAiABKA1SEXJlc291cmNlQ2h1bmtTaXpl');
 
 @$core.Deprecated('Use clearStateRequestDescriptor instead')
 const ClearStateRequest$json = {
@@ -62,44 +62,42 @@ const ClearStateResponse$json = {
 final $typed_data.Uint8List clearStateResponseDescriptor =
     $convert.base64Decode('ChJDbGVhclN0YXRlUmVzcG9uc2U=');
 
-@$core.Deprecated('Use getEmailTokenRequestDescriptor instead')
-const GetEmailTokenRequest$json = {
-  '1': 'GetEmailTokenRequest',
+@$core.Deprecated('Use emailTokenRequestDescriptor instead')
+const EmailTokenRequest$json = {
+  '1': 'EmailTokenRequest',
   '2': [
     {'1': 'email', '3': 1, '4': 1, '5': 9, '10': 'email'},
   ],
 };
 
-/// Descriptor for `GetEmailTokenRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getEmailTokenRequestDescriptor =
-    $convert.base64Decode(
-        'ChRHZXRFbWFpbFRva2VuUmVxdWVzdBIUCgVlbWFpbBgBIAEoCVIFZW1haWw=');
+/// Descriptor for `EmailTokenRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List emailTokenRequestDescriptor = $convert
+    .base64Decode('ChFFbWFpbFRva2VuUmVxdWVzdBIUCgVlbWFpbBgBIAEoCVIFZW1haWw=');
 
-@$core.Deprecated('Use getEmailTokenResponseDescriptor instead')
-const GetEmailTokenResponse$json = {
-  '1': 'GetEmailTokenResponse',
+@$core.Deprecated('Use emailTokenResponseDescriptor instead')
+const EmailTokenResponse$json = {
+  '1': 'EmailTokenResponse',
   '2': [
     {'1': 'token', '3': 1, '4': 1, '5': 9, '10': 'token'},
   ],
 };
 
-/// Descriptor for `GetEmailTokenResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getEmailTokenResponseDescriptor =
-    $convert.base64Decode(
-        'ChVHZXRFbWFpbFRva2VuUmVzcG9uc2USFAoFdG9rZW4YASABKAlSBXRva2Vu');
+/// Descriptor for `EmailTokenResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List emailTokenResponseDescriptor = $convert
+    .base64Decode('ChJFbWFpbFRva2VuUmVzcG9uc2USFAoFdG9rZW4YASABKAlSBXRva2Vu');
 
-@$core.Deprecated('Use getServicesRequestDescriptor instead')
-const GetServicesRequest$json = {
-  '1': 'GetServicesRequest',
+@$core.Deprecated('Use servicesRequestDescriptor instead')
+const ServicesRequest$json = {
+  '1': 'ServicesRequest',
 };
 
-/// Descriptor for `GetServicesRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getServicesRequestDescriptor =
-    $convert.base64Decode('ChJHZXRTZXJ2aWNlc1JlcXVlc3Q=');
+/// Descriptor for `ServicesRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List servicesRequestDescriptor =
+    $convert.base64Decode('Cg9TZXJ2aWNlc1JlcXVlc3Q=');
 
-@$core.Deprecated('Use getServicesResponseDescriptor instead')
-const GetServicesResponse$json = {
-  '1': 'GetServicesResponse',
+@$core.Deprecated('Use servicesResponseDescriptor instead')
+const ServicesResponse$json = {
+  '1': 'ServicesResponse',
   '2': [
     {
       '1': 'services',
@@ -112,23 +110,23 @@ const GetServicesResponse$json = {
   ],
 };
 
-/// Descriptor for `GetServicesResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getServicesResponseDescriptor = $convert.base64Decode(
-    'ChNHZXRTZXJ2aWNlc1Jlc3BvbnNlEjkKCHNlcnZpY2VzGAEgAygLMh0uZ2VuZXJhbC52MS5TZX'
-    'J2aWNlRGVzY3JpcHRvclIIc2VydmljZXM=');
+/// Descriptor for `ServicesResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List servicesResponseDescriptor = $convert.base64Decode(
+    'ChBTZXJ2aWNlc1Jlc3BvbnNlEjkKCHNlcnZpY2VzGAEgAygLMh0uZ2VuZXJhbC52MS5TZXJ2aW'
+    'NlRGVzY3JpcHRvclIIc2VydmljZXM=');
 
-@$core.Deprecated('Use getTestUsersRequestDescriptor instead')
-const GetTestUsersRequest$json = {
-  '1': 'GetTestUsersRequest',
+@$core.Deprecated('Use testUsersRequestDescriptor instead')
+const TestUsersRequest$json = {
+  '1': 'TestUsersRequest',
 };
 
-/// Descriptor for `GetTestUsersRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getTestUsersRequestDescriptor =
-    $convert.base64Decode('ChNHZXRUZXN0VXNlcnNSZXF1ZXN0');
+/// Descriptor for `TestUsersRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List testUsersRequestDescriptor =
+    $convert.base64Decode('ChBUZXN0VXNlcnNSZXF1ZXN0');
 
-@$core.Deprecated('Use getTestUsersResponseDescriptor instead')
-const GetTestUsersResponse$json = {
-  '1': 'GetTestUsersResponse',
+@$core.Deprecated('Use testUsersResponseDescriptor instead')
+const TestUsersResponse$json = {
+  '1': 'TestUsersResponse',
   '2': [
     {'1': 'user', '3': 1, '4': 1, '5': 11, '6': '.user.v1.User', '10': 'user'},
     {
@@ -150,11 +148,11 @@ const GetTestUsersResponse$json = {
   ],
 };
 
-/// Descriptor for `GetTestUsersResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getTestUsersResponseDescriptor = $convert.base64Decode(
-    'ChRHZXRUZXN0VXNlcnNSZXNwb25zZRIhCgR1c2VyGAEgASgLMg0udXNlci52MS5Vc2VyUgR1c2'
-    'VyEisKCW1vZGVyYXRvchgCIAEoCzINLnVzZXIudjEuVXNlclIJbW9kZXJhdG9yEiMKBWFkbWlu'
-    'GAMgASgLMg0udXNlci52MS5Vc2VyUgVhZG1pbg==');
+/// Descriptor for `TestUsersResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List testUsersResponseDescriptor = $convert.base64Decode(
+    'ChFUZXN0VXNlcnNSZXNwb25zZRIhCgR1c2VyGAEgASgLMg0udXNlci52MS5Vc2VyUgR1c2VyEi'
+    'sKCW1vZGVyYXRvchgCIAEoCzINLnVzZXIudjEuVXNlclIJbW9kZXJhdG9yEiMKBWFkbWluGAMg'
+    'ASgLMg0udXNlci52MS5Vc2VyUgVhZG1pbg==');
 
 @$core.Deprecated('Use serviceDescriptorDescriptor instead')
 const ServiceDescriptor$json = {

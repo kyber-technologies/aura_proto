@@ -10,41 +10,41 @@ import "resource/v1/resource.proto";
 // Service for managing users.
 service UserService {
   // Checks if a user exists by ID.
-  rpc UserExists(UserExistsRequest) returns (UserExistsResponse);
+  rpc Exists(ExistsRequest) returns (ExistsResponse);
 
   // Authenticates a user.
-  rpc AuthUser(AuthUserRequest) returns (AuthUserResponse);
+  rpc Auth(AuthRequest) returns (AuthResponse);
 
   // Verifies an email.
   rpc VerifyEmail(VerifyEmailRequest) returns (VerifyEmailResponse);
 
   // Creates a new user.
-  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+  rpc Create(CreateRequest) returns (CreateResponse);
 
   // Deletes a user by ID.
   //
   // Requires Authentication: Only the user itself can delete his own account.
-  rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
 
   // Updates a user.
   //
   // Requires Authentication: Only the user itself can update his own account.
-  rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
+  rpc Update(UpdateRequest) returns (UpdateResponse);
 
   // Gets a user by ID.
   //
   // Requires Authentication: All authenticated users can get a user.
-  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+  rpc Get(GetRequest) returns (GetResponse);
 
   // Searches for users by query.
   //
   // Requires Authentication: All authenticated users can search for users.
-  rpc SearchUsers(SearchUsersRequest) returns (SearchUsersResponse);
+  rpc Search(SearchRequest) returns (SearchResponse);
 
   // Blocks a user.
   //
   // Requires Authentication: Only the user itself can block or unblock.
-  rpc BlockUser(BlockUserRequest) returns (BlockUserResponse);
+  rpc Block(BlockRequest) returns (BlockResponse);
 
   // Check if a user is blocked.
   //
@@ -58,19 +58,19 @@ service UserService {
 }
 
 // Request message for checking if a user exists.
-message UserExistsRequest {
+message ExistsRequest {
   // User ID of the user.
   string user_id = 1;
 }
 
 // Response message for checking if a user exists.
-message UserExistsResponse {
+message ExistsResponse {
   // Error, if user does not exist or any other error.
   optional common.v1.Error error = 1;
 }
 
 // Request message for authenticating a user.
-message AuthUserRequest {
+message AuthRequest {
   // User ID of the user. Required if no token is provided.
   optional string user_id = 1;
   // Password of the user. Required if no token is provided.
@@ -78,7 +78,7 @@ message AuthUserRequest {
 }
 
 // Response message for authenticating a user.
-message AuthUserResponse {
+message AuthResponse {
   // Authentication token.
   string token = 1;
   // The user.
@@ -100,7 +100,7 @@ message VerifyEmailResponse {
 }
 
 // Request message for creating a user.
-message CreateUserRequest {
+message CreateRequest {
   // Unique user identifier.
   string user_id = 1;
   // Username of the user.
@@ -114,25 +114,25 @@ message CreateUserRequest {
 }
 
 // Response message for creating a user.
-message CreateUserResponse {
+message CreateResponse {
   // Error, if any.
   optional common.v1.Error error = 1;
 }
 
 // Request message for deleting a user.
-message DeleteUserRequest {
+message DeleteRequest {
   // Password of the user.
   string password = 1;
 }
 
 // Response message for deleting a user.
-message DeleteUserResponse {
+message DeleteResponse {
   // Error, if any.
   optional common.v1.Error error = 1;
 }
 
 // Request message for updating a user.
-message UpdateUserRequest {
+message UpdateRequest {
   // Username of the user.
   optional string username = 2;
   // Email of the user.
@@ -142,19 +142,19 @@ message UpdateUserRequest {
 }
 
 // Response message for updating a user.
-message UpdateUserResponse {
+message UpdateResponse {
   // Error, if any.
   optional common.v1.Error error = 1;
 }
 
 // Request message for getting a user.
-message GetUserRequest {
+message GetRequest {
   // ID of the user to get.
   string user_id = 1;
 }
 
 // Response message for getting a user.
-message GetUserResponse {
+message GetResponse {
   // One of the following results.
   oneof result {
     // User profile.
@@ -165,13 +165,13 @@ message GetUserResponse {
 }
 
 // Request message for searching users.
-message SearchUsersRequest {
+message SearchRequest {
   // Query string to search for.
   string query = 1;
 }
 
 // Response message for searching users.
-message SearchUsersResponse {
+message SearchResponse {
   // List of users matching the query.
   repeated UserProfile users = 1;
   // Error, if any.
@@ -179,7 +179,7 @@ message SearchUsersResponse {
 }
 
 // Request message for blocking a user.
-message BlockUserRequest {
+message BlockRequest {
   // ID of the user to block.
   string user_id = 1;
   // Whether to block or unblock the user.
@@ -187,7 +187,7 @@ message BlockUserRequest {
 }
 
 // Response message for blocking a user.
-message BlockUserResponse {
+message BlockResponse {
   // Error, if any.
   optional common.v1.Error error = 1;
 }

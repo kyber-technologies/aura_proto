@@ -34,19 +34,19 @@ class UserServiceClient extends $grpc.Client {
   UserServiceClient(super.channel, {super.options, super.interceptors});
 
   /// Checks if a user exists by ID.
-  $grpc.ResponseFuture<$0.UserExistsResponse> userExists(
-    $0.UserExistsRequest request, {
+  $grpc.ResponseFuture<$0.ExistsResponse> exists(
+    $0.ExistsRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$userExists, request, options: options);
+    return $createUnaryCall(_$exists, request, options: options);
   }
 
   /// Authenticates a user.
-  $grpc.ResponseFuture<$0.AuthUserResponse> authUser(
-    $0.AuthUserRequest request, {
+  $grpc.ResponseFuture<$0.AuthResponse> auth(
+    $0.AuthRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$authUser, request, options: options);
+    return $createUnaryCall(_$auth, request, options: options);
   }
 
   /// Verifies an email.
@@ -58,61 +58,61 @@ class UserServiceClient extends $grpc.Client {
   }
 
   /// Creates a new user.
-  $grpc.ResponseFuture<$0.CreateUserResponse> createUser(
-    $0.CreateUserRequest request, {
+  $grpc.ResponseFuture<$0.CreateResponse> create(
+    $0.CreateRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$createUser, request, options: options);
+    return $createUnaryCall(_$create, request, options: options);
   }
 
   /// Deletes a user by ID.
   ///
   /// Requires Authentication: Only the user itself can delete his own account.
-  $grpc.ResponseFuture<$0.DeleteUserResponse> deleteUser(
-    $0.DeleteUserRequest request, {
+  $grpc.ResponseFuture<$0.DeleteResponse> delete(
+    $0.DeleteRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$deleteUser, request, options: options);
+    return $createUnaryCall(_$delete, request, options: options);
   }
 
   /// Updates a user.
   ///
   /// Requires Authentication: Only the user itself can update his own account.
-  $grpc.ResponseFuture<$0.UpdateUserResponse> updateUser(
-    $0.UpdateUserRequest request, {
+  $grpc.ResponseFuture<$0.UpdateResponse> update(
+    $0.UpdateRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$updateUser, request, options: options);
+    return $createUnaryCall(_$update, request, options: options);
   }
 
   /// Gets a user by ID.
   ///
   /// Requires Authentication: All authenticated users can get a user.
-  $grpc.ResponseFuture<$0.GetUserResponse> getUser(
-    $0.GetUserRequest request, {
+  $grpc.ResponseFuture<$0.GetResponse> get(
+    $0.GetRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$getUser, request, options: options);
+    return $createUnaryCall(_$get, request, options: options);
   }
 
   /// Searches for users by query.
   ///
   /// Requires Authentication: All authenticated users can search for users.
-  $grpc.ResponseFuture<$0.SearchUsersResponse> searchUsers(
-    $0.SearchUsersRequest request, {
+  $grpc.ResponseFuture<$0.SearchResponse> search(
+    $0.SearchRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$searchUsers, request, options: options);
+    return $createUnaryCall(_$search, request, options: options);
   }
 
   /// Blocks a user.
   ///
   /// Requires Authentication: Only the user itself can block or unblock.
-  $grpc.ResponseFuture<$0.BlockUserResponse> blockUser(
-    $0.BlockUserRequest request, {
+  $grpc.ResponseFuture<$0.BlockResponse> block(
+    $0.BlockRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$blockUser, request, options: options);
+    return $createUnaryCall(_$block, request, options: options);
   }
 
   /// Check if a user is blocked.
@@ -137,51 +137,48 @@ class UserServiceClient extends $grpc.Client {
 
   // method descriptors
 
-  static final _$userExists =
-      $grpc.ClientMethod<$0.UserExistsRequest, $0.UserExistsResponse>(
-          '/user.v1.UserService/UserExists',
-          ($0.UserExistsRequest value) => value.writeToBuffer(),
-          $0.UserExistsResponse.fromBuffer);
-  static final _$authUser =
-      $grpc.ClientMethod<$0.AuthUserRequest, $0.AuthUserResponse>(
-          '/user.v1.UserService/AuthUser',
-          ($0.AuthUserRequest value) => value.writeToBuffer(),
-          $0.AuthUserResponse.fromBuffer);
+  static final _$exists =
+      $grpc.ClientMethod<$0.ExistsRequest, $0.ExistsResponse>(
+          '/user.v1.UserService/Exists',
+          ($0.ExistsRequest value) => value.writeToBuffer(),
+          $0.ExistsResponse.fromBuffer);
+  static final _$auth = $grpc.ClientMethod<$0.AuthRequest, $0.AuthResponse>(
+      '/user.v1.UserService/Auth',
+      ($0.AuthRequest value) => value.writeToBuffer(),
+      $0.AuthResponse.fromBuffer);
   static final _$verifyEmail =
       $grpc.ClientMethod<$0.VerifyEmailRequest, $0.VerifyEmailResponse>(
           '/user.v1.UserService/VerifyEmail',
           ($0.VerifyEmailRequest value) => value.writeToBuffer(),
           $0.VerifyEmailResponse.fromBuffer);
-  static final _$createUser =
-      $grpc.ClientMethod<$0.CreateUserRequest, $0.CreateUserResponse>(
-          '/user.v1.UserService/CreateUser',
-          ($0.CreateUserRequest value) => value.writeToBuffer(),
-          $0.CreateUserResponse.fromBuffer);
-  static final _$deleteUser =
-      $grpc.ClientMethod<$0.DeleteUserRequest, $0.DeleteUserResponse>(
-          '/user.v1.UserService/DeleteUser',
-          ($0.DeleteUserRequest value) => value.writeToBuffer(),
-          $0.DeleteUserResponse.fromBuffer);
-  static final _$updateUser =
-      $grpc.ClientMethod<$0.UpdateUserRequest, $0.UpdateUserResponse>(
-          '/user.v1.UserService/UpdateUser',
-          ($0.UpdateUserRequest value) => value.writeToBuffer(),
-          $0.UpdateUserResponse.fromBuffer);
-  static final _$getUser =
-      $grpc.ClientMethod<$0.GetUserRequest, $0.GetUserResponse>(
-          '/user.v1.UserService/GetUser',
-          ($0.GetUserRequest value) => value.writeToBuffer(),
-          $0.GetUserResponse.fromBuffer);
-  static final _$searchUsers =
-      $grpc.ClientMethod<$0.SearchUsersRequest, $0.SearchUsersResponse>(
-          '/user.v1.UserService/SearchUsers',
-          ($0.SearchUsersRequest value) => value.writeToBuffer(),
-          $0.SearchUsersResponse.fromBuffer);
-  static final _$blockUser =
-      $grpc.ClientMethod<$0.BlockUserRequest, $0.BlockUserResponse>(
-          '/user.v1.UserService/BlockUser',
-          ($0.BlockUserRequest value) => value.writeToBuffer(),
-          $0.BlockUserResponse.fromBuffer);
+  static final _$create =
+      $grpc.ClientMethod<$0.CreateRequest, $0.CreateResponse>(
+          '/user.v1.UserService/Create',
+          ($0.CreateRequest value) => value.writeToBuffer(),
+          $0.CreateResponse.fromBuffer);
+  static final _$delete =
+      $grpc.ClientMethod<$0.DeleteRequest, $0.DeleteResponse>(
+          '/user.v1.UserService/Delete',
+          ($0.DeleteRequest value) => value.writeToBuffer(),
+          $0.DeleteResponse.fromBuffer);
+  static final _$update =
+      $grpc.ClientMethod<$0.UpdateRequest, $0.UpdateResponse>(
+          '/user.v1.UserService/Update',
+          ($0.UpdateRequest value) => value.writeToBuffer(),
+          $0.UpdateResponse.fromBuffer);
+  static final _$get = $grpc.ClientMethod<$0.GetRequest, $0.GetResponse>(
+      '/user.v1.UserService/Get',
+      ($0.GetRequest value) => value.writeToBuffer(),
+      $0.GetResponse.fromBuffer);
+  static final _$search =
+      $grpc.ClientMethod<$0.SearchRequest, $0.SearchResponse>(
+          '/user.v1.UserService/Search',
+          ($0.SearchRequest value) => value.writeToBuffer(),
+          $0.SearchResponse.fromBuffer);
+  static final _$block = $grpc.ClientMethod<$0.BlockRequest, $0.BlockResponse>(
+      '/user.v1.UserService/Block',
+      ($0.BlockRequest value) => value.writeToBuffer(),
+      $0.BlockResponse.fromBuffer);
   static final _$isBlocked =
       $grpc.ClientMethod<$0.IsBlockedRequest, $0.IsBlockedResponse>(
           '/user.v1.UserService/IsBlocked',
@@ -199,20 +196,20 @@ abstract class UserServiceBase extends $grpc.Service {
   $core.String get $name => 'user.v1.UserService';
 
   UserServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.UserExistsRequest, $0.UserExistsResponse>(
-        'UserExists',
-        userExists_Pre,
+    $addMethod($grpc.ServiceMethod<$0.ExistsRequest, $0.ExistsResponse>(
+        'Exists',
+        exists_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.UserExistsRequest.fromBuffer(value),
-        ($0.UserExistsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.AuthUserRequest, $0.AuthUserResponse>(
-        'AuthUser',
-        authUser_Pre,
+        ($core.List<$core.int> value) => $0.ExistsRequest.fromBuffer(value),
+        ($0.ExistsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.AuthRequest, $0.AuthResponse>(
+        'Auth',
+        auth_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.AuthUserRequest.fromBuffer(value),
-        ($0.AuthUserResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $0.AuthRequest.fromBuffer(value),
+        ($0.AuthResponse value) => value.writeToBuffer()));
     $addMethod(
         $grpc.ServiceMethod<$0.VerifyEmailRequest, $0.VerifyEmailResponse>(
             'VerifyEmail',
@@ -222,50 +219,48 @@ abstract class UserServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.VerifyEmailRequest.fromBuffer(value),
             ($0.VerifyEmailResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CreateUserRequest, $0.CreateUserResponse>(
-        'CreateUser',
-        createUser_Pre,
+    $addMethod($grpc.ServiceMethod<$0.CreateRequest, $0.CreateResponse>(
+        'Create',
+        create_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.CreateUserRequest.fromBuffer(value),
-        ($0.CreateUserResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.DeleteUserRequest, $0.DeleteUserResponse>(
-        'DeleteUser',
-        deleteUser_Pre,
+        ($core.List<$core.int> value) => $0.CreateRequest.fromBuffer(value),
+        ($0.CreateResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.DeleteRequest, $0.DeleteResponse>(
+        'Delete',
+        delete_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.DeleteUserRequest.fromBuffer(value),
-        ($0.DeleteUserResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.UpdateUserRequest, $0.UpdateUserResponse>(
-        'UpdateUser',
-        updateUser_Pre,
+        ($core.List<$core.int> value) => $0.DeleteRequest.fromBuffer(value),
+        ($0.DeleteResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.UpdateRequest, $0.UpdateResponse>(
+        'Update',
+        update_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.UpdateUserRequest.fromBuffer(value),
-        ($0.UpdateUserResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.GetUserRequest, $0.GetUserResponse>(
-        'GetUser',
-        getUser_Pre,
+        ($core.List<$core.int> value) => $0.UpdateRequest.fromBuffer(value),
+        ($0.UpdateResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.GetRequest, $0.GetResponse>(
+        'Get',
+        get_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.GetUserRequest.fromBuffer(value),
-        ($0.GetUserResponse value) => value.writeToBuffer()));
-    $addMethod(
-        $grpc.ServiceMethod<$0.SearchUsersRequest, $0.SearchUsersResponse>(
-            'SearchUsers',
-            searchUsers_Pre,
-            false,
-            false,
-            ($core.List<$core.int> value) =>
-                $0.SearchUsersRequest.fromBuffer(value),
-            ($0.SearchUsersResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.BlockUserRequest, $0.BlockUserResponse>(
-        'BlockUser',
-        blockUser_Pre,
+        ($core.List<$core.int> value) => $0.GetRequest.fromBuffer(value),
+        ($0.GetResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.SearchRequest, $0.SearchResponse>(
+        'Search',
+        search_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.BlockUserRequest.fromBuffer(value),
-        ($0.BlockUserResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $0.SearchRequest.fromBuffer(value),
+        ($0.SearchResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.BlockRequest, $0.BlockResponse>(
+        'Block',
+        block_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.BlockRequest.fromBuffer(value),
+        ($0.BlockResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.IsBlockedRequest, $0.IsBlockedResponse>(
         'IsBlocked',
         isBlocked_Pre,
@@ -282,21 +277,21 @@ abstract class UserServiceBase extends $grpc.Service {
         ($0.FollowResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.UserExistsResponse> userExists_Pre($grpc.ServiceCall $call,
-      $async.Future<$0.UserExistsRequest> $request) async {
-    return userExists($call, await $request);
+  $async.Future<$0.ExistsResponse> exists_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.ExistsRequest> $request) async {
+    return exists($call, await $request);
   }
 
-  $async.Future<$0.UserExistsResponse> userExists(
-      $grpc.ServiceCall call, $0.UserExistsRequest request);
+  $async.Future<$0.ExistsResponse> exists(
+      $grpc.ServiceCall call, $0.ExistsRequest request);
 
-  $async.Future<$0.AuthUserResponse> authUser_Pre($grpc.ServiceCall $call,
-      $async.Future<$0.AuthUserRequest> $request) async {
-    return authUser($call, await $request);
+  $async.Future<$0.AuthResponse> auth_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.AuthRequest> $request) async {
+    return auth($call, await $request);
   }
 
-  $async.Future<$0.AuthUserResponse> authUser(
-      $grpc.ServiceCall call, $0.AuthUserRequest request);
+  $async.Future<$0.AuthResponse> auth(
+      $grpc.ServiceCall call, $0.AuthRequest request);
 
   $async.Future<$0.VerifyEmailResponse> verifyEmail_Pre($grpc.ServiceCall $call,
       $async.Future<$0.VerifyEmailRequest> $request) async {
@@ -306,53 +301,53 @@ abstract class UserServiceBase extends $grpc.Service {
   $async.Future<$0.VerifyEmailResponse> verifyEmail(
       $grpc.ServiceCall call, $0.VerifyEmailRequest request);
 
-  $async.Future<$0.CreateUserResponse> createUser_Pre($grpc.ServiceCall $call,
-      $async.Future<$0.CreateUserRequest> $request) async {
-    return createUser($call, await $request);
+  $async.Future<$0.CreateResponse> create_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.CreateRequest> $request) async {
+    return create($call, await $request);
   }
 
-  $async.Future<$0.CreateUserResponse> createUser(
-      $grpc.ServiceCall call, $0.CreateUserRequest request);
+  $async.Future<$0.CreateResponse> create(
+      $grpc.ServiceCall call, $0.CreateRequest request);
 
-  $async.Future<$0.DeleteUserResponse> deleteUser_Pre($grpc.ServiceCall $call,
-      $async.Future<$0.DeleteUserRequest> $request) async {
-    return deleteUser($call, await $request);
+  $async.Future<$0.DeleteResponse> delete_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.DeleteRequest> $request) async {
+    return delete($call, await $request);
   }
 
-  $async.Future<$0.DeleteUserResponse> deleteUser(
-      $grpc.ServiceCall call, $0.DeleteUserRequest request);
+  $async.Future<$0.DeleteResponse> delete(
+      $grpc.ServiceCall call, $0.DeleteRequest request);
 
-  $async.Future<$0.UpdateUserResponse> updateUser_Pre($grpc.ServiceCall $call,
-      $async.Future<$0.UpdateUserRequest> $request) async {
-    return updateUser($call, await $request);
+  $async.Future<$0.UpdateResponse> update_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.UpdateRequest> $request) async {
+    return update($call, await $request);
   }
 
-  $async.Future<$0.UpdateUserResponse> updateUser(
-      $grpc.ServiceCall call, $0.UpdateUserRequest request);
+  $async.Future<$0.UpdateResponse> update(
+      $grpc.ServiceCall call, $0.UpdateRequest request);
 
-  $async.Future<$0.GetUserResponse> getUser_Pre($grpc.ServiceCall $call,
-      $async.Future<$0.GetUserRequest> $request) async {
-    return getUser($call, await $request);
+  $async.Future<$0.GetResponse> get_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.GetRequest> $request) async {
+    return get($call, await $request);
   }
 
-  $async.Future<$0.GetUserResponse> getUser(
-      $grpc.ServiceCall call, $0.GetUserRequest request);
+  $async.Future<$0.GetResponse> get(
+      $grpc.ServiceCall call, $0.GetRequest request);
 
-  $async.Future<$0.SearchUsersResponse> searchUsers_Pre($grpc.ServiceCall $call,
-      $async.Future<$0.SearchUsersRequest> $request) async {
-    return searchUsers($call, await $request);
+  $async.Future<$0.SearchResponse> search_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.SearchRequest> $request) async {
+    return search($call, await $request);
   }
 
-  $async.Future<$0.SearchUsersResponse> searchUsers(
-      $grpc.ServiceCall call, $0.SearchUsersRequest request);
+  $async.Future<$0.SearchResponse> search(
+      $grpc.ServiceCall call, $0.SearchRequest request);
 
-  $async.Future<$0.BlockUserResponse> blockUser_Pre($grpc.ServiceCall $call,
-      $async.Future<$0.BlockUserRequest> $request) async {
-    return blockUser($call, await $request);
+  $async.Future<$0.BlockResponse> block_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.BlockRequest> $request) async {
+    return block($call, await $request);
   }
 
-  $async.Future<$0.BlockUserResponse> blockUser(
-      $grpc.ServiceCall call, $0.BlockUserRequest request);
+  $async.Future<$0.BlockResponse> block(
+      $grpc.ServiceCall call, $0.BlockRequest request);
 
   $async.Future<$0.IsBlockedResponse> isBlocked_Pre($grpc.ServiceCall $call,
       $async.Future<$0.IsBlockedRequest> $request) async {

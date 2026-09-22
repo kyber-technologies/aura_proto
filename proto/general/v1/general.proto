@@ -6,7 +6,7 @@ import "user/v1/user.proto";
 // Service for general server mechanics.
 service GeneralService {
   // Get the server configuration.
-  rpc GetConfig(GetConfigRequest) returns (GetConfigResponse);
+  rpc Config(ConfigRequest) returns (ConfigResponse);
 
   // Clear the server state for a new test.
   //
@@ -16,22 +16,22 @@ service GeneralService {
   // Get an email verification token.
   //
   // Only available in testing mode.
-  rpc GetEmailToken(GetEmailTokenRequest) returns (GetEmailTokenResponse);
+  rpc EmailToken(EmailTokenRequest) returns (EmailTokenResponse);
 
   // Get a list of available services.
   //
   // Only available in testing mode.
-  rpc GetServices(GetServicesRequest) returns (GetServicesResponse);
+  rpc Services(ServicesRequest) returns (ServicesResponse);
 
-  rpc GetTestUsers(GetTestUsersRequest) returns (GetTestUsersResponse);
+  rpc TestUsers(TestUsersRequest) returns (TestUsersResponse);
 }
 
 // A request to get the server configuration.
-message GetConfigRequest {
+message ConfigRequest {
 }
 
 // A response from a request to get the server configuration.
-message GetConfigResponse {
+message ConfigResponse {
   // The server API version.
   string version = 1;
   // The chunk size to use for resource operations.
@@ -53,7 +53,7 @@ message ClearStateResponse {
 // A request to get an email verification token.
 //
 // Only available in testing mode.
-message GetEmailTokenRequest {
+message EmailTokenRequest {
   // The email address to get a token for.
   string email = 1;
 }
@@ -61,7 +61,7 @@ message GetEmailTokenRequest {
 // A response from a request to get an email verification token.
 //
 // Only available in testing mode.
-message GetEmailTokenResponse {
+message EmailTokenResponse {
   // The email verification token.
   string token = 1;
 }
@@ -69,13 +69,13 @@ message GetEmailTokenResponse {
 // A request to get a list of available services.
 //
 // Only available in testing mode.
-message GetServicesRequest {
+message ServicesRequest {
 }
 
 // A response from a request to get a list of available services.
 //
 // Only available in testing mode.
-message GetServicesResponse {
+message ServicesResponse {
   // A list of available services.
   repeated ServiceDescriptor services = 1;
 }
@@ -83,13 +83,13 @@ message GetServicesResponse {
 // A request for getting test user data.
 //
 // Only available in testing mode.
-message GetTestUsersRequest {
+message TestUsersRequest {
 }
 
 // A response for getting test user data.
 //
 // Only available in testing mode.
-message GetTestUsersResponse {
+message TestUsersResponse {
   // A normal test user.
   user.v1.User user = 1;
   // A moderator test user.

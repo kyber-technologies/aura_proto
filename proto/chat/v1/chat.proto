@@ -24,20 +24,20 @@ service ChatService {
   rpc SetUserPerm(SetUserPermRequest)
       returns (SetUserPermResponse);
 
-  // (Un)invite a user to a channel.
+  // Invite a user to a channel.
   //
   // Requires Authentication: Only authorized users can invite users.
-  rpc InviteChannel(InviteChannelRequest) returns (InviteChannelResponse);
+  rpc Invite(InviteRequest) returns (InviteResponse);
 
   // Reads messages from a channel.
   //
   // Requires Authentication: Only authorized & invited users can read messages.
-  rpc ReadMessages(ReadMessagesRequest) returns (ReadMessagesResponse);
+  rpc Read(ReadRequest) returns (ReadResponse);
 
   // Sends a message to a channel.
   //
   // Requires Authentication: Only authorized users can send messages.
-  rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
+  rpc Send(SendRequest) returns (SendResponse);
 
   // Deletes a message.
   //
@@ -94,8 +94,8 @@ message SetUserPermResponse {
   optional common.v1.Error error = 1;
 }
 
-// The request message for (un)inviting a user to a channel.
-message InviteChannelRequest {
+// The request message for inviting a user to a channel.
+message InviteRequest {
   // The ID of the channel to invite to.
   string channel_id = 1;
   // The ID of the user to invite.
@@ -104,14 +104,14 @@ message InviteChannelRequest {
   bool uninvite = 3;
 }
 
-// The response message for (un)inviting a user to a channel.
-message InviteChannelResponse {
+// The response message for inviting a user to a channel.
+message InviteResponse {
   // The error that occurred during the invite operation, if any.
   optional common.v1.Error error = 1;
 }
 
 // The request message for reading messages.
-message ReadMessagesRequest {
+message ReadRequest {
   // The ID of the channel to read messages from.
   string channel_id = 1;
   // The maximum number of messages to load.
@@ -120,7 +120,7 @@ message ReadMessagesRequest {
   google.protobuf.Timestamp start_time = 3;
 }
 
-message ReadMessagesResponse {
+message ReadResponse {
   // The messages read from the channel.
   repeated Message messages = 1;
   // An error that occurred during the read operation, if any.
@@ -128,7 +128,7 @@ message ReadMessagesResponse {
 }
 
 // The request message for sending a message.
-message SendMessageRequest {
+message SendRequest {
   // The ID of the channel to send the message to.
   string channel_id = 1;
   // The message content.
@@ -136,7 +136,7 @@ message SendMessageRequest {
 }
 
 // The response message for sending a message.
-message SendMessageResponse {
+message SendResponse {
   // The result of the send operation.
   oneof result {
     // The created message.

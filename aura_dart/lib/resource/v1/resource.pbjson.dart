@@ -138,9 +138,9 @@ final $typed_data.Uint8List downloadResponseDescriptor = $convert.base64Decode(
     '1ldGFIAFIEbWV0YRIUCgRkYXRhGAIgASgMSABSBGRhdGESKAoFZXJyb3IYAyABKAsyEC5jb21t'
     'b24udjEuRXJyb3JIAFIFZXJyb3JCCAoGcmVzdWx0');
 
-@$core.Deprecated('Use getResourceMetaRequestDescriptor instead')
-const GetResourceMetaRequest$json = {
-  '1': 'GetResourceMetaRequest',
+@$core.Deprecated('Use metaRequestDescriptor instead')
+const MetaRequest$json = {
+  '1': 'MetaRequest',
   '2': [
     {
       '1': 'resource_id',
@@ -153,15 +153,14 @@ const GetResourceMetaRequest$json = {
   ],
 };
 
-/// Descriptor for `GetResourceMetaRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getResourceMetaRequestDescriptor =
-    $convert.base64Decode(
-        'ChZHZXRSZXNvdXJjZU1ldGFSZXF1ZXN0EjgKC3Jlc291cmNlX2lkGAEgASgLMhcucmVzb3VyY2'
-        'UudjEuUmVzb3VyY2VJZFIKcmVzb3VyY2VJZA==');
+/// Descriptor for `MetaRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List metaRequestDescriptor = $convert.base64Decode(
+    'CgtNZXRhUmVxdWVzdBI4CgtyZXNvdXJjZV9pZBgBIAEoCzIXLnJlc291cmNlLnYxLlJlc291cm'
+    'NlSWRSCnJlc291cmNlSWQ=');
 
-@$core.Deprecated('Use getResourceMetaResponseDescriptor instead')
-const GetResourceMetaResponse$json = {
-  '1': 'GetResourceMetaResponse',
+@$core.Deprecated('Use metaResponseDescriptor instead')
+const MetaResponse$json = {
+  '1': 'MetaResponse',
   '2': [
     {
       '1': 'meta',
@@ -187,11 +186,11 @@ const GetResourceMetaResponse$json = {
   ],
 };
 
-/// Descriptor for `GetResourceMetaResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getResourceMetaResponseDescriptor = $convert.base64Decode(
-    'ChdHZXRSZXNvdXJjZU1ldGFSZXNwb25zZRIvCgRtZXRhGAEgASgLMhkucmVzb3VyY2UudjEuUm'
-    'Vzb3VyY2VNZXRhSABSBG1ldGESKAoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJyb3JIAFIF'
-    'ZXJyb3JCCAoGcmVzdWx0');
+/// Descriptor for `MetaResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List metaResponseDescriptor = $convert.base64Decode(
+    'CgxNZXRhUmVzcG9uc2USLwoEbWV0YRgBIAEoCzIZLnJlc291cmNlLnYxLlJlc291cmNlTWV0YU'
+    'gAUgRtZXRhEigKBWVycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9yQggKBnJl'
+    'c3VsdA==');
 
 @$core.Deprecated('Use resourceIdDescriptor instead')
 const ResourceId$json = {

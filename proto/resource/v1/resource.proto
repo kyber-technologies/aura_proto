@@ -21,7 +21,7 @@ service ResourceService {
   // Get the metadata of a resource.
   //
   // Requires Authentication: Only authorized users can get resource metadata.
-  rpc GetResourceMeta(GetResourceMetaRequest) returns (GetResourceMetaResponse);
+  rpc Meta(MetaRequest) returns (MetaResponse);
 }
 
 // Request for uploading a resource.
@@ -67,13 +67,13 @@ message DownloadResponse {
 }
 
 // Request for getting resource meta.
-message GetResourceMetaRequest {
+message MetaRequest {
   // The ID of the resource to get.
   ResourceId resource_id = 1;
 }
 
 // Response for getting resource meta.
-message GetResourceMetaResponse {
+message MetaResponse {
   // The result of the get request.
   oneof result {
     // The returned resource meta of the resource.
