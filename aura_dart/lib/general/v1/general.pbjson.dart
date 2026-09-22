@@ -36,13 +36,21 @@ const ConfigResponse$json = {
       '5': 13,
       '10': 'resourceChunkSize'
     },
+    {
+      '1': 'item_request_limit',
+      '3': 3,
+      '4': 1,
+      '5': 13,
+      '10': 'itemRequestLimit'
+    },
   ],
 };
 
 /// Descriptor for `ConfigResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List configResponseDescriptor = $convert.base64Decode(
     'Cg5Db25maWdSZXNwb25zZRIYCgd2ZXJzaW9uGAEgASgJUgd2ZXJzaW9uEi4KE3Jlc291cmNlX2'
-    'NodW5rX3NpemUYAiABKA1SEXJlc291cmNlQ2h1bmtTaXpl');
+    'NodW5rX3NpemUYAiABKA1SEXJlc291cmNlQ2h1bmtTaXplEiwKEml0ZW1fcmVxdWVzdF9saW1p'
+    'dBgDIAEoDVIQaXRlbVJlcXVlc3RMaW1pdA==');
 
 @$core.Deprecated('Use clearStateRequestDescriptor instead')
 const ClearStateRequest$json = {

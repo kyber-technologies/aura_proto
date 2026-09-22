@@ -62,10 +62,12 @@ class ConfigResponse extends $pb.GeneratedMessage {
   factory ConfigResponse({
     $core.String? version,
     $core.int? resourceChunkSize,
+    $core.int? itemRequestLimit,
   }) {
     final result = create();
     if (version != null) result.version = version;
     if (resourceChunkSize != null) result.resourceChunkSize = resourceChunkSize;
+    if (itemRequestLimit != null) result.itemRequestLimit = itemRequestLimit;
     return result;
   }
 
@@ -84,6 +86,8 @@ class ConfigResponse extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'version')
     ..aI(2, _omitFieldNames ? '' : 'resourceChunkSize',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(3, _omitFieldNames ? '' : 'itemRequestLimit',
         fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
@@ -125,6 +129,16 @@ class ConfigResponse extends $pb.GeneratedMessage {
   $core.bool hasResourceChunkSize() => $_has(1);
   @$pb.TagNumber(2)
   void clearResourceChunkSize() => $_clearField(2);
+
+  /// The maximum amount of items to load in a request.
+  @$pb.TagNumber(3)
+  $core.int get itemRequestLimit => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set itemRequestLimit($core.int value) => $_setUnsignedInt32(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasItemRequestLimit() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearItemRequestLimit() => $_clearField(3);
 }
 
 /// A request to clear the server state.

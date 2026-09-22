@@ -497,11 +497,11 @@ class GetRequest extends $pb.GeneratedMessage {
 /// Response for getting posts.
 class GetResponse extends $pb.GeneratedMessage {
   factory GetResponse({
-    $core.Iterable<Post>? post,
+    $core.Iterable<Post>? posts,
     $1.Error? error,
   }) {
     final result = create();
-    if (post != null) result.post.addAll(post);
+    if (posts != null) result.posts.addAll(posts);
     if (error != null) result.error = error;
     return result;
   }
@@ -519,7 +519,7 @@ class GetResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'GetResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
-    ..pPM<Post>(1, _omitFieldNames ? '' : 'post', subBuilder: Post.create)
+    ..pPM<Post>(1, _omitFieldNames ? '' : 'posts', subBuilder: Post.create)
     ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
     ..hasRequiredFields = false;
@@ -545,7 +545,7 @@ class GetResponse extends $pb.GeneratedMessage {
 
   /// The requested posts.
   @$pb.TagNumber(1)
-  $pb.PbList<Post> get post => $_getList(0);
+  $pb.PbList<Post> get posts => $_getList(0);
 
   /// The error, if any.
   @$pb.TagNumber(2)

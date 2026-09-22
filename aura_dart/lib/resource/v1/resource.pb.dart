@@ -441,11 +441,11 @@ class MetaRequest extends $pb.GeneratedMessage {
 /// Response for getting resource metas.
 class MetaResponse extends $pb.GeneratedMessage {
   factory MetaResponse({
-    $core.Iterable<ResourceMeta>? meta,
+    $core.Iterable<ResourceMeta>? metas,
     $1.Error? error,
   }) {
     final result = create();
-    if (meta != null) result.meta.addAll(meta);
+    if (metas != null) result.metas.addAll(metas);
     if (error != null) result.error = error;
     return result;
   }
@@ -463,7 +463,7 @@ class MetaResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'MetaResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
-    ..pPM<ResourceMeta>(1, _omitFieldNames ? '' : 'meta',
+    ..pPM<ResourceMeta>(1, _omitFieldNames ? '' : 'metas',
         subBuilder: ResourceMeta.create)
     ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
@@ -490,7 +490,7 @@ class MetaResponse extends $pb.GeneratedMessage {
 
   /// The returned resource metas of the resource.
   @$pb.TagNumber(1)
-  $pb.PbList<ResourceMeta> get meta => $_getList(0);
+  $pb.PbList<ResourceMeta> get metas => $_getList(0);
 
   /// The error, if any.
   @$pb.TagNumber(2)

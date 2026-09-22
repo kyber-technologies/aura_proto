@@ -359,12 +359,14 @@ const SearchRequest$json = {
   '1': 'SearchRequest',
   '2': [
     {'1': 'query', '3': 1, '4': 1, '5': 9, '10': 'query'},
+    {'1': 'limit', '3': 2, '4': 1, '5': 13, '10': 'limit'},
   ],
 };
 
 /// Descriptor for `SearchRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List searchRequestDescriptor = $convert
-    .base64Decode('Cg1TZWFyY2hSZXF1ZXN0EhQKBXF1ZXJ5GAEgASgJUgVxdWVyeQ==');
+final $typed_data.Uint8List searchRequestDescriptor = $convert.base64Decode(
+    'Cg1TZWFyY2hSZXF1ZXN0EhQKBXF1ZXJ5GAEgASgJUgVxdWVyeRIUCgVsaW1pdBgCIAEoDVIFbG'
+    'ltaXQ=');
 
 @$core.Deprecated('Use searchResponseDescriptor instead')
 const SearchResponse$json = {

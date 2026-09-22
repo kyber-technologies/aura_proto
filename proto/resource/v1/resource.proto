@@ -76,7 +76,7 @@ message MetaRequest {
 // Response for getting resource metas.
 message MetaResponse {
   // The returned resource metas of the resource.
-  repeated ResourceMeta meta = 1;
+  repeated ResourceMeta metas = 1;
   // The error, if any.
   optional common.v1.Error error = 2;
 }

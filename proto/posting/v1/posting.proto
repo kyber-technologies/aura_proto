@@ -100,7 +100,7 @@ message GetRequest {
 // Response for getting posts.
 message GetResponse {
   // The requested posts.
-  repeated Post post = 1;
+  repeated Post posts = 1;
   // The error, if any.
   common.v1.Error error = 2;
 }

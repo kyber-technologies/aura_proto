@@ -165,6 +165,8 @@ message GetResponse {
 message SearchRequest {
   // Query string to search for.
   string query = 1;
+  // The maximum number of users to load.
+  uint32 limit = 2;
 }
 
 // Response message for searching users.

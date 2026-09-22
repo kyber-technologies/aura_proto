@@ -36,6 +36,8 @@ message ConfigResponse {
   string version = 1;
   // The chunk size to use for resource operations.
   uint32 resource_chunk_size = 2;
+  // The maximum amount of items to load in a request.
+  uint32 item_request_limit = 3;
 }
 
 // A request to clear the server state.

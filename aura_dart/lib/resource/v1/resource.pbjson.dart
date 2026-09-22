@@ -163,12 +163,12 @@ const MetaResponse$json = {
   '1': 'MetaResponse',
   '2': [
     {
-      '1': 'meta',
+      '1': 'metas',
       '3': 1,
       '4': 3,
       '5': 11,
       '6': '.resource.v1.ResourceMeta',
-      '10': 'meta'
+      '10': 'metas'
     },
     {
       '1': 'error',
@@ -188,9 +188,9 @@ const MetaResponse$json = {
 
 /// Descriptor for `MetaResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List metaResponseDescriptor = $convert.base64Decode(
-    'CgxNZXRhUmVzcG9uc2USLQoEbWV0YRgBIAMoCzIZLnJlc291cmNlLnYxLlJlc291cmNlTWV0YV'
-    'IEbWV0YRIrCgVlcnJvchgCIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcnJvcogBAUIICgZf'
-    'ZXJyb3I=');
+    'CgxNZXRhUmVzcG9uc2USLwoFbWV0YXMYASADKAsyGS5yZXNvdXJjZS52MS5SZXNvdXJjZU1ldG'
+    'FSBW1ldGFzEisKBWVycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9yiAEBQggK'
+    'Bl9lcnJvcg==');
 
 @$core.Deprecated('Use resourceIdDescriptor instead')
 const ResourceId$json = {
