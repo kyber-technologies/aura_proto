@@ -15,7 +15,7 @@ void main() async {
 
   final result = await Process.run('protoc', [
     '--proto_path=../proto',
-    '--dart_out=grpc:./lib',
+    '--dart_out=grpc:./lib/src',
     ...protoFiles, // Spread the list of files into arguments
   ]);
 
