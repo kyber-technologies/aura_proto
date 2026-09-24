@@ -104,7 +104,7 @@ message GetResponse {
   // If a post ID is not found, it is not included in the map.
   map<string, Post> posts = 1;
   // The error, if any.
-  common.v1.Error error = 2;
+  optional common.v1.Error error = 2;
 }
 
 // Request for getting posts of a user.

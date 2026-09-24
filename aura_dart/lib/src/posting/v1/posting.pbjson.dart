@@ -194,10 +194,15 @@ const GetResponse$json = {
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
-      '10': 'error'
+      '9': 0,
+      '10': 'error',
+      '17': true
     },
   ],
   '3': [GetResponse_PostsEntry$json],
+  '8': [
+    {'1': '_error'},
+  ],
 };
 
 @$core.Deprecated('Use getResponseDescriptor instead')
@@ -220,9 +225,9 @@ const GetResponse_PostsEntry$json = {
 /// Descriptor for `GetResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getResponseDescriptor = $convert.base64Decode(
     'CgtHZXRSZXNwb25zZRI4CgVwb3N0cxgBIAMoCzIiLnBvc3RpbmcudjEuR2V0UmVzcG9uc2UuUG'
-    '9zdHNFbnRyeVIFcG9zdHMSJgoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJyb3JSBWVycm9y'
-    'GkoKClBvc3RzRW50cnkSEAoDa2V5GAEgASgJUgNrZXkSJgoFdmFsdWUYAiABKAsyEC5wb3N0aW'
-    '5nLnYxLlBvc3RSBXZhbHVlOgI4AQ==');
+    '9zdHNFbnRyeVIFcG9zdHMSKwoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJy'
+    'b3KIAQEaSgoKUG9zdHNFbnRyeRIQCgNrZXkYASABKAlSA2tleRImCgV2YWx1ZRgCIAEoCzIQLn'
+    'Bvc3RpbmcudjEuUG9zdFIFdmFsdWU6AjgBQggKBl9lcnJvcg==');
 
 @$core.Deprecated('Use getOfRequestDescriptor instead')
 const GetOfRequest$json = {
