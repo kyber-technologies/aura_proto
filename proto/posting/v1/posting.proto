@@ -94,7 +94,7 @@ message UnpublishResponse {
 // Request for getting posts.
 message GetRequest {
   // The post IDs to get.
-  repeated string post_id = 1;
+  repeated string posts = 1;
 }
 
 // Response for getting posts.

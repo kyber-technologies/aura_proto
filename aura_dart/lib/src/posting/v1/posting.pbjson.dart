@@ -168,13 +168,13 @@ final $typed_data.Uint8List unpublishResponseDescriptor = $convert.base64Decode(
 const GetRequest$json = {
   '1': 'GetRequest',
   '2': [
-    {'1': 'post_id', '3': 1, '4': 3, '5': 9, '10': 'postId'},
+    {'1': 'posts', '3': 1, '4': 3, '5': 9, '10': 'posts'},
   ],
 };
 
 /// Descriptor for `GetRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getRequestDescriptor = $convert
-    .base64Decode('CgpHZXRSZXF1ZXN0EhcKB3Bvc3RfaWQYASADKAlSBnBvc3RJZA==');
+final $typed_data.Uint8List getRequestDescriptor =
+    $convert.base64Decode('CgpHZXRSZXF1ZXN0EhQKBXBvc3RzGAEgAygJUgVwb3N0cw==');
 
 @$core.Deprecated('Use getResponseDescriptor instead')
 const GetResponse$json = {
