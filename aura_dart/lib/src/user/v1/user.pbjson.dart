@@ -335,7 +335,7 @@ const GetResponse$json = {
       '3': 1,
       '4': 3,
       '5': 11,
-      '6': '.user.v1.UserProfile',
+      '6': '.user.v1.GetResponse.UsersEntry',
       '10': 'users'
     },
     {
@@ -347,12 +347,32 @@ const GetResponse$json = {
       '10': 'error'
     },
   ],
+  '3': [GetResponse_UsersEntry$json],
+};
+
+@$core.Deprecated('Use getResponseDescriptor instead')
+const GetResponse_UsersEntry$json = {
+  '1': 'UsersEntry',
+  '2': [
+    {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
+    {
+      '1': 'value',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.user.v1.UserProfile',
+      '10': 'value'
+    },
+  ],
+  '7': {'7': true},
 };
 
 /// Descriptor for `GetResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getResponseDescriptor = $convert.base64Decode(
-    'CgtHZXRSZXNwb25zZRIqCgV1c2VycxgBIAMoCzIULnVzZXIudjEuVXNlclByb2ZpbGVSBXVzZX'
-    'JzEiYKBWVycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9yUgVlcnJvcg==');
+    'CgtHZXRSZXNwb25zZRI1CgV1c2VycxgBIAMoCzIfLnVzZXIudjEuR2V0UmVzcG9uc2UuVXNlcn'
+    'NFbnRyeVIFdXNlcnMSJgoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJyb3JSBWVycm9yGk4K'
+    'ClVzZXJzRW50cnkSEAoDa2V5GAEgASgJUgNrZXkSKgoFdmFsdWUYAiABKAsyFC51c2VyLnYxLl'
+    'VzZXJQcm9maWxlUgV2YWx1ZToCOAE=');
 
 @$core.Deprecated('Use searchRequestDescriptor instead')
 const SearchRequest$json = {

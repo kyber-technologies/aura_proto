@@ -886,11 +886,11 @@ class GetRequest extends $pb.GeneratedMessage {
 /// Response message for getting users.
 class GetResponse extends $pb.GeneratedMessage {
   factory GetResponse({
-    $core.Iterable<UserProfile>? users,
+    $core.Iterable<$core.MapEntry<$core.String, UserProfile>>? users,
     $1.Error? error,
   }) {
     final result = create();
-    if (users != null) result.users.addAll(users);
+    if (users != null) result.users.addEntries(users);
     if (error != null) result.error = error;
     return result;
   }
@@ -908,8 +908,13 @@ class GetResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'GetResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..pPM<UserProfile>(1, _omitFieldNames ? '' : 'users',
-        subBuilder: UserProfile.create)
+    ..m<$core.String, UserProfile>(1, _omitFieldNames ? '' : 'users',
+        entryClassName: 'GetResponse.UsersEntry',
+        keyFieldType: $pb.PbFieldType.OS,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: UserProfile.create,
+        valueDefaultOrMaker: UserProfile.getDefault,
+        packageName: const $pb.PackageName('user.v1'))
     ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
     ..hasRequiredFields = false;
@@ -934,8 +939,10 @@ class GetResponse extends $pb.GeneratedMessage {
   static GetResponse? _defaultInstance;
 
   /// The returned user profiles.
+  ///
+  /// If a user could not be found, this map will not contain the user entry.
   @$pb.TagNumber(1)
-  $pb.PbList<UserProfile> get users => $_getList(0);
+  $pb.PbMap<$core.String, UserProfile> get users => $_getMap(0);
 
   /// The error, if any.
   @$pb.TagNumber(2)

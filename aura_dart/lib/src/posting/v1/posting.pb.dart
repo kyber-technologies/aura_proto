@@ -491,11 +491,11 @@ class GetRequest extends $pb.GeneratedMessage {
 /// Response for getting posts.
 class GetResponse extends $pb.GeneratedMessage {
   factory GetResponse({
-    $core.Iterable<Post>? posts,
+    $core.Iterable<$core.MapEntry<$core.String, Post>>? posts,
     $1.Error? error,
   }) {
     final result = create();
-    if (posts != null) result.posts.addAll(posts);
+    if (posts != null) result.posts.addEntries(posts);
     if (error != null) result.error = error;
     return result;
   }
@@ -513,7 +513,13 @@ class GetResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'GetResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
-    ..pPM<Post>(1, _omitFieldNames ? '' : 'posts', subBuilder: Post.create)
+    ..m<$core.String, Post>(1, _omitFieldNames ? '' : 'posts',
+        entryClassName: 'GetResponse.PostsEntry',
+        keyFieldType: $pb.PbFieldType.OS,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: Post.create,
+        valueDefaultOrMaker: Post.getDefault,
+        packageName: const $pb.PackageName('posting.v1'))
     ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
     ..hasRequiredFields = false;
@@ -538,8 +544,10 @@ class GetResponse extends $pb.GeneratedMessage {
   static GetResponse? _defaultInstance;
 
   /// The requested posts.
+  ///
+  /// If a post ID is not found, it is not included in the map.
   @$pb.TagNumber(1)
-  $pb.PbList<Post> get posts => $_getList(0);
+  $pb.PbMap<$core.String, Post> get posts => $_getMap(0);
 
   /// The error, if any.
   @$pb.TagNumber(2)

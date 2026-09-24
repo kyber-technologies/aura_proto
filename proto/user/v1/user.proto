@@ -156,7 +156,9 @@ message GetRequest {
 // Response message for getting users.
 message GetResponse {
   // The returned user profiles.
-  repeated UserProfile users = 1;
+  //
+  // If a user could not be found, this map will not contain the user entry.
+  map<string, UserProfile> users = 1;
   // The error, if any.
   common.v1.Error error = 2;
 }
