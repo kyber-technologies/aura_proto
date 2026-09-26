@@ -653,7 +653,7 @@ final $typed_data.Uint8List userProfileDescriptor = $convert.base64Decode(
 const Notification$json = {
   '1': 'Notification',
   '2': [
-    {'1': 'notification_id', '3': 1, '4': 1, '5': 9, '10': 'notificationId'},
+    {'1': 'notification_id', '3': 1, '4': 1, '5': 6, '10': 'notificationId'},
     {
       '1': 'timestamp',
       '3': 2,
@@ -688,7 +688,7 @@ const Notification$json = {
 
 /// Descriptor for `Notification`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List notificationDescriptor = $convert.base64Decode(
-    'CgxOb3RpZmljYXRpb24SJwoPbm90aWZpY2F0aW9uX2lkGAEgASgJUg5ub3RpZmljYXRpb25JZB'
+    'CgxOb3RpZmljYXRpb24SJwoPbm90aWZpY2F0aW9uX2lkGAEgASgGUg5ub3RpZmljYXRpb25JZB'
     'I4Cgl0aW1lc3RhbXAYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgl0aW1lc3Rh'
     'bXASNQoGaW52aXRlGAMgASgLMhsudXNlci52MS5JbnZpdGVOb3RpZmljYXRpb25IAFIGaW52aX'
     'RlEjgKB21lc3NhZ2UYBCABKAsyHC51c2VyLnYxLk1lc3NhZ2VOb3RpZmljYXRpb25IAFIHbWVz'
@@ -698,7 +698,7 @@ final $typed_data.Uint8List notificationDescriptor = $convert.base64Decode(
 const InviteNotification$json = {
   '1': 'InviteNotification',
   '2': [
-    {'1': 'channel_id', '3': 1, '4': 1, '5': 9, '10': 'channelId'},
+    {'1': 'channel_id', '3': 1, '4': 1, '5': 6, '10': 'channelId'},
     {'1': 'invited_by', '3': 2, '4': 1, '5': 9, '10': 'invitedBy'},
     {'1': 'uninvited', '3': 3, '4': 1, '5': 8, '10': 'uninvited'},
   ],
@@ -706,7 +706,7 @@ const InviteNotification$json = {
 
 /// Descriptor for `InviteNotification`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List inviteNotificationDescriptor = $convert.base64Decode(
-    'ChJJbnZpdGVOb3RpZmljYXRpb24SHQoKY2hhbm5lbF9pZBgBIAEoCVIJY2hhbm5lbElkEh0KCm'
+    'ChJJbnZpdGVOb3RpZmljYXRpb24SHQoKY2hhbm5lbF9pZBgBIAEoBlIJY2hhbm5lbElkEh0KCm'
     'ludml0ZWRfYnkYAiABKAlSCWludml0ZWRCeRIcCgl1bmludml0ZWQYAyABKAhSCXVuaW52aXRl'
     'ZA==');
 
@@ -714,7 +714,7 @@ final $typed_data.Uint8List inviteNotificationDescriptor = $convert.base64Decode
 const MessageNotification$json = {
   '1': 'MessageNotification',
   '2': [
-    {'1': 'channel_id', '3': 1, '4': 1, '5': 9, '10': 'channelId'},
+    {'1': 'channel_id', '3': 1, '4': 1, '5': 6, '10': 'channelId'},
     {'1': 'sender_id', '3': 2, '4': 1, '5': 9, '10': 'senderId'},
     {
       '1': 'message',
@@ -729,6 +729,6 @@ const MessageNotification$json = {
 
 /// Descriptor for `MessageNotification`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List messageNotificationDescriptor = $convert.base64Decode(
-    'ChNNZXNzYWdlTm90aWZpY2F0aW9uEh0KCmNoYW5uZWxfaWQYASABKAlSCWNoYW5uZWxJZBIbCg'
+    'ChNNZXNzYWdlTm90aWZpY2F0aW9uEh0KCmNoYW5uZWxfaWQYASABKAZSCWNoYW5uZWxJZBIbCg'
     'lzZW5kZXJfaWQYAiABKAlSCHNlbmRlcklkEioKB21lc3NhZ2UYAyABKAsyEC5jaGF0LnYxLk1l'
     'c3NhZ2VSB21lc3NhZ2U=');

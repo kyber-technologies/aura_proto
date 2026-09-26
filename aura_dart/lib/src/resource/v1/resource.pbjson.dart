@@ -204,14 +204,14 @@ const ResourceId$json = {
       '6': '.resource.v1.ResourceNamespace',
       '10': 'namespace'
     },
-    {'1': 'key', '3': 2, '4': 1, '5': 9, '10': 'key'},
+    {'1': 'key', '3': 2, '4': 1, '5': 6, '10': 'key'},
   ],
 };
 
 /// Descriptor for `ResourceId`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List resourceIdDescriptor = $convert.base64Decode(
     'CgpSZXNvdXJjZUlkEjwKCW5hbWVzcGFjZRgBIAEoCzIeLnJlc291cmNlLnYxLlJlc291cmNlTm'
-    'FtZXNwYWNlUgluYW1lc3BhY2USEAoDa2V5GAIgASgJUgNrZXk=');
+    'FtZXNwYWNlUgluYW1lc3BhY2USEAoDa2V5GAIgASgGUgNrZXk=');
 
 @$core.Deprecated('Use resourceNamespaceDescriptor instead')
 const ResourceNamespace$json = {

@@ -12,6 +12,7 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 import 'package:protobuf/well_known_types/google/protobuf/timestamp.pb.dart'
     as $2;
@@ -206,7 +207,7 @@ class CreateChannelResponse extends $pb.GeneratedMessage {
 /// The request message for deleting a channel.
 class DeleteChannelRequest extends $pb.GeneratedMessage {
   factory DeleteChannelRequest({
-    $core.String? channelId,
+    $fixnum.Int64? channelId,
   }) {
     final result = create();
     if (channelId != null) result.channelId = channelId;
@@ -226,7 +227,9 @@ class DeleteChannelRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'DeleteChannelRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'channelId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -250,9 +253,9 @@ class DeleteChannelRequest extends $pb.GeneratedMessage {
 
   /// The ID of the channel to delete.
   @$pb.TagNumber(1)
-  $core.String get channelId => $_getSZ(0);
+  $fixnum.Int64 get channelId => $_getI64(0);
   @$pb.TagNumber(1)
-  set channelId($core.String value) => $_setString(0, value);
+  set channelId($fixnum.Int64 value) => $_setInt64(0, value);
   @$pb.TagNumber(1)
   $core.bool hasChannelId() => $_has(0);
   @$pb.TagNumber(1)
@@ -323,7 +326,7 @@ class DeleteChannelResponse extends $pb.GeneratedMessage {
 class SetUserPermRequest extends $pb.GeneratedMessage {
   factory SetUserPermRequest({
     $core.String? userId,
-    $core.String? channelId,
+    $fixnum.Int64? channelId,
     ChannelPermission? permission,
   }) {
     final result = create();
@@ -347,7 +350,9 @@ class SetUserPermRequest extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'userId')
-    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'channelId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aE<ChannelPermission>(3, _omitFieldNames ? '' : 'permission',
         enumValues: ChannelPermission.values)
     ..hasRequiredFields = false;
@@ -383,9 +388,9 @@ class SetUserPermRequest extends $pb.GeneratedMessage {
 
   /// The ID of the channel to set the permission for.
   @$pb.TagNumber(2)
-  $core.String get channelId => $_getSZ(1);
+  $fixnum.Int64 get channelId => $_getI64(1);
   @$pb.TagNumber(2)
-  set channelId($core.String value) => $_setString(1, value);
+  set channelId($fixnum.Int64 value) => $_setInt64(1, value);
   @$pb.TagNumber(2)
   $core.bool hasChannelId() => $_has(1);
   @$pb.TagNumber(2)
@@ -464,7 +469,7 @@ class SetUserPermResponse extends $pb.GeneratedMessage {
 /// The request message for inviting a user to a channel.
 class InviteRequest extends $pb.GeneratedMessage {
   factory InviteRequest({
-    $core.String? channelId,
+    $fixnum.Int64? channelId,
     $core.String? userId,
     $core.bool? uninvite,
   }) {
@@ -488,7 +493,9 @@ class InviteRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'InviteRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'channelId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(2, _omitFieldNames ? '' : 'userId')
     ..aOB(3, _omitFieldNames ? '' : 'uninvite')
     ..hasRequiredFields = false;
@@ -514,9 +521,9 @@ class InviteRequest extends $pb.GeneratedMessage {
 
   /// The ID of the channel to invite to.
   @$pb.TagNumber(1)
-  $core.String get channelId => $_getSZ(0);
+  $fixnum.Int64 get channelId => $_getI64(0);
   @$pb.TagNumber(1)
-  set channelId($core.String value) => $_setString(0, value);
+  set channelId($fixnum.Int64 value) => $_setInt64(0, value);
   @$pb.TagNumber(1)
   $core.bool hasChannelId() => $_has(0);
   @$pb.TagNumber(1)
@@ -605,7 +612,7 @@ class InviteResponse extends $pb.GeneratedMessage {
 /// The request message for reading messages.
 class ReadRequest extends $pb.GeneratedMessage {
   factory ReadRequest({
-    $core.String? channelId,
+    $fixnum.Int64? channelId,
     $core.int? limit,
     $2.Timestamp? startTime,
   }) {
@@ -629,7 +636,9 @@ class ReadRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'ReadRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'channelId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aI(2, _omitFieldNames ? '' : 'limit', fieldType: $pb.PbFieldType.OU3)
     ..aOM<$2.Timestamp>(3, _omitFieldNames ? '' : 'startTime',
         subBuilder: $2.Timestamp.create)
@@ -656,9 +665,9 @@ class ReadRequest extends $pb.GeneratedMessage {
 
   /// The ID of the channel to read messages from.
   @$pb.TagNumber(1)
-  $core.String get channelId => $_getSZ(0);
+  $fixnum.Int64 get channelId => $_getI64(0);
   @$pb.TagNumber(1)
-  set channelId($core.String value) => $_setString(0, value);
+  set channelId($fixnum.Int64 value) => $_setInt64(0, value);
   @$pb.TagNumber(1)
   $core.bool hasChannelId() => $_has(0);
   @$pb.TagNumber(1)
@@ -756,7 +765,7 @@ class ReadResponse extends $pb.GeneratedMessage {
 /// The request message for sending a message.
 class SendRequest extends $pb.GeneratedMessage {
   factory SendRequest({
-    $core.String? channelId,
+    $fixnum.Int64? channelId,
     $3.Content? content,
   }) {
     final result = create();
@@ -778,7 +787,9 @@ class SendRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'SendRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'channelId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOM<$3.Content>(2, _omitFieldNames ? '' : 'content',
         subBuilder: $3.Content.create)
     ..hasRequiredFields = false;
@@ -804,9 +815,9 @@ class SendRequest extends $pb.GeneratedMessage {
 
   /// The ID of the channel to send the message to.
   @$pb.TagNumber(1)
-  $core.String get channelId => $_getSZ(0);
+  $fixnum.Int64 get channelId => $_getI64(0);
   @$pb.TagNumber(1)
-  set channelId($core.String value) => $_setString(0, value);
+  set channelId($fixnum.Int64 value) => $_setInt64(0, value);
   @$pb.TagNumber(1)
   $core.bool hasChannelId() => $_has(0);
   @$pb.TagNumber(1)
@@ -920,7 +931,7 @@ class SendResponse extends $pb.GeneratedMessage {
 /// The request message for deleting a message.
 class DeleteMessageRequest extends $pb.GeneratedMessage {
   factory DeleteMessageRequest({
-    $core.String? messageId,
+    $fixnum.Int64? messageId,
   }) {
     final result = create();
     if (messageId != null) result.messageId = messageId;
@@ -940,7 +951,9 @@ class DeleteMessageRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'DeleteMessageRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'messageId')
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'messageId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -964,9 +977,9 @@ class DeleteMessageRequest extends $pb.GeneratedMessage {
 
   /// The ID of the message to delete.
   @$pb.TagNumber(1)
-  $core.String get messageId => $_getSZ(0);
+  $fixnum.Int64 get messageId => $_getI64(0);
   @$pb.TagNumber(1)
-  set messageId($core.String value) => $_setString(0, value);
+  set messageId($fixnum.Int64 value) => $_setInt64(0, value);
   @$pb.TagNumber(1)
   $core.bool hasMessageId() => $_has(0);
   @$pb.TagNumber(1)
@@ -1038,7 +1051,7 @@ class DeleteMessageResponse extends $pb.GeneratedMessage {
 /// Can be a private channel to a user or a public channel.
 class Channel extends $pb.GeneratedMessage {
   factory Channel({
-    $core.String? channelId,
+    $fixnum.Int64? channelId,
     $core.String? name,
     $core.String? description,
     $core.Iterable<$core.MapEntry<$core.String, ChannelPermission>>? members,
@@ -1064,7 +1077,9 @@ class Channel extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'Channel',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'channelId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOS(3, _omitFieldNames ? '' : 'description')
     ..m<$core.String, ChannelPermission>(4, _omitFieldNames ? '' : 'members',
@@ -1100,9 +1115,9 @@ class Channel extends $pb.GeneratedMessage {
 
   /// The ID of the channel.
   @$pb.TagNumber(1)
-  $core.String get channelId => $_getSZ(0);
+  $fixnum.Int64 get channelId => $_getI64(0);
   @$pb.TagNumber(1)
-  set channelId($core.String value) => $_setString(0, value);
+  set channelId($fixnum.Int64 value) => $_setInt64(0, value);
   @$pb.TagNumber(1)
   $core.bool hasChannelId() => $_has(0);
   @$pb.TagNumber(1)
@@ -1136,8 +1151,8 @@ class Channel extends $pb.GeneratedMessage {
 /// A concrete post sent to a channel.
 class Message extends $pb.GeneratedMessage {
   factory Message({
-    $core.String? messageId,
-    $core.String? channelId,
+    $fixnum.Int64? messageId,
+    $fixnum.Int64? channelId,
     $core.String? userId,
     $2.Timestamp? createdAt,
     $3.Content? content,
@@ -1164,8 +1179,12 @@ class Message extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'Message',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'messageId')
-    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'messageId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'channelId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(3, _omitFieldNames ? '' : 'userId')
     ..aOM<$2.Timestamp>(4, _omitFieldNames ? '' : 'createdAt',
         subBuilder: $2.Timestamp.create)
@@ -1193,9 +1212,9 @@ class Message extends $pb.GeneratedMessage {
 
   /// The ID of the message.
   @$pb.TagNumber(1)
-  $core.String get messageId => $_getSZ(0);
+  $fixnum.Int64 get messageId => $_getI64(0);
   @$pb.TagNumber(1)
-  set messageId($core.String value) => $_setString(0, value);
+  set messageId($fixnum.Int64 value) => $_setInt64(0, value);
   @$pb.TagNumber(1)
   $core.bool hasMessageId() => $_has(0);
   @$pb.TagNumber(1)
@@ -1203,9 +1222,9 @@ class Message extends $pb.GeneratedMessage {
 
   /// The ID of the channel the message was sent to.
   @$pb.TagNumber(2)
-  $core.String get channelId => $_getSZ(1);
+  $fixnum.Int64 get channelId => $_getI64(1);
   @$pb.TagNumber(2)
-  set channelId($core.String value) => $_setString(1, value);
+  set channelId($fixnum.Int64 value) => $_setInt64(1, value);
   @$pb.TagNumber(2)
   $core.bool hasChannelId() => $_has(1);
   @$pb.TagNumber(2)

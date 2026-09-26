@@ -286,7 +286,7 @@ enum UserRole {
 // A user notification.
 message Notification {
   // ID of the notification.
-  string notification_id = 1;
+  fixed64 notification_id = 1;
   // Timestamp of the notification.
   google.protobuf.Timestamp timestamp = 2;
   // The type of the notification.
@@ -301,7 +301,7 @@ message Notification {
 // A chat notification.
 message InviteNotification {
   // ID of the chat channel.
-  string channel_id = 1;
+  fixed64 channel_id = 1;
   // ID of the user who invited the user.
   string invited_by = 2;
   // Whether the user was uninvited.
@@ -311,7 +311,7 @@ message InviteNotification {
 // A chat message notification.
 message MessageNotification {
   // ID of the chat channel.
-  string channel_id = 1;
+  fixed64 channel_id = 1;
   // ID of the user who sent the message.
   string sender_id = 2;
   // The message.

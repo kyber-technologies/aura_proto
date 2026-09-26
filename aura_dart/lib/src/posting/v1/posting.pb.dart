@@ -12,6 +12,7 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 import 'package:protobuf/well_known_types/google/protobuf/timestamp.pb.dart'
     as $3;
@@ -96,7 +97,7 @@ class FeedRequest extends $pb.GeneratedMessage {
 /// Response for getting the user feed.
 class FeedResponse extends $pb.GeneratedMessage {
   factory FeedResponse({
-    $core.Iterable<$core.String>? postIds,
+    $core.Iterable<$fixnum.Int64>? postIds,
     $1.Error? error,
   }) {
     final result = create();
@@ -118,7 +119,7 @@ class FeedResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'FeedResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
-    ..pPS(1, _omitFieldNames ? '' : 'postIds')
+    ..p<$fixnum.Int64>(1, _omitFieldNames ? '' : 'postIds', $pb.PbFieldType.KF6)
     ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
     ..hasRequiredFields = false;
@@ -144,7 +145,7 @@ class FeedResponse extends $pb.GeneratedMessage {
 
   /// The returned post IDs.
   @$pb.TagNumber(1)
-  $pb.PbList<$core.String> get postIds => $_getList(0);
+  $pb.PbList<$fixnum.Int64> get postIds => $_getList(0);
 
   /// The error, if any.
   @$pb.TagNumber(2)
@@ -163,7 +164,7 @@ class FeedResponse extends $pb.GeneratedMessage {
 class PublishRequest extends $pb.GeneratedMessage {
   factory PublishRequest({
     $2.Content? content,
-    $core.String? parent,
+    $fixnum.Int64? parent,
   }) {
     final result = create();
     if (content != null) result.content = content;
@@ -186,7 +187,8 @@ class PublishRequest extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOM<$2.Content>(1, _omitFieldNames ? '' : 'content',
         subBuilder: $2.Content.create)
-    ..aOS(2, _omitFieldNames ? '' : 'parent')
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'parent', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -224,9 +226,9 @@ class PublishRequest extends $pb.GeneratedMessage {
   ///
   /// If set, this post is a comment under the specified post.
   @$pb.TagNumber(2)
-  $core.String get parent => $_getSZ(1);
+  $fixnum.Int64 get parent => $_getI64(1);
   @$pb.TagNumber(2)
-  set parent($core.String value) => $_setString(1, value);
+  set parent($fixnum.Int64 value) => $_setInt64(1, value);
   @$pb.TagNumber(2)
   $core.bool hasParent() => $_has(1);
   @$pb.TagNumber(2)
@@ -327,7 +329,7 @@ class PublishResponse extends $pb.GeneratedMessage {
 /// Request for unpublishing a post.
 class UnpublishRequest extends $pb.GeneratedMessage {
   factory UnpublishRequest({
-    $core.String? postId,
+    $fixnum.Int64? postId,
   }) {
     final result = create();
     if (postId != null) result.postId = postId;
@@ -347,7 +349,8 @@ class UnpublishRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'UnpublishRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'postId')
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'postId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -371,9 +374,9 @@ class UnpublishRequest extends $pb.GeneratedMessage {
 
   /// The post ID to delete.
   @$pb.TagNumber(1)
-  $core.String get postId => $_getSZ(0);
+  $fixnum.Int64 get postId => $_getI64(0);
   @$pb.TagNumber(1)
-  set postId($core.String value) => $_setString(0, value);
+  set postId($fixnum.Int64 value) => $_setInt64(0, value);
   @$pb.TagNumber(1)
   $core.bool hasPostId() => $_has(0);
   @$pb.TagNumber(1)
@@ -442,7 +445,7 @@ class UnpublishResponse extends $pb.GeneratedMessage {
 /// Request for getting posts.
 class GetRequest extends $pb.GeneratedMessage {
   factory GetRequest({
-    $core.Iterable<$core.String>? posts,
+    $core.Iterable<$fixnum.Int64>? posts,
   }) {
     final result = create();
     if (posts != null) result.posts.addAll(posts);
@@ -462,7 +465,7 @@ class GetRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'GetRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
-    ..pPS(1, _omitFieldNames ? '' : 'posts')
+    ..p<$fixnum.Int64>(1, _omitFieldNames ? '' : 'posts', $pb.PbFieldType.KF6)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -485,13 +488,13 @@ class GetRequest extends $pb.GeneratedMessage {
 
   /// The post IDs to get.
   @$pb.TagNumber(1)
-  $pb.PbList<$core.String> get posts => $_getList(0);
+  $pb.PbList<$fixnum.Int64> get posts => $_getList(0);
 }
 
 /// Response for getting posts.
 class GetResponse extends $pb.GeneratedMessage {
   factory GetResponse({
-    $core.Iterable<$core.MapEntry<$core.String, Post>>? posts,
+    $core.Iterable<$core.MapEntry<$fixnum.Int64, Post>>? posts,
     $1.Error? error,
   }) {
     final result = create();
@@ -513,9 +516,9 @@ class GetResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'GetResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
-    ..m<$core.String, Post>(1, _omitFieldNames ? '' : 'posts',
+    ..m<$fixnum.Int64, Post>(1, _omitFieldNames ? '' : 'posts',
         entryClassName: 'GetResponse.PostsEntry',
-        keyFieldType: $pb.PbFieldType.OS,
+        keyFieldType: $pb.PbFieldType.OF6,
         valueFieldType: $pb.PbFieldType.OM,
         valueCreator: Post.create,
         valueDefaultOrMaker: Post.getDefault,
@@ -547,7 +550,7 @@ class GetResponse extends $pb.GeneratedMessage {
   ///
   /// If a post ID is not found, it is not included in the map.
   @$pb.TagNumber(1)
-  $pb.PbMap<$core.String, Post> get posts => $_getMap(0);
+  $pb.PbMap<$fixnum.Int64, Post> get posts => $_getMap(0);
 
   /// The error, if any.
   @$pb.TagNumber(2)
@@ -867,7 +870,7 @@ class SearchResponse extends $pb.GeneratedMessage {
 /// Request for reacting to a post.
 class ReactRequest extends $pb.GeneratedMessage {
   factory ReactRequest({
-    $core.String? postId,
+    $fixnum.Int64? postId,
     PostReaction? reaction,
   }) {
     final result = create();
@@ -889,7 +892,8 @@ class ReactRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'ReactRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'postId')
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'postId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aE<PostReaction>(2, _omitFieldNames ? '' : 'reaction',
         enumValues: PostReaction.values)
     ..hasRequiredFields = false;
@@ -915,9 +919,9 @@ class ReactRequest extends $pb.GeneratedMessage {
 
   /// The ID of the post.
   @$pb.TagNumber(1)
-  $core.String get postId => $_getSZ(0);
+  $fixnum.Int64 get postId => $_getI64(0);
   @$pb.TagNumber(1)
-  set postId($core.String value) => $_setString(0, value);
+  set postId($fixnum.Int64 value) => $_setInt64(0, value);
   @$pb.TagNumber(1)
   $core.bool hasPostId() => $_has(0);
   @$pb.TagNumber(1)
@@ -995,11 +999,11 @@ class ReactResponse extends $pb.GeneratedMessage {
 
 class Post extends $pb.GeneratedMessage {
   factory Post({
-    $core.String? postId,
+    $fixnum.Int64? postId,
     $core.String? authorId,
     $2.Content? content,
     $3.Timestamp? timestamp,
-    $core.String? parent,
+    $fixnum.Int64? parent,
     $core.Iterable<$core.MapEntry<$core.String, $core.int>>? reactions,
     PostReaction? reaction,
   }) {
@@ -1027,13 +1031,15 @@ class Post extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'Post',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'postId')
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'postId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(2, _omitFieldNames ? '' : 'authorId')
     ..aOM<$2.Content>(3, _omitFieldNames ? '' : 'content',
         subBuilder: $2.Content.create)
     ..aOM<$3.Timestamp>(4, _omitFieldNames ? '' : 'timestamp',
         subBuilder: $3.Timestamp.create)
-    ..aOS(5, _omitFieldNames ? '' : 'parent')
+    ..a<$fixnum.Int64>(5, _omitFieldNames ? '' : 'parent', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..m<$core.String, $core.int>(6, _omitFieldNames ? '' : 'reactions',
         entryClassName: 'Post.ReactionsEntry',
         keyFieldType: $pb.PbFieldType.OS,
@@ -1063,9 +1069,9 @@ class Post extends $pb.GeneratedMessage {
 
   /// A unique post ID.
   @$pb.TagNumber(1)
-  $core.String get postId => $_getSZ(0);
+  $fixnum.Int64 get postId => $_getI64(0);
   @$pb.TagNumber(1)
-  set postId($core.String value) => $_setString(0, value);
+  set postId($fixnum.Int64 value) => $_setInt64(0, value);
   @$pb.TagNumber(1)
   $core.bool hasPostId() => $_has(0);
   @$pb.TagNumber(1)
@@ -1109,9 +1115,9 @@ class Post extends $pb.GeneratedMessage {
   ///
   /// If set, this post is a comment under the specified post.
   @$pb.TagNumber(5)
-  $core.String get parent => $_getSZ(4);
+  $fixnum.Int64 get parent => $_getI64(4);
   @$pb.TagNumber(5)
-  set parent($core.String value) => $_setString(4, value);
+  set parent($fixnum.Int64 value) => $_setInt64(4, value);
   @$pb.TagNumber(5)
   $core.bool hasParent() => $_has(4);
   @$pb.TagNumber(5)

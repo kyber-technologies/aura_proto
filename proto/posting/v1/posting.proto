@@ -53,7 +53,7 @@ message FeedRequest {
 // Response for getting the user feed.
 message FeedResponse {
   // The returned post IDs.
-  repeated string post_ids = 1;
+  repeated fixed64 post_ids = 1;
   // The error, if any.
   optional common.v1.Error error = 2;
 }
@@ -65,7 +65,7 @@ message PublishRequest {
   // The optional parent post ID.
   //
   // If set, this post is a comment under the specified post.
-  optional string parent = 2;
+  optional fixed64 parent = 2;
 }
 
 // Response for publishing a new post.
@@ -82,7 +82,7 @@ message PublishResponse {
 // Request for unpublishing a post.
 message UnpublishRequest {
   // The post ID to delete.
-  string post_id = 1;
+  fixed64 post_id = 1;
 }
 
 // Response for unpublishing a post.
@@ -94,7 +94,7 @@ message UnpublishResponse {
 // Request for getting posts.
 message GetRequest {
   // The post IDs to get.
-  repeated string posts = 1;
+  repeated fixed64 posts = 1;
 }
 
 // Response for getting posts.
@@ -102,7 +102,7 @@ message GetResponse {
   // The requested posts.
   //
   // If a post ID is not found, it is not included in the map.
-  map<string, Post> posts = 1;
+  map<fixed64, Post> posts = 1;
   // The error, if any.
   optional common.v1.Error error = 2;
 }
@@ -146,7 +146,7 @@ message SearchResponse {
 // Request for reacting to a post.
 message ReactRequest {
   // The ID of the post.
-  string post_id = 1;
+  fixed64 post_id = 1;
   // The reaction.
   PostReaction reaction = 2;
 }
@@ -159,7 +159,7 @@ message ReactResponse {
 
 message Post {
   // A unique post ID.
-  string post_id = 1;
+  fixed64 post_id = 1;
   // The user ID of the post author.
   string author_id = 2;
   // The post content.
@@ -169,7 +169,7 @@ message Post {
   // The optional parent post ID.
   //
   // If set, this post is a comment under the specified post.
-  optional string parent = 5;
+  optional fixed64 parent = 5;
   // The reactions of all users to this post.
   //
   // Every string corresponds to a `PostReaction`.

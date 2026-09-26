@@ -12,6 +12,7 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 import 'package:protobuf/well_known_types/google/protobuf/timestamp.pb.dart'
     as $2;
@@ -1816,7 +1817,7 @@ enum Notification_Notification { invite, message, notSet }
 /// A user notification.
 class Notification extends $pb.GeneratedMessage {
   factory Notification({
-    $core.String? notificationId,
+    $fixnum.Int64? notificationId,
     $2.Timestamp? timestamp,
     InviteNotification? invite,
     MessageNotification? message,
@@ -1849,7 +1850,9 @@ class Notification extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
     ..oo(0, [3, 4])
-    ..aOS(1, _omitFieldNames ? '' : 'notificationId')
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'notificationId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOM<$2.Timestamp>(2, _omitFieldNames ? '' : 'timestamp',
         subBuilder: $2.Timestamp.create)
     ..aOM<InviteNotification>(3, _omitFieldNames ? '' : 'invite',
@@ -1887,9 +1890,9 @@ class Notification extends $pb.GeneratedMessage {
 
   /// ID of the notification.
   @$pb.TagNumber(1)
-  $core.String get notificationId => $_getSZ(0);
+  $fixnum.Int64 get notificationId => $_getI64(0);
   @$pb.TagNumber(1)
-  set notificationId($core.String value) => $_setString(0, value);
+  set notificationId($fixnum.Int64 value) => $_setInt64(0, value);
   @$pb.TagNumber(1)
   $core.bool hasNotificationId() => $_has(0);
   @$pb.TagNumber(1)
@@ -1935,7 +1938,7 @@ class Notification extends $pb.GeneratedMessage {
 /// A chat notification.
 class InviteNotification extends $pb.GeneratedMessage {
   factory InviteNotification({
-    $core.String? channelId,
+    $fixnum.Int64? channelId,
     $core.String? invitedBy,
     $core.bool? uninvited,
   }) {
@@ -1959,7 +1962,9 @@ class InviteNotification extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'InviteNotification',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'channelId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(2, _omitFieldNames ? '' : 'invitedBy')
     ..aOB(3, _omitFieldNames ? '' : 'uninvited')
     ..hasRequiredFields = false;
@@ -1985,9 +1990,9 @@ class InviteNotification extends $pb.GeneratedMessage {
 
   /// ID of the chat channel.
   @$pb.TagNumber(1)
-  $core.String get channelId => $_getSZ(0);
+  $fixnum.Int64 get channelId => $_getI64(0);
   @$pb.TagNumber(1)
-  set channelId($core.String value) => $_setString(0, value);
+  set channelId($fixnum.Int64 value) => $_setInt64(0, value);
   @$pb.TagNumber(1)
   $core.bool hasChannelId() => $_has(0);
   @$pb.TagNumber(1)
@@ -2017,7 +2022,7 @@ class InviteNotification extends $pb.GeneratedMessage {
 /// A chat message notification.
 class MessageNotification extends $pb.GeneratedMessage {
   factory MessageNotification({
-    $core.String? channelId,
+    $fixnum.Int64? channelId,
     $core.String? senderId,
     $4.Message? message,
   }) {
@@ -2041,7 +2046,9 @@ class MessageNotification extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'MessageNotification',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'channelId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(2, _omitFieldNames ? '' : 'senderId')
     ..aOM<$4.Message>(3, _omitFieldNames ? '' : 'message',
         subBuilder: $4.Message.create)
@@ -2068,9 +2075,9 @@ class MessageNotification extends $pb.GeneratedMessage {
 
   /// ID of the chat channel.
   @$pb.TagNumber(1)
-  $core.String get channelId => $_getSZ(0);
+  $fixnum.Int64 get channelId => $_getI64(0);
   @$pb.TagNumber(1)
-  set channelId($core.String value) => $_setString(0, value);
+  set channelId($fixnum.Int64 value) => $_setInt64(0, value);
   @$pb.TagNumber(1)
   $core.bool hasChannelId() => $_has(0);
   @$pb.TagNumber(1)

@@ -12,6 +12,7 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 import 'package:protobuf/well_known_types/google/protobuf/empty.pb.dart' as $2;
 import 'package:protobuf/well_known_types/google/protobuf/timestamp.pb.dart'
@@ -509,7 +510,7 @@ class MetaResponse extends $pb.GeneratedMessage {
 class ResourceId extends $pb.GeneratedMessage {
   factory ResourceId({
     ResourceNamespace? namespace,
-    $core.String? key,
+    $fixnum.Int64? key,
   }) {
     final result = create();
     if (namespace != null) result.namespace = namespace;
@@ -532,7 +533,8 @@ class ResourceId extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOM<ResourceNamespace>(1, _omitFieldNames ? '' : 'namespace',
         subBuilder: ResourceNamespace.create)
-    ..aOS(2, _omitFieldNames ? '' : 'key')
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -567,9 +569,9 @@ class ResourceId extends $pb.GeneratedMessage {
 
   /// The key of the resource within the namespace.
   @$pb.TagNumber(2)
-  $core.String get key => $_getSZ(1);
+  $fixnum.Int64 get key => $_getI64(1);
   @$pb.TagNumber(2)
-  set key($core.String value) => $_setString(1, value);
+  set key($fixnum.Int64 value) => $_setInt64(1, value);
   @$pb.TagNumber(2)
   $core.bool hasKey() => $_has(1);
   @$pb.TagNumber(2)
