@@ -86,7 +86,7 @@ message ResourceId {
   // The namespace of the resource.
   ResourceNamespace namespace = 1;
   // The key of the resource within the namespace.
-  fixed64 key = 2;
+  string key = 2;
 }
 
 // The resource namespace of a resource ID.
