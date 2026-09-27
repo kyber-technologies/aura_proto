@@ -1495,6 +1495,124 @@ class FollowResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(0);
 }
 
+/// Request message for setting user settings.
+class SetSettingsRequest extends $pb.GeneratedMessage {
+  factory SetSettingsRequest({
+    UserSettings? settings,
+  }) {
+    final result = create();
+    if (settings != null) result.settings = settings;
+    return result;
+  }
+
+  SetSettingsRequest._();
+
+  factory SetSettingsRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory SetSettingsRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SetSettingsRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOM<UserSettings>(1, _omitFieldNames ? '' : 'settings',
+        subBuilder: UserSettings.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  SetSettingsRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  SetSettingsRequest copyWith(void Function(SetSettingsRequest) updates) =>
+      super.copyWith((message) => updates(message as SetSettingsRequest))
+          as SetSettingsRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SetSettingsRequest create() => SetSettingsRequest._();
+  @$core.override
+  SetSettingsRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static SetSettingsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SetSettingsRequest>(create);
+  static SetSettingsRequest? _defaultInstance;
+
+  /// User settings to set.
+  @$pb.TagNumber(1)
+  UserSettings get settings => $_getN(0);
+  @$pb.TagNumber(1)
+  set settings(UserSettings value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasSettings() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSettings() => $_clearField(1);
+  @$pb.TagNumber(1)
+  UserSettings ensureSettings() => $_ensure(0);
+}
+
+/// Response message for setting user settings.
+class SetSettingsResponse extends $pb.GeneratedMessage {
+  factory SetSettingsResponse({
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  SetSettingsResponse._();
+
+  factory SetSettingsResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory SetSettingsResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SetSettingsResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  SetSettingsResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  SetSettingsResponse copyWith(void Function(SetSettingsResponse) updates) =>
+      super.copyWith((message) => updates(message as SetSettingsResponse))
+          as SetSettingsResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SetSettingsResponse create() => SetSettingsResponse._();
+  @$core.override
+  SetSettingsResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static SetSettingsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SetSettingsResponse>(create);
+  static SetSettingsResponse? _defaultInstance;
+
+  /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+}
+
 /// An application user.
 ///
 /// When used in an RPC response, the password **must** be empty.
@@ -1511,6 +1629,7 @@ class User extends $pb.GeneratedMessage {
     $core.Iterable<$4.Channel>? channels,
     $core.Iterable<$core.String>? followers,
     $core.Iterable<$core.String>? following,
+    UserSettings? settings,
   }) {
     final result = create();
     if (userId != null) result.userId = userId;
@@ -1524,6 +1643,7 @@ class User extends $pb.GeneratedMessage {
     if (channels != null) result.channels.addAll(channels);
     if (followers != null) result.followers.addAll(followers);
     if (following != null) result.following.addAll(following);
+    if (settings != null) result.settings = settings;
     return result;
   }
 
@@ -1556,6 +1676,8 @@ class User extends $pb.GeneratedMessage {
         subBuilder: $4.Channel.create)
     ..pPS(10, _omitFieldNames ? '' : 'followers')
     ..pPS(11, _omitFieldNames ? '' : 'following')
+    ..aOM<UserSettings>(12, _omitFieldNames ? '' : 'settings',
+        subBuilder: UserSettings.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1667,6 +1789,18 @@ class User extends $pb.GeneratedMessage {
   /// The users the user is following.
   @$pb.TagNumber(11)
   $pb.PbList<$core.String> get following => $_getList(10);
+
+  /// The user settings.
+  @$pb.TagNumber(12)
+  UserSettings get settings => $_getN(11);
+  @$pb.TagNumber(12)
+  set settings(UserSettings value) => $_setField(12, value);
+  @$pb.TagNumber(12)
+  $core.bool hasSettings() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearSettings() => $_clearField(12);
+  @$pb.TagNumber(12)
+  UserSettings ensureSettings() => $_ensure(11);
 }
 
 /// User profile.
@@ -1812,7 +1946,167 @@ class UserProfile extends $pb.GeneratedMessage {
   void clearFollowing() => $_clearField(7);
 }
 
-enum Notification_Notification { invite, message, notSet }
+/// Global user settings.
+class UserSettings extends $pb.GeneratedMessage {
+  factory UserSettings({
+    $core.bool? allowInvites,
+    $core.bool? resetAlgo,
+    $core.double? algoLikeWeight,
+    $core.double? algoDislikeWeight,
+    $core.double? algoCommentWeight,
+    $core.double? algoTimeDecay,
+    $core.Iterable<$core.String>? algoTags,
+    NotifyType? notifyInvite,
+    NotifyType? notifyMessage,
+  }) {
+    final result = create();
+    if (allowInvites != null) result.allowInvites = allowInvites;
+    if (resetAlgo != null) result.resetAlgo = resetAlgo;
+    if (algoLikeWeight != null) result.algoLikeWeight = algoLikeWeight;
+    if (algoDislikeWeight != null) result.algoDislikeWeight = algoDislikeWeight;
+    if (algoCommentWeight != null) result.algoCommentWeight = algoCommentWeight;
+    if (algoTimeDecay != null) result.algoTimeDecay = algoTimeDecay;
+    if (algoTags != null) result.algoTags.addAll(algoTags);
+    if (notifyInvite != null) result.notifyInvite = notifyInvite;
+    if (notifyMessage != null) result.notifyMessage = notifyMessage;
+    return result;
+  }
+
+  UserSettings._();
+
+  factory UserSettings.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory UserSettings.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UserSettings',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'allowInvites')
+    ..aOB(2, _omitFieldNames ? '' : 'resetAlgo')
+    ..aD(3, _omitFieldNames ? '' : 'algoLikeWeight',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(4, _omitFieldNames ? '' : 'algoDislikeWeight',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(5, _omitFieldNames ? '' : 'algoCommentWeight',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(6, _omitFieldNames ? '' : 'algoTimeDecay',
+        fieldType: $pb.PbFieldType.OF)
+    ..pPS(7, _omitFieldNames ? '' : 'algoTags')
+    ..aE<NotifyType>(8, _omitFieldNames ? '' : 'notifyInvite',
+        enumValues: NotifyType.values)
+    ..aE<NotifyType>(9, _omitFieldNames ? '' : 'notifyMessage',
+        enumValues: NotifyType.values)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UserSettings clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UserSettings copyWith(void Function(UserSettings) updates) =>
+      super.copyWith((message) => updates(message as UserSettings))
+          as UserSettings;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UserSettings create() => UserSettings._();
+  @$core.override
+  UserSettings createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static UserSettings getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UserSettings>(create);
+  static UserSettings? _defaultInstance;
+
+  /// Whether to allow other users to invite the user to a chat.
+  @$pb.TagNumber(1)
+  $core.bool get allowInvites => $_getBF(0);
+  @$pb.TagNumber(1)
+  set allowInvites($core.bool value) => $_setBool(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasAllowInvites() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAllowInvites() => $_clearField(1);
+
+  /// Whether to reset the user algorithm.
+  @$pb.TagNumber(2)
+  $core.bool get resetAlgo => $_getBF(1);
+  @$pb.TagNumber(2)
+  set resetAlgo($core.bool value) => $_setBool(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasResetAlgo() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearResetAlgo() => $_clearField(2);
+
+  /// The weight (from 0.0 to 1.0) of likes in the algorithm.
+  @$pb.TagNumber(3)
+  $core.double get algoLikeWeight => $_getN(2);
+  @$pb.TagNumber(3)
+  set algoLikeWeight($core.double value) => $_setFloat(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasAlgoLikeWeight() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAlgoLikeWeight() => $_clearField(3);
+
+  /// The weight (from 0.0 to 1.0) of dislikes in the algorithm.
+  @$pb.TagNumber(4)
+  $core.double get algoDislikeWeight => $_getN(3);
+  @$pb.TagNumber(4)
+  set algoDislikeWeight($core.double value) => $_setFloat(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasAlgoDislikeWeight() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearAlgoDislikeWeight() => $_clearField(4);
+
+  /// The weight (from 0.0 to 1.0) of comments in the algorithm.
+  @$pb.TagNumber(5)
+  $core.double get algoCommentWeight => $_getN(4);
+  @$pb.TagNumber(5)
+  set algoCommentWeight($core.double value) => $_setFloat(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasAlgoCommentWeight() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearAlgoCommentWeight() => $_clearField(5);
+
+  /// The time decay (from 0.0 to 1.0) of posts in the algorithm.
+  @$pb.TagNumber(6)
+  $core.double get algoTimeDecay => $_getN(5);
+  @$pb.TagNumber(6)
+  set algoTimeDecay($core.double value) => $_setFloat(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasAlgoTimeDecay() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearAlgoTimeDecay() => $_clearField(6);
+
+  /// Tags the user is interested in.
+  @$pb.TagNumber(7)
+  $pb.PbList<$core.String> get algoTags => $_getList(6);
+
+  /// How to notify the user of invites.
+  @$pb.TagNumber(8)
+  NotifyType get notifyInvite => $_getN(7);
+  @$pb.TagNumber(8)
+  set notifyInvite(NotifyType value) => $_setField(8, value);
+  @$pb.TagNumber(8)
+  $core.bool hasNotifyInvite() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearNotifyInvite() => $_clearField(8);
+
+  /// How to notify the user of messages.
+  @$pb.TagNumber(9)
+  NotifyType get notifyMessage => $_getN(8);
+  @$pb.TagNumber(9)
+  set notifyMessage(NotifyType value) => $_setField(9, value);
+  @$pb.TagNumber(9)
+  $core.bool hasNotifyMessage() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearNotifyMessage() => $_clearField(9);
+}
+
+enum Notification_Notification { invite, message, comment, notSet }
 
 /// A user notification.
 class Notification extends $pb.GeneratedMessage {
@@ -1821,12 +2115,14 @@ class Notification extends $pb.GeneratedMessage {
     $2.Timestamp? timestamp,
     InviteNotification? invite,
     MessageNotification? message,
+    CommentNotification? comment,
   }) {
     final result = create();
     if (notificationId != null) result.notificationId = notificationId;
     if (timestamp != null) result.timestamp = timestamp;
     if (invite != null) result.invite = invite;
     if (message != null) result.message = message;
+    if (comment != null) result.comment = comment;
     return result;
   }
 
@@ -1843,13 +2139,14 @@ class Notification extends $pb.GeneratedMessage {
       _Notification_NotificationByTag = {
     3: Notification_Notification.invite,
     4: Notification_Notification.message,
+    5: Notification_Notification.comment,
     0: Notification_Notification.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'Notification',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..oo(0, [3, 4])
+    ..oo(0, [3, 4, 5])
     ..a<$fixnum.Int64>(
         1, _omitFieldNames ? '' : 'notificationId', $pb.PbFieldType.OF6,
         defaultOrMaker: $fixnum.Int64.ZERO)
@@ -1859,6 +2156,8 @@ class Notification extends $pb.GeneratedMessage {
         subBuilder: InviteNotification.create)
     ..aOM<MessageNotification>(4, _omitFieldNames ? '' : 'message',
         subBuilder: MessageNotification.create)
+    ..aOM<CommentNotification>(5, _omitFieldNames ? '' : 'comment',
+        subBuilder: CommentNotification.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1882,10 +2181,12 @@ class Notification extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   @$pb.TagNumber(4)
+  @$pb.TagNumber(5)
   Notification_Notification whichNotification() =>
       _Notification_NotificationByTag[$_whichOneof(0)]!;
   @$pb.TagNumber(3)
   @$pb.TagNumber(4)
+  @$pb.TagNumber(5)
   void clearNotification() => $_clearField($_whichOneof(0));
 
   /// ID of the notification.
@@ -1933,6 +2234,18 @@ class Notification extends $pb.GeneratedMessage {
   void clearMessage() => $_clearField(4);
   @$pb.TagNumber(4)
   MessageNotification ensureMessage() => $_ensure(3);
+
+  /// The user received a comment under a post.
+  @$pb.TagNumber(5)
+  CommentNotification get comment => $_getN(4);
+  @$pb.TagNumber(5)
+  set comment(CommentNotification value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasComment() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearComment() => $_clearField(5);
+  @$pb.TagNumber(5)
+  CommentNotification ensureComment() => $_ensure(4);
 }
 
 /// A chat notification.
@@ -2104,6 +2417,91 @@ class MessageNotification extends $pb.GeneratedMessage {
   void clearMessage() => $_clearField(3);
   @$pb.TagNumber(3)
   $4.Message ensureMessage() => $_ensure(2);
+}
+
+/// A comment notification.
+class CommentNotification extends $pb.GeneratedMessage {
+  factory CommentNotification({
+    $fixnum.Int64? postId,
+    $fixnum.Int64? commentId,
+    $core.String? senderId,
+  }) {
+    final result = create();
+    if (postId != null) result.postId = postId;
+    if (commentId != null) result.commentId = commentId;
+    if (senderId != null) result.senderId = senderId;
+    return result;
+  }
+
+  CommentNotification._();
+
+  factory CommentNotification.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory CommentNotification.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CommentNotification',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'postId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'commentId', $pb.PbFieldType.OF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(3, _omitFieldNames ? '' : 'senderId')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CommentNotification clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CommentNotification copyWith(void Function(CommentNotification) updates) =>
+      super.copyWith((message) => updates(message as CommentNotification))
+          as CommentNotification;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CommentNotification create() => CommentNotification._();
+  @$core.override
+  CommentNotification createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static CommentNotification getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CommentNotification>(create);
+  static CommentNotification? _defaultInstance;
+
+  /// The post ID.
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get postId => $_getI64(0);
+  @$pb.TagNumber(1)
+  set postId($fixnum.Int64 value) => $_setInt64(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasPostId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPostId() => $_clearField(1);
+
+  /// The comment ID.
+  @$pb.TagNumber(2)
+  $fixnum.Int64 get commentId => $_getI64(1);
+  @$pb.TagNumber(2)
+  set commentId($fixnum.Int64 value) => $_setInt64(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasCommentId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearCommentId() => $_clearField(2);
+
+  /// The sender user ID.
+  @$pb.TagNumber(3)
+  $core.String get senderId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set senderId($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasSenderId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearSenderId() => $_clearField(3);
 }
 
 const $core.bool _omitFieldNames =

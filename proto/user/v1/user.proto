@@ -55,6 +55,11 @@ service UserService {
   //
   // Requires Authentication: Only authenticated users can do this.
   rpc Follow(FollowRequest) returns (FollowResponse);
+
+  // Sets the settings for a user.
+  //
+  // Requires Authentication: Only the user itself can set his own settings.
+  rpc SetSettings(SetSettingsRequest) returns (SetSettingsResponse);
 }
 
 // Request message for checking if a user exists.
@@ -223,6 +228,18 @@ message FollowResponse {
   optional common.v1.Error error = 1;
 }
 
+// Request message for setting user settings.
+message SetSettingsRequest {
+  // User settings to set.
+  UserSettings settings = 1;
+}
+
+// Response message for setting user settings.
+message SetSettingsResponse {
+  // The error, if any.
+  optional common.v1.Error error = 1;
+}
+
 // An application user.
 //
 // When used in an RPC response, the password **must** be empty.
@@ -251,6 +268,8 @@ message User {
   repeated string followers = 10;
   // The users the user is following.
   repeated string following = 11;
+  // The user settings.
+  UserSettings settings = 12;
 }
 
 // User profile.
@@ -283,6 +302,28 @@ enum UserRole {
   USER_ROLE_ADMIN = 2;
 }
 
+// Global user settings.
+message UserSettings {
+  // Whether to allow other users to invite the user to a chat.
+  bool allow_invites = 1;
+  // Whether to reset the user algorithm.
+  bool reset_algo = 2;
+  // The weight (from 0.0 to 1.0) of likes in the algorithm.
+  float algo_like_weight = 3;
+  // The weight (from 0.0 to 1.0) of dislikes in the algorithm.
+  float algo_dislike_weight = 4;
+  // The weight (from 0.0 to 1.0) of comments in the algorithm.
+  float algo_comment_weight = 5;
+  // The time decay (from 0.0 to 1.0) of posts in the algorithm.
+  float algo_time_decay = 6;
+  // Tags the user is interested in.
+  repeated string algo_tags = 7;
+  // How to notify the user of invites.
+  NotifyType notify_invite = 8;
+  // How to notify the user of messages.
+  NotifyType notify_message = 9;
+}
+
 // A user notification.
 message Notification {
   // ID of the notification.
@@ -295,6 +336,8 @@ message Notification {
     InviteNotification invite = 3;
     // The user received a message.
     MessageNotification message = 4;
+    // The user received a comment under a post.
+    CommentNotification comment = 5;
   }
 }
 
@@ -316,4 +359,26 @@ message MessageNotification {
   string sender_id = 2;
   // The message.
   chat.v1.Message message = 3;
+}
+
+// A comment notification.
+message CommentNotification {
+  // The post ID.
+  fixed64 post_id = 1;
+  // The comment ID.
+  fixed64 comment_id = 2;
+  // The sender user ID.
+  string sender_id = 3;
+}
+
+// How to notify a user of events.
+enum NotifyType {
+  // Don't notify the user.
+  NOTIFY_TYPE_UNSPECIFIED = 0;
+  // A in-app notification.
+  NOTIFY_TYPE_IN_APP = 1;
+  // A push notification.
+  NOTIFY_TYPE_PUSH = 2;
+  // A email notification.
+  NOTIFY_TYPE_EMAIL = 3;
 }

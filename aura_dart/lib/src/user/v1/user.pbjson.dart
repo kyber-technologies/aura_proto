@@ -30,6 +30,22 @@ final $typed_data.Uint8List userRoleDescriptor = $convert.base64Decode(
     'CghVc2VyUm9sZRIeChpVU0VSX1JPTEVfVVNFUl9VTlNQRUNJRklFRBAAEhcKE1VTRVJfUk9MRV'
     '9NT0RFUkFUT1IQARITCg9VU0VSX1JPTEVfQURNSU4QAg==');
 
+@$core.Deprecated('Use notifyTypeDescriptor instead')
+const NotifyType$json = {
+  '1': 'NotifyType',
+  '2': [
+    {'1': 'NOTIFY_TYPE_UNSPECIFIED', '2': 0},
+    {'1': 'NOTIFY_TYPE_IN_APP', '2': 1},
+    {'1': 'NOTIFY_TYPE_PUSH', '2': 2},
+    {'1': 'NOTIFY_TYPE_EMAIL', '2': 3},
+  ],
+};
+
+/// Descriptor for `NotifyType`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List notifyTypeDescriptor = $convert.base64Decode(
+    'CgpOb3RpZnlUeXBlEhsKF05PVElGWV9UWVBFX1VOU1BFQ0lGSUVEEAASFgoSTk9USUZZX1RZUE'
+    'VfSU5fQVBQEAESFAoQTk9USUZZX1RZUEVfUFVTSBACEhUKEU5PVElGWV9UWVBFX0VNQUlMEAM=');
+
 @$core.Deprecated('Use existsRequestDescriptor instead')
 const ExistsRequest$json = {
   '1': 'ExistsRequest',
@@ -542,6 +558,51 @@ final $typed_data.Uint8List followResponseDescriptor = $convert.base64Decode(
     'Cg5Gb2xsb3dSZXNwb25zZRIrCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcn'
     'JvcogBAUIICgZfZXJyb3I=');
 
+@$core.Deprecated('Use setSettingsRequestDescriptor instead')
+const SetSettingsRequest$json = {
+  '1': 'SetSettingsRequest',
+  '2': [
+    {
+      '1': 'settings',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.user.v1.UserSettings',
+      '10': 'settings'
+    },
+  ],
+};
+
+/// Descriptor for `SetSettingsRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List setSettingsRequestDescriptor = $convert.base64Decode(
+    'ChJTZXRTZXR0aW5nc1JlcXVlc3QSMQoIc2V0dGluZ3MYASABKAsyFS51c2VyLnYxLlVzZXJTZX'
+    'R0aW5nc1IIc2V0dGluZ3M=');
+
+@$core.Deprecated('Use setSettingsResponseDescriptor instead')
+const SetSettingsResponse$json = {
+  '1': 'SetSettingsResponse',
+  '2': [
+    {
+      '1': 'error',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_error'},
+  ],
+};
+
+/// Descriptor for `SetSettingsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List setSettingsResponseDescriptor = $convert.base64Decode(
+    'ChNTZXRTZXR0aW5nc1Jlc3BvbnNlEisKBWVycm9yGAEgASgLMhAuY29tbW9uLnYxLkVycm9ySA'
+    'BSBWVycm9yiAEBQggKBl9lcnJvcg==');
+
 @$core.Deprecated('Use userDescriptor instead')
 const User$json = {
   '1': 'User',
@@ -592,6 +653,14 @@ const User$json = {
     },
     {'1': 'followers', '3': 10, '4': 3, '5': 9, '10': 'followers'},
     {'1': 'following', '3': 11, '4': 3, '5': 9, '10': 'following'},
+    {
+      '1': 'settings',
+      '3': 12,
+      '4': 1,
+      '5': 11,
+      '6': '.user.v1.UserSettings',
+      '10': 'settings'
+    },
   ],
 };
 
@@ -604,7 +673,8 @@ final $typed_data.Uint8List userDescriptor = $convert.base64Decode(
     'Fy5yZXNvdXJjZS52MS5SZXNvdXJjZUlkUgRpY29uEjsKDW5vdGlmaWNhdGlvbnMYCCADKAsyFS'
     '51c2VyLnYxLk5vdGlmaWNhdGlvblINbm90aWZpY2F0aW9ucxIsCghjaGFubmVscxgJIAMoCzIQ'
     'LmNoYXQudjEuQ2hhbm5lbFIIY2hhbm5lbHMSHAoJZm9sbG93ZXJzGAogAygJUglmb2xsb3dlcn'
-    'MSHAoJZm9sbG93aW5nGAsgAygJUglmb2xsb3dpbmc=');
+    'MSHAoJZm9sbG93aW5nGAsgAygJUglmb2xsb3dpbmcSMQoIc2V0dGluZ3MYDCABKAsyFS51c2Vy'
+    'LnYxLlVzZXJTZXR0aW5nc1IIc2V0dGluZ3M=');
 
 @$core.Deprecated('Use userProfileDescriptor instead')
 const UserProfile$json = {
@@ -649,6 +719,59 @@ final $typed_data.Uint8List userProfileDescriptor = $convert.base64Decode(
     'oEaWNvbhgFIAEoCzIXLnJlc291cmNlLnYxLlJlc291cmNlSWRSBGljb24SHAoJZm9sbG93ZXJz'
     'GAYgASgNUglmb2xsb3dlcnMSHAoJZm9sbG93aW5nGAcgASgNUglmb2xsb3dpbmc=');
 
+@$core.Deprecated('Use userSettingsDescriptor instead')
+const UserSettings$json = {
+  '1': 'UserSettings',
+  '2': [
+    {'1': 'allow_invites', '3': 1, '4': 1, '5': 8, '10': 'allowInvites'},
+    {'1': 'reset_algo', '3': 2, '4': 1, '5': 8, '10': 'resetAlgo'},
+    {'1': 'algo_like_weight', '3': 3, '4': 1, '5': 2, '10': 'algoLikeWeight'},
+    {
+      '1': 'algo_dislike_weight',
+      '3': 4,
+      '4': 1,
+      '5': 2,
+      '10': 'algoDislikeWeight'
+    },
+    {
+      '1': 'algo_comment_weight',
+      '3': 5,
+      '4': 1,
+      '5': 2,
+      '10': 'algoCommentWeight'
+    },
+    {'1': 'algo_time_decay', '3': 6, '4': 1, '5': 2, '10': 'algoTimeDecay'},
+    {'1': 'algo_tags', '3': 7, '4': 3, '5': 9, '10': 'algoTags'},
+    {
+      '1': 'notify_invite',
+      '3': 8,
+      '4': 1,
+      '5': 14,
+      '6': '.user.v1.NotifyType',
+      '10': 'notifyInvite'
+    },
+    {
+      '1': 'notify_message',
+      '3': 9,
+      '4': 1,
+      '5': 14,
+      '6': '.user.v1.NotifyType',
+      '10': 'notifyMessage'
+    },
+  ],
+};
+
+/// Descriptor for `UserSettings`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List userSettingsDescriptor = $convert.base64Decode(
+    'CgxVc2VyU2V0dGluZ3MSIwoNYWxsb3dfaW52aXRlcxgBIAEoCFIMYWxsb3dJbnZpdGVzEh0KCn'
+    'Jlc2V0X2FsZ28YAiABKAhSCXJlc2V0QWxnbxIoChBhbGdvX2xpa2Vfd2VpZ2h0GAMgASgCUg5h'
+    'bGdvTGlrZVdlaWdodBIuChNhbGdvX2Rpc2xpa2Vfd2VpZ2h0GAQgASgCUhFhbGdvRGlzbGlrZV'
+    'dlaWdodBIuChNhbGdvX2NvbW1lbnRfd2VpZ2h0GAUgASgCUhFhbGdvQ29tbWVudFdlaWdodBIm'
+    'Cg9hbGdvX3RpbWVfZGVjYXkYBiABKAJSDWFsZ29UaW1lRGVjYXkSGwoJYWxnb190YWdzGAcgAy'
+    'gJUghhbGdvVGFncxI4Cg1ub3RpZnlfaW52aXRlGAggASgOMhMudXNlci52MS5Ob3RpZnlUeXBl'
+    'Ugxub3RpZnlJbnZpdGUSOgoObm90aWZ5X21lc3NhZ2UYCSABKA4yEy51c2VyLnYxLk5vdGlmeV'
+    'R5cGVSDW5vdGlmeU1lc3NhZ2U=');
+
 @$core.Deprecated('Use notificationDescriptor instead')
 const Notification$json = {
   '1': 'Notification',
@@ -680,6 +803,15 @@ const Notification$json = {
       '9': 0,
       '10': 'message'
     },
+    {
+      '1': 'comment',
+      '3': 5,
+      '4': 1,
+      '5': 11,
+      '6': '.user.v1.CommentNotification',
+      '9': 0,
+      '10': 'comment'
+    },
   ],
   '8': [
     {'1': 'notification'},
@@ -692,7 +824,8 @@ final $typed_data.Uint8List notificationDescriptor = $convert.base64Decode(
     'I4Cgl0aW1lc3RhbXAYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgl0aW1lc3Rh'
     'bXASNQoGaW52aXRlGAMgASgLMhsudXNlci52MS5JbnZpdGVOb3RpZmljYXRpb25IAFIGaW52aX'
     'RlEjgKB21lc3NhZ2UYBCABKAsyHC51c2VyLnYxLk1lc3NhZ2VOb3RpZmljYXRpb25IAFIHbWVz'
-    'c2FnZUIOCgxub3RpZmljYXRpb24=');
+    'c2FnZRI4Cgdjb21tZW50GAUgASgLMhwudXNlci52MS5Db21tZW50Tm90aWZpY2F0aW9uSABSB2'
+    'NvbW1lbnRCDgoMbm90aWZpY2F0aW9u');
 
 @$core.Deprecated('Use inviteNotificationDescriptor instead')
 const InviteNotification$json = {
@@ -732,3 +865,18 @@ final $typed_data.Uint8List messageNotificationDescriptor = $convert.base64Decod
     'ChNNZXNzYWdlTm90aWZpY2F0aW9uEh0KCmNoYW5uZWxfaWQYASABKAZSCWNoYW5uZWxJZBIbCg'
     'lzZW5kZXJfaWQYAiABKAlSCHNlbmRlcklkEioKB21lc3NhZ2UYAyABKAsyEC5jaGF0LnYxLk1l'
     'c3NhZ2VSB21lc3NhZ2U=');
+
+@$core.Deprecated('Use commentNotificationDescriptor instead')
+const CommentNotification$json = {
+  '1': 'CommentNotification',
+  '2': [
+    {'1': 'post_id', '3': 1, '4': 1, '5': 6, '10': 'postId'},
+    {'1': 'comment_id', '3': 2, '4': 1, '5': 6, '10': 'commentId'},
+    {'1': 'sender_id', '3': 3, '4': 1, '5': 9, '10': 'senderId'},
+  ],
+};
+
+/// Descriptor for `CommentNotification`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List commentNotificationDescriptor = $convert.base64Decode(
+    'ChNDb21tZW50Tm90aWZpY2F0aW9uEhcKB3Bvc3RfaWQYASABKAZSBnBvc3RJZBIdCgpjb21tZW'
+    '50X2lkGAIgASgGUgljb21tZW50SWQSGwoJc2VuZGVyX2lkGAMgASgJUghzZW5kZXJJZA==');

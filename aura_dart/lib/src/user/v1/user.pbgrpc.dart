@@ -135,6 +135,16 @@ class UserServiceClient extends $grpc.Client {
     return $createUnaryCall(_$follow, request, options: options);
   }
 
+  /// Sets the settings for a user.
+  ///
+  /// Requires Authentication: Only the user itself can set his own settings.
+  $grpc.ResponseFuture<$0.SetSettingsResponse> setSettings(
+    $0.SetSettingsRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$setSettings, request, options: options);
+  }
+
   // method descriptors
 
   static final _$exists =
@@ -189,6 +199,11 @@ class UserServiceClient extends $grpc.Client {
           '/user.v1.UserService/Follow',
           ($0.FollowRequest value) => value.writeToBuffer(),
           $0.FollowResponse.fromBuffer);
+  static final _$setSettings =
+      $grpc.ClientMethod<$0.SetSettingsRequest, $0.SetSettingsResponse>(
+          '/user.v1.UserService/SetSettings',
+          ($0.SetSettingsRequest value) => value.writeToBuffer(),
+          $0.SetSettingsResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('user.v1.UserService')
@@ -275,6 +290,15 @@ abstract class UserServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.FollowRequest.fromBuffer(value),
         ($0.FollowResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.SetSettingsRequest, $0.SetSettingsResponse>(
+            'SetSettings',
+            setSettings_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.SetSettingsRequest.fromBuffer(value),
+            ($0.SetSettingsResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.ExistsResponse> exists_Pre(
@@ -364,4 +388,12 @@ abstract class UserServiceBase extends $grpc.Service {
 
   $async.Future<$0.FollowResponse> follow(
       $grpc.ServiceCall call, $0.FollowRequest request);
+
+  $async.Future<$0.SetSettingsResponse> setSettings_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.SetSettingsRequest> $request) async {
+    return setSettings($call, await $request);
+  }
+
+  $async.Future<$0.SetSettingsResponse> setSettings(
+      $grpc.ServiceCall call, $0.SetSettingsRequest request);
 }

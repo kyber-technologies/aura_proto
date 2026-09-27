@@ -42,5 +42,38 @@ class UserRole extends $pb.ProtobufEnum {
   const UserRole._(super.value, super.name);
 }
 
+/// How to notify a user of events.
+class NotifyType extends $pb.ProtobufEnum {
+  /// Don't notify the user.
+  static const NotifyType NOTIFY_TYPE_UNSPECIFIED =
+      NotifyType._(0, _omitEnumNames ? '' : 'NOTIFY_TYPE_UNSPECIFIED');
+
+  /// A in-app notification.
+  static const NotifyType NOTIFY_TYPE_IN_APP =
+      NotifyType._(1, _omitEnumNames ? '' : 'NOTIFY_TYPE_IN_APP');
+
+  /// A push notification.
+  static const NotifyType NOTIFY_TYPE_PUSH =
+      NotifyType._(2, _omitEnumNames ? '' : 'NOTIFY_TYPE_PUSH');
+
+  /// A email notification.
+  static const NotifyType NOTIFY_TYPE_EMAIL =
+      NotifyType._(3, _omitEnumNames ? '' : 'NOTIFY_TYPE_EMAIL');
+
+  static const $core.List<NotifyType> values = <NotifyType>[
+    NOTIFY_TYPE_UNSPECIFIED,
+    NOTIFY_TYPE_IN_APP,
+    NOTIFY_TYPE_PUSH,
+    NOTIFY_TYPE_EMAIL,
+  ];
+
+  static final $core.List<NotifyType?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 3);
+  static NotifyType? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const NotifyType._(super.value, super.name);
+}
+
 const $core.bool _omitEnumNames =
     $core.bool.fromEnvironment('protobuf.omit_enum_names');
