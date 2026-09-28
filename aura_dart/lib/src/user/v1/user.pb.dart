@@ -1956,9 +1956,9 @@ class UserSettings extends $pb.GeneratedMessage {
     $core.double? algoCommentWeight,
     $core.double? algoTimeDecay,
     $core.Iterable<$core.String>? algoTags,
-    NotifyType? notifyInvite,
-    NotifyType? notifyMessage,
-    NotifyType? notifyComment,
+    NotifySettings? notifyInvite,
+    NotifySettings? notifyMessage,
+    NotifySettings? notifyComment,
   }) {
     final result = create();
     if (allowInvites != null) result.allowInvites = allowInvites;
@@ -1998,12 +1998,12 @@ class UserSettings extends $pb.GeneratedMessage {
     ..aD(6, _omitFieldNames ? '' : 'algoTimeDecay',
         fieldType: $pb.PbFieldType.OF)
     ..pPS(7, _omitFieldNames ? '' : 'algoTags')
-    ..aE<NotifyType>(8, _omitFieldNames ? '' : 'notifyInvite',
-        enumValues: NotifyType.values)
-    ..aE<NotifyType>(9, _omitFieldNames ? '' : 'notifyMessage',
-        enumValues: NotifyType.values)
-    ..aE<NotifyType>(10, _omitFieldNames ? '' : 'notifyComment',
-        enumValues: NotifyType.values)
+    ..aOM<NotifySettings>(8, _omitFieldNames ? '' : 'notifyInvite',
+        subBuilder: NotifySettings.create)
+    ..aOM<NotifySettings>(9, _omitFieldNames ? '' : 'notifyMessage',
+        subBuilder: NotifySettings.create)
+    ..aOM<NotifySettings>(10, _omitFieldNames ? '' : 'notifyComment',
+        subBuilder: NotifySettings.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -2091,33 +2091,39 @@ class UserSettings extends $pb.GeneratedMessage {
 
   /// How to notify the user of invites.
   @$pb.TagNumber(8)
-  NotifyType get notifyInvite => $_getN(7);
+  NotifySettings get notifyInvite => $_getN(7);
   @$pb.TagNumber(8)
-  set notifyInvite(NotifyType value) => $_setField(8, value);
+  set notifyInvite(NotifySettings value) => $_setField(8, value);
   @$pb.TagNumber(8)
   $core.bool hasNotifyInvite() => $_has(7);
   @$pb.TagNumber(8)
   void clearNotifyInvite() => $_clearField(8);
+  @$pb.TagNumber(8)
+  NotifySettings ensureNotifyInvite() => $_ensure(7);
 
   /// How to notify the user of messages.
   @$pb.TagNumber(9)
-  NotifyType get notifyMessage => $_getN(8);
+  NotifySettings get notifyMessage => $_getN(8);
   @$pb.TagNumber(9)
-  set notifyMessage(NotifyType value) => $_setField(9, value);
+  set notifyMessage(NotifySettings value) => $_setField(9, value);
   @$pb.TagNumber(9)
   $core.bool hasNotifyMessage() => $_has(8);
   @$pb.TagNumber(9)
   void clearNotifyMessage() => $_clearField(9);
+  @$pb.TagNumber(9)
+  NotifySettings ensureNotifyMessage() => $_ensure(8);
 
   /// How to notify the user of comments.
   @$pb.TagNumber(10)
-  NotifyType get notifyComment => $_getN(9);
+  NotifySettings get notifyComment => $_getN(9);
   @$pb.TagNumber(10)
-  set notifyComment(NotifyType value) => $_setField(10, value);
+  set notifyComment(NotifySettings value) => $_setField(10, value);
   @$pb.TagNumber(10)
   $core.bool hasNotifyComment() => $_has(9);
   @$pb.TagNumber(10)
   void clearNotifyComment() => $_clearField(10);
+  @$pb.TagNumber(10)
+  NotifySettings ensureNotifyComment() => $_ensure(9);
 }
 
 enum Notification_Notification { invite, message, comment, notSet }
@@ -2516,6 +2522,88 @@ class CommentNotification extends $pb.GeneratedMessage {
   $core.bool hasSenderId() => $_has(2);
   @$pb.TagNumber(3)
   void clearSenderId() => $_clearField(3);
+}
+
+/// The notification settings for an event.
+class NotifySettings extends $pb.GeneratedMessage {
+  factory NotifySettings({
+    $core.bool? inApp,
+    $core.bool? push,
+    $core.bool? email,
+  }) {
+    final result = create();
+    if (inApp != null) result.inApp = inApp;
+    if (push != null) result.push = push;
+    if (email != null) result.email = email;
+    return result;
+  }
+
+  NotifySettings._();
+
+  factory NotifySettings.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory NotifySettings.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'NotifySettings',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'inApp')
+    ..aOB(2, _omitFieldNames ? '' : 'push')
+    ..aOB(3, _omitFieldNames ? '' : 'email')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  NotifySettings clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  NotifySettings copyWith(void Function(NotifySettings) updates) =>
+      super.copyWith((message) => updates(message as NotifySettings))
+          as NotifySettings;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static NotifySettings create() => NotifySettings._();
+  @$core.override
+  NotifySettings createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static NotifySettings getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<NotifySettings>(create);
+  static NotifySettings? _defaultInstance;
+
+  /// Whether to notify in-app.
+  @$pb.TagNumber(1)
+  $core.bool get inApp => $_getBF(0);
+  @$pb.TagNumber(1)
+  set inApp($core.bool value) => $_setBool(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasInApp() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearInApp() => $_clearField(1);
+
+  /// Whether to notify via push notifications.
+  @$pb.TagNumber(2)
+  $core.bool get push => $_getBF(1);
+  @$pb.TagNumber(2)
+  set push($core.bool value) => $_setBool(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasPush() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPush() => $_clearField(2);
+
+  /// Whether to notify via email.
+  @$pb.TagNumber(3)
+  $core.bool get email => $_getBF(2);
+  @$pb.TagNumber(3)
+  set email($core.bool value) => $_setBool(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasEmail() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearEmail() => $_clearField(3);
 }
 
 const $core.bool _omitFieldNames =

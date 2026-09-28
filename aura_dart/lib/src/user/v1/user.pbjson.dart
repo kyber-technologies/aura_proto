@@ -30,22 +30,6 @@ final $typed_data.Uint8List userRoleDescriptor = $convert.base64Decode(
     'CghVc2VyUm9sZRIeChpVU0VSX1JPTEVfVVNFUl9VTlNQRUNJRklFRBAAEhcKE1VTRVJfUk9MRV'
     '9NT0RFUkFUT1IQARITCg9VU0VSX1JPTEVfQURNSU4QAg==');
 
-@$core.Deprecated('Use notifyTypeDescriptor instead')
-const NotifyType$json = {
-  '1': 'NotifyType',
-  '2': [
-    {'1': 'NOTIFY_TYPE_UNSPECIFIED', '2': 0},
-    {'1': 'NOTIFY_TYPE_IN_APP', '2': 1},
-    {'1': 'NOTIFY_TYPE_PUSH', '2': 2},
-    {'1': 'NOTIFY_TYPE_EMAIL', '2': 3},
-  ],
-};
-
-/// Descriptor for `NotifyType`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List notifyTypeDescriptor = $convert.base64Decode(
-    'CgpOb3RpZnlUeXBlEhsKF05PVElGWV9UWVBFX1VOU1BFQ0lGSUVEEAASFgoSTk9USUZZX1RZUE'
-    'VfSU5fQVBQEAESFAoQTk9USUZZX1RZUEVfUFVTSBACEhUKEU5PVElGWV9UWVBFX0VNQUlMEAM=');
-
 @$core.Deprecated('Use existsRequestDescriptor instead')
 const ExistsRequest$json = {
   '1': 'ExistsRequest',
@@ -746,24 +730,24 @@ const UserSettings$json = {
       '1': 'notify_invite',
       '3': 8,
       '4': 1,
-      '5': 14,
-      '6': '.user.v1.NotifyType',
+      '5': 11,
+      '6': '.user.v1.NotifySettings',
       '10': 'notifyInvite'
     },
     {
       '1': 'notify_message',
       '3': 9,
       '4': 1,
-      '5': 14,
-      '6': '.user.v1.NotifyType',
+      '5': 11,
+      '6': '.user.v1.NotifySettings',
       '10': 'notifyMessage'
     },
     {
       '1': 'notify_comment',
       '3': 10,
       '4': 1,
-      '5': 14,
-      '6': '.user.v1.NotifyType',
+      '5': 11,
+      '6': '.user.v1.NotifySettings',
       '10': 'notifyComment'
     },
   ],
@@ -776,10 +760,10 @@ final $typed_data.Uint8List userSettingsDescriptor = $convert.base64Decode(
     'bGdvTGlrZVdlaWdodBIuChNhbGdvX2Rpc2xpa2Vfd2VpZ2h0GAQgASgCUhFhbGdvRGlzbGlrZV'
     'dlaWdodBIuChNhbGdvX2NvbW1lbnRfd2VpZ2h0GAUgASgCUhFhbGdvQ29tbWVudFdlaWdodBIm'
     'Cg9hbGdvX3RpbWVfZGVjYXkYBiABKAJSDWFsZ29UaW1lRGVjYXkSGwoJYWxnb190YWdzGAcgAy'
-    'gJUghhbGdvVGFncxI4Cg1ub3RpZnlfaW52aXRlGAggASgOMhMudXNlci52MS5Ob3RpZnlUeXBl'
-    'Ugxub3RpZnlJbnZpdGUSOgoObm90aWZ5X21lc3NhZ2UYCSABKA4yEy51c2VyLnYxLk5vdGlmeV'
-    'R5cGVSDW5vdGlmeU1lc3NhZ2USOgoObm90aWZ5X2NvbW1lbnQYCiABKA4yEy51c2VyLnYxLk5v'
-    'dGlmeVR5cGVSDW5vdGlmeUNvbW1lbnQ=');
+    'gJUghhbGdvVGFncxI8Cg1ub3RpZnlfaW52aXRlGAggASgLMhcudXNlci52MS5Ob3RpZnlTZXR0'
+    'aW5nc1IMbm90aWZ5SW52aXRlEj4KDm5vdGlmeV9tZXNzYWdlGAkgASgLMhcudXNlci52MS5Ob3'
+    'RpZnlTZXR0aW5nc1INbm90aWZ5TWVzc2FnZRI+Cg5ub3RpZnlfY29tbWVudBgKIAEoCzIXLnVz'
+    'ZXIudjEuTm90aWZ5U2V0dGluZ3NSDW5vdGlmeUNvbW1lbnQ=');
 
 @$core.Deprecated('Use notificationDescriptor instead')
 const Notification$json = {
@@ -889,3 +873,18 @@ const CommentNotification$json = {
 final $typed_data.Uint8List commentNotificationDescriptor = $convert.base64Decode(
     'ChNDb21tZW50Tm90aWZpY2F0aW9uEhcKB3Bvc3RfaWQYASABKAZSBnBvc3RJZBIdCgpjb21tZW'
     '50X2lkGAIgASgGUgljb21tZW50SWQSGwoJc2VuZGVyX2lkGAMgASgJUghzZW5kZXJJZA==');
+
+@$core.Deprecated('Use notifySettingsDescriptor instead')
+const NotifySettings$json = {
+  '1': 'NotifySettings',
+  '2': [
+    {'1': 'in_app', '3': 1, '4': 1, '5': 8, '10': 'inApp'},
+    {'1': 'push', '3': 2, '4': 1, '5': 8, '10': 'push'},
+    {'1': 'email', '3': 3, '4': 1, '5': 8, '10': 'email'},
+  ],
+};
+
+/// Descriptor for `NotifySettings`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List notifySettingsDescriptor = $convert.base64Decode(
+    'Cg5Ob3RpZnlTZXR0aW5ncxIVCgZpbl9hcHAYASABKAhSBWluQXBwEhIKBHB1c2gYAiABKAhSBH'
+    'B1c2gSFAoFZW1haWwYAyABKAhSBWVtYWls');

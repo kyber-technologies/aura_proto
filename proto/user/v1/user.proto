@@ -319,11 +319,11 @@ message UserSettings {
   // Tags the user is interested in.
   repeated string algo_tags = 7;
   // How to notify the user of invites.
-  NotifyType notify_invite = 8;
+  NotifySettings notify_invite = 8;
   // How to notify the user of messages.
-  NotifyType notify_message = 9;
+  NotifySettings notify_message = 9;
   // How to notify the user of comments.
-  NotifyType notify_comment = 10;
+  NotifySettings notify_comment = 10;
 }
 
 // A user notification.
@@ -373,14 +373,12 @@ message CommentNotification {
   string sender_id = 3;
 }
 
-// How to notify a user of events.
-enum NotifyType {
-  // Don't notify the user.
-  NOTIFY_TYPE_UNSPECIFIED = 0;
-  // A in-app notification.
-  NOTIFY_TYPE_IN_APP = 1;
-  // A push notification.
-  NOTIFY_TYPE_PUSH = 2;
-  // A email notification.
-  NOTIFY_TYPE_EMAIL = 3;
+// The notification settings for an event.
+message NotifySettings {
+  // Whether to notify in-app.
+  bool in_app = 1;
+  // Whether to notify via push notifications.
+  bool push = 2;
+  // Whether to notify via email.
+  bool email = 3;
 }
