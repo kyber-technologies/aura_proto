@@ -55,11 +55,6 @@ service UserService {
   //
   // Requires Authentication: Only authenticated users can do this.
   rpc Follow(FollowRequest) returns (FollowResponse);
-
-  // Sets the settings for a user.
-  //
-  // Requires Authentication: Only the user itself can set his own settings.
-  rpc SetSettings(SetSettingsRequest) returns (SetSettingsResponse);
 }
 
 // Request message for checking if a user exists.
@@ -144,6 +139,8 @@ message UpdateRequest {
   optional string email = 3;
   // Password of the user.
   optional string password = 4;
+  // User settings.
+  optional UserSettings settings = 5;
 }
 
 // Response message for updating a user.
@@ -224,18 +221,6 @@ message FollowRequest {
 
 // Response for following a user.
 message FollowResponse {
-  // The error, if any.
-  optional common.v1.Error error = 1;
-}
-
-// Request message for setting user settings.
-message SetSettingsRequest {
-  // User settings to set.
-  UserSettings settings = 1;
-}
-
-// Response message for setting user settings.
-message SetSettingsResponse {
   // The error, if any.
   optional common.v1.Error error = 1;
 }

@@ -700,11 +700,13 @@ class UpdateRequest extends $pb.GeneratedMessage {
     $core.String? username,
     $core.String? email,
     $core.String? password,
+    UserSettings? settings,
   }) {
     final result = create();
     if (username != null) result.username = username;
     if (email != null) result.email = email;
     if (password != null) result.password = password;
+    if (settings != null) result.settings = settings;
     return result;
   }
 
@@ -724,6 +726,8 @@ class UpdateRequest extends $pb.GeneratedMessage {
     ..aOS(2, _omitFieldNames ? '' : 'username')
     ..aOS(3, _omitFieldNames ? '' : 'email')
     ..aOS(4, _omitFieldNames ? '' : 'password')
+    ..aOM<UserSettings>(5, _omitFieldNames ? '' : 'settings',
+        subBuilder: UserSettings.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -774,6 +778,18 @@ class UpdateRequest extends $pb.GeneratedMessage {
   $core.bool hasPassword() => $_has(2);
   @$pb.TagNumber(4)
   void clearPassword() => $_clearField(4);
+
+  /// User settings.
+  @$pb.TagNumber(5)
+  UserSettings get settings => $_getN(3);
+  @$pb.TagNumber(5)
+  set settings(UserSettings value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasSettings() => $_has(3);
+  @$pb.TagNumber(5)
+  void clearSettings() => $_clearField(5);
+  @$pb.TagNumber(5)
+  UserSettings ensureSettings() => $_ensure(3);
 }
 
 /// Response message for updating a user.
@@ -1481,124 +1497,6 @@ class FollowResponse extends $pb.GeneratedMessage {
   static FollowResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<FollowResponse>(create);
   static FollowResponse? _defaultInstance;
-
-  /// The error, if any.
-  @$pb.TagNumber(1)
-  $1.Error get error => $_getN(0);
-  @$pb.TagNumber(1)
-  set error($1.Error value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasError() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearError() => $_clearField(1);
-  @$pb.TagNumber(1)
-  $1.Error ensureError() => $_ensure(0);
-}
-
-/// Request message for setting user settings.
-class SetSettingsRequest extends $pb.GeneratedMessage {
-  factory SetSettingsRequest({
-    UserSettings? settings,
-  }) {
-    final result = create();
-    if (settings != null) result.settings = settings;
-    return result;
-  }
-
-  SetSettingsRequest._();
-
-  factory SetSettingsRequest.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory SetSettingsRequest.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'SetSettingsRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
-      createEmptyInstance: create)
-    ..aOM<UserSettings>(1, _omitFieldNames ? '' : 'settings',
-        subBuilder: UserSettings.create)
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SetSettingsRequest clone() => deepCopy();
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SetSettingsRequest copyWith(void Function(SetSettingsRequest) updates) =>
-      super.copyWith((message) => updates(message as SetSettingsRequest))
-          as SetSettingsRequest;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static SetSettingsRequest create() => SetSettingsRequest._();
-  @$core.override
-  SetSettingsRequest createEmptyInstance() => create();
-  @$core.pragma('dart2js:noInline')
-  static SetSettingsRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<SetSettingsRequest>(create);
-  static SetSettingsRequest? _defaultInstance;
-
-  /// User settings to set.
-  @$pb.TagNumber(1)
-  UserSettings get settings => $_getN(0);
-  @$pb.TagNumber(1)
-  set settings(UserSettings value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasSettings() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearSettings() => $_clearField(1);
-  @$pb.TagNumber(1)
-  UserSettings ensureSettings() => $_ensure(0);
-}
-
-/// Response message for setting user settings.
-class SetSettingsResponse extends $pb.GeneratedMessage {
-  factory SetSettingsResponse({
-    $1.Error? error,
-  }) {
-    final result = create();
-    if (error != null) result.error = error;
-    return result;
-  }
-
-  SetSettingsResponse._();
-
-  factory SetSettingsResponse.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory SetSettingsResponse.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'SetSettingsResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
-        subBuilder: $1.Error.create)
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SetSettingsResponse clone() => deepCopy();
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SetSettingsResponse copyWith(void Function(SetSettingsResponse) updates) =>
-      super.copyWith((message) => updates(message as SetSettingsResponse))
-          as SetSettingsResponse;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static SetSettingsResponse create() => SetSettingsResponse._();
-  @$core.override
-  SetSettingsResponse createEmptyInstance() => create();
-  @$core.pragma('dart2js:noInline')
-  static SetSettingsResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<SetSettingsResponse>(create);
-  static SetSettingsResponse? _defaultInstance;
 
   /// The error, if any.
   @$pb.TagNumber(1)

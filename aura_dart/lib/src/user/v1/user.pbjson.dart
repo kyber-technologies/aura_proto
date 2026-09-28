@@ -275,19 +275,31 @@ const UpdateRequest$json = {
       '10': 'password',
       '17': true
     },
+    {
+      '1': 'settings',
+      '3': 5,
+      '4': 1,
+      '5': 11,
+      '6': '.user.v1.UserSettings',
+      '9': 3,
+      '10': 'settings',
+      '17': true
+    },
   ],
   '8': [
     {'1': '_username'},
     {'1': '_email'},
     {'1': '_password'},
+    {'1': '_settings'},
   ],
 };
 
 /// Descriptor for `UpdateRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateRequestDescriptor = $convert.base64Decode(
     'Cg1VcGRhdGVSZXF1ZXN0Eh8KCHVzZXJuYW1lGAIgASgJSABSCHVzZXJuYW1liAEBEhkKBWVtYW'
-    'lsGAMgASgJSAFSBWVtYWlsiAEBEh8KCHBhc3N3b3JkGAQgASgJSAJSCHBhc3N3b3JkiAEBQgsK'
-    'CV91c2VybmFtZUIICgZfZW1haWxCCwoJX3Bhc3N3b3Jk');
+    'lsGAMgASgJSAFSBWVtYWlsiAEBEh8KCHBhc3N3b3JkGAQgASgJSAJSCHBhc3N3b3JkiAEBEjYK'
+    'CHNldHRpbmdzGAUgASgLMhUudXNlci52MS5Vc2VyU2V0dGluZ3NIA1IIc2V0dGluZ3OIAQFCCw'
+    'oJX3VzZXJuYW1lQggKBl9lbWFpbEILCglfcGFzc3dvcmRCCwoJX3NldHRpbmdz');
 
 @$core.Deprecated('Use updateResponseDescriptor instead')
 const UpdateResponse$json = {
@@ -541,51 +553,6 @@ const FollowResponse$json = {
 final $typed_data.Uint8List followResponseDescriptor = $convert.base64Decode(
     'Cg5Gb2xsb3dSZXNwb25zZRIrCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcn'
     'JvcogBAUIICgZfZXJyb3I=');
-
-@$core.Deprecated('Use setSettingsRequestDescriptor instead')
-const SetSettingsRequest$json = {
-  '1': 'SetSettingsRequest',
-  '2': [
-    {
-      '1': 'settings',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.user.v1.UserSettings',
-      '10': 'settings'
-    },
-  ],
-};
-
-/// Descriptor for `SetSettingsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List setSettingsRequestDescriptor = $convert.base64Decode(
-    'ChJTZXRTZXR0aW5nc1JlcXVlc3QSMQoIc2V0dGluZ3MYASABKAsyFS51c2VyLnYxLlVzZXJTZX'
-    'R0aW5nc1IIc2V0dGluZ3M=');
-
-@$core.Deprecated('Use setSettingsResponseDescriptor instead')
-const SetSettingsResponse$json = {
-  '1': 'SetSettingsResponse',
-  '2': [
-    {
-      '1': 'error',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.common.v1.Error',
-      '9': 0,
-      '10': 'error',
-      '17': true
-    },
-  ],
-  '8': [
-    {'1': '_error'},
-  ],
-};
-
-/// Descriptor for `SetSettingsResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List setSettingsResponseDescriptor = $convert.base64Decode(
-    'ChNTZXRTZXR0aW5nc1Jlc3BvbnNlEisKBWVycm9yGAEgASgLMhAuY29tbW9uLnYxLkVycm9ySA'
-    'BSBWVycm9yiAEBQggKBl9lcnJvcg==');
 
 @$core.Deprecated('Use userDescriptor instead')
 const User$json = {
