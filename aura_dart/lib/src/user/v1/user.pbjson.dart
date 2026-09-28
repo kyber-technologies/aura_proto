@@ -758,6 +758,14 @@ const UserSettings$json = {
       '6': '.user.v1.NotifyType',
       '10': 'notifyMessage'
     },
+    {
+      '1': 'notify_comment',
+      '3': 10,
+      '4': 1,
+      '5': 14,
+      '6': '.user.v1.NotifyType',
+      '10': 'notifyComment'
+    },
   ],
 };
 
@@ -770,7 +778,8 @@ final $typed_data.Uint8List userSettingsDescriptor = $convert.base64Decode(
     'Cg9hbGdvX3RpbWVfZGVjYXkYBiABKAJSDWFsZ29UaW1lRGVjYXkSGwoJYWxnb190YWdzGAcgAy'
     'gJUghhbGdvVGFncxI4Cg1ub3RpZnlfaW52aXRlGAggASgOMhMudXNlci52MS5Ob3RpZnlUeXBl'
     'Ugxub3RpZnlJbnZpdGUSOgoObm90aWZ5X21lc3NhZ2UYCSABKA4yEy51c2VyLnYxLk5vdGlmeV'
-    'R5cGVSDW5vdGlmeU1lc3NhZ2U=');
+    'R5cGVSDW5vdGlmeU1lc3NhZ2USOgoObm90aWZ5X2NvbW1lbnQYCiABKA4yEy51c2VyLnYxLk5v'
+    'dGlmeVR5cGVSDW5vdGlmeUNvbW1lbnQ=');
 
 @$core.Deprecated('Use notificationDescriptor instead')
 const Notification$json = {

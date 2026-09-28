@@ -1958,6 +1958,7 @@ class UserSettings extends $pb.GeneratedMessage {
     $core.Iterable<$core.String>? algoTags,
     NotifyType? notifyInvite,
     NotifyType? notifyMessage,
+    NotifyType? notifyComment,
   }) {
     final result = create();
     if (allowInvites != null) result.allowInvites = allowInvites;
@@ -1969,6 +1970,7 @@ class UserSettings extends $pb.GeneratedMessage {
     if (algoTags != null) result.algoTags.addAll(algoTags);
     if (notifyInvite != null) result.notifyInvite = notifyInvite;
     if (notifyMessage != null) result.notifyMessage = notifyMessage;
+    if (notifyComment != null) result.notifyComment = notifyComment;
     return result;
   }
 
@@ -1999,6 +2001,8 @@ class UserSettings extends $pb.GeneratedMessage {
     ..aE<NotifyType>(8, _omitFieldNames ? '' : 'notifyInvite',
         enumValues: NotifyType.values)
     ..aE<NotifyType>(9, _omitFieldNames ? '' : 'notifyMessage',
+        enumValues: NotifyType.values)
+    ..aE<NotifyType>(10, _omitFieldNames ? '' : 'notifyComment',
         enumValues: NotifyType.values)
     ..hasRequiredFields = false;
 
@@ -2104,6 +2108,16 @@ class UserSettings extends $pb.GeneratedMessage {
   $core.bool hasNotifyMessage() => $_has(8);
   @$pb.TagNumber(9)
   void clearNotifyMessage() => $_clearField(9);
+
+  /// How to notify the user of comments.
+  @$pb.TagNumber(10)
+  NotifyType get notifyComment => $_getN(9);
+  @$pb.TagNumber(10)
+  set notifyComment(NotifyType value) => $_setField(10, value);
+  @$pb.TagNumber(10)
+  $core.bool hasNotifyComment() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearNotifyComment() => $_clearField(10);
 }
 
 enum Notification_Notification { invite, message, comment, notSet }

@@ -322,6 +322,8 @@ message UserSettings {
   NotifyType notify_invite = 8;
   // How to notify the user of messages.
   NotifyType notify_message = 9;
+  // How to notify the user of comments.
+  NotifyType notify_comment = 10;
 }
 
 // A user notification.
