@@ -181,7 +181,14 @@ const CreateRequest$json = {
       '5': 9,
       '10': 'verificationToken'
     },
-    {'1': 'interest_tags', '3': 6, '4': 3, '5': 9, '10': 'interestTags'},
+    {
+      '1': 'settings',
+      '3': 6,
+      '4': 1,
+      '5': 11,
+      '6': '.user.v1.UserSettings',
+      '10': 'settings'
+    },
   ],
 };
 
@@ -189,8 +196,8 @@ const CreateRequest$json = {
 final $typed_data.Uint8List createRequestDescriptor = $convert.base64Decode(
     'Cg1DcmVhdGVSZXF1ZXN0EhcKB3VzZXJfaWQYASABKAlSBnVzZXJJZBIaCgh1c2VybmFtZRgCIA'
     'EoCVIIdXNlcm5hbWUSFAoFZW1haWwYAyABKAlSBWVtYWlsEhoKCHBhc3N3b3JkGAQgASgJUghw'
-    'YXNzd29yZBItChJ2ZXJpZmljYXRpb25fdG9rZW4YBSABKAlSEXZlcmlmaWNhdGlvblRva2VuEi'
-    'MKDWludGVyZXN0X3RhZ3MYBiADKAlSDGludGVyZXN0VGFncw==');
+    'YXNzd29yZBItChJ2ZXJpZmljYXRpb25fdG9rZW4YBSABKAlSEXZlcmlmaWNhdGlvblRva2VuEj'
+    'EKCHNldHRpbmdzGAYgASgLMhUudXNlci52MS5Vc2VyU2V0dGluZ3NSCHNldHRpbmdz');
 
 @$core.Deprecated('Use createResponseDescriptor instead')
 const CreateResponse$json = {

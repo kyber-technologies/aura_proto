@@ -420,7 +420,7 @@ class CreateRequest extends $pb.GeneratedMessage {
     $core.String? email,
     $core.String? password,
     $core.String? verificationToken,
-    $core.Iterable<$core.String>? interestTags,
+    UserSettings? settings,
   }) {
     final result = create();
     if (userId != null) result.userId = userId;
@@ -428,7 +428,7 @@ class CreateRequest extends $pb.GeneratedMessage {
     if (email != null) result.email = email;
     if (password != null) result.password = password;
     if (verificationToken != null) result.verificationToken = verificationToken;
-    if (interestTags != null) result.interestTags.addAll(interestTags);
+    if (settings != null) result.settings = settings;
     return result;
   }
 
@@ -450,7 +450,8 @@ class CreateRequest extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'email')
     ..aOS(4, _omitFieldNames ? '' : 'password')
     ..aOS(5, _omitFieldNames ? '' : 'verificationToken')
-    ..pPS(6, _omitFieldNames ? '' : 'interestTags')
+    ..aOM<UserSettings>(6, _omitFieldNames ? '' : 'settings',
+        subBuilder: UserSettings.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -522,9 +523,17 @@ class CreateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearVerificationToken() => $_clearField(5);
 
-  /// Tags the user is interested in.
+  /// The user settings.
   @$pb.TagNumber(6)
-  $pb.PbList<$core.String> get interestTags => $_getList(5);
+  UserSettings get settings => $_getN(5);
+  @$pb.TagNumber(6)
+  set settings(UserSettings value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasSettings() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearSettings() => $_clearField(6);
+  @$pb.TagNumber(6)
+  UserSettings ensureSettings() => $_ensure(5);
 }
 
 /// Response message for creating a user.

@@ -111,8 +111,8 @@ message CreateRequest {
   string password = 4;
   // E-Mail verification token.
   string verification_token = 5;
-  // Tags the user is interested in.
-  repeated string interest_tags = 6;
+  // The user settings.
+  UserSettings settings = 6;
 }
 
 // Response message for creating a user.
