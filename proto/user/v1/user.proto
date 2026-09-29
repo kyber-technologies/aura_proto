@@ -291,10 +291,12 @@ enum UserRole {
 
 // Global user settings.
 message UserSettings {
+  // Tags to reset the algorithm.
+  //
+  // If not empty, the user requested to reset the algorithm.
+  repeated string reset_algo_tags = 1;
   // Whether to allow other users to invite the user to a chat.
-  bool allow_invites = 1;
-  // Whether to reset the user algorithm.
-  bool reset_algo = 2;
+  bool allow_invites = 2;
   // The weight (from 0.0 to 1.0) of likes in the algorithm.
   float algo_like_weight = 3;
   // The weight (from 0.0 to 1.0) of dislikes in the algorithm.
@@ -303,14 +305,12 @@ message UserSettings {
   float algo_comment_weight = 5;
   // The time decay (from 0.0 to 1.0) of posts in the algorithm.
   float algo_time_decay = 6;
-  // Tags the user is interested in.
-  repeated string algo_tags = 7;
   // How to notify the user of invites.
-  NotifySettings notify_invite = 8;
+  NotifySettings notify_invite = 7;
   // How to notify the user of messages.
-  NotifySettings notify_message = 9;
+  NotifySettings notify_message = 8;
   // How to notify the user of comments.
-  NotifySettings notify_comment = 10;
+  NotifySettings notify_comment = 9;
 }
 
 // A user notification.

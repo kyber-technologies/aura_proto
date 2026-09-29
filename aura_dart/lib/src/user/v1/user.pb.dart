@@ -1863,25 +1863,23 @@ class UserProfile extends $pb.GeneratedMessage {
 /// Global user settings.
 class UserSettings extends $pb.GeneratedMessage {
   factory UserSettings({
+    $core.Iterable<$core.String>? resetAlgoTags,
     $core.bool? allowInvites,
-    $core.bool? resetAlgo,
     $core.double? algoLikeWeight,
     $core.double? algoDislikeWeight,
     $core.double? algoCommentWeight,
     $core.double? algoTimeDecay,
-    $core.Iterable<$core.String>? algoTags,
     NotifySettings? notifyInvite,
     NotifySettings? notifyMessage,
     NotifySettings? notifyComment,
   }) {
     final result = create();
+    if (resetAlgoTags != null) result.resetAlgoTags.addAll(resetAlgoTags);
     if (allowInvites != null) result.allowInvites = allowInvites;
-    if (resetAlgo != null) result.resetAlgo = resetAlgo;
     if (algoLikeWeight != null) result.algoLikeWeight = algoLikeWeight;
     if (algoDislikeWeight != null) result.algoDislikeWeight = algoDislikeWeight;
     if (algoCommentWeight != null) result.algoCommentWeight = algoCommentWeight;
     if (algoTimeDecay != null) result.algoTimeDecay = algoTimeDecay;
-    if (algoTags != null) result.algoTags.addAll(algoTags);
     if (notifyInvite != null) result.notifyInvite = notifyInvite;
     if (notifyMessage != null) result.notifyMessage = notifyMessage;
     if (notifyComment != null) result.notifyComment = notifyComment;
@@ -1901,8 +1899,8 @@ class UserSettings extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'UserSettings',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..aOB(1, _omitFieldNames ? '' : 'allowInvites')
-    ..aOB(2, _omitFieldNames ? '' : 'resetAlgo')
+    ..pPS(1, _omitFieldNames ? '' : 'resetAlgoTags')
+    ..aOB(2, _omitFieldNames ? '' : 'allowInvites')
     ..aD(3, _omitFieldNames ? '' : 'algoLikeWeight',
         fieldType: $pb.PbFieldType.OF)
     ..aD(4, _omitFieldNames ? '' : 'algoDislikeWeight',
@@ -1911,12 +1909,11 @@ class UserSettings extends $pb.GeneratedMessage {
         fieldType: $pb.PbFieldType.OF)
     ..aD(6, _omitFieldNames ? '' : 'algoTimeDecay',
         fieldType: $pb.PbFieldType.OF)
-    ..pPS(7, _omitFieldNames ? '' : 'algoTags')
-    ..aOM<NotifySettings>(8, _omitFieldNames ? '' : 'notifyInvite',
+    ..aOM<NotifySettings>(7, _omitFieldNames ? '' : 'notifyInvite',
         subBuilder: NotifySettings.create)
-    ..aOM<NotifySettings>(9, _omitFieldNames ? '' : 'notifyMessage',
+    ..aOM<NotifySettings>(8, _omitFieldNames ? '' : 'notifyMessage',
         subBuilder: NotifySettings.create)
-    ..aOM<NotifySettings>(10, _omitFieldNames ? '' : 'notifyComment',
+    ..aOM<NotifySettings>(9, _omitFieldNames ? '' : 'notifyComment',
         subBuilder: NotifySettings.create)
     ..hasRequiredFields = false;
 
@@ -1939,25 +1936,21 @@ class UserSettings extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<UserSettings>(create);
   static UserSettings? _defaultInstance;
 
-  /// Whether to allow other users to invite the user to a chat.
+  /// Tags to reset the algorithm.
+  ///
+  /// If not empty, the user requested to reset the algorithm.
   @$pb.TagNumber(1)
-  $core.bool get allowInvites => $_getBF(0);
-  @$pb.TagNumber(1)
-  set allowInvites($core.bool value) => $_setBool(0, value);
-  @$pb.TagNumber(1)
-  $core.bool hasAllowInvites() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearAllowInvites() => $_clearField(1);
+  $pb.PbList<$core.String> get resetAlgoTags => $_getList(0);
 
-  /// Whether to reset the user algorithm.
+  /// Whether to allow other users to invite the user to a chat.
   @$pb.TagNumber(2)
-  $core.bool get resetAlgo => $_getBF(1);
+  $core.bool get allowInvites => $_getBF(1);
   @$pb.TagNumber(2)
-  set resetAlgo($core.bool value) => $_setBool(1, value);
+  set allowInvites($core.bool value) => $_setBool(1, value);
   @$pb.TagNumber(2)
-  $core.bool hasResetAlgo() => $_has(1);
+  $core.bool hasAllowInvites() => $_has(1);
   @$pb.TagNumber(2)
-  void clearResetAlgo() => $_clearField(2);
+  void clearAllowInvites() => $_clearField(2);
 
   /// The weight (from 0.0 to 1.0) of likes in the algorithm.
   @$pb.TagNumber(3)
@@ -1999,45 +1992,41 @@ class UserSettings extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearAlgoTimeDecay() => $_clearField(6);
 
-  /// Tags the user is interested in.
-  @$pb.TagNumber(7)
-  $pb.PbList<$core.String> get algoTags => $_getList(6);
-
   /// How to notify the user of invites.
-  @$pb.TagNumber(8)
-  NotifySettings get notifyInvite => $_getN(7);
-  @$pb.TagNumber(8)
-  set notifyInvite(NotifySettings value) => $_setField(8, value);
-  @$pb.TagNumber(8)
-  $core.bool hasNotifyInvite() => $_has(7);
-  @$pb.TagNumber(8)
-  void clearNotifyInvite() => $_clearField(8);
-  @$pb.TagNumber(8)
-  NotifySettings ensureNotifyInvite() => $_ensure(7);
+  @$pb.TagNumber(7)
+  NotifySettings get notifyInvite => $_getN(6);
+  @$pb.TagNumber(7)
+  set notifyInvite(NotifySettings value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasNotifyInvite() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearNotifyInvite() => $_clearField(7);
+  @$pb.TagNumber(7)
+  NotifySettings ensureNotifyInvite() => $_ensure(6);
 
   /// How to notify the user of messages.
-  @$pb.TagNumber(9)
-  NotifySettings get notifyMessage => $_getN(8);
-  @$pb.TagNumber(9)
-  set notifyMessage(NotifySettings value) => $_setField(9, value);
-  @$pb.TagNumber(9)
-  $core.bool hasNotifyMessage() => $_has(8);
-  @$pb.TagNumber(9)
-  void clearNotifyMessage() => $_clearField(9);
-  @$pb.TagNumber(9)
-  NotifySettings ensureNotifyMessage() => $_ensure(8);
+  @$pb.TagNumber(8)
+  NotifySettings get notifyMessage => $_getN(7);
+  @$pb.TagNumber(8)
+  set notifyMessage(NotifySettings value) => $_setField(8, value);
+  @$pb.TagNumber(8)
+  $core.bool hasNotifyMessage() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearNotifyMessage() => $_clearField(8);
+  @$pb.TagNumber(8)
+  NotifySettings ensureNotifyMessage() => $_ensure(7);
 
   /// How to notify the user of comments.
-  @$pb.TagNumber(10)
-  NotifySettings get notifyComment => $_getN(9);
-  @$pb.TagNumber(10)
-  set notifyComment(NotifySettings value) => $_setField(10, value);
-  @$pb.TagNumber(10)
-  $core.bool hasNotifyComment() => $_has(9);
-  @$pb.TagNumber(10)
-  void clearNotifyComment() => $_clearField(10);
-  @$pb.TagNumber(10)
-  NotifySettings ensureNotifyComment() => $_ensure(9);
+  @$pb.TagNumber(9)
+  NotifySettings get notifyComment => $_getN(8);
+  @$pb.TagNumber(9)
+  set notifyComment(NotifySettings value) => $_setField(9, value);
+  @$pb.TagNumber(9)
+  $core.bool hasNotifyComment() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearNotifyComment() => $_clearField(9);
+  @$pb.TagNumber(9)
+  NotifySettings ensureNotifyComment() => $_ensure(8);
 }
 
 enum Notification_Notification { invite, message, comment, notSet }

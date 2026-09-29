@@ -683,8 +683,8 @@ final $typed_data.Uint8List userProfileDescriptor = $convert.base64Decode(
 const UserSettings$json = {
   '1': 'UserSettings',
   '2': [
-    {'1': 'allow_invites', '3': 1, '4': 1, '5': 8, '10': 'allowInvites'},
-    {'1': 'reset_algo', '3': 2, '4': 1, '5': 8, '10': 'resetAlgo'},
+    {'1': 'reset_algo_tags', '3': 1, '4': 3, '5': 9, '10': 'resetAlgoTags'},
+    {'1': 'allow_invites', '3': 2, '4': 1, '5': 8, '10': 'allowInvites'},
     {'1': 'algo_like_weight', '3': 3, '4': 1, '5': 2, '10': 'algoLikeWeight'},
     {
       '1': 'algo_dislike_weight',
@@ -701,10 +701,9 @@ const UserSettings$json = {
       '10': 'algoCommentWeight'
     },
     {'1': 'algo_time_decay', '3': 6, '4': 1, '5': 2, '10': 'algoTimeDecay'},
-    {'1': 'algo_tags', '3': 7, '4': 3, '5': 9, '10': 'algoTags'},
     {
       '1': 'notify_invite',
-      '3': 8,
+      '3': 7,
       '4': 1,
       '5': 11,
       '6': '.user.v1.NotifySettings',
@@ -712,7 +711,7 @@ const UserSettings$json = {
     },
     {
       '1': 'notify_message',
-      '3': 9,
+      '3': 8,
       '4': 1,
       '5': 11,
       '6': '.user.v1.NotifySettings',
@@ -720,7 +719,7 @@ const UserSettings$json = {
     },
     {
       '1': 'notify_comment',
-      '3': 10,
+      '3': 9,
       '4': 1,
       '5': 11,
       '6': '.user.v1.NotifySettings',
@@ -731,15 +730,15 @@ const UserSettings$json = {
 
 /// Descriptor for `UserSettings`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List userSettingsDescriptor = $convert.base64Decode(
-    'CgxVc2VyU2V0dGluZ3MSIwoNYWxsb3dfaW52aXRlcxgBIAEoCFIMYWxsb3dJbnZpdGVzEh0KCn'
-    'Jlc2V0X2FsZ28YAiABKAhSCXJlc2V0QWxnbxIoChBhbGdvX2xpa2Vfd2VpZ2h0GAMgASgCUg5h'
-    'bGdvTGlrZVdlaWdodBIuChNhbGdvX2Rpc2xpa2Vfd2VpZ2h0GAQgASgCUhFhbGdvRGlzbGlrZV'
-    'dlaWdodBIuChNhbGdvX2NvbW1lbnRfd2VpZ2h0GAUgASgCUhFhbGdvQ29tbWVudFdlaWdodBIm'
-    'Cg9hbGdvX3RpbWVfZGVjYXkYBiABKAJSDWFsZ29UaW1lRGVjYXkSGwoJYWxnb190YWdzGAcgAy'
-    'gJUghhbGdvVGFncxI8Cg1ub3RpZnlfaW52aXRlGAggASgLMhcudXNlci52MS5Ob3RpZnlTZXR0'
-    'aW5nc1IMbm90aWZ5SW52aXRlEj4KDm5vdGlmeV9tZXNzYWdlGAkgASgLMhcudXNlci52MS5Ob3'
-    'RpZnlTZXR0aW5nc1INbm90aWZ5TWVzc2FnZRI+Cg5ub3RpZnlfY29tbWVudBgKIAEoCzIXLnVz'
-    'ZXIudjEuTm90aWZ5U2V0dGluZ3NSDW5vdGlmeUNvbW1lbnQ=');
+    'CgxVc2VyU2V0dGluZ3MSJgoPcmVzZXRfYWxnb190YWdzGAEgAygJUg1yZXNldEFsZ29UYWdzEi'
+    'MKDWFsbG93X2ludml0ZXMYAiABKAhSDGFsbG93SW52aXRlcxIoChBhbGdvX2xpa2Vfd2VpZ2h0'
+    'GAMgASgCUg5hbGdvTGlrZVdlaWdodBIuChNhbGdvX2Rpc2xpa2Vfd2VpZ2h0GAQgASgCUhFhbG'
+    'dvRGlzbGlrZVdlaWdodBIuChNhbGdvX2NvbW1lbnRfd2VpZ2h0GAUgASgCUhFhbGdvQ29tbWVu'
+    'dFdlaWdodBImCg9hbGdvX3RpbWVfZGVjYXkYBiABKAJSDWFsZ29UaW1lRGVjYXkSPAoNbm90aW'
+    'Z5X2ludml0ZRgHIAEoCzIXLnVzZXIudjEuTm90aWZ5U2V0dGluZ3NSDG5vdGlmeUludml0ZRI+'
+    'Cg5ub3RpZnlfbWVzc2FnZRgIIAEoCzIXLnVzZXIudjEuTm90aWZ5U2V0dGluZ3NSDW5vdGlmeU'
+    '1lc3NhZ2USPgoObm90aWZ5X2NvbW1lbnQYCSABKAsyFy51c2VyLnYxLk5vdGlmeVNldHRpbmdz'
+    'Ug1ub3RpZnlDb21tZW50');
 
 @$core.Deprecated('Use notificationDescriptor instead')
 const Notification$json = {
