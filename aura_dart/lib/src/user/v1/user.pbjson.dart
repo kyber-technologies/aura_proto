@@ -701,30 +701,9 @@ const UserSettings$json = {
       '10': 'algoCommentWeight'
     },
     {'1': 'algo_time_decay', '3': 6, '4': 1, '5': 2, '10': 'algoTimeDecay'},
-    {
-      '1': 'notify_invite',
-      '3': 7,
-      '4': 1,
-      '5': 11,
-      '6': '.user.v1.NotifySettings',
-      '10': 'notifyInvite'
-    },
-    {
-      '1': 'notify_message',
-      '3': 8,
-      '4': 1,
-      '5': 11,
-      '6': '.user.v1.NotifySettings',
-      '10': 'notifyMessage'
-    },
-    {
-      '1': 'notify_comment',
-      '3': 9,
-      '4': 1,
-      '5': 11,
-      '6': '.user.v1.NotifySettings',
-      '10': 'notifyComment'
-    },
+    {'1': 'notify_invite', '3': 7, '4': 1, '5': 8, '10': 'notifyInvite'},
+    {'1': 'notify_message', '3': 8, '4': 1, '5': 8, '10': 'notifyMessage'},
+    {'1': 'notify_comment', '3': 9, '4': 1, '5': 8, '10': 'notifyComment'},
   ],
 };
 
@@ -734,11 +713,9 @@ final $typed_data.Uint8List userSettingsDescriptor = $convert.base64Decode(
     'MKDWFsbG93X2ludml0ZXMYAiABKAhSDGFsbG93SW52aXRlcxIoChBhbGdvX2xpa2Vfd2VpZ2h0'
     'GAMgASgCUg5hbGdvTGlrZVdlaWdodBIuChNhbGdvX2Rpc2xpa2Vfd2VpZ2h0GAQgASgCUhFhbG'
     'dvRGlzbGlrZVdlaWdodBIuChNhbGdvX2NvbW1lbnRfd2VpZ2h0GAUgASgCUhFhbGdvQ29tbWVu'
-    'dFdlaWdodBImCg9hbGdvX3RpbWVfZGVjYXkYBiABKAJSDWFsZ29UaW1lRGVjYXkSPAoNbm90aW'
-    'Z5X2ludml0ZRgHIAEoCzIXLnVzZXIudjEuTm90aWZ5U2V0dGluZ3NSDG5vdGlmeUludml0ZRI+'
-    'Cg5ub3RpZnlfbWVzc2FnZRgIIAEoCzIXLnVzZXIudjEuTm90aWZ5U2V0dGluZ3NSDW5vdGlmeU'
-    '1lc3NhZ2USPgoObm90aWZ5X2NvbW1lbnQYCSABKAsyFy51c2VyLnYxLk5vdGlmeVNldHRpbmdz'
-    'Ug1ub3RpZnlDb21tZW50');
+    'dFdlaWdodBImCg9hbGdvX3RpbWVfZGVjYXkYBiABKAJSDWFsZ29UaW1lRGVjYXkSIwoNbm90aW'
+    'Z5X2ludml0ZRgHIAEoCFIMbm90aWZ5SW52aXRlEiUKDm5vdGlmeV9tZXNzYWdlGAggASgIUg1u'
+    'b3RpZnlNZXNzYWdlEiUKDm5vdGlmeV9jb21tZW50GAkgASgIUg1ub3RpZnlDb21tZW50');
 
 @$core.Deprecated('Use notificationDescriptor instead')
 const Notification$json = {
@@ -848,18 +825,3 @@ const CommentNotification$json = {
 final $typed_data.Uint8List commentNotificationDescriptor = $convert.base64Decode(
     'ChNDb21tZW50Tm90aWZpY2F0aW9uEhcKB3Bvc3RfaWQYASABKAZSBnBvc3RJZBIdCgpjb21tZW'
     '50X2lkGAIgASgGUgljb21tZW50SWQSGwoJc2VuZGVyX2lkGAMgASgJUghzZW5kZXJJZA==');
-
-@$core.Deprecated('Use notifySettingsDescriptor instead')
-const NotifySettings$json = {
-  '1': 'NotifySettings',
-  '2': [
-    {'1': 'in_app', '3': 1, '4': 1, '5': 8, '10': 'inApp'},
-    {'1': 'push', '3': 2, '4': 1, '5': 8, '10': 'push'},
-    {'1': 'email', '3': 3, '4': 1, '5': 8, '10': 'email'},
-  ],
-};
-
-/// Descriptor for `NotifySettings`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List notifySettingsDescriptor = $convert.base64Decode(
-    'Cg5Ob3RpZnlTZXR0aW5ncxIVCgZpbl9hcHAYASABKAhSBWluQXBwEhIKBHB1c2gYAiABKAhSBH'
-    'B1c2gSFAoFZW1haWwYAyABKAhSBWVtYWls');

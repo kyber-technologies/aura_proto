@@ -305,12 +305,12 @@ message UserSettings {
   float algo_comment_weight = 5;
   // The time decay (from 0.0 to 1.0) of posts in the algorithm.
   float algo_time_decay = 6;
-  // How to notify the user of invites.
-  NotifySettings notify_invite = 7;
-  // How to notify the user of messages.
-  NotifySettings notify_message = 8;
-  // How to notify the user of comments.
-  NotifySettings notify_comment = 9;
+  // Whether to notify the user of invites.
+  bool notify_invite = 7;
+  // Whether to notify the user of messages.
+  bool notify_message = 8;
+  // Whether to notify the user of comments.
+  bool notify_comment = 9;
 }
 
 // A user notification.
@@ -358,14 +358,4 @@ message CommentNotification {
   fixed64 comment_id = 2;
   // The sender user ID.
   string sender_id = 3;
-}
-
-// The notification settings for an event.
-message NotifySettings {
-  // Whether to notify in-app.
-  bool in_app = 1;
-  // Whether to notify via push notifications.
-  bool push = 2;
-  // Whether to notify via email.
-  bool email = 3;
 }
