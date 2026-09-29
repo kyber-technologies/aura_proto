@@ -63,15 +63,15 @@ class ConfigResponse extends $pb.GeneratedMessage {
     $core.String? version,
     $core.int? resourceChunkSize,
     $core.int? itemRequestLimit,
+    $core.int? maxUploadSize,
     $core.int? maxChannelSize,
-    $core.int? maxPostSize,
   }) {
     final result = create();
     if (version != null) result.version = version;
     if (resourceChunkSize != null) result.resourceChunkSize = resourceChunkSize;
     if (itemRequestLimit != null) result.itemRequestLimit = itemRequestLimit;
+    if (maxUploadSize != null) result.maxUploadSize = maxUploadSize;
     if (maxChannelSize != null) result.maxChannelSize = maxChannelSize;
-    if (maxPostSize != null) result.maxPostSize = maxPostSize;
     return result;
   }
 
@@ -93,9 +93,9 @@ class ConfigResponse extends $pb.GeneratedMessage {
         fieldType: $pb.PbFieldType.OU3)
     ..aI(3, _omitFieldNames ? '' : 'itemRequestLimit',
         fieldType: $pb.PbFieldType.OU3)
-    ..aI(4, _omitFieldNames ? '' : 'maxChannelSize',
+    ..aI(4, _omitFieldNames ? '' : 'maxUploadSize',
         fieldType: $pb.PbFieldType.OU3)
-    ..aI(5, _omitFieldNames ? '' : 'maxPostSize',
+    ..aI(5, _omitFieldNames ? '' : 'maxChannelSize',
         fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
@@ -148,25 +148,25 @@ class ConfigResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearItemRequestLimit() => $_clearField(3);
 
-  /// The maximum size of all resources of a channel.
+  /// The maximum resource upload size.
   @$pb.TagNumber(4)
-  $core.int get maxChannelSize => $_getIZ(3);
+  $core.int get maxUploadSize => $_getIZ(3);
   @$pb.TagNumber(4)
-  set maxChannelSize($core.int value) => $_setUnsignedInt32(3, value);
+  set maxUploadSize($core.int value) => $_setUnsignedInt32(3, value);
   @$pb.TagNumber(4)
-  $core.bool hasMaxChannelSize() => $_has(3);
+  $core.bool hasMaxUploadSize() => $_has(3);
   @$pb.TagNumber(4)
-  void clearMaxChannelSize() => $_clearField(4);
+  void clearMaxUploadSize() => $_clearField(4);
 
-  /// The maximum size of a post resource.
+  /// The maximum combined resource channel size.
   @$pb.TagNumber(5)
-  $core.int get maxPostSize => $_getIZ(4);
+  $core.int get maxChannelSize => $_getIZ(4);
   @$pb.TagNumber(5)
-  set maxPostSize($core.int value) => $_setUnsignedInt32(4, value);
+  set maxChannelSize($core.int value) => $_setUnsignedInt32(4, value);
   @$pb.TagNumber(5)
-  $core.bool hasMaxPostSize() => $_has(4);
+  $core.bool hasMaxChannelSize() => $_has(4);
   @$pb.TagNumber(5)
-  void clearMaxPostSize() => $_clearField(5);
+  void clearMaxChannelSize() => $_clearField(5);
 }
 
 /// A request to clear the server state.

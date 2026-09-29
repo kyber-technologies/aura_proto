@@ -43,8 +43,8 @@ const ConfigResponse$json = {
       '5': 13,
       '10': 'itemRequestLimit'
     },
-    {'1': 'max_channel_size', '3': 4, '4': 1, '5': 13, '10': 'maxChannelSize'},
-    {'1': 'max_post_size', '3': 5, '4': 1, '5': 13, '10': 'maxPostSize'},
+    {'1': 'max_upload_size', '3': 4, '4': 1, '5': 13, '10': 'maxUploadSize'},
+    {'1': 'max_channel_size', '3': 5, '4': 1, '5': 13, '10': 'maxChannelSize'},
   ],
 };
 
@@ -52,8 +52,8 @@ const ConfigResponse$json = {
 final $typed_data.Uint8List configResponseDescriptor = $convert.base64Decode(
     'Cg5Db25maWdSZXNwb25zZRIYCgd2ZXJzaW9uGAEgASgJUgd2ZXJzaW9uEi4KE3Jlc291cmNlX2'
     'NodW5rX3NpemUYAiABKA1SEXJlc291cmNlQ2h1bmtTaXplEiwKEml0ZW1fcmVxdWVzdF9saW1p'
-    'dBgDIAEoDVIQaXRlbVJlcXVlc3RMaW1pdBIoChBtYXhfY2hhbm5lbF9zaXplGAQgASgNUg5tYX'
-    'hDaGFubmVsU2l6ZRIiCg1tYXhfcG9zdF9zaXplGAUgASgNUgttYXhQb3N0U2l6ZQ==');
+    'dBgDIAEoDVIQaXRlbVJlcXVlc3RMaW1pdBImCg9tYXhfdXBsb2FkX3NpemUYBCABKA1SDW1heF'
+    'VwbG9hZFNpemUSKAoQbWF4X2NoYW5uZWxfc2l6ZRgFIAEoDVIObWF4Q2hhbm5lbFNpemU=');
 
 @$core.Deprecated('Use clearStateRequestDescriptor instead')
 const ClearStateRequest$json = {

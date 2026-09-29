@@ -38,10 +38,10 @@ message ConfigResponse {
   uint32 resource_chunk_size = 2;
   // The maximum amount of items to load in a request.
   uint32 item_request_limit = 3;
-  // The maximum size of all resources of a channel.
-  uint32 max_channel_size = 4;
-  // The maximum size of a post resource.
-  uint32 max_post_size = 5;
+  // The maximum resource upload size.
+  uint32 max_upload_size = 4;
+  // The maximum combined resource channel size.
+  uint32 max_channel_size = 5;
 }
 
 // A request to clear the server state.
