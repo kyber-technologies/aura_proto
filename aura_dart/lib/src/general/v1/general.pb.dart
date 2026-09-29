@@ -63,11 +63,15 @@ class ConfigResponse extends $pb.GeneratedMessage {
     $core.String? version,
     $core.int? resourceChunkSize,
     $core.int? itemRequestLimit,
+    $core.int? maxChannelSize,
+    $core.int? maxPostSize,
   }) {
     final result = create();
     if (version != null) result.version = version;
     if (resourceChunkSize != null) result.resourceChunkSize = resourceChunkSize;
     if (itemRequestLimit != null) result.itemRequestLimit = itemRequestLimit;
+    if (maxChannelSize != null) result.maxChannelSize = maxChannelSize;
+    if (maxPostSize != null) result.maxPostSize = maxPostSize;
     return result;
   }
 
@@ -88,6 +92,10 @@ class ConfigResponse extends $pb.GeneratedMessage {
     ..aI(2, _omitFieldNames ? '' : 'resourceChunkSize',
         fieldType: $pb.PbFieldType.OU3)
     ..aI(3, _omitFieldNames ? '' : 'itemRequestLimit',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(4, _omitFieldNames ? '' : 'maxChannelSize',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(5, _omitFieldNames ? '' : 'maxPostSize',
         fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
@@ -139,6 +147,26 @@ class ConfigResponse extends $pb.GeneratedMessage {
   $core.bool hasItemRequestLimit() => $_has(2);
   @$pb.TagNumber(3)
   void clearItemRequestLimit() => $_clearField(3);
+
+  /// The maximum size of all resources of a channel.
+  @$pb.TagNumber(4)
+  $core.int get maxChannelSize => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set maxChannelSize($core.int value) => $_setUnsignedInt32(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasMaxChannelSize() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearMaxChannelSize() => $_clearField(4);
+
+  /// The maximum size of a post resource.
+  @$pb.TagNumber(5)
+  $core.int get maxPostSize => $_getIZ(4);
+  @$pb.TagNumber(5)
+  set maxPostSize($core.int value) => $_setUnsignedInt32(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasMaxPostSize() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMaxPostSize() => $_clearField(5);
 }
 
 /// A request to clear the server state.

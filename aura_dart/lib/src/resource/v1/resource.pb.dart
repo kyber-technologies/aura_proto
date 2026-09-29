@@ -576,7 +576,7 @@ class ResourceId extends $pb.GeneratedMessage {
   void clearKey() => $_clearField(2);
 }
 
-enum ResourceNamespace_Namespace { aura, userIcon, channel, notSet }
+enum ResourceNamespace_Namespace { aura, userIcon, channel, post, notSet }
 
 /// The resource namespace of a resource ID.
 class ResourceNamespace extends $pb.GeneratedMessage {
@@ -584,11 +584,13 @@ class ResourceNamespace extends $pb.GeneratedMessage {
     $2.Empty? aura,
     $2.Empty? userIcon,
     $core.String? channel,
+    $core.String? post,
   }) {
     final result = create();
     if (aura != null) result.aura = aura;
     if (userIcon != null) result.userIcon = userIcon;
     if (channel != null) result.channel = channel;
+    if (post != null) result.post = post;
     return result;
   }
 
@@ -605,19 +607,21 @@ class ResourceNamespace extends $pb.GeneratedMessage {
       _ResourceNamespace_NamespaceByTag = {
     1: ResourceNamespace_Namespace.aura,
     2: ResourceNamespace_Namespace.userIcon,
-    23: ResourceNamespace_Namespace.channel,
+    3: ResourceNamespace_Namespace.channel,
+    4: ResourceNamespace_Namespace.post,
     0: ResourceNamespace_Namespace.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'ResourceNamespace',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
-    ..oo(0, [1, 2, 23])
+    ..oo(0, [1, 2, 3, 4])
     ..aOM<$2.Empty>(1, _omitFieldNames ? '' : 'aura',
         subBuilder: $2.Empty.create)
     ..aOM<$2.Empty>(2, _omitFieldNames ? '' : 'userIcon',
         subBuilder: $2.Empty.create)
-    ..aOS(23, _omitFieldNames ? '' : 'channel')
+    ..aOS(3, _omitFieldNames ? '' : 'channel')
+    ..aOS(4, _omitFieldNames ? '' : 'post')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -641,12 +645,14 @@ class ResourceNamespace extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   @$pb.TagNumber(2)
-  @$pb.TagNumber(23)
+  @$pb.TagNumber(3)
+  @$pb.TagNumber(4)
   ResourceNamespace_Namespace whichNamespace() =>
       _ResourceNamespace_NamespaceByTag[$_whichOneof(0)]!;
   @$pb.TagNumber(1)
   @$pb.TagNumber(2)
-  @$pb.TagNumber(23)
+  @$pb.TagNumber(3)
+  @$pb.TagNumber(4)
   void clearNamespace() => $_clearField($_whichOneof(0));
 
   /// The namespace is the built-in aura namespace.
@@ -674,14 +680,24 @@ class ResourceNamespace extends $pb.GeneratedMessage {
   $2.Empty ensureUserIcon() => $_ensure(1);
 
   /// The namespace is a channel.
-  @$pb.TagNumber(23)
+  @$pb.TagNumber(3)
   $core.String get channel => $_getSZ(2);
-  @$pb.TagNumber(23)
+  @$pb.TagNumber(3)
   set channel($core.String value) => $_setString(2, value);
-  @$pb.TagNumber(23)
+  @$pb.TagNumber(3)
   $core.bool hasChannel() => $_has(2);
-  @$pb.TagNumber(23)
-  void clearChannel() => $_clearField(23);
+  @$pb.TagNumber(3)
+  void clearChannel() => $_clearField(3);
+
+  /// The namespace is a post.
+  @$pb.TagNumber(4)
+  $core.String get post => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set post($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasPost() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearPost() => $_clearField(4);
 }
 
 /// The metadata for a resource.

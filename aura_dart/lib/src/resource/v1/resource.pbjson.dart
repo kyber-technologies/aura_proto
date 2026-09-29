@@ -235,7 +235,8 @@ const ResourceNamespace$json = {
       '9': 0,
       '10': 'userIcon'
     },
-    {'1': 'channel', '3': 23, '4': 1, '5': 9, '9': 0, '10': 'channel'},
+    {'1': 'channel', '3': 3, '4': 1, '5': 9, '9': 0, '10': 'channel'},
+    {'1': 'post', '3': 4, '4': 1, '5': 9, '9': 0, '10': 'post'},
   ],
   '8': [
     {'1': 'namespace'},
@@ -246,7 +247,8 @@ const ResourceNamespace$json = {
 final $typed_data.Uint8List resourceNamespaceDescriptor = $convert.base64Decode(
     'ChFSZXNvdXJjZU5hbWVzcGFjZRIsCgRhdXJhGAEgASgLMhYuZ29vZ2xlLnByb3RvYnVmLkVtcH'
     'R5SABSBGF1cmESNQoJdXNlcl9pY29uGAIgASgLMhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5SABS'
-    'CHVzZXJJY29uEhoKB2NoYW5uZWwYFyABKAlIAFIHY2hhbm5lbEILCgluYW1lc3BhY2U=');
+    'CHVzZXJJY29uEhoKB2NoYW5uZWwYAyABKAlIAFIHY2hhbm5lbBIUCgRwb3N0GAQgASgJSABSBH'
+    'Bvc3RCCwoJbmFtZXNwYWNl');
 
 @$core.Deprecated('Use resourceMetaDescriptor instead')
 const ResourceMeta$json = {
