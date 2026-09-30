@@ -176,6 +176,8 @@ message Post {
   map<string, uint32> reactions = 6;
   // The reaction of the current user to this post.
   PostReaction reaction = 7;
+  // The IDs of the comments on this post.
+  repeated fixed64 comments = 8;
 }
 
 // A reaction to a post from a user.

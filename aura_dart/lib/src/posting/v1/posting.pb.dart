@@ -1006,6 +1006,7 @@ class Post extends $pb.GeneratedMessage {
     $fixnum.Int64? parent,
     $core.Iterable<$core.MapEntry<$core.String, $core.int>>? reactions,
     PostReaction? reaction,
+    $core.Iterable<$fixnum.Int64>? comments,
   }) {
     final result = create();
     if (postId != null) result.postId = postId;
@@ -1015,6 +1016,7 @@ class Post extends $pb.GeneratedMessage {
     if (parent != null) result.parent = parent;
     if (reactions != null) result.reactions.addEntries(reactions);
     if (reaction != null) result.reaction = reaction;
+    if (comments != null) result.comments.addAll(comments);
     return result;
   }
 
@@ -1047,6 +1049,8 @@ class Post extends $pb.GeneratedMessage {
         packageName: const $pb.PackageName('posting.v1'))
     ..aE<PostReaction>(7, _omitFieldNames ? '' : 'reaction',
         enumValues: PostReaction.values)
+    ..p<$fixnum.Int64>(
+        8, _omitFieldNames ? '' : 'comments', $pb.PbFieldType.KF6)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1138,6 +1142,10 @@ class Post extends $pb.GeneratedMessage {
   $core.bool hasReaction() => $_has(6);
   @$pb.TagNumber(7)
   void clearReaction() => $_clearField(7);
+
+  /// The IDs of the comments on this post.
+  @$pb.TagNumber(8)
+  $pb.PbList<$fixnum.Int64> get comments => $_getList(7);
 }
 
 const $core.bool _omitFieldNames =

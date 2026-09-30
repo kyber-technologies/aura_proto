@@ -426,6 +426,7 @@ const Post$json = {
       '6': '.posting.v1.PostReaction',
       '10': 'reaction'
     },
+    {'1': 'comments', '3': 8, '4': 3, '5': 6, '10': 'comments'},
   ],
   '3': [Post_ReactionsEntry$json],
   '8': [
@@ -450,5 +451,6 @@ final $typed_data.Uint8List postDescriptor = $convert.base64Decode(
     'CXRpbWVzdGFtcBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCXRpbWVzdGFtcB'
     'IbCgZwYXJlbnQYBSABKAZIAFIGcGFyZW50iAEBEj0KCXJlYWN0aW9ucxgGIAMoCzIfLnBvc3Rp'
     'bmcudjEuUG9zdC5SZWFjdGlvbnNFbnRyeVIJcmVhY3Rpb25zEjQKCHJlYWN0aW9uGAcgASgOMh'
-    'gucG9zdGluZy52MS5Qb3N0UmVhY3Rpb25SCHJlYWN0aW9uGjwKDlJlYWN0aW9uc0VudHJ5EhAK'
-    'A2tleRgBIAEoCVIDa2V5EhQKBXZhbHVlGAIgASgNUgV2YWx1ZToCOAFCCQoHX3BhcmVudA==');
+    'gucG9zdGluZy52MS5Qb3N0UmVhY3Rpb25SCHJlYWN0aW9uEhoKCGNvbW1lbnRzGAggAygGUghj'
+    'b21tZW50cxo8Cg5SZWFjdGlvbnNFbnRyeRIQCgNrZXkYASABKAlSA2tleRIUCgV2YWx1ZRgCIA'
+    'EoDVIFdmFsdWU6AjgBQgkKB19wYXJlbnQ=');
