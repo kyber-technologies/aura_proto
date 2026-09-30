@@ -51,6 +51,10 @@ class ErrorCode extends $pb.ProtobufEnum {
   static const ErrorCode ERROR_CODE_UNWANTED =
       ErrorCode._(7, _omitEnumNames ? '' : 'ERROR_CODE_UNWANTED');
 
+  /// The request was rate limited.
+  static const ErrorCode ERROR_CODE_RATE_LIMIT =
+      ErrorCode._(8, _omitEnumNames ? '' : 'ERROR_CODE_RATE_LIMIT');
+
   static const $core.List<ErrorCode> values = <ErrorCode>[
     ERROR_CODE_UNSPECIFIED,
     ERROR_CODE_INTERNAL,
@@ -60,10 +64,11 @@ class ErrorCode extends $pb.ProtobufEnum {
     ERROR_CODE_INVALID_FORMAT,
     ERROR_CODE_RESTRICTED,
     ERROR_CODE_UNWANTED,
+    ERROR_CODE_RATE_LIMIT,
   ];
 
   static final $core.List<ErrorCode?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 7);
+      $pb.ProtobufEnum.$_initByValueList(values, 8);
   static ErrorCode? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 

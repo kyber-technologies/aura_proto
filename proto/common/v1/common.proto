@@ -39,4 +39,6 @@ enum ErrorCode {
   ERROR_CODE_RESTRICTED = 6;
   // The requested resource is unwanted by the user.
   ERROR_CODE_UNWANTED = 7;
+  // The request was rate limited.
+  ERROR_CODE_RATE_LIMIT = 8;
 }
