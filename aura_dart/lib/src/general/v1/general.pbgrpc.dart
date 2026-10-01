@@ -41,6 +41,16 @@ class GeneralServiceClient extends $grpc.Client {
     return $createUnaryCall(_$config, request, options: options);
   }
 
+  /// Get the server status.
+  ///
+  /// Returns additional data when requested by an admin.
+  $grpc.ResponseFuture<$0.StatusResponse> status(
+    $0.StatusRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$status, request, options: options);
+  }
+
   /// Clear the server state for a new test.
   ///
   /// Only available in testing mode.
@@ -71,6 +81,9 @@ class GeneralServiceClient extends $grpc.Client {
     return $createUnaryCall(_$services, request, options: options);
   }
 
+  /// Get test users.
+  ///
+  /// Only available in testing mode.
   $grpc.ResponseFuture<$0.TestUsersResponse> testUsers(
     $0.TestUsersRequest request, {
     $grpc.CallOptions? options,
@@ -85,6 +98,11 @@ class GeneralServiceClient extends $grpc.Client {
           '/general.v1.GeneralService/Config',
           ($0.ConfigRequest value) => value.writeToBuffer(),
           $0.ConfigResponse.fromBuffer);
+  static final _$status =
+      $grpc.ClientMethod<$0.StatusRequest, $0.StatusResponse>(
+          '/general.v1.GeneralService/Status',
+          ($0.StatusRequest value) => value.writeToBuffer(),
+          $0.StatusResponse.fromBuffer);
   static final _$clearState =
       $grpc.ClientMethod<$0.ClearStateRequest, $0.ClearStateResponse>(
           '/general.v1.GeneralService/ClearState',
@@ -119,6 +137,13 @@ abstract class GeneralServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.ConfigRequest.fromBuffer(value),
         ($0.ConfigResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.StatusRequest, $0.StatusResponse>(
+        'Status',
+        status_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.StatusRequest.fromBuffer(value),
+        ($0.StatusResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.ClearStateRequest, $0.ClearStateResponse>(
         'ClearState',
         clearState_Pre,
@@ -156,6 +181,14 @@ abstract class GeneralServiceBase extends $grpc.Service {
 
   $async.Future<$0.ConfigResponse> config(
       $grpc.ServiceCall call, $0.ConfigRequest request);
+
+  $async.Future<$0.StatusResponse> status_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.StatusRequest> $request) async {
+    return status($call, await $request);
+  }
+
+  $async.Future<$0.StatusResponse> status(
+      $grpc.ServiceCall call, $0.StatusRequest request);
 
   $async.Future<$0.ClearStateResponse> clearState_Pre($grpc.ServiceCall $call,
       $async.Future<$0.ClearStateRequest> $request) async {

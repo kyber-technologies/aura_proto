@@ -14,7 +14,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../user/v1/user.pb.dart' as $1;
+import '../../common/v1/common.pb.dart' as $1;
+import '../../user/v1/user.pb.dart' as $2;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
@@ -167,6 +168,128 @@ class ConfigResponse extends $pb.GeneratedMessage {
   $core.bool hasMaxChannelSize() => $_has(4);
   @$pb.TagNumber(5)
   void clearMaxChannelSize() => $_clearField(5);
+}
+
+/// A request to get server status.
+class StatusRequest extends $pb.GeneratedMessage {
+  factory StatusRequest() => create();
+
+  StatusRequest._();
+
+  factory StatusRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory StatusRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'StatusRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'general.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  StatusRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  StatusRequest copyWith(void Function(StatusRequest) updates) =>
+      super.copyWith((message) => updates(message as StatusRequest))
+          as StatusRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static StatusRequest create() => StatusRequest._();
+  @$core.override
+  StatusRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static StatusRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<StatusRequest>(create);
+  static StatusRequest? _defaultInstance;
+}
+
+/// A response from a status request.
+class StatusResponse extends $pb.GeneratedMessage {
+  factory StatusResponse({
+    $core.Iterable<$core.MapEntry<$core.String, $core.String>>? details,
+    $core.bool? testing,
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (details != null) result.details.addEntries(details);
+    if (testing != null) result.testing = testing;
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  StatusResponse._();
+
+  factory StatusResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory StatusResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'StatusResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'general.v1'),
+      createEmptyInstance: create)
+    ..m<$core.String, $core.String>(1, _omitFieldNames ? '' : 'details',
+        entryClassName: 'StatusResponse.DetailsEntry',
+        keyFieldType: $pb.PbFieldType.OS,
+        valueFieldType: $pb.PbFieldType.OS,
+        packageName: const $pb.PackageName('general.v1'))
+    ..aOB(2, _omitFieldNames ? '' : 'testing')
+    ..aOM<$1.Error>(3, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  StatusResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  StatusResponse copyWith(void Function(StatusResponse) updates) =>
+      super.copyWith((message) => updates(message as StatusResponse))
+          as StatusResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static StatusResponse create() => StatusResponse._();
+  @$core.override
+  StatusResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static StatusResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<StatusResponse>(create);
+  static StatusResponse? _defaultInstance;
+
+  /// A map of status details.
+  @$pb.TagNumber(1)
+  $pb.PbMap<$core.String, $core.String> get details => $_getMap(0);
+
+  /// True if the server is in testing mode.
+  @$pb.TagNumber(2)
+  $core.bool get testing => $_getBF(1);
+  @$pb.TagNumber(2)
+  set testing($core.bool value) => $_setBool(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasTesting() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearTesting() => $_clearField(2);
+
+  /// The error, if any.
+  @$pb.TagNumber(3)
+  $1.Error get error => $_getN(2);
+  @$pb.TagNumber(3)
+  set error($1.Error value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasError() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearError() => $_clearField(3);
+  @$pb.TagNumber(3)
+  $1.Error ensureError() => $_ensure(2);
 }
 
 /// A request to clear the server state.
@@ -507,9 +630,9 @@ class TestUsersRequest extends $pb.GeneratedMessage {
 /// Only available in testing mode.
 class TestUsersResponse extends $pb.GeneratedMessage {
   factory TestUsersResponse({
-    $1.User? user,
-    $1.User? moderator,
-    $1.User? admin,
+    $2.User? user,
+    $2.User? moderator,
+    $2.User? admin,
   }) {
     final result = create();
     if (user != null) result.user = user;
@@ -531,11 +654,11 @@ class TestUsersResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'TestUsersResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'general.v1'),
       createEmptyInstance: create)
-    ..aOM<$1.User>(1, _omitFieldNames ? '' : 'user', subBuilder: $1.User.create)
-    ..aOM<$1.User>(2, _omitFieldNames ? '' : 'moderator',
-        subBuilder: $1.User.create)
-    ..aOM<$1.User>(3, _omitFieldNames ? '' : 'admin',
-        subBuilder: $1.User.create)
+    ..aOM<$2.User>(1, _omitFieldNames ? '' : 'user', subBuilder: $2.User.create)
+    ..aOM<$2.User>(2, _omitFieldNames ? '' : 'moderator',
+        subBuilder: $2.User.create)
+    ..aOM<$2.User>(3, _omitFieldNames ? '' : 'admin',
+        subBuilder: $2.User.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -559,39 +682,39 @@ class TestUsersResponse extends $pb.GeneratedMessage {
 
   /// A normal test user.
   @$pb.TagNumber(1)
-  $1.User get user => $_getN(0);
+  $2.User get user => $_getN(0);
   @$pb.TagNumber(1)
-  set user($1.User value) => $_setField(1, value);
+  set user($2.User value) => $_setField(1, value);
   @$pb.TagNumber(1)
   $core.bool hasUser() => $_has(0);
   @$pb.TagNumber(1)
   void clearUser() => $_clearField(1);
   @$pb.TagNumber(1)
-  $1.User ensureUser() => $_ensure(0);
+  $2.User ensureUser() => $_ensure(0);
 
   /// A moderator test user.
   @$pb.TagNumber(2)
-  $1.User get moderator => $_getN(1);
+  $2.User get moderator => $_getN(1);
   @$pb.TagNumber(2)
-  set moderator($1.User value) => $_setField(2, value);
+  set moderator($2.User value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasModerator() => $_has(1);
   @$pb.TagNumber(2)
   void clearModerator() => $_clearField(2);
   @$pb.TagNumber(2)
-  $1.User ensureModerator() => $_ensure(1);
+  $2.User ensureModerator() => $_ensure(1);
 
   /// An admin test user.
   @$pb.TagNumber(3)
-  $1.User get admin => $_getN(2);
+  $2.User get admin => $_getN(2);
   @$pb.TagNumber(3)
-  set admin($1.User value) => $_setField(3, value);
+  set admin($2.User value) => $_setField(3, value);
   @$pb.TagNumber(3)
   $core.bool hasAdmin() => $_has(2);
   @$pb.TagNumber(3)
   void clearAdmin() => $_clearField(3);
   @$pb.TagNumber(3)
-  $1.User ensureAdmin() => $_ensure(2);
+  $2.User ensureAdmin() => $_ensure(2);
 }
 
 /// A descriptor for a service.

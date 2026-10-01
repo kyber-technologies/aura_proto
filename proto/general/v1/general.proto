@@ -2,11 +2,17 @@ syntax = "proto3";
 
 package general.v1;
 import "user/v1/user.proto";
+import "common/v1/common.proto";
 
 // Service for general server mechanics.
 service GeneralService {
   // Get the server configuration.
   rpc Config(ConfigRequest) returns (ConfigResponse);
+
+  // Get the server status.
+  //
+  // Returns additional data when requested by an admin.
+  rpc Status(StatusRequest) returns (StatusResponse);
 
   // Clear the server state for a new test.
   //
@@ -23,6 +29,9 @@ service GeneralService {
   // Only available in testing mode.
   rpc Services(ServicesRequest) returns (ServicesResponse);
 
+  // Get test users.
+  //
+  // Only available in testing mode.
   rpc TestUsers(TestUsersRequest) returns (TestUsersResponse);
 }
 
@@ -42,6 +51,20 @@ message ConfigResponse {
   uint32 max_upload_size = 4;
   // The maximum combined resource channel size.
   uint32 max_channel_size = 5;
+}
+
+// A request to get server status.
+message StatusRequest {
+}
+
+// A response from a status request.
+message StatusResponse {
+  // A map of status details.
+  map<string, string> details = 1;
+  // True if the server is in testing mode.
+  bool testing = 2;
+  // The error, if any.
+  optional common.v1.Error error = 3;
 }
 
 // A request to clear the server state.

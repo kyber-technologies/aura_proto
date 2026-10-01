@@ -55,6 +55,63 @@ final $typed_data.Uint8List configResponseDescriptor = $convert.base64Decode(
     'dBgDIAEoDVIQaXRlbVJlcXVlc3RMaW1pdBImCg9tYXhfdXBsb2FkX3NpemUYBCABKA1SDW1heF'
     'VwbG9hZFNpemUSKAoQbWF4X2NoYW5uZWxfc2l6ZRgFIAEoDVIObWF4Q2hhbm5lbFNpemU=');
 
+@$core.Deprecated('Use statusRequestDescriptor instead')
+const StatusRequest$json = {
+  '1': 'StatusRequest',
+};
+
+/// Descriptor for `StatusRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List statusRequestDescriptor =
+    $convert.base64Decode('Cg1TdGF0dXNSZXF1ZXN0');
+
+@$core.Deprecated('Use statusResponseDescriptor instead')
+const StatusResponse$json = {
+  '1': 'StatusResponse',
+  '2': [
+    {
+      '1': 'details',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.general.v1.StatusResponse.DetailsEntry',
+      '10': 'details'
+    },
+    {'1': 'testing', '3': 2, '4': 1, '5': 8, '10': 'testing'},
+    {
+      '1': 'error',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error',
+      '17': true
+    },
+  ],
+  '3': [StatusResponse_DetailsEntry$json],
+  '8': [
+    {'1': '_error'},
+  ],
+};
+
+@$core.Deprecated('Use statusResponseDescriptor instead')
+const StatusResponse_DetailsEntry$json = {
+  '1': 'DetailsEntry',
+  '2': [
+    {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
+    {'1': 'value', '3': 2, '4': 1, '5': 9, '10': 'value'},
+  ],
+  '7': {'7': true},
+};
+
+/// Descriptor for `StatusResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List statusResponseDescriptor = $convert.base64Decode(
+    'Cg5TdGF0dXNSZXNwb25zZRJBCgdkZXRhaWxzGAEgAygLMicuZ2VuZXJhbC52MS5TdGF0dXNSZX'
+    'Nwb25zZS5EZXRhaWxzRW50cnlSB2RldGFpbHMSGAoHdGVzdGluZxgCIAEoCFIHdGVzdGluZxIr'
+    'CgVlcnJvchgDIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcnJvcogBARo6CgxEZXRhaWxzRW'
+    '50cnkSEAoDa2V5GAEgASgJUgNrZXkSFAoFdmFsdWUYAiABKAlSBXZhbHVlOgI4AUIICgZfZXJy'
+    'b3I=');
+
 @$core.Deprecated('Use clearStateRequestDescriptor instead')
 const ClearStateRequest$json = {
   '1': 'ClearStateRequest',
