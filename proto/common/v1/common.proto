@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/duration.proto";
+
 package common.v1;
 
 // A JWT token claim.
@@ -12,33 +14,67 @@ message Auth {
 
 // Message represents an error that occurred during a request.
 message Error {
-  // The error code.
-  ErrorCode code = 1;
   // The error message.
-  string message = 2;
+  string message = 1;
+  // The internal error type.
+  oneof type {
+    // An internal error occurred.
+    InternalError internal = 2;
+    // The client is not authorized to perform this action.
+    //
+    // Unlike `RestrictedError`, this error is caused by authentication failure.
+    UnauthorizedError unauthorized = 3;
+    // The requested item was not found.
+    NotFoundError not_found = 4;
+    // The requested item already exists.
+    AlreadyExistsError already_exists = 5;
+    // The request format was invalid.
+    InvalidFormatError invalid_format = 6;
+    // The user is not permitted to perform this action.
+    //
+    // Unlike `UnauthorizedError`, this error is caused by policy violation or permission restrictions.
+    RestrictedError restricted = 7;
+    // The requested resource is unwanted by the user.
+    UnwantedError unwanted = 8;
+    // The client got rate limited.
+    RateLimitError rate_limit = 9;
+  }
 }
 
-// The code of an error.
-enum ErrorCode {
-  // The error code is unspecified/unknown. Should not be used.
-  ERROR_CODE_UNSPECIFIED = 0;
-  // Internal Error.
-  ERROR_CODE_INTERNAL = 1;
-  // Indicates the request was unauthorized.
-  ERROR_CODE_UNAUTHORIZED = 2;
-  // Indicates the requested item was not found.
-  ERROR_CODE_NOT_FOUND = 3;
-  // Indicates the requested item already exists.
-  ERROR_CODE_ALREADY_EXISTS = 4;
-  // Indicates the request format was invalid.
-  ERROR_CODE_INVALID_FORMAT = 5;
-  // Indicates the user is not allowed to perform this action.
-  //
-  // Unlike `ERROR_CODE_UNAUTHORIZED`,
-  // this error is caused by policy violation or permission restrictions.
-  ERROR_CODE_RESTRICTED = 6;
-  // The requested resource is unwanted by the user.
-  ERROR_CODE_UNWANTED = 7;
-  // The request was rate limited.
-  ERROR_CODE_RATE_LIMIT = 8;
+// An internal error occurred.
+message InternalError {
+}
+
+// The client is not authorized to perform this action.
+//
+// Unlike `RestrictedError`, this error is caused by authentication failure.
+message UnauthorizedError {
+}
+
+// The requested item was not found.
+message NotFoundError {
+}
+
+// The requested item already exists.
+message AlreadyExistsError {
+}
+
+// The request format was invalid.
+message InvalidFormatError {
+}
+
+// The user is not permitted to perform this action.
+//
+// Unlike `UnauthorizedError`, this error is caused by policy violation or permission restrictions.
+message RestrictedError {
+}
+
+// The requested resource is unwanted by the user.
+message UnwantedError {
+}
+
+// The client got rate limited.
+message RateLimitError {
+  // The duration to wait before retrying.
+  google.protobuf.Duration try_again_in = 1;
 }
