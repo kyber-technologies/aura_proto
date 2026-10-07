@@ -573,7 +573,7 @@ const User$json = {
     {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
     {'1': 'username', '3': 2, '4': 1, '5': 9, '10': 'username'},
     {'1': 'email', '3': 3, '4': 1, '5': 9, '10': 'email'},
-    {'1': 'about', '3': 4, '4': 1, '5': 9, '9': 0, '10': 'about', '17': true},
+    {'1': 'about', '3': 4, '4': 1, '5': 9, '10': 'about'},
     {'1': 'password', '3': 5, '4': 1, '5': 9, '10': 'password'},
     {
       '1': 'role',
@@ -626,23 +626,19 @@ const User$json = {
       '10': 'settings'
     },
   ],
-  '8': [
-    {'1': '_about'},
-  ],
 };
 
 /// Descriptor for `User`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List userDescriptor = $convert.base64Decode(
     'CgRVc2VyEhcKB3VzZXJfaWQYASABKAlSBnVzZXJJZBIaCgh1c2VybmFtZRgCIAEoCVIIdXNlcm'
-    '5hbWUSFAoFZW1haWwYAyABKAlSBWVtYWlsEhkKBWFib3V0GAQgASgJSABSBWFib3V0iAEBEhoK'
-    'CHBhc3N3b3JkGAUgASgJUghwYXNzd29yZBIlCgRyb2xlGAYgASgOMhEudXNlci52MS5Vc2VyUm'
-    '9sZVIEcm9sZRI5CgpjcmVhdGVkX2F0GAcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFt'
-    'cFIJY3JlYXRlZEF0EisKBGljb24YCCABKAsyFy5yZXNvdXJjZS52MS5SZXNvdXJjZUlkUgRpY2'
-    '9uEjsKDW5vdGlmaWNhdGlvbnMYCSADKAsyFS51c2VyLnYxLk5vdGlmaWNhdGlvblINbm90aWZp'
-    'Y2F0aW9ucxIsCghjaGFubmVscxgKIAMoCzIQLmNoYXQudjEuQ2hhbm5lbFIIY2hhbm5lbHMSHA'
-    'oJZm9sbG93ZXJzGAsgAygJUglmb2xsb3dlcnMSHAoJZm9sbG93aW5nGAwgAygJUglmb2xsb3dp'
-    'bmcSMQoIc2V0dGluZ3MYDSABKAsyFS51c2VyLnYxLlVzZXJTZXR0aW5nc1IIc2V0dGluZ3NCCA'
-    'oGX2Fib3V0');
+    '5hbWUSFAoFZW1haWwYAyABKAlSBWVtYWlsEhQKBWFib3V0GAQgASgJUgVhYm91dBIaCghwYXNz'
+    'd29yZBgFIAEoCVIIcGFzc3dvcmQSJQoEcm9sZRgGIAEoDjIRLnVzZXIudjEuVXNlclJvbGVSBH'
+    'JvbGUSOQoKY3JlYXRlZF9hdBgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNy'
+    'ZWF0ZWRBdBIrCgRpY29uGAggASgLMhcucmVzb3VyY2UudjEuUmVzb3VyY2VJZFIEaWNvbhI7Cg'
+    '1ub3RpZmljYXRpb25zGAkgAygLMhUudXNlci52MS5Ob3RpZmljYXRpb25SDW5vdGlmaWNhdGlv'
+    'bnMSLAoIY2hhbm5lbHMYCiADKAsyEC5jaGF0LnYxLkNoYW5uZWxSCGNoYW5uZWxzEhwKCWZvbG'
+    'xvd2VycxgLIAMoCVIJZm9sbG93ZXJzEhwKCWZvbGxvd2luZxgMIAMoCVIJZm9sbG93aW5nEjEK'
+    'CHNldHRpbmdzGA0gASgLMhUudXNlci52MS5Vc2VyU2V0dGluZ3NSCHNldHRpbmdz');
 
 @$core.Deprecated('Use userProfileDescriptor instead')
 const UserProfile$json = {
@@ -650,7 +646,7 @@ const UserProfile$json = {
   '2': [
     {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
     {'1': 'username', '3': 2, '4': 1, '5': 9, '10': 'username'},
-    {'1': 'about', '3': 3, '4': 1, '5': 9, '9': 0, '10': 'about', '17': true},
+    {'1': 'about', '3': 3, '4': 1, '5': 9, '10': 'about'},
     {
       '1': 'role',
       '3': 4,
@@ -678,19 +674,16 @@ const UserProfile$json = {
     {'1': 'followers', '3': 7, '4': 1, '5': 13, '10': 'followers'},
     {'1': 'following', '3': 8, '4': 1, '5': 13, '10': 'following'},
   ],
-  '8': [
-    {'1': '_about'},
-  ],
 };
 
 /// Descriptor for `UserProfile`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List userProfileDescriptor = $convert.base64Decode(
     'CgtVc2VyUHJvZmlsZRIXCgd1c2VyX2lkGAEgASgJUgZ1c2VySWQSGgoIdXNlcm5hbWUYAiABKA'
-    'lSCHVzZXJuYW1lEhkKBWFib3V0GAMgASgJSABSBWFib3V0iAEBEiUKBHJvbGUYBCABKA4yES51'
-    'c2VyLnYxLlVzZXJSb2xlUgRyb2xlEjkKCmNyZWF0ZWRfYXQYBSABKAsyGi5nb29nbGUucHJvdG'
-    '9idWYuVGltZXN0YW1wUgljcmVhdGVkQXQSKwoEaWNvbhgGIAEoCzIXLnJlc291cmNlLnYxLlJl'
-    'c291cmNlSWRSBGljb24SHAoJZm9sbG93ZXJzGAcgASgNUglmb2xsb3dlcnMSHAoJZm9sbG93aW'
-    '5nGAggASgNUglmb2xsb3dpbmdCCAoGX2Fib3V0');
+    'lSCHVzZXJuYW1lEhQKBWFib3V0GAMgASgJUgVhYm91dBIlCgRyb2xlGAQgASgOMhEudXNlci52'
+    'MS5Vc2VyUm9sZVIEcm9sZRI5CgpjcmVhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLl'
+    'RpbWVzdGFtcFIJY3JlYXRlZEF0EisKBGljb24YBiABKAsyFy5yZXNvdXJjZS52MS5SZXNvdXJj'
+    'ZUlkUgRpY29uEhwKCWZvbGxvd2VycxgHIAEoDVIJZm9sbG93ZXJzEhwKCWZvbGxvd2luZxgIIA'
+    'EoDVIJZm9sbG93aW5n');
 
 @$core.Deprecated('Use userSettingsDescriptor instead')
 const UserSettings$json = {
