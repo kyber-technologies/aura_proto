@@ -240,7 +240,7 @@ message User {
   // Email of the user.
   string email = 3;
   // About the user
-  optional string about = 4;
+  string about = 4;
   // Password of the user.
   //
   // When used in an RPC response, the password **must** be empty.
@@ -272,7 +272,7 @@ message UserProfile {
   // Username of the user.
   string username = 2;
   // About the user
-  optional string about = 3;
+  string about = 3;
   // Role of the user.
   UserRole role = 4;
   // Timestamp when the user was created.
