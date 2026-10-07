@@ -139,10 +139,12 @@ message UpdateRequest {
   optional string username = 2;
   // Email of the user.
   optional string email = 3;
+  // About the user
+  optional string about = 4;
   // Password of the user.
-  optional string password = 4;
+  optional string password = 5;
   // User settings.
-  optional UserSettings settings = 5;
+  optional UserSettings settings = 6;
 }
 
 // Response message for updating a user.
@@ -237,26 +239,28 @@ message User {
   string username = 2;
   // Email of the user.
   string email = 3;
+  // About the user
+  optional string about = 4;
   // Password of the user.
   //
   // When used in an RPC response, the password **must** be empty.
-  string password = 4;
+  string password = 5;
   // Role of the user.
-  UserRole role = 5;
+  UserRole role = 6;
   // Timestamp when the user was created.
-  google.protobuf.Timestamp created_at = 6;
+  google.protobuf.Timestamp created_at = 7;
   // Icon/Avatar of the user.
-  resource.v1.ResourceId icon = 7;
+  resource.v1.ResourceId icon = 8;
   // Notifications of the user.
-  repeated Notification notifications = 8;
+  repeated Notification notifications = 9;
   // Channels the User is in
-  repeated chat.v1.Channel channels = 9;
+  repeated chat.v1.Channel channels = 10;
   // The followers of the user.
-  repeated string followers = 10;
+  repeated string followers = 11;
   // The users the user is following.
-  repeated string following = 11;
+  repeated string following = 12;
   // The user settings.
-  UserSettings settings = 12;
+  UserSettings settings = 13;
 }
 
 // User profile.
@@ -267,16 +271,18 @@ message UserProfile {
   string user_id = 1;
   // Username of the user.
   string username = 2;
+  // About the user
+  optional string about = 3;
   // Role of the user.
-  UserRole role = 3;
+  UserRole role = 4;
   // Timestamp when the user was created.
-  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp created_at = 5;
   // Icon/Avatar of the user.
-  resource.v1.ResourceId icon = 5;
+  resource.v1.ResourceId icon = 6;
   // The number of followers the user has.
-  uint32 followers = 6;
+  uint32 followers = 7;
   // The number of users the user is following.
-  uint32 following = 7;
+  uint32 following = 8;
 }
 
 // Role of the user.

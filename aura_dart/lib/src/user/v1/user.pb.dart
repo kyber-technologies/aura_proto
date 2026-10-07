@@ -715,12 +715,14 @@ class UpdateRequest extends $pb.GeneratedMessage {
   factory UpdateRequest({
     $core.String? username,
     $core.String? email,
+    $core.String? about,
     $core.String? password,
     UserSettings? settings,
   }) {
     final result = create();
     if (username != null) result.username = username;
     if (email != null) result.email = email;
+    if (about != null) result.about = about;
     if (password != null) result.password = password;
     if (settings != null) result.settings = settings;
     return result;
@@ -741,8 +743,9 @@ class UpdateRequest extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(2, _omitFieldNames ? '' : 'username')
     ..aOS(3, _omitFieldNames ? '' : 'email')
-    ..aOS(4, _omitFieldNames ? '' : 'password')
-    ..aOM<UserSettings>(5, _omitFieldNames ? '' : 'settings',
+    ..aOS(4, _omitFieldNames ? '' : 'about')
+    ..aOS(5, _omitFieldNames ? '' : 'password')
+    ..aOM<UserSettings>(6, _omitFieldNames ? '' : 'settings',
         subBuilder: UserSettings.create)
     ..hasRequiredFields = false;
 
@@ -785,27 +788,37 @@ class UpdateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearEmail() => $_clearField(3);
 
+  /// About the user
+  @$pb.TagNumber(4)
+  $core.String get about => $_getSZ(2);
+  @$pb.TagNumber(4)
+  set about($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(4)
+  $core.bool hasAbout() => $_has(2);
+  @$pb.TagNumber(4)
+  void clearAbout() => $_clearField(4);
+
   /// Password of the user.
-  @$pb.TagNumber(4)
-  $core.String get password => $_getSZ(2);
-  @$pb.TagNumber(4)
-  set password($core.String value) => $_setString(2, value);
-  @$pb.TagNumber(4)
-  $core.bool hasPassword() => $_has(2);
-  @$pb.TagNumber(4)
-  void clearPassword() => $_clearField(4);
+  @$pb.TagNumber(5)
+  $core.String get password => $_getSZ(3);
+  @$pb.TagNumber(5)
+  set password($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(5)
+  $core.bool hasPassword() => $_has(3);
+  @$pb.TagNumber(5)
+  void clearPassword() => $_clearField(5);
 
   /// User settings.
-  @$pb.TagNumber(5)
-  UserSettings get settings => $_getN(3);
-  @$pb.TagNumber(5)
-  set settings(UserSettings value) => $_setField(5, value);
-  @$pb.TagNumber(5)
-  $core.bool hasSettings() => $_has(3);
-  @$pb.TagNumber(5)
-  void clearSettings() => $_clearField(5);
-  @$pb.TagNumber(5)
-  UserSettings ensureSettings() => $_ensure(3);
+  @$pb.TagNumber(6)
+  UserSettings get settings => $_getN(4);
+  @$pb.TagNumber(6)
+  set settings(UserSettings value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasSettings() => $_has(4);
+  @$pb.TagNumber(6)
+  void clearSettings() => $_clearField(6);
+  @$pb.TagNumber(6)
+  UserSettings ensureSettings() => $_ensure(4);
 }
 
 /// Response message for updating a user.
@@ -1535,6 +1548,7 @@ class User extends $pb.GeneratedMessage {
     $core.String? userId,
     $core.String? username,
     $core.String? email,
+    $core.String? about,
     $core.String? password,
     UserRole? role,
     $2.Timestamp? createdAt,
@@ -1549,6 +1563,7 @@ class User extends $pb.GeneratedMessage {
     if (userId != null) result.userId = userId;
     if (username != null) result.username = username;
     if (email != null) result.email = email;
+    if (about != null) result.about = about;
     if (password != null) result.password = password;
     if (role != null) result.role = role;
     if (createdAt != null) result.createdAt = createdAt;
@@ -1577,20 +1592,21 @@ class User extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'userId')
     ..aOS(2, _omitFieldNames ? '' : 'username')
     ..aOS(3, _omitFieldNames ? '' : 'email')
-    ..aOS(4, _omitFieldNames ? '' : 'password')
-    ..aE<UserRole>(5, _omitFieldNames ? '' : 'role',
+    ..aOS(4, _omitFieldNames ? '' : 'about')
+    ..aOS(5, _omitFieldNames ? '' : 'password')
+    ..aE<UserRole>(6, _omitFieldNames ? '' : 'role',
         enumValues: UserRole.values)
-    ..aOM<$2.Timestamp>(6, _omitFieldNames ? '' : 'createdAt',
+    ..aOM<$2.Timestamp>(7, _omitFieldNames ? '' : 'createdAt',
         subBuilder: $2.Timestamp.create)
-    ..aOM<$3.ResourceId>(7, _omitFieldNames ? '' : 'icon',
+    ..aOM<$3.ResourceId>(8, _omitFieldNames ? '' : 'icon',
         subBuilder: $3.ResourceId.create)
-    ..pPM<Notification>(8, _omitFieldNames ? '' : 'notifications',
+    ..pPM<Notification>(9, _omitFieldNames ? '' : 'notifications',
         subBuilder: Notification.create)
-    ..pPM<$4.Channel>(9, _omitFieldNames ? '' : 'channels',
+    ..pPM<$4.Channel>(10, _omitFieldNames ? '' : 'channels',
         subBuilder: $4.Channel.create)
-    ..pPS(10, _omitFieldNames ? '' : 'followers')
-    ..pPS(11, _omitFieldNames ? '' : 'following')
-    ..aOM<UserSettings>(12, _omitFieldNames ? '' : 'settings',
+    ..pPS(11, _omitFieldNames ? '' : 'followers')
+    ..pPS(12, _omitFieldNames ? '' : 'following')
+    ..aOM<UserSettings>(13, _omitFieldNames ? '' : 'settings',
         subBuilder: UserSettings.create)
     ..hasRequiredFields = false;
 
@@ -1642,79 +1658,89 @@ class User extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearEmail() => $_clearField(3);
 
+  /// About the user
+  @$pb.TagNumber(4)
+  $core.String get about => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set about($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasAbout() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearAbout() => $_clearField(4);
+
   /// Password of the user.
   ///
   /// When used in an RPC response, the password **must** be empty.
-  @$pb.TagNumber(4)
-  $core.String get password => $_getSZ(3);
-  @$pb.TagNumber(4)
-  set password($core.String value) => $_setString(3, value);
-  @$pb.TagNumber(4)
-  $core.bool hasPassword() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearPassword() => $_clearField(4);
+  @$pb.TagNumber(5)
+  $core.String get password => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set password($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasPassword() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearPassword() => $_clearField(5);
 
   /// Role of the user.
-  @$pb.TagNumber(5)
-  UserRole get role => $_getN(4);
-  @$pb.TagNumber(5)
-  set role(UserRole value) => $_setField(5, value);
-  @$pb.TagNumber(5)
-  $core.bool hasRole() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearRole() => $_clearField(5);
+  @$pb.TagNumber(6)
+  UserRole get role => $_getN(5);
+  @$pb.TagNumber(6)
+  set role(UserRole value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasRole() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearRole() => $_clearField(6);
 
   /// Timestamp when the user was created.
-  @$pb.TagNumber(6)
-  $2.Timestamp get createdAt => $_getN(5);
-  @$pb.TagNumber(6)
-  set createdAt($2.Timestamp value) => $_setField(6, value);
-  @$pb.TagNumber(6)
-  $core.bool hasCreatedAt() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearCreatedAt() => $_clearField(6);
-  @$pb.TagNumber(6)
-  $2.Timestamp ensureCreatedAt() => $_ensure(5);
+  @$pb.TagNumber(7)
+  $2.Timestamp get createdAt => $_getN(6);
+  @$pb.TagNumber(7)
+  set createdAt($2.Timestamp value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasCreatedAt() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearCreatedAt() => $_clearField(7);
+  @$pb.TagNumber(7)
+  $2.Timestamp ensureCreatedAt() => $_ensure(6);
 
   /// Icon/Avatar of the user.
-  @$pb.TagNumber(7)
-  $3.ResourceId get icon => $_getN(6);
-  @$pb.TagNumber(7)
-  set icon($3.ResourceId value) => $_setField(7, value);
-  @$pb.TagNumber(7)
-  $core.bool hasIcon() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearIcon() => $_clearField(7);
-  @$pb.TagNumber(7)
-  $3.ResourceId ensureIcon() => $_ensure(6);
+  @$pb.TagNumber(8)
+  $3.ResourceId get icon => $_getN(7);
+  @$pb.TagNumber(8)
+  set icon($3.ResourceId value) => $_setField(8, value);
+  @$pb.TagNumber(8)
+  $core.bool hasIcon() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearIcon() => $_clearField(8);
+  @$pb.TagNumber(8)
+  $3.ResourceId ensureIcon() => $_ensure(7);
 
   /// Notifications of the user.
-  @$pb.TagNumber(8)
-  $pb.PbList<Notification> get notifications => $_getList(7);
+  @$pb.TagNumber(9)
+  $pb.PbList<Notification> get notifications => $_getList(8);
 
   /// Channels the User is in
-  @$pb.TagNumber(9)
-  $pb.PbList<$4.Channel> get channels => $_getList(8);
+  @$pb.TagNumber(10)
+  $pb.PbList<$4.Channel> get channels => $_getList(9);
 
   /// The followers of the user.
-  @$pb.TagNumber(10)
-  $pb.PbList<$core.String> get followers => $_getList(9);
+  @$pb.TagNumber(11)
+  $pb.PbList<$core.String> get followers => $_getList(10);
 
   /// The users the user is following.
-  @$pb.TagNumber(11)
-  $pb.PbList<$core.String> get following => $_getList(10);
+  @$pb.TagNumber(12)
+  $pb.PbList<$core.String> get following => $_getList(11);
 
   /// The user settings.
-  @$pb.TagNumber(12)
-  UserSettings get settings => $_getN(11);
-  @$pb.TagNumber(12)
-  set settings(UserSettings value) => $_setField(12, value);
-  @$pb.TagNumber(12)
-  $core.bool hasSettings() => $_has(11);
-  @$pb.TagNumber(12)
-  void clearSettings() => $_clearField(12);
-  @$pb.TagNumber(12)
-  UserSettings ensureSettings() => $_ensure(11);
+  @$pb.TagNumber(13)
+  UserSettings get settings => $_getN(12);
+  @$pb.TagNumber(13)
+  set settings(UserSettings value) => $_setField(13, value);
+  @$pb.TagNumber(13)
+  $core.bool hasSettings() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearSettings() => $_clearField(13);
+  @$pb.TagNumber(13)
+  UserSettings ensureSettings() => $_ensure(12);
 }
 
 /// User profile.
@@ -1724,6 +1750,7 @@ class UserProfile extends $pb.GeneratedMessage {
   factory UserProfile({
     $core.String? userId,
     $core.String? username,
+    $core.String? about,
     UserRole? role,
     $2.Timestamp? createdAt,
     $3.ResourceId? icon,
@@ -1733,6 +1760,7 @@ class UserProfile extends $pb.GeneratedMessage {
     final result = create();
     if (userId != null) result.userId = userId;
     if (username != null) result.username = username;
+    if (about != null) result.about = about;
     if (role != null) result.role = role;
     if (createdAt != null) result.createdAt = createdAt;
     if (icon != null) result.icon = icon;
@@ -1756,14 +1784,15 @@ class UserProfile extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'userId')
     ..aOS(2, _omitFieldNames ? '' : 'username')
-    ..aE<UserRole>(3, _omitFieldNames ? '' : 'role',
+    ..aOS(3, _omitFieldNames ? '' : 'about')
+    ..aE<UserRole>(4, _omitFieldNames ? '' : 'role',
         enumValues: UserRole.values)
-    ..aOM<$2.Timestamp>(4, _omitFieldNames ? '' : 'createdAt',
+    ..aOM<$2.Timestamp>(5, _omitFieldNames ? '' : 'createdAt',
         subBuilder: $2.Timestamp.create)
-    ..aOM<$3.ResourceId>(5, _omitFieldNames ? '' : 'icon',
+    ..aOM<$3.ResourceId>(6, _omitFieldNames ? '' : 'icon',
         subBuilder: $3.ResourceId.create)
-    ..aI(6, _omitFieldNames ? '' : 'followers', fieldType: $pb.PbFieldType.OU3)
-    ..aI(7, _omitFieldNames ? '' : 'following', fieldType: $pb.PbFieldType.OU3)
+    ..aI(7, _omitFieldNames ? '' : 'followers', fieldType: $pb.PbFieldType.OU3)
+    ..aI(8, _omitFieldNames ? '' : 'following', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1805,59 +1834,69 @@ class UserProfile extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearUsername() => $_clearField(2);
 
+  /// About the user
+  @$pb.TagNumber(3)
+  $core.String get about => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set about($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasAbout() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAbout() => $_clearField(3);
+
   /// Role of the user.
-  @$pb.TagNumber(3)
-  UserRole get role => $_getN(2);
-  @$pb.TagNumber(3)
-  set role(UserRole value) => $_setField(3, value);
-  @$pb.TagNumber(3)
-  $core.bool hasRole() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearRole() => $_clearField(3);
+  @$pb.TagNumber(4)
+  UserRole get role => $_getN(3);
+  @$pb.TagNumber(4)
+  set role(UserRole value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasRole() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearRole() => $_clearField(4);
 
   /// Timestamp when the user was created.
-  @$pb.TagNumber(4)
-  $2.Timestamp get createdAt => $_getN(3);
-  @$pb.TagNumber(4)
-  set createdAt($2.Timestamp value) => $_setField(4, value);
-  @$pb.TagNumber(4)
-  $core.bool hasCreatedAt() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearCreatedAt() => $_clearField(4);
-  @$pb.TagNumber(4)
-  $2.Timestamp ensureCreatedAt() => $_ensure(3);
+  @$pb.TagNumber(5)
+  $2.Timestamp get createdAt => $_getN(4);
+  @$pb.TagNumber(5)
+  set createdAt($2.Timestamp value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasCreatedAt() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearCreatedAt() => $_clearField(5);
+  @$pb.TagNumber(5)
+  $2.Timestamp ensureCreatedAt() => $_ensure(4);
 
   /// Icon/Avatar of the user.
-  @$pb.TagNumber(5)
-  $3.ResourceId get icon => $_getN(4);
-  @$pb.TagNumber(5)
-  set icon($3.ResourceId value) => $_setField(5, value);
-  @$pb.TagNumber(5)
-  $core.bool hasIcon() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearIcon() => $_clearField(5);
-  @$pb.TagNumber(5)
-  $3.ResourceId ensureIcon() => $_ensure(4);
+  @$pb.TagNumber(6)
+  $3.ResourceId get icon => $_getN(5);
+  @$pb.TagNumber(6)
+  set icon($3.ResourceId value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasIcon() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearIcon() => $_clearField(6);
+  @$pb.TagNumber(6)
+  $3.ResourceId ensureIcon() => $_ensure(5);
 
   /// The number of followers the user has.
-  @$pb.TagNumber(6)
-  $core.int get followers => $_getIZ(5);
-  @$pb.TagNumber(6)
-  set followers($core.int value) => $_setUnsignedInt32(5, value);
-  @$pb.TagNumber(6)
-  $core.bool hasFollowers() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearFollowers() => $_clearField(6);
+  @$pb.TagNumber(7)
+  $core.int get followers => $_getIZ(6);
+  @$pb.TagNumber(7)
+  set followers($core.int value) => $_setUnsignedInt32(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasFollowers() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearFollowers() => $_clearField(7);
 
   /// The number of users the user is following.
-  @$pb.TagNumber(7)
-  $core.int get following => $_getIZ(6);
-  @$pb.TagNumber(7)
-  set following($core.int value) => $_setUnsignedInt32(6, value);
-  @$pb.TagNumber(7)
-  $core.bool hasFollowing() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearFollowing() => $_clearField(7);
+  @$pb.TagNumber(8)
+  $core.int get following => $_getIZ(7);
+  @$pb.TagNumber(8)
+  set following($core.int value) => $_setUnsignedInt32(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasFollowing() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearFollowing() => $_clearField(8);
 }
 
 /// Global user settings.
