@@ -275,23 +275,24 @@ const UpdateRequest$json = {
       '17': true
     },
     {'1': 'email', '3': 3, '4': 1, '5': 9, '9': 1, '10': 'email', '17': true},
-    {'1': 'about', '3': 4, '4': 1, '5': 9, '9': 2, '10': 'about', '17': true},
+    {'1': 'token', '3': 4, '4': 1, '5': 9, '9': 2, '10': 'token', '17': true},
+    {'1': 'about', '3': 5, '4': 1, '5': 9, '9': 3, '10': 'about', '17': true},
     {
       '1': 'password',
-      '3': 5,
+      '3': 6,
       '4': 1,
       '5': 9,
-      '9': 3,
+      '9': 4,
       '10': 'password',
       '17': true
     },
     {
       '1': 'settings',
-      '3': 6,
+      '3': 7,
       '4': 1,
       '5': 11,
       '6': '.user.v1.UserSettings',
-      '9': 4,
+      '9': 5,
       '10': 'settings',
       '17': true
     },
@@ -299,6 +300,7 @@ const UpdateRequest$json = {
   '8': [
     {'1': '_username'},
     {'1': '_email'},
+    {'1': '_token'},
     {'1': '_about'},
     {'1': '_password'},
     {'1': '_settings'},
@@ -308,10 +310,11 @@ const UpdateRequest$json = {
 /// Descriptor for `UpdateRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateRequestDescriptor = $convert.base64Decode(
     'Cg1VcGRhdGVSZXF1ZXN0Eh8KCHVzZXJuYW1lGAIgASgJSABSCHVzZXJuYW1liAEBEhkKBWVtYW'
-    'lsGAMgASgJSAFSBWVtYWlsiAEBEhkKBWFib3V0GAQgASgJSAJSBWFib3V0iAEBEh8KCHBhc3N3'
-    'b3JkGAUgASgJSANSCHBhc3N3b3JkiAEBEjYKCHNldHRpbmdzGAYgASgLMhUudXNlci52MS5Vc2'
-    'VyU2V0dGluZ3NIBFIIc2V0dGluZ3OIAQFCCwoJX3VzZXJuYW1lQggKBl9lbWFpbEIICgZfYWJv'
-    'dXRCCwoJX3Bhc3N3b3JkQgsKCV9zZXR0aW5ncw==');
+    'lsGAMgASgJSAFSBWVtYWlsiAEBEhkKBXRva2VuGAQgASgJSAJSBXRva2VuiAEBEhkKBWFib3V0'
+    'GAUgASgJSANSBWFib3V0iAEBEh8KCHBhc3N3b3JkGAYgASgJSARSCHBhc3N3b3JkiAEBEjYKCH'
+    'NldHRpbmdzGAcgASgLMhUudXNlci52MS5Vc2VyU2V0dGluZ3NIBVIIc2V0dGluZ3OIAQFCCwoJ'
+    'X3VzZXJuYW1lQggKBl9lbWFpbEIICgZfdG9rZW5CCAoGX2Fib3V0QgsKCV9wYXNzd29yZEILCg'
+    'lfc2V0dGluZ3M=');
 
 @$core.Deprecated('Use updateResponseDescriptor instead')
 const UpdateResponse$json = {

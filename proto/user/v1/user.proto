@@ -139,12 +139,14 @@ message UpdateRequest {
   optional string username = 2;
   // Email of the user.
   optional string email = 3;
+  // The email verification token of the new email, required if the email is changed.
+  optional string token = 4;
   // About the user
-  optional string about = 4;
+  optional string about = 5;
   // Password of the user.
-  optional string password = 5;
+  optional string password = 6;
   // User settings.
-  optional UserSettings settings = 6;
+  optional UserSettings settings = 7;
 }
 
 // Response message for updating a user.

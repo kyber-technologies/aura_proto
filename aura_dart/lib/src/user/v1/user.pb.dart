@@ -715,6 +715,7 @@ class UpdateRequest extends $pb.GeneratedMessage {
   factory UpdateRequest({
     $core.String? username,
     $core.String? email,
+    $core.String? token,
     $core.String? about,
     $core.String? password,
     UserSettings? settings,
@@ -722,6 +723,7 @@ class UpdateRequest extends $pb.GeneratedMessage {
     final result = create();
     if (username != null) result.username = username;
     if (email != null) result.email = email;
+    if (token != null) result.token = token;
     if (about != null) result.about = about;
     if (password != null) result.password = password;
     if (settings != null) result.settings = settings;
@@ -743,9 +745,10 @@ class UpdateRequest extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(2, _omitFieldNames ? '' : 'username')
     ..aOS(3, _omitFieldNames ? '' : 'email')
-    ..aOS(4, _omitFieldNames ? '' : 'about')
-    ..aOS(5, _omitFieldNames ? '' : 'password')
-    ..aOM<UserSettings>(6, _omitFieldNames ? '' : 'settings',
+    ..aOS(4, _omitFieldNames ? '' : 'token')
+    ..aOS(5, _omitFieldNames ? '' : 'about')
+    ..aOS(6, _omitFieldNames ? '' : 'password')
+    ..aOM<UserSettings>(7, _omitFieldNames ? '' : 'settings',
         subBuilder: UserSettings.create)
     ..hasRequiredFields = false;
 
@@ -788,37 +791,47 @@ class UpdateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearEmail() => $_clearField(3);
 
+  /// The email verification token of the new email, required if the email is changed.
+  @$pb.TagNumber(4)
+  $core.String get token => $_getSZ(2);
+  @$pb.TagNumber(4)
+  set token($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(4)
+  $core.bool hasToken() => $_has(2);
+  @$pb.TagNumber(4)
+  void clearToken() => $_clearField(4);
+
   /// About the user
-  @$pb.TagNumber(4)
-  $core.String get about => $_getSZ(2);
-  @$pb.TagNumber(4)
-  set about($core.String value) => $_setString(2, value);
-  @$pb.TagNumber(4)
-  $core.bool hasAbout() => $_has(2);
-  @$pb.TagNumber(4)
-  void clearAbout() => $_clearField(4);
+  @$pb.TagNumber(5)
+  $core.String get about => $_getSZ(3);
+  @$pb.TagNumber(5)
+  set about($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(5)
+  $core.bool hasAbout() => $_has(3);
+  @$pb.TagNumber(5)
+  void clearAbout() => $_clearField(5);
 
   /// Password of the user.
-  @$pb.TagNumber(5)
-  $core.String get password => $_getSZ(3);
-  @$pb.TagNumber(5)
-  set password($core.String value) => $_setString(3, value);
-  @$pb.TagNumber(5)
-  $core.bool hasPassword() => $_has(3);
-  @$pb.TagNumber(5)
-  void clearPassword() => $_clearField(5);
+  @$pb.TagNumber(6)
+  $core.String get password => $_getSZ(4);
+  @$pb.TagNumber(6)
+  set password($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(6)
+  $core.bool hasPassword() => $_has(4);
+  @$pb.TagNumber(6)
+  void clearPassword() => $_clearField(6);
 
   /// User settings.
-  @$pb.TagNumber(6)
-  UserSettings get settings => $_getN(4);
-  @$pb.TagNumber(6)
-  set settings(UserSettings value) => $_setField(6, value);
-  @$pb.TagNumber(6)
-  $core.bool hasSettings() => $_has(4);
-  @$pb.TagNumber(6)
-  void clearSettings() => $_clearField(6);
-  @$pb.TagNumber(6)
-  UserSettings ensureSettings() => $_ensure(4);
+  @$pb.TagNumber(7)
+  UserSettings get settings => $_getN(5);
+  @$pb.TagNumber(7)
+  set settings(UserSettings value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasSettings() => $_has(5);
+  @$pb.TagNumber(7)
+  void clearSettings() => $_clearField(7);
+  @$pb.TagNumber(7)
+  UserSettings ensureSettings() => $_ensure(5);
 }
 
 /// Response message for updating a user.
