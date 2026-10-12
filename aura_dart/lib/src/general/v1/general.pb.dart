@@ -66,6 +66,7 @@ class ConfigResponse extends $pb.GeneratedMessage {
     $core.int? itemRequestLimit,
     $core.int? maxUploadSize,
     $core.int? maxChannelSize,
+    $core.Iterable<$core.String>? supportedResourceFormats,
   }) {
     final result = create();
     if (version != null) result.version = version;
@@ -73,6 +74,8 @@ class ConfigResponse extends $pb.GeneratedMessage {
     if (itemRequestLimit != null) result.itemRequestLimit = itemRequestLimit;
     if (maxUploadSize != null) result.maxUploadSize = maxUploadSize;
     if (maxChannelSize != null) result.maxChannelSize = maxChannelSize;
+    if (supportedResourceFormats != null)
+      result.supportedResourceFormats.addAll(supportedResourceFormats);
     return result;
   }
 
@@ -98,6 +101,7 @@ class ConfigResponse extends $pb.GeneratedMessage {
         fieldType: $pb.PbFieldType.OU3)
     ..aI(5, _omitFieldNames ? '' : 'maxChannelSize',
         fieldType: $pb.PbFieldType.OU3)
+    ..pPS(6, _omitFieldNames ? '' : 'supportedResourceFormats')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -168,6 +172,10 @@ class ConfigResponse extends $pb.GeneratedMessage {
   $core.bool hasMaxChannelSize() => $_has(4);
   @$pb.TagNumber(5)
   void clearMaxChannelSize() => $_clearField(5);
+
+  /// The supported resource formats.
+  @$pb.TagNumber(6)
+  $pb.PbList<$core.String> get supportedResourceFormats => $_getList(5);
 }
 
 /// A request to get server status.

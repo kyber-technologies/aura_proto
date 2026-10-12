@@ -51,6 +51,8 @@ message ConfigResponse {
   uint32 max_upload_size = 4;
   // The maximum combined resource channel size.
   uint32 max_channel_size = 5;
+  // The supported resource formats.
+  repeated string supported_resource_formats = 6;
 }
 
 // A request to get server status.
