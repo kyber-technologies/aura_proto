@@ -706,12 +706,14 @@ class ResourceMeta extends $pb.GeneratedMessage {
     $core.int? size,
     $3.Timestamp? timestamp,
     $core.String? name,
+    $core.String? format,
     $core.Iterable<$core.MapEntry<$core.String, $core.String>>? metadata,
   }) {
     final result = create();
     if (size != null) result.size = size;
     if (timestamp != null) result.timestamp = timestamp;
     if (name != null) result.name = name;
+    if (format != null) result.format = format;
     if (metadata != null) result.metadata.addEntries(metadata);
     return result;
   }
@@ -733,7 +735,8 @@ class ResourceMeta extends $pb.GeneratedMessage {
     ..aOM<$3.Timestamp>(2, _omitFieldNames ? '' : 'timestamp',
         subBuilder: $3.Timestamp.create)
     ..aOS(3, _omitFieldNames ? '' : 'name')
-    ..m<$core.String, $core.String>(4, _omitFieldNames ? '' : 'metadata',
+    ..aOS(4, _omitFieldNames ? '' : 'format')
+    ..m<$core.String, $core.String>(5, _omitFieldNames ? '' : 'metadata',
         entryClassName: 'ResourceMeta.MetadataEntry',
         keyFieldType: $pb.PbFieldType.OS,
         valueFieldType: $pb.PbFieldType.OS,
@@ -791,9 +794,19 @@ class ResourceMeta extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearName() => $_clearField(3);
 
-  /// Additional metadata for the resource.
+  /// The file data format (usually the file extension).
   @$pb.TagNumber(4)
-  $pb.PbMap<$core.String, $core.String> get metadata => $_getMap(3);
+  $core.String get format => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set format($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasFormat() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearFormat() => $_clearField(4);
+
+  /// Additional metadata for the resource.
+  @$pb.TagNumber(5)
+  $pb.PbMap<$core.String, $core.String> get metadata => $_getMap(4);
 }
 
 enum Content_Content { text, resource, notSet }

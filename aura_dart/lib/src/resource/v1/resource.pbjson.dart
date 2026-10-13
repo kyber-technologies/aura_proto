@@ -264,9 +264,10 @@ const ResourceMeta$json = {
       '10': 'timestamp'
     },
     {'1': 'name', '3': 3, '4': 1, '5': 9, '10': 'name'},
+    {'1': 'format', '3': 4, '4': 1, '5': 9, '10': 'format'},
     {
       '1': 'metadata',
-      '3': 4,
+      '3': 5,
       '4': 3,
       '5': 11,
       '6': '.resource.v1.ResourceMeta.MetadataEntry',
@@ -290,9 +291,9 @@ const ResourceMeta_MetadataEntry$json = {
 final $typed_data.Uint8List resourceMetaDescriptor = $convert.base64Decode(
     'CgxSZXNvdXJjZU1ldGESEgoEc2l6ZRgBIAEoBVIEc2l6ZRI4Cgl0aW1lc3RhbXAYAiABKAsyGi'
     '5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgl0aW1lc3RhbXASEgoEbmFtZRgDIAEoCVIEbmFt'
-    'ZRJDCghtZXRhZGF0YRgEIAMoCzInLnJlc291cmNlLnYxLlJlc291cmNlTWV0YS5NZXRhZGF0YU'
-    'VudHJ5UghtZXRhZGF0YRo7Cg1NZXRhZGF0YUVudHJ5EhAKA2tleRgBIAEoCVIDa2V5EhQKBXZh'
-    'bHVlGAIgASgJUgV2YWx1ZToCOAE=');
+    'ZRIWCgZmb3JtYXQYBCABKAlSBmZvcm1hdBJDCghtZXRhZGF0YRgFIAMoCzInLnJlc291cmNlLn'
+    'YxLlJlc291cmNlTWV0YS5NZXRhZGF0YUVudHJ5UghtZXRhZGF0YRo7Cg1NZXRhZGF0YUVudHJ5'
+    'EhAKA2tleRgBIAEoCVIDa2V5EhQKBXZhbHVlGAIgASgJUgV2YWx1ZToCOAE=');
 
 @$core.Deprecated('Use contentDescriptor instead')
 const Content$json = {

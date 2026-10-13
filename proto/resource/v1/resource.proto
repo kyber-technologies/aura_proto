@@ -111,8 +111,10 @@ message ResourceMeta {
   google.protobuf.Timestamp timestamp = 2;
   // The name of the resource (e.g. file name).
   string name = 3;
+  // The file data format (usually the file extension).
+  string format = 4;
   // Additional metadata for the resource.
-  map<string, string> metadata = 4;
+  map<string, string> metadata = 5;
 }
 
 // The content of a message or post.
