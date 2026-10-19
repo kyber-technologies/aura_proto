@@ -49,6 +49,18 @@ class UserServiceClient extends $grpc.Client {
     return $createUnaryCall(_$auth, request, options: options);
   }
 
+  /// Subscribes a user to notification.
+  ///
+  /// Requires Authentication: Only the user itself can subscribe to a topic.
+  $grpc.ResponseStream<$0.SubscribeResponse> subscribe(
+    $0.SubscribeRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createStreamingCall(
+        _$subscribe, $async.Stream.fromIterable([request]),
+        options: options);
+  }
+
   /// Verifies an email.
   $grpc.ResponseFuture<$0.VerifyEmailResponse> verifyEmail(
     $0.VerifyEmailRequest request, {
@@ -146,6 +158,11 @@ class UserServiceClient extends $grpc.Client {
       '/user.v1.UserService/Auth',
       ($0.AuthRequest value) => value.writeToBuffer(),
       $0.AuthResponse.fromBuffer);
+  static final _$subscribe =
+      $grpc.ClientMethod<$0.SubscribeRequest, $0.SubscribeResponse>(
+          '/user.v1.UserService/Subscribe',
+          ($0.SubscribeRequest value) => value.writeToBuffer(),
+          $0.SubscribeResponse.fromBuffer);
   static final _$verifyEmail =
       $grpc.ClientMethod<$0.VerifyEmailRequest, $0.VerifyEmailResponse>(
           '/user.v1.UserService/VerifyEmail',
@@ -210,6 +227,13 @@ abstract class UserServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.AuthRequest.fromBuffer(value),
         ($0.AuthResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.SubscribeRequest, $0.SubscribeResponse>(
+        'Subscribe',
+        subscribe_Pre,
+        false,
+        true,
+        ($core.List<$core.int> value) => $0.SubscribeRequest.fromBuffer(value),
+        ($0.SubscribeResponse value) => value.writeToBuffer()));
     $addMethod(
         $grpc.ServiceMethod<$0.VerifyEmailRequest, $0.VerifyEmailResponse>(
             'VerifyEmail',
@@ -292,6 +316,14 @@ abstract class UserServiceBase extends $grpc.Service {
 
   $async.Future<$0.AuthResponse> auth(
       $grpc.ServiceCall call, $0.AuthRequest request);
+
+  $async.Stream<$0.SubscribeResponse> subscribe_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.SubscribeRequest> $request) async* {
+    yield* subscribe($call, await $request);
+  }
+
+  $async.Stream<$0.SubscribeResponse> subscribe(
+      $grpc.ServiceCall call, $0.SubscribeRequest request);
 
   $async.Future<$0.VerifyEmailResponse> verifyEmail_Pre($grpc.ServiceCall $call,
       $async.Future<$0.VerifyEmailRequest> $request) async {

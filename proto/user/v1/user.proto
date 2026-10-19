@@ -15,6 +15,11 @@ service UserService {
   // Authenticates a user.
   rpc Auth(AuthRequest) returns (AuthResponse);
 
+  // Subscribes a user to notification.
+  //
+  // Requires Authentication: Only the user itself can subscribe to a topic.
+  rpc Subscribe(SubscribeRequest) returns (stream SubscribeResponse);
+
   // Verifies an email.
   rpc VerifyEmail(VerifyEmailRequest) returns (VerifyEmailResponse);
 
@@ -85,6 +90,18 @@ message AuthResponse {
   User user = 2;
   // The error, if any.
   optional common.v1.Error error = 3;
+}
+
+// Request message for subscribing to notifications.
+message SubscribeRequest {
+}
+
+// Response message for subscribing to notifications.
+message SubscribeResponse {
+  // New notifications.
+  repeated Notification notifications = 1;
+  // The error, if any.
+  optional common.v1.Error error = 2;
 }
 
 // Request message for verifying an email.
@@ -327,14 +344,18 @@ message Notification {
   fixed64 notification_id = 1;
   // Timestamp of the notification.
   google.protobuf.Timestamp timestamp = 2;
+  // If the app frontend should ignore this notification.
+  //
+  // Notification should always be handled, but not all should be reported to the user.
+  bool ignore = 3;
   // The type of the notification.
   oneof notification {
     // The user got invited to a user chat.
-    InviteNotification invite = 3;
+    InviteNotification invite = 4;
     // The user received a message.
-    MessageNotification message = 4;
+    MessageNotification message = 5;
     // The user received a comment under a post.
-    CommentNotification comment = 5;
+    CommentNotification comment = 6;
   }
 }
 

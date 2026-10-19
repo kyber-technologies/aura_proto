@@ -129,6 +129,49 @@ final $typed_data.Uint8List authResponseDescriptor = $convert.base64Decode(
     'VyLnYxLlVzZXJSBHVzZXISKwoFZXJyb3IYAyABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJy'
     'b3KIAQFCCAoGX2Vycm9y');
 
+@$core.Deprecated('Use subscribeRequestDescriptor instead')
+const SubscribeRequest$json = {
+  '1': 'SubscribeRequest',
+};
+
+/// Descriptor for `SubscribeRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List subscribeRequestDescriptor =
+    $convert.base64Decode('ChBTdWJzY3JpYmVSZXF1ZXN0');
+
+@$core.Deprecated('Use subscribeResponseDescriptor instead')
+const SubscribeResponse$json = {
+  '1': 'SubscribeResponse',
+  '2': [
+    {
+      '1': 'notifications',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.user.v1.Notification',
+      '10': 'notifications'
+    },
+    {
+      '1': 'error',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_error'},
+  ],
+};
+
+/// Descriptor for `SubscribeResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List subscribeResponseDescriptor = $convert.base64Decode(
+    'ChFTdWJzY3JpYmVSZXNwb25zZRI7Cg1ub3RpZmljYXRpb25zGAEgAygLMhUudXNlci52MS5Ob3'
+    'RpZmljYXRpb25SDW5vdGlmaWNhdGlvbnMSKwoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJy'
+    'b3JIAFIFZXJyb3KIAQFCCAoGX2Vycm9y');
+
 @$core.Deprecated('Use verifyEmailRequestDescriptor instead')
 const VerifyEmailRequest$json = {
   '1': 'VerifyEmailRequest',
@@ -739,9 +782,10 @@ const Notification$json = {
       '6': '.google.protobuf.Timestamp',
       '10': 'timestamp'
     },
+    {'1': 'ignore', '3': 3, '4': 1, '5': 8, '10': 'ignore'},
     {
       '1': 'invite',
-      '3': 3,
+      '3': 4,
       '4': 1,
       '5': 11,
       '6': '.user.v1.InviteNotification',
@@ -750,7 +794,7 @@ const Notification$json = {
     },
     {
       '1': 'message',
-      '3': 4,
+      '3': 5,
       '4': 1,
       '5': 11,
       '6': '.user.v1.MessageNotification',
@@ -759,7 +803,7 @@ const Notification$json = {
     },
     {
       '1': 'comment',
-      '3': 5,
+      '3': 6,
       '4': 1,
       '5': 11,
       '6': '.user.v1.CommentNotification',
@@ -776,10 +820,10 @@ const Notification$json = {
 final $typed_data.Uint8List notificationDescriptor = $convert.base64Decode(
     'CgxOb3RpZmljYXRpb24SJwoPbm90aWZpY2F0aW9uX2lkGAEgASgGUg5ub3RpZmljYXRpb25JZB'
     'I4Cgl0aW1lc3RhbXAYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgl0aW1lc3Rh'
-    'bXASNQoGaW52aXRlGAMgASgLMhsudXNlci52MS5JbnZpdGVOb3RpZmljYXRpb25IAFIGaW52aX'
-    'RlEjgKB21lc3NhZ2UYBCABKAsyHC51c2VyLnYxLk1lc3NhZ2VOb3RpZmljYXRpb25IAFIHbWVz'
-    'c2FnZRI4Cgdjb21tZW50GAUgASgLMhwudXNlci52MS5Db21tZW50Tm90aWZpY2F0aW9uSABSB2'
-    'NvbW1lbnRCDgoMbm90aWZpY2F0aW9u');
+    'bXASFgoGaWdub3JlGAMgASgIUgZpZ25vcmUSNQoGaW52aXRlGAQgASgLMhsudXNlci52MS5Jbn'
+    'ZpdGVOb3RpZmljYXRpb25IAFIGaW52aXRlEjgKB21lc3NhZ2UYBSABKAsyHC51c2VyLnYxLk1l'
+    'c3NhZ2VOb3RpZmljYXRpb25IAFIHbWVzc2FnZRI4Cgdjb21tZW50GAYgASgLMhwudXNlci52MS'
+    '5Db21tZW50Tm90aWZpY2F0aW9uSABSB2NvbW1lbnRCDgoMbm90aWZpY2F0aW9u');
 
 @$core.Deprecated('Use inviteNotificationDescriptor instead')
 const InviteNotification$json = {
