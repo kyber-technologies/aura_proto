@@ -160,7 +160,6 @@ const SubscribeResponse$json = {
       '6': '.user.v1.Notification',
       '10': 'notifications'
     },
-    {'1': 'user', '3': 3, '4': 1, '5': 11, '6': '.user.v1.User', '10': 'user'},
   ],
   '8': [
     {'1': '_error'},
@@ -171,8 +170,7 @@ const SubscribeResponse$json = {
 final $typed_data.Uint8List subscribeResponseDescriptor = $convert.base64Decode(
     'ChFTdWJzY3JpYmVSZXNwb25zZRIrCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUg'
     'VlcnJvcogBARI7Cg1ub3RpZmljYXRpb25zGAIgAygLMhUudXNlci52MS5Ob3RpZmljYXRpb25S'
-    'DW5vdGlmaWNhdGlvbnMSIQoEdXNlchgDIAEoCzINLnVzZXIudjEuVXNlclIEdXNlckIICgZfZX'
-    'Jyb3I=');
+    'DW5vdGlmaWNhdGlvbnNCCAoGX2Vycm9y');
 
 @$core.Deprecated('Use verifyEmailRequestDescriptor instead')
 const VerifyEmailRequest$json = {

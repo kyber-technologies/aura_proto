@@ -341,12 +341,10 @@ class SubscribeResponse extends $pb.GeneratedMessage {
   factory SubscribeResponse({
     $1.Error? error,
     $core.Iterable<Notification>? notifications,
-    User? user,
   }) {
     final result = create();
     if (error != null) result.error = error;
     if (notifications != null) result.notifications.addAll(notifications);
-    if (user != null) result.user = user;
     return result;
   }
 
@@ -367,7 +365,6 @@ class SubscribeResponse extends $pb.GeneratedMessage {
         subBuilder: $1.Error.create)
     ..pPM<Notification>(2, _omitFieldNames ? '' : 'notifications',
         subBuilder: Notification.create)
-    ..aOM<User>(3, _omitFieldNames ? '' : 'user', subBuilder: User.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -404,18 +401,6 @@ class SubscribeResponse extends $pb.GeneratedMessage {
   /// New notifications.
   @$pb.TagNumber(2)
   $pb.PbList<Notification> get notifications => $_getList(1);
-
-  /// The updated user data.
-  @$pb.TagNumber(3)
-  User get user => $_getN(2);
-  @$pb.TagNumber(3)
-  set user(User value) => $_setField(3, value);
-  @$pb.TagNumber(3)
-  $core.bool hasUser() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearUser() => $_clearField(3);
-  @$pb.TagNumber(3)
-  User ensureUser() => $_ensure(2);
 }
 
 /// Request message for verifying an email.
