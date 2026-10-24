@@ -84,12 +84,12 @@ message AuthRequest {
 
 // Response message for authenticating a user.
 message AuthResponse {
-  // Authentication token.
-  string token = 1;
-  // The user.
-  User user = 2;
   // The error, if any.
-  optional common.v1.Error error = 3;
+  optional common.v1.Error error = 1;
+  // Authentication token.
+  string token = 2;
+  // The user.
+  User user = 3;
 }
 
 // Request message for subscribing to notifications.
@@ -98,10 +98,12 @@ message SubscribeRequest {
 
 // Response message for subscribing to notifications.
 message SubscribeResponse {
-  // New notifications.
-  repeated Notification notifications = 1;
   // The error, if any.
-  optional common.v1.Error error = 2;
+  optional common.v1.Error error = 1;
+  // New notifications.
+  repeated Notification notifications = 2;
+  // The updated user data.
+  User user = 3;
 }
 
 // Request message for verifying an email.
@@ -180,12 +182,12 @@ message GetRequest {
 
 // Response message for getting users.
 message GetResponse {
+  // The error, if any.
+  optional common.v1.Error error = 1;
   // The returned user profiles.
   //
   // If a user could not be found, this map will not contain the user entry.
-  map<string, UserProfile> users = 1;
-  // The error, if any.
-  optional common.v1.Error error = 2;
+  map<string, UserProfile> users = 2;
 }
 
 // Request message for searching users.
@@ -198,10 +200,10 @@ message SearchRequest {
 
 // Response message for searching users.
 message SearchResponse {
-  // List of users matching the query.
-  repeated UserProfile users = 1;
   // The error, if any.
-  optional common.v1.Error error = 2;
+  optional common.v1.Error error = 1;
+  // List of users matching the query.
+  repeated UserProfile users = 2;
 }
 
 // Request message for blocking a user.
@@ -227,10 +229,10 @@ message IsBlockedRequest {
 // Response for checking the blocking status of a user.
 message IsBlockedResponse {
   oneof result {
-    // If the user is blocked.
-    bool blocked = 1;
     // The error, if any.
-    common.v1.Error error = 2;
+    common.v1.Error error = 1;
+    // If the user is blocked.
+    bool blocked = 2;
   }
 }
 

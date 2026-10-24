@@ -213,14 +213,14 @@ class AuthRequest extends $pb.GeneratedMessage {
 /// Response message for authenticating a user.
 class AuthResponse extends $pb.GeneratedMessage {
   factory AuthResponse({
+    $1.Error? error,
     $core.String? token,
     User? user,
-    $1.Error? error,
   }) {
     final result = create();
+    if (error != null) result.error = error;
     if (token != null) result.token = token;
     if (user != null) result.user = user;
-    if (error != null) result.error = error;
     return result;
   }
 
@@ -237,10 +237,10 @@ class AuthResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'AuthResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'token')
-    ..aOM<User>(2, _omitFieldNames ? '' : 'user', subBuilder: User.create)
-    ..aOM<$1.Error>(3, _omitFieldNames ? '' : 'error',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
+    ..aOS(2, _omitFieldNames ? '' : 'token')
+    ..aOM<User>(3, _omitFieldNames ? '' : 'user', subBuilder: User.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -262,39 +262,39 @@ class AuthResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<AuthResponse>(create);
   static AuthResponse? _defaultInstance;
 
+  /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
   /// Authentication token.
-  @$pb.TagNumber(1)
-  $core.String get token => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set token($core.String value) => $_setString(0, value);
-  @$pb.TagNumber(1)
-  $core.bool hasToken() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearToken() => $_clearField(1);
+  @$pb.TagNumber(2)
+  $core.String get token => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set token($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasToken() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearToken() => $_clearField(2);
 
   /// The user.
-  @$pb.TagNumber(2)
-  User get user => $_getN(1);
-  @$pb.TagNumber(2)
-  set user(User value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasUser() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearUser() => $_clearField(2);
-  @$pb.TagNumber(2)
-  User ensureUser() => $_ensure(1);
-
-  /// The error, if any.
   @$pb.TagNumber(3)
-  $1.Error get error => $_getN(2);
+  User get user => $_getN(2);
   @$pb.TagNumber(3)
-  set error($1.Error value) => $_setField(3, value);
+  set user(User value) => $_setField(3, value);
   @$pb.TagNumber(3)
-  $core.bool hasError() => $_has(2);
+  $core.bool hasUser() => $_has(2);
   @$pb.TagNumber(3)
-  void clearError() => $_clearField(3);
+  void clearUser() => $_clearField(3);
   @$pb.TagNumber(3)
-  $1.Error ensureError() => $_ensure(2);
+  User ensureUser() => $_ensure(2);
 }
 
 /// Request message for subscribing to notifications.
@@ -339,12 +339,14 @@ class SubscribeRequest extends $pb.GeneratedMessage {
 /// Response message for subscribing to notifications.
 class SubscribeResponse extends $pb.GeneratedMessage {
   factory SubscribeResponse({
-    $core.Iterable<Notification>? notifications,
     $1.Error? error,
+    $core.Iterable<Notification>? notifications,
+    User? user,
   }) {
     final result = create();
-    if (notifications != null) result.notifications.addAll(notifications);
     if (error != null) result.error = error;
+    if (notifications != null) result.notifications.addAll(notifications);
+    if (user != null) result.user = user;
     return result;
   }
 
@@ -361,10 +363,11 @@ class SubscribeResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'SubscribeResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..pPM<Notification>(1, _omitFieldNames ? '' : 'notifications',
-        subBuilder: Notification.create)
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
+    ..pPM<Notification>(2, _omitFieldNames ? '' : 'notifications',
+        subBuilder: Notification.create)
+    ..aOM<User>(3, _omitFieldNames ? '' : 'user', subBuilder: User.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -386,21 +389,33 @@ class SubscribeResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<SubscribeResponse>(create);
   static SubscribeResponse? _defaultInstance;
 
-  /// New notifications.
-  @$pb.TagNumber(1)
-  $pb.PbList<Notification> get notifications => $_getList(0);
-
   /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
+  /// New notifications.
   @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
-  @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
-  @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  $pb.PbList<Notification> get notifications => $_getList(1);
+
+  /// The updated user data.
+  @$pb.TagNumber(3)
+  User get user => $_getN(2);
+  @$pb.TagNumber(3)
+  set user(User value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasUser() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearUser() => $_clearField(3);
+  @$pb.TagNumber(3)
+  User ensureUser() => $_ensure(2);
 }
 
 /// Request message for verifying an email.
@@ -1051,12 +1066,12 @@ class GetRequest extends $pb.GeneratedMessage {
 /// Response message for getting users.
 class GetResponse extends $pb.GeneratedMessage {
   factory GetResponse({
-    $core.Iterable<$core.MapEntry<$core.String, UserProfile>>? users,
     $1.Error? error,
+    $core.Iterable<$core.MapEntry<$core.String, UserProfile>>? users,
   }) {
     final result = create();
-    if (users != null) result.users.addEntries(users);
     if (error != null) result.error = error;
+    if (users != null) result.users.addEntries(users);
     return result;
   }
 
@@ -1073,15 +1088,15 @@ class GetResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'GetResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..m<$core.String, UserProfile>(1, _omitFieldNames ? '' : 'users',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..m<$core.String, UserProfile>(2, _omitFieldNames ? '' : 'users',
         entryClassName: 'GetResponse.UsersEntry',
         keyFieldType: $pb.PbFieldType.OS,
         valueFieldType: $pb.PbFieldType.OM,
         valueCreator: UserProfile.create,
         valueDefaultOrMaker: UserProfile.getDefault,
         packageName: const $pb.PackageName('user.v1'))
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
-        subBuilder: $1.Error.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1103,23 +1118,23 @@ class GetResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GetResponse>(create);
   static GetResponse? _defaultInstance;
 
+  /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
   /// The returned user profiles.
   ///
   /// If a user could not be found, this map will not contain the user entry.
-  @$pb.TagNumber(1)
-  $pb.PbMap<$core.String, UserProfile> get users => $_getMap(0);
-
-  /// The error, if any.
   @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
-  @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
-  @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  $pb.PbMap<$core.String, UserProfile> get users => $_getMap(1);
 }
 
 /// Request message for searching users.
@@ -1194,12 +1209,12 @@ class SearchRequest extends $pb.GeneratedMessage {
 /// Response message for searching users.
 class SearchResponse extends $pb.GeneratedMessage {
   factory SearchResponse({
-    $core.Iterable<UserProfile>? users,
     $1.Error? error,
+    $core.Iterable<UserProfile>? users,
   }) {
     final result = create();
-    if (users != null) result.users.addAll(users);
     if (error != null) result.error = error;
+    if (users != null) result.users.addAll(users);
     return result;
   }
 
@@ -1216,10 +1231,10 @@ class SearchResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'SearchResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..pPM<UserProfile>(1, _omitFieldNames ? '' : 'users',
-        subBuilder: UserProfile.create)
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
+    ..pPM<UserProfile>(2, _omitFieldNames ? '' : 'users',
+        subBuilder: UserProfile.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1241,21 +1256,21 @@ class SearchResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<SearchResponse>(create);
   static SearchResponse? _defaultInstance;
 
-  /// List of users matching the query.
-  @$pb.TagNumber(1)
-  $pb.PbList<UserProfile> get users => $_getList(0);
-
   /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
+  /// List of users matching the query.
   @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
-  @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
-  @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  $pb.PbList<UserProfile> get users => $_getList(1);
 }
 
 /// Request message for blocking a user.
@@ -1442,17 +1457,17 @@ class IsBlockedRequest extends $pb.GeneratedMessage {
   void clearUserId() => $_clearField(1);
 }
 
-enum IsBlockedResponse_Result { blocked, error, notSet }
+enum IsBlockedResponse_Result { error, blocked, notSet }
 
 /// Response for checking the blocking status of a user.
 class IsBlockedResponse extends $pb.GeneratedMessage {
   factory IsBlockedResponse({
-    $core.bool? blocked,
     $1.Error? error,
+    $core.bool? blocked,
   }) {
     final result = create();
-    if (blocked != null) result.blocked = blocked;
     if (error != null) result.error = error;
+    if (blocked != null) result.blocked = blocked;
     return result;
   }
 
@@ -1467,8 +1482,8 @@ class IsBlockedResponse extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, IsBlockedResponse_Result>
       _IsBlockedResponse_ResultByTag = {
-    1: IsBlockedResponse_Result.blocked,
-    2: IsBlockedResponse_Result.error,
+    1: IsBlockedResponse_Result.error,
+    2: IsBlockedResponse_Result.blocked,
     0: IsBlockedResponse_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -1476,9 +1491,9 @@ class IsBlockedResponse extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOB(1, _omitFieldNames ? '' : 'blocked')
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
+    ..aOB(2, _omitFieldNames ? '' : 'blocked')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1508,27 +1523,27 @@ class IsBlockedResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearResult() => $_clearField($_whichOneof(0));
 
-  /// If the user is blocked.
-  @$pb.TagNumber(1)
-  $core.bool get blocked => $_getBF(0);
-  @$pb.TagNumber(1)
-  set blocked($core.bool value) => $_setBool(0, value);
-  @$pb.TagNumber(1)
-  $core.bool hasBlocked() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearBlocked() => $_clearField(1);
-
   /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
+  /// If the user is blocked.
   @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
+  $core.bool get blocked => $_getBF(1);
   @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
+  set blocked($core.bool value) => $_setBool(1, value);
   @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
+  $core.bool hasBlocked() => $_has(1);
   @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
-  @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  void clearBlocked() => $_clearField(2);
 }
 
 /// Request for following a user.

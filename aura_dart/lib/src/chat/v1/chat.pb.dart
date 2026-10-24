@@ -111,17 +111,17 @@ class CreateChannelRequest extends $pb.GeneratedMessage {
   $pb.PbMap<$core.String, ChannelPermission> get members => $_getMap(2);
 }
 
-enum CreateChannelResponse_Result { channel, error, notSet }
+enum CreateChannelResponse_Result { error, channel, notSet }
 
 /// The response message for creating a channel.
 class CreateChannelResponse extends $pb.GeneratedMessage {
   factory CreateChannelResponse({
-    Channel? channel,
     $1.Error? error,
+    Channel? channel,
   }) {
     final result = create();
-    if (channel != null) result.channel = channel;
     if (error != null) result.error = error;
+    if (channel != null) result.channel = channel;
     return result;
   }
 
@@ -136,8 +136,8 @@ class CreateChannelResponse extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, CreateChannelResponse_Result>
       _CreateChannelResponse_ResultByTag = {
-    1: CreateChannelResponse_Result.channel,
-    2: CreateChannelResponse_Result.error,
+    1: CreateChannelResponse_Result.error,
+    2: CreateChannelResponse_Result.channel,
     0: CreateChannelResponse_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -145,10 +145,10 @@ class CreateChannelResponse extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<Channel>(1, _omitFieldNames ? '' : 'channel',
-        subBuilder: Channel.create)
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
+    ..aOM<Channel>(2, _omitFieldNames ? '' : 'channel',
+        subBuilder: Channel.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -179,29 +179,29 @@ class CreateChannelResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearResult() => $_clearField($_whichOneof(0));
 
-  /// The channel that was created.
-  @$pb.TagNumber(1)
-  Channel get channel => $_getN(0);
-  @$pb.TagNumber(1)
-  set channel(Channel value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasChannel() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearChannel() => $_clearField(1);
-  @$pb.TagNumber(1)
-  Channel ensureChannel() => $_ensure(0);
-
   /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
+  /// The channel that was created.
   @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
+  Channel get channel => $_getN(1);
   @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
+  set channel(Channel value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
+  $core.bool hasChannel() => $_has(1);
   @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
+  void clearChannel() => $_clearField(2);
   @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  Channel ensureChannel() => $_ensure(1);
 }
 
 /// The request message for deleting a channel.
@@ -698,12 +698,12 @@ class ReadRequest extends $pb.GeneratedMessage {
 
 class ReadResponse extends $pb.GeneratedMessage {
   factory ReadResponse({
-    $core.Iterable<Message>? messages,
     $1.Error? error,
+    $core.Iterable<Message>? messages,
   }) {
     final result = create();
-    if (messages != null) result.messages.addAll(messages);
     if (error != null) result.error = error;
+    if (messages != null) result.messages.addAll(messages);
     return result;
   }
 
@@ -720,10 +720,10 @@ class ReadResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'ReadResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
-    ..pPM<Message>(1, _omitFieldNames ? '' : 'messages',
-        subBuilder: Message.create)
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
+    ..pPM<Message>(2, _omitFieldNames ? '' : 'messages',
+        subBuilder: Message.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -745,21 +745,21 @@ class ReadResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ReadResponse>(create);
   static ReadResponse? _defaultInstance;
 
-  /// The messages read from the channel.
-  @$pb.TagNumber(1)
-  $pb.PbList<Message> get messages => $_getList(0);
-
   /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
+  /// The messages read from the channel.
   @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
-  @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
-  @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  $pb.PbList<Message> get messages => $_getList(1);
 }
 
 /// The request message for sending a message.
@@ -836,17 +836,17 @@ class SendRequest extends $pb.GeneratedMessage {
   $3.Content ensureContent() => $_ensure(1);
 }
 
-enum SendResponse_Result { message, error, notSet }
+enum SendResponse_Result { error, message, notSet }
 
 /// The response message for sending a message.
 class SendResponse extends $pb.GeneratedMessage {
   factory SendResponse({
-    Message? message,
     $1.Error? error,
+    Message? message,
   }) {
     final result = create();
-    if (message != null) result.message = message;
     if (error != null) result.error = error;
+    if (message != null) result.message = message;
     return result;
   }
 
@@ -861,8 +861,8 @@ class SendResponse extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, SendResponse_Result>
       _SendResponse_ResultByTag = {
-    1: SendResponse_Result.message,
-    2: SendResponse_Result.error,
+    1: SendResponse_Result.error,
+    2: SendResponse_Result.message,
     0: SendResponse_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -870,10 +870,10 @@ class SendResponse extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<Message>(1, _omitFieldNames ? '' : 'message',
-        subBuilder: Message.create)
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
+    ..aOM<Message>(2, _omitFieldNames ? '' : 'message',
+        subBuilder: Message.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -903,29 +903,29 @@ class SendResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearResult() => $_clearField($_whichOneof(0));
 
-  /// The created message.
-  @$pb.TagNumber(1)
-  Message get message => $_getN(0);
-  @$pb.TagNumber(1)
-  set message(Message value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasMessage() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearMessage() => $_clearField(1);
-  @$pb.TagNumber(1)
-  Message ensureMessage() => $_ensure(0);
-
   /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
+  /// The created message.
   @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
+  Message get message => $_getN(1);
   @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
+  set message(Message value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
+  $core.bool hasMessage() => $_has(1);
   @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
+  void clearMessage() => $_clearField(2);
   @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  Message ensureMessage() => $_ensure(1);
 }
 
 /// The request message for deleting a message.

@@ -54,22 +54,22 @@ const UploadResponse$json = {
   '1': 'UploadResponse',
   '2': [
     {
-      '1': 'resource_id',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.resource.v1.ResourceId',
-      '9': 0,
-      '10': 'resourceId'
-    },
-    {
       '1': 'error',
-      '3': 2,
+      '3': 1,
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
       '9': 0,
       '10': 'error'
+    },
+    {
+      '1': 'resource_id',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.resource.v1.ResourceId',
+      '9': 0,
+      '10': 'resourceId'
     },
   ],
   '8': [
@@ -79,9 +79,9 @@ const UploadResponse$json = {
 
 /// Descriptor for `UploadResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List uploadResponseDescriptor = $convert.base64Decode(
-    'Cg5VcGxvYWRSZXNwb25zZRI6CgtyZXNvdXJjZV9pZBgBIAEoCzIXLnJlc291cmNlLnYxLlJlc2'
-    '91cmNlSWRIAFIKcmVzb3VyY2VJZBIoCgVlcnJvchgCIAEoCzIQLmNvbW1vbi52MS5FcnJvckgA'
-    'UgVlcnJvckIICgZyZXN1bHQ=');
+    'Cg5VcGxvYWRSZXNwb25zZRIoCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcn'
+    'JvchI6CgtyZXNvdXJjZV9pZBgCIAEoCzIXLnJlc291cmNlLnYxLlJlc291cmNlSWRIAFIKcmVz'
+    'b3VyY2VJZEIICgZyZXN1bHQ=');
 
 @$core.Deprecated('Use downloadRequestDescriptor instead')
 const DownloadRequest$json = {
@@ -108,24 +108,24 @@ const DownloadResponse$json = {
   '1': 'DownloadResponse',
   '2': [
     {
-      '1': 'meta',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.resource.v1.ResourceMeta',
-      '9': 0,
-      '10': 'meta'
-    },
-    {'1': 'data', '3': 2, '4': 1, '5': 12, '9': 0, '10': 'data'},
-    {
       '1': 'error',
-      '3': 3,
+      '3': 1,
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
       '9': 0,
       '10': 'error'
     },
+    {
+      '1': 'meta',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.resource.v1.ResourceMeta',
+      '9': 0,
+      '10': 'meta'
+    },
+    {'1': 'data', '3': 3, '4': 1, '5': 12, '9': 0, '10': 'data'},
   ],
   '8': [
     {'1': 'result'},
@@ -134,9 +134,9 @@ const DownloadResponse$json = {
 
 /// Descriptor for `DownloadResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List downloadResponseDescriptor = $convert.base64Decode(
-    'ChBEb3dubG9hZFJlc3BvbnNlEi8KBG1ldGEYASABKAsyGS5yZXNvdXJjZS52MS5SZXNvdXJjZU'
-    '1ldGFIAFIEbWV0YRIUCgRkYXRhGAIgASgMSABSBGRhdGESKAoFZXJyb3IYAyABKAsyEC5jb21t'
-    'b24udjEuRXJyb3JIAFIFZXJyb3JCCAoGcmVzdWx0');
+    'ChBEb3dubG9hZFJlc3BvbnNlEigKBWVycm9yGAEgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBW'
+    'Vycm9yEi8KBG1ldGEYAiABKAsyGS5yZXNvdXJjZS52MS5SZXNvdXJjZU1ldGFIAFIEbWV0YRIU'
+    'CgRkYXRhGAMgASgMSABSBGRhdGFCCAoGcmVzdWx0');
 
 @$core.Deprecated('Use metaRequestDescriptor instead')
 const MetaRequest$json = {
@@ -163,22 +163,22 @@ const MetaResponse$json = {
   '1': 'MetaResponse',
   '2': [
     {
-      '1': 'metas',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.resource.v1.ResourceMeta',
-      '10': 'metas'
-    },
-    {
       '1': 'error',
-      '3': 2,
+      '3': 1,
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
       '9': 0,
       '10': 'error',
       '17': true
+    },
+    {
+      '1': 'metas',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.resource.v1.ResourceMeta',
+      '10': 'metas'
     },
   ],
   '8': [
@@ -188,8 +188,8 @@ const MetaResponse$json = {
 
 /// Descriptor for `MetaResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List metaResponseDescriptor = $convert.base64Decode(
-    'CgxNZXRhUmVzcG9uc2USLwoFbWV0YXMYASADKAsyGS5yZXNvdXJjZS52MS5SZXNvdXJjZU1ldG'
-    'FSBW1ldGFzEisKBWVycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9yiAEBQggK'
+    'CgxNZXRhUmVzcG9uc2USKwoFZXJyb3IYASABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJyb3'
+    'KIAQESLwoFbWV0YXMYAiADKAsyGS5yZXNvdXJjZS52MS5SZXNvdXJjZU1ldGFSBW1ldGFzQggK'
     'Bl9lcnJvcg==');
 
 @$core.Deprecated('Use resourceIdDescriptor instead')

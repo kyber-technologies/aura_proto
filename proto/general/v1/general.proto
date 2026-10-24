@@ -61,12 +61,12 @@ message StatusRequest {
 
 // A response from a status request.
 message StatusResponse {
-  // A map of status details.
-  map<string, string> details = 1;
-  // True if the server is in testing mode.
-  bool testing = 2;
   // The error, if any.
-  optional common.v1.Error error = 3;
+  optional common.v1.Error error = 1;
+  // A map of status details.
+  map<string, string> details = 2;
+  // True if the server is in testing mode.
+  bool testing = 3;
 }
 
 // A request to clear the server state.

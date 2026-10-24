@@ -78,17 +78,8 @@ const StatusResponse$json = {
   '1': 'StatusResponse',
   '2': [
     {
-      '1': 'details',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.general.v1.StatusResponse.DetailsEntry',
-      '10': 'details'
-    },
-    {'1': 'testing', '3': 2, '4': 1, '5': 8, '10': 'testing'},
-    {
       '1': 'error',
-      '3': 3,
+      '3': 1,
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
@@ -96,6 +87,15 @@ const StatusResponse$json = {
       '10': 'error',
       '17': true
     },
+    {
+      '1': 'details',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.general.v1.StatusResponse.DetailsEntry',
+      '10': 'details'
+    },
+    {'1': 'testing', '3': 3, '4': 1, '5': 8, '10': 'testing'},
   ],
   '3': [StatusResponse_DetailsEntry$json],
   '8': [
@@ -115,9 +115,9 @@ const StatusResponse_DetailsEntry$json = {
 
 /// Descriptor for `StatusResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List statusResponseDescriptor = $convert.base64Decode(
-    'Cg5TdGF0dXNSZXNwb25zZRJBCgdkZXRhaWxzGAEgAygLMicuZ2VuZXJhbC52MS5TdGF0dXNSZX'
-    'Nwb25zZS5EZXRhaWxzRW50cnlSB2RldGFpbHMSGAoHdGVzdGluZxgCIAEoCFIHdGVzdGluZxIr'
-    'CgVlcnJvchgDIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcnJvcogBARo6CgxEZXRhaWxzRW'
+    'Cg5TdGF0dXNSZXNwb25zZRIrCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcn'
+    'JvcogBARJBCgdkZXRhaWxzGAIgAygLMicuZ2VuZXJhbC52MS5TdGF0dXNSZXNwb25zZS5EZXRh'
+    'aWxzRW50cnlSB2RldGFpbHMSGAoHdGVzdGluZxgDIAEoCFIHdGVzdGluZxo6CgxEZXRhaWxzRW'
     '50cnkSEAoDa2V5GAEgASgJUgNrZXkSFAoFdmFsdWUYAiABKAlSBXZhbHVlOgI4AUIICgZfZXJy'
     'b3I=');
 

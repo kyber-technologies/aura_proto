@@ -127,17 +127,17 @@ class UploadRequest extends $pb.GeneratedMessage {
   void clearData() => $_clearField(3);
 }
 
-enum UploadResponse_Result { resourceId, error, notSet }
+enum UploadResponse_Result { error, resourceId, notSet }
 
 /// Response for uploading a resource.
 class UploadResponse extends $pb.GeneratedMessage {
   factory UploadResponse({
-    ResourceId? resourceId,
     $1.Error? error,
+    ResourceId? resourceId,
   }) {
     final result = create();
-    if (resourceId != null) result.resourceId = resourceId;
     if (error != null) result.error = error;
+    if (resourceId != null) result.resourceId = resourceId;
     return result;
   }
 
@@ -152,8 +152,8 @@ class UploadResponse extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, UploadResponse_Result>
       _UploadResponse_ResultByTag = {
-    1: UploadResponse_Result.resourceId,
-    2: UploadResponse_Result.error,
+    1: UploadResponse_Result.error,
+    2: UploadResponse_Result.resourceId,
     0: UploadResponse_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -161,10 +161,10 @@ class UploadResponse extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<ResourceId>(1, _omitFieldNames ? '' : 'resourceId',
-        subBuilder: ResourceId.create)
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
+    ..aOM<ResourceId>(2, _omitFieldNames ? '' : 'resourceId',
+        subBuilder: ResourceId.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -194,29 +194,29 @@ class UploadResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearResult() => $_clearField($_whichOneof(0));
 
-  /// The complete resource ID of the resource.
-  @$pb.TagNumber(1)
-  ResourceId get resourceId => $_getN(0);
-  @$pb.TagNumber(1)
-  set resourceId(ResourceId value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasResourceId() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearResourceId() => $_clearField(1);
-  @$pb.TagNumber(1)
-  ResourceId ensureResourceId() => $_ensure(0);
-
   /// The error, if any, that occurred during the upload.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
+  /// The complete resource ID of the resource.
   @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
+  ResourceId get resourceId => $_getN(1);
   @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
+  set resourceId(ResourceId value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
+  $core.bool hasResourceId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
+  void clearResourceId() => $_clearField(2);
   @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  ResourceId ensureResourceId() => $_ensure(1);
 }
 
 /// Request for downloading a resource.
@@ -278,19 +278,19 @@ class DownloadRequest extends $pb.GeneratedMessage {
   ResourceId ensureResourceId() => $_ensure(0);
 }
 
-enum DownloadResponse_Result { meta, data, error, notSet }
+enum DownloadResponse_Result { error, meta, data, notSet }
 
 /// Response for downloading a resource.
 class DownloadResponse extends $pb.GeneratedMessage {
   factory DownloadResponse({
+    $1.Error? error,
     ResourceMeta? meta,
     $core.List<$core.int>? data,
-    $1.Error? error,
   }) {
     final result = create();
+    if (error != null) result.error = error;
     if (meta != null) result.meta = meta;
     if (data != null) result.data = data;
-    if (error != null) result.error = error;
     return result;
   }
 
@@ -305,9 +305,9 @@ class DownloadResponse extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, DownloadResponse_Result>
       _DownloadResponse_ResultByTag = {
-    1: DownloadResponse_Result.meta,
-    2: DownloadResponse_Result.data,
-    3: DownloadResponse_Result.error,
+    1: DownloadResponse_Result.error,
+    2: DownloadResponse_Result.meta,
+    3: DownloadResponse_Result.data,
     0: DownloadResponse_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -315,12 +315,12 @@ class DownloadResponse extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2, 3])
-    ..aOM<ResourceMeta>(1, _omitFieldNames ? '' : 'meta',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..aOM<ResourceMeta>(2, _omitFieldNames ? '' : 'meta',
         subBuilder: ResourceMeta.create)
     ..a<$core.List<$core.int>>(
-        2, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
-    ..aOM<$1.Error>(3, _omitFieldNames ? '' : 'error',
-        subBuilder: $1.Error.create)
+        3, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -352,39 +352,39 @@ class DownloadResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearResult() => $_clearField($_whichOneof(0));
 
+  /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
   /// The metadata of the resource.
-  @$pb.TagNumber(1)
-  ResourceMeta get meta => $_getN(0);
-  @$pb.TagNumber(1)
-  set meta(ResourceMeta value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasMeta() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearMeta() => $_clearField(1);
-  @$pb.TagNumber(1)
-  ResourceMeta ensureMeta() => $_ensure(0);
+  @$pb.TagNumber(2)
+  ResourceMeta get meta => $_getN(1);
+  @$pb.TagNumber(2)
+  set meta(ResourceMeta value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasMeta() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMeta() => $_clearField(2);
+  @$pb.TagNumber(2)
+  ResourceMeta ensureMeta() => $_ensure(1);
 
   /// The raw data of the resource.
-  @$pb.TagNumber(2)
-  $core.List<$core.int> get data => $_getN(1);
-  @$pb.TagNumber(2)
-  set data($core.List<$core.int> value) => $_setBytes(1, value);
-  @$pb.TagNumber(2)
-  $core.bool hasData() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearData() => $_clearField(2);
-
-  /// The error, if any.
   @$pb.TagNumber(3)
-  $1.Error get error => $_getN(2);
+  $core.List<$core.int> get data => $_getN(2);
   @$pb.TagNumber(3)
-  set error($1.Error value) => $_setField(3, value);
+  set data($core.List<$core.int> value) => $_setBytes(2, value);
   @$pb.TagNumber(3)
-  $core.bool hasError() => $_has(2);
+  $core.bool hasData() => $_has(2);
   @$pb.TagNumber(3)
-  void clearError() => $_clearField(3);
-  @$pb.TagNumber(3)
-  $1.Error ensureError() => $_ensure(2);
+  void clearData() => $_clearField(3);
 }
 
 /// Request for getting resource metas.
@@ -441,12 +441,12 @@ class MetaRequest extends $pb.GeneratedMessage {
 /// Response for getting resource metas.
 class MetaResponse extends $pb.GeneratedMessage {
   factory MetaResponse({
-    $core.Iterable<ResourceMeta>? metas,
     $1.Error? error,
+    $core.Iterable<ResourceMeta>? metas,
   }) {
     final result = create();
-    if (metas != null) result.metas.addAll(metas);
     if (error != null) result.error = error;
+    if (metas != null) result.metas.addAll(metas);
     return result;
   }
 
@@ -463,10 +463,10 @@ class MetaResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'MetaResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
-    ..pPM<ResourceMeta>(1, _omitFieldNames ? '' : 'metas',
-        subBuilder: ResourceMeta.create)
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
+    ..pPM<ResourceMeta>(2, _omitFieldNames ? '' : 'metas',
+        subBuilder: ResourceMeta.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -488,21 +488,21 @@ class MetaResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MetaResponse>(create);
   static MetaResponse? _defaultInstance;
 
-  /// The returned resource metas of the resource.
-  @$pb.TagNumber(1)
-  $pb.PbList<ResourceMeta> get metas => $_getList(0);
-
   /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
+  /// The returned resource metas of the resource.
   @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
-  @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
-  @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  $pb.PbList<ResourceMeta> get metas => $_getList(1);
 }
 
 /// The unique identifier for a resource.

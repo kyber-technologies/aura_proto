@@ -48,10 +48,9 @@ final $typed_data.Uint8List feedRequestDescriptor = $convert.base64Decode(
 const FeedResponse$json = {
   '1': 'FeedResponse',
   '2': [
-    {'1': 'post_ids', '3': 1, '4': 3, '5': 6, '10': 'postIds'},
     {
       '1': 'error',
-      '3': 2,
+      '3': 1,
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
@@ -59,6 +58,7 @@ const FeedResponse$json = {
       '10': 'error',
       '17': true
     },
+    {'1': 'post_ids', '3': 2, '4': 3, '5': 6, '10': 'postIds'},
   ],
   '8': [
     {'1': '_error'},
@@ -67,8 +67,8 @@ const FeedResponse$json = {
 
 /// Descriptor for `FeedResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List feedResponseDescriptor = $convert.base64Decode(
-    'CgxGZWVkUmVzcG9uc2USGQoIcG9zdF9pZHMYASADKAZSB3Bvc3RJZHMSKwoFZXJyb3IYAiABKA'
-    'syEC5jb21tb24udjEuRXJyb3JIAFIFZXJyb3KIAQFCCAoGX2Vycm9y');
+    'CgxGZWVkUmVzcG9uc2USKwoFZXJyb3IYASABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJyb3'
+    'KIAQESGQoIcG9zdF9pZHMYAiADKAZSB3Bvc3RJZHNCCAoGX2Vycm9y');
 
 @$core.Deprecated('Use publishRequestDescriptor instead')
 const PublishRequest$json = {
@@ -99,22 +99,22 @@ const PublishResponse$json = {
   '1': 'PublishResponse',
   '2': [
     {
-      '1': 'post',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.posting.v1.Post',
-      '9': 0,
-      '10': 'post'
-    },
-    {
       '1': 'error',
-      '3': 2,
+      '3': 1,
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
       '9': 0,
       '10': 'error'
+    },
+    {
+      '1': 'post',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.posting.v1.Post',
+      '9': 0,
+      '10': 'post'
     },
   ],
   '8': [
@@ -124,8 +124,8 @@ const PublishResponse$json = {
 
 /// Descriptor for `PublishResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List publishResponseDescriptor = $convert.base64Decode(
-    'Cg9QdWJsaXNoUmVzcG9uc2USJgoEcG9zdBgBIAEoCzIQLnBvc3RpbmcudjEuUG9zdEgAUgRwb3'
-    'N0EigKBWVycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9yQggKBnJlc3VsdA==');
+    'Cg9QdWJsaXNoUmVzcG9uc2USKAoFZXJyb3IYASABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZX'
+    'Jyb3ISJgoEcG9zdBgCIAEoCzIQLnBvc3RpbmcudjEuUG9zdEgAUgRwb3N0QggKBnJlc3VsdA==');
 
 @$core.Deprecated('Use unpublishRequestDescriptor instead')
 const UnpublishRequest$json = {
@@ -181,22 +181,22 @@ const GetResponse$json = {
   '1': 'GetResponse',
   '2': [
     {
-      '1': 'posts',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.posting.v1.GetResponse.PostsEntry',
-      '10': 'posts'
-    },
-    {
       '1': 'error',
-      '3': 2,
+      '3': 1,
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
       '9': 0,
       '10': 'error',
       '17': true
+    },
+    {
+      '1': 'posts',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.posting.v1.GetResponse.PostsEntry',
+      '10': 'posts'
     },
   ],
   '3': [GetResponse_PostsEntry$json],
@@ -224,9 +224,9 @@ const GetResponse_PostsEntry$json = {
 
 /// Descriptor for `GetResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getResponseDescriptor = $convert.base64Decode(
-    'CgtHZXRSZXNwb25zZRI4CgVwb3N0cxgBIAMoCzIiLnBvc3RpbmcudjEuR2V0UmVzcG9uc2UuUG'
-    '9zdHNFbnRyeVIFcG9zdHMSKwoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJy'
-    'b3KIAQEaSgoKUG9zdHNFbnRyeRIQCgNrZXkYASABKAZSA2tleRImCgV2YWx1ZRgCIAEoCzIQLn'
+    'CgtHZXRSZXNwb25zZRIrCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcnJvco'
+    'gBARI4CgVwb3N0cxgCIAMoCzIiLnBvc3RpbmcudjEuR2V0UmVzcG9uc2UuUG9zdHNFbnRyeVIF'
+    'cG9zdHMaSgoKUG9zdHNFbnRyeRIQCgNrZXkYASABKAZSA2tleRImCgV2YWx1ZRgCIAEoCzIQLn'
     'Bvc3RpbmcudjEuUG9zdFIFdmFsdWU6AjgBQggKBl9lcnJvcg==');
 
 @$core.Deprecated('Use getOfRequestDescriptor instead')
@@ -257,22 +257,22 @@ const GetOfResponse$json = {
   '1': 'GetOfResponse',
   '2': [
     {
-      '1': 'posts',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.posting.v1.Post',
-      '10': 'posts'
-    },
-    {
       '1': 'error',
-      '3': 2,
+      '3': 1,
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
       '9': 0,
       '10': 'error',
       '17': true
+    },
+    {
+      '1': 'posts',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.posting.v1.Post',
+      '10': 'posts'
     },
   ],
   '8': [
@@ -282,8 +282,8 @@ const GetOfResponse$json = {
 
 /// Descriptor for `GetOfResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getOfResponseDescriptor = $convert.base64Decode(
-    'Cg1HZXRPZlJlc3BvbnNlEiYKBXBvc3RzGAEgAygLMhAucG9zdGluZy52MS5Qb3N0UgVwb3N0cx'
-    'IrCgVlcnJvchgCIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcnJvcogBAUIICgZfZXJyb3I=');
+    'Cg1HZXRPZlJlc3BvbnNlEisKBWVycm9yGAEgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm'
+    '9yiAEBEiYKBXBvc3RzGAIgAygLMhAucG9zdGluZy52MS5Qb3N0UgVwb3N0c0IICgZfZXJyb3I=');
 
 @$core.Deprecated('Use searchRequestDescriptor instead')
 const SearchRequest$json = {
@@ -313,22 +313,22 @@ const SearchResponse$json = {
   '1': 'SearchResponse',
   '2': [
     {
-      '1': 'posts',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.posting.v1.Post',
-      '10': 'posts'
-    },
-    {
       '1': 'error',
-      '3': 2,
+      '3': 1,
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
       '9': 0,
       '10': 'error',
       '17': true
+    },
+    {
+      '1': 'posts',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.posting.v1.Post',
+      '10': 'posts'
     },
   ],
   '8': [
@@ -338,8 +338,8 @@ const SearchResponse$json = {
 
 /// Descriptor for `SearchResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List searchResponseDescriptor = $convert.base64Decode(
-    'Cg5TZWFyY2hSZXNwb25zZRImCgVwb3N0cxgBIAMoCzIQLnBvc3RpbmcudjEuUG9zdFIFcG9zdH'
-    'MSKwoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJyb3KIAQFCCAoGX2Vycm9y');
+    'Cg5TZWFyY2hSZXNwb25zZRIrCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcn'
+    'JvcogBARImCgVwb3N0cxgCIAMoCzIQLnBvc3RpbmcudjEuUG9zdFIFcG9zdHNCCAoGX2Vycm9y');
 
 @$core.Deprecated('Use reactRequestDescriptor instead')
 const ReactRequest$json = {

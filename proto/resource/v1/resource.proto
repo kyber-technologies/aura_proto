@@ -41,10 +41,10 @@ message UploadRequest {
 message UploadResponse {
   // The result of the upload.
   oneof result {
-    // The complete resource ID of the resource.
-    ResourceId resource_id = 1;
     // The error, if any, that occurred during the upload.
-    common.v1.Error error = 2;
+    common.v1.Error error = 1;
+    // The complete resource ID of the resource.
+    ResourceId resource_id = 2;
   }
 }
 
@@ -58,12 +58,12 @@ message DownloadRequest {
 message DownloadResponse {
   // The result of the download.
   oneof result {
-    // The metadata of the resource.
-    ResourceMeta meta = 1;
-    // The raw data of the resource.
-    bytes data = 2;
     // The error, if any.
-    common.v1.Error error = 3;
+    common.v1.Error error = 1;
+    // The metadata of the resource.
+    ResourceMeta meta = 2;
+    // The raw data of the resource.
+    bytes data = 3;
   }
 }
 
@@ -75,10 +75,10 @@ message MetaRequest {
 
 // Response for getting resource metas.
 message MetaResponse {
-  // The returned resource metas of the resource.
-  repeated ResourceMeta metas = 1;
   // The error, if any.
-  optional common.v1.Error error = 2;
+  optional common.v1.Error error = 1;
+  // The returned resource metas of the resource.
+  repeated ResourceMeta metas = 2;
 }
 
 // The unique identifier for a resource.

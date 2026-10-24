@@ -97,12 +97,12 @@ class FeedRequest extends $pb.GeneratedMessage {
 /// Response for getting the user feed.
 class FeedResponse extends $pb.GeneratedMessage {
   factory FeedResponse({
-    $core.Iterable<$fixnum.Int64>? postIds,
     $1.Error? error,
+    $core.Iterable<$fixnum.Int64>? postIds,
   }) {
     final result = create();
-    if (postIds != null) result.postIds.addAll(postIds);
     if (error != null) result.error = error;
+    if (postIds != null) result.postIds.addAll(postIds);
     return result;
   }
 
@@ -119,9 +119,9 @@ class FeedResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'FeedResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
-    ..p<$fixnum.Int64>(1, _omitFieldNames ? '' : 'postIds', $pb.PbFieldType.KF6)
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
+    ..p<$fixnum.Int64>(2, _omitFieldNames ? '' : 'postIds', $pb.PbFieldType.KF6)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -143,21 +143,21 @@ class FeedResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<FeedResponse>(create);
   static FeedResponse? _defaultInstance;
 
-  /// The returned post IDs.
-  @$pb.TagNumber(1)
-  $pb.PbList<$fixnum.Int64> get postIds => $_getList(0);
-
   /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
+  /// The returned post IDs.
   @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
-  @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
-  @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  $pb.PbList<$fixnum.Int64> get postIds => $_getList(1);
 }
 
 /// Request for publishing a new post.
@@ -235,17 +235,17 @@ class PublishRequest extends $pb.GeneratedMessage {
   void clearParent() => $_clearField(2);
 }
 
-enum PublishResponse_Result { post, error, notSet }
+enum PublishResponse_Result { error, post, notSet }
 
 /// Response for publishing a new post.
 class PublishResponse extends $pb.GeneratedMessage {
   factory PublishResponse({
-    Post? post,
     $1.Error? error,
+    Post? post,
   }) {
     final result = create();
-    if (post != null) result.post = post;
     if (error != null) result.error = error;
+    if (post != null) result.post = post;
     return result;
   }
 
@@ -260,8 +260,8 @@ class PublishResponse extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, PublishResponse_Result>
       _PublishResponse_ResultByTag = {
-    1: PublishResponse_Result.post,
-    2: PublishResponse_Result.error,
+    1: PublishResponse_Result.error,
+    2: PublishResponse_Result.post,
     0: PublishResponse_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -269,9 +269,9 @@ class PublishResponse extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<Post>(1, _omitFieldNames ? '' : 'post', subBuilder: Post.create)
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
+    ..aOM<Post>(2, _omitFieldNames ? '' : 'post', subBuilder: Post.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -301,29 +301,29 @@ class PublishResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearResult() => $_clearField($_whichOneof(0));
 
-  /// The published post.
-  @$pb.TagNumber(1)
-  Post get post => $_getN(0);
-  @$pb.TagNumber(1)
-  set post(Post value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasPost() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearPost() => $_clearField(1);
-  @$pb.TagNumber(1)
-  Post ensurePost() => $_ensure(0);
-
   /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
+  /// The published post.
   @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
+  Post get post => $_getN(1);
   @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
+  set post(Post value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
+  $core.bool hasPost() => $_has(1);
   @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
+  void clearPost() => $_clearField(2);
   @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  Post ensurePost() => $_ensure(1);
 }
 
 /// Request for unpublishing a post.
@@ -494,12 +494,12 @@ class GetRequest extends $pb.GeneratedMessage {
 /// Response for getting posts.
 class GetResponse extends $pb.GeneratedMessage {
   factory GetResponse({
-    $core.Iterable<$core.MapEntry<$fixnum.Int64, Post>>? posts,
     $1.Error? error,
+    $core.Iterable<$core.MapEntry<$fixnum.Int64, Post>>? posts,
   }) {
     final result = create();
-    if (posts != null) result.posts.addEntries(posts);
     if (error != null) result.error = error;
+    if (posts != null) result.posts.addEntries(posts);
     return result;
   }
 
@@ -516,15 +516,15 @@ class GetResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'GetResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
-    ..m<$fixnum.Int64, Post>(1, _omitFieldNames ? '' : 'posts',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..m<$fixnum.Int64, Post>(2, _omitFieldNames ? '' : 'posts',
         entryClassName: 'GetResponse.PostsEntry',
         keyFieldType: $pb.PbFieldType.OF6,
         valueFieldType: $pb.PbFieldType.OM,
         valueCreator: Post.create,
         valueDefaultOrMaker: Post.getDefault,
         packageName: const $pb.PackageName('posting.v1'))
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
-        subBuilder: $1.Error.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -546,23 +546,23 @@ class GetResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GetResponse>(create);
   static GetResponse? _defaultInstance;
 
+  /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
   /// The requested posts.
   ///
   /// If a post ID is not found, it is not included in the map.
-  @$pb.TagNumber(1)
-  $pb.PbMap<$fixnum.Int64, Post> get posts => $_getMap(0);
-
-  /// The error, if any.
   @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
-  @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
-  @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  $pb.PbMap<$fixnum.Int64, Post> get posts => $_getMap(1);
 }
 
 /// Request for getting posts of a user.
@@ -653,12 +653,12 @@ class GetOfRequest extends $pb.GeneratedMessage {
 /// Response for getting posts of a user.
 class GetOfResponse extends $pb.GeneratedMessage {
   factory GetOfResponse({
-    $core.Iterable<Post>? posts,
     $1.Error? error,
+    $core.Iterable<Post>? posts,
   }) {
     final result = create();
-    if (posts != null) result.posts.addAll(posts);
     if (error != null) result.error = error;
+    if (posts != null) result.posts.addAll(posts);
     return result;
   }
 
@@ -675,9 +675,9 @@ class GetOfResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'GetOfResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
-    ..pPM<Post>(1, _omitFieldNames ? '' : 'posts', subBuilder: Post.create)
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
+    ..pPM<Post>(2, _omitFieldNames ? '' : 'posts', subBuilder: Post.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -699,21 +699,21 @@ class GetOfResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GetOfResponse>(create);
   static GetOfResponse? _defaultInstance;
 
-  /// The posts of the user.
-  @$pb.TagNumber(1)
-  $pb.PbList<Post> get posts => $_getList(0);
-
   /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
+  /// The posts of the user.
   @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
-  @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
-  @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  $pb.PbList<Post> get posts => $_getList(1);
 }
 
 /// Request for searching posts.
@@ -804,12 +804,12 @@ class SearchRequest extends $pb.GeneratedMessage {
 /// Response for searching posts.
 class SearchResponse extends $pb.GeneratedMessage {
   factory SearchResponse({
-    $core.Iterable<Post>? posts,
     $1.Error? error,
+    $core.Iterable<Post>? posts,
   }) {
     final result = create();
-    if (posts != null) result.posts.addAll(posts);
     if (error != null) result.error = error;
+    if (posts != null) result.posts.addAll(posts);
     return result;
   }
 
@@ -826,9 +826,9 @@ class SearchResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'SearchResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'posting.v1'),
       createEmptyInstance: create)
-    ..pPM<Post>(1, _omitFieldNames ? '' : 'posts', subBuilder: Post.create)
-    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
+    ..pPM<Post>(2, _omitFieldNames ? '' : 'posts', subBuilder: Post.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -850,21 +850,21 @@ class SearchResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<SearchResponse>(create);
   static SearchResponse? _defaultInstance;
 
-  /// The search results.
-  @$pb.TagNumber(1)
-  $pb.PbList<Post> get posts => $_getList(0);
-
   /// The error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
+  /// The search results.
   @$pb.TagNumber(2)
-  $1.Error get error => $_getN(1);
-  @$pb.TagNumber(2)
-  set error($1.Error value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearError() => $_clearField(2);
-  @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(1);
+  $pb.PbList<Post> get posts => $_getList(1);
 }
 
 /// Request for reacting to a post.

@@ -105,11 +105,9 @@ final $typed_data.Uint8List authRequestDescriptor = $convert.base64Decode(
 const AuthResponse$json = {
   '1': 'AuthResponse',
   '2': [
-    {'1': 'token', '3': 1, '4': 1, '5': 9, '10': 'token'},
-    {'1': 'user', '3': 2, '4': 1, '5': 11, '6': '.user.v1.User', '10': 'user'},
     {
       '1': 'error',
-      '3': 3,
+      '3': 1,
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
@@ -117,6 +115,8 @@ const AuthResponse$json = {
       '10': 'error',
       '17': true
     },
+    {'1': 'token', '3': 2, '4': 1, '5': 9, '10': 'token'},
+    {'1': 'user', '3': 3, '4': 1, '5': 11, '6': '.user.v1.User', '10': 'user'},
   ],
   '8': [
     {'1': '_error'},
@@ -125,9 +125,9 @@ const AuthResponse$json = {
 
 /// Descriptor for `AuthResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List authResponseDescriptor = $convert.base64Decode(
-    'CgxBdXRoUmVzcG9uc2USFAoFdG9rZW4YASABKAlSBXRva2VuEiEKBHVzZXIYAiABKAsyDS51c2'
-    'VyLnYxLlVzZXJSBHVzZXISKwoFZXJyb3IYAyABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJy'
-    'b3KIAQFCCAoGX2Vycm9y');
+    'CgxBdXRoUmVzcG9uc2USKwoFZXJyb3IYASABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJyb3'
+    'KIAQESFAoFdG9rZW4YAiABKAlSBXRva2VuEiEKBHVzZXIYAyABKAsyDS51c2VyLnYxLlVzZXJS'
+    'BHVzZXJCCAoGX2Vycm9y');
 
 @$core.Deprecated('Use subscribeRequestDescriptor instead')
 const SubscribeRequest$json = {
@@ -143,16 +143,8 @@ const SubscribeResponse$json = {
   '1': 'SubscribeResponse',
   '2': [
     {
-      '1': 'notifications',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.user.v1.Notification',
-      '10': 'notifications'
-    },
-    {
       '1': 'error',
-      '3': 2,
+      '3': 1,
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
@@ -160,6 +152,15 @@ const SubscribeResponse$json = {
       '10': 'error',
       '17': true
     },
+    {
+      '1': 'notifications',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.user.v1.Notification',
+      '10': 'notifications'
+    },
+    {'1': 'user', '3': 3, '4': 1, '5': 11, '6': '.user.v1.User', '10': 'user'},
   ],
   '8': [
     {'1': '_error'},
@@ -168,9 +169,10 @@ const SubscribeResponse$json = {
 
 /// Descriptor for `SubscribeResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List subscribeResponseDescriptor = $convert.base64Decode(
-    'ChFTdWJzY3JpYmVSZXNwb25zZRI7Cg1ub3RpZmljYXRpb25zGAEgAygLMhUudXNlci52MS5Ob3'
-    'RpZmljYXRpb25SDW5vdGlmaWNhdGlvbnMSKwoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJy'
-    'b3JIAFIFZXJyb3KIAQFCCAoGX2Vycm9y');
+    'ChFTdWJzY3JpYmVSZXNwb25zZRIrCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUg'
+    'VlcnJvcogBARI7Cg1ub3RpZmljYXRpb25zGAIgAygLMhUudXNlci52MS5Ob3RpZmljYXRpb25S'
+    'DW5vdGlmaWNhdGlvbnMSIQoEdXNlchgDIAEoCzINLnVzZXIudjEuVXNlclIEdXNlckIICgZfZX'
+    'Jyb3I=');
 
 @$core.Deprecated('Use verifyEmailRequestDescriptor instead')
 const VerifyEmailRequest$json = {
@@ -401,22 +403,22 @@ const GetResponse$json = {
   '1': 'GetResponse',
   '2': [
     {
-      '1': 'users',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.user.v1.GetResponse.UsersEntry',
-      '10': 'users'
-    },
-    {
       '1': 'error',
-      '3': 2,
+      '3': 1,
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
       '9': 0,
       '10': 'error',
       '17': true
+    },
+    {
+      '1': 'users',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.user.v1.GetResponse.UsersEntry',
+      '10': 'users'
     },
   ],
   '3': [GetResponse_UsersEntry$json],
@@ -444,9 +446,9 @@ const GetResponse_UsersEntry$json = {
 
 /// Descriptor for `GetResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getResponseDescriptor = $convert.base64Decode(
-    'CgtHZXRSZXNwb25zZRI1CgV1c2VycxgBIAMoCzIfLnVzZXIudjEuR2V0UmVzcG9uc2UuVXNlcn'
-    'NFbnRyeVIFdXNlcnMSKwoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJyb3KI'
-    'AQEaTgoKVXNlcnNFbnRyeRIQCgNrZXkYASABKAlSA2tleRIqCgV2YWx1ZRgCIAEoCzIULnVzZX'
+    'CgtHZXRSZXNwb25zZRIrCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcnJvco'
+    'gBARI1CgV1c2VycxgCIAMoCzIfLnVzZXIudjEuR2V0UmVzcG9uc2UuVXNlcnNFbnRyeVIFdXNl'
+    'cnMaTgoKVXNlcnNFbnRyeRIQCgNrZXkYASABKAlSA2tleRIqCgV2YWx1ZRgCIAEoCzIULnVzZX'
     'IudjEuVXNlclByb2ZpbGVSBXZhbHVlOgI4AUIICgZfZXJyb3I=');
 
 @$core.Deprecated('Use searchRequestDescriptor instead')
@@ -468,22 +470,22 @@ const SearchResponse$json = {
   '1': 'SearchResponse',
   '2': [
     {
-      '1': 'users',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.user.v1.UserProfile',
-      '10': 'users'
-    },
-    {
       '1': 'error',
-      '3': 2,
+      '3': 1,
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
       '9': 0,
       '10': 'error',
       '17': true
+    },
+    {
+      '1': 'users',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.user.v1.UserProfile',
+      '10': 'users'
     },
   ],
   '8': [
@@ -493,8 +495,8 @@ const SearchResponse$json = {
 
 /// Descriptor for `SearchResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List searchResponseDescriptor = $convert.base64Decode(
-    'Cg5TZWFyY2hSZXNwb25zZRIqCgV1c2VycxgBIAMoCzIULnVzZXIudjEuVXNlclByb2ZpbGVSBX'
-    'VzZXJzEisKBWVycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9yiAEBQggKBl9l'
+    'Cg5TZWFyY2hSZXNwb25zZRIrCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcn'
+    'JvcogBARIqCgV1c2VycxgCIAMoCzIULnVzZXIudjEuVXNlclByb2ZpbGVSBXVzZXJzQggKBl9l'
     'cnJvcg==');
 
 @$core.Deprecated('Use blockRequestDescriptor instead')
@@ -552,16 +554,16 @@ final $typed_data.Uint8List isBlockedRequestDescriptor = $convert.base64Decode(
 const IsBlockedResponse$json = {
   '1': 'IsBlockedResponse',
   '2': [
-    {'1': 'blocked', '3': 1, '4': 1, '5': 8, '9': 0, '10': 'blocked'},
     {
       '1': 'error',
-      '3': 2,
+      '3': 1,
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
       '9': 0,
       '10': 'error'
     },
+    {'1': 'blocked', '3': 2, '4': 1, '5': 8, '9': 0, '10': 'blocked'},
   ],
   '8': [
     {'1': 'result'},
@@ -570,8 +572,8 @@ const IsBlockedResponse$json = {
 
 /// Descriptor for `IsBlockedResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List isBlockedResponseDescriptor = $convert.base64Decode(
-    'ChFJc0Jsb2NrZWRSZXNwb25zZRIaCgdibG9ja2VkGAEgASgISABSB2Jsb2NrZWQSKAoFZXJyb3'
-    'IYAiABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJyb3JCCAoGcmVzdWx0');
+    'ChFJc0Jsb2NrZWRSZXNwb25zZRIoCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUg'
+    'VlcnJvchIaCgdibG9ja2VkGAIgASgISABSB2Jsb2NrZWRCCAoGcmVzdWx0');
 
 @$core.Deprecated('Use followRequestDescriptor instead')
 const FollowRequest$json = {

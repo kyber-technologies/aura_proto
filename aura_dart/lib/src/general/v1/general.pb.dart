@@ -220,14 +220,14 @@ class StatusRequest extends $pb.GeneratedMessage {
 /// A response from a status request.
 class StatusResponse extends $pb.GeneratedMessage {
   factory StatusResponse({
+    $1.Error? error,
     $core.Iterable<$core.MapEntry<$core.String, $core.String>>? details,
     $core.bool? testing,
-    $1.Error? error,
   }) {
     final result = create();
+    if (error != null) result.error = error;
     if (details != null) result.details.addEntries(details);
     if (testing != null) result.testing = testing;
-    if (error != null) result.error = error;
     return result;
   }
 
@@ -244,14 +244,14 @@ class StatusResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'StatusResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'general.v1'),
       createEmptyInstance: create)
-    ..m<$core.String, $core.String>(1, _omitFieldNames ? '' : 'details',
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..m<$core.String, $core.String>(2, _omitFieldNames ? '' : 'details',
         entryClassName: 'StatusResponse.DetailsEntry',
         keyFieldType: $pb.PbFieldType.OS,
         valueFieldType: $pb.PbFieldType.OS,
         packageName: const $pb.PackageName('general.v1'))
-    ..aOB(2, _omitFieldNames ? '' : 'testing')
-    ..aOM<$1.Error>(3, _omitFieldNames ? '' : 'error',
-        subBuilder: $1.Error.create)
+    ..aOB(3, _omitFieldNames ? '' : 'testing')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -273,31 +273,31 @@ class StatusResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<StatusResponse>(create);
   static StatusResponse? _defaultInstance;
 
-  /// A map of status details.
+  /// The error, if any.
   @$pb.TagNumber(1)
-  $pb.PbMap<$core.String, $core.String> get details => $_getMap(0);
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+
+  /// A map of status details.
+  @$pb.TagNumber(2)
+  $pb.PbMap<$core.String, $core.String> get details => $_getMap(1);
 
   /// True if the server is in testing mode.
-  @$pb.TagNumber(2)
-  $core.bool get testing => $_getBF(1);
-  @$pb.TagNumber(2)
-  set testing($core.bool value) => $_setBool(1, value);
-  @$pb.TagNumber(2)
-  $core.bool hasTesting() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearTesting() => $_clearField(2);
-
-  /// The error, if any.
   @$pb.TagNumber(3)
-  $1.Error get error => $_getN(2);
+  $core.bool get testing => $_getBF(2);
   @$pb.TagNumber(3)
-  set error($1.Error value) => $_setField(3, value);
+  set testing($core.bool value) => $_setBool(2, value);
   @$pb.TagNumber(3)
-  $core.bool hasError() => $_has(2);
+  $core.bool hasTesting() => $_has(2);
   @$pb.TagNumber(3)
-  void clearError() => $_clearField(3);
-  @$pb.TagNumber(3)
-  $1.Error ensureError() => $_ensure(2);
+  void clearTesting() => $_clearField(3);
 }
 
 /// A request to clear the server state.

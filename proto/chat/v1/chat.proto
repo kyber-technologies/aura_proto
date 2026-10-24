@@ -59,10 +59,10 @@ message CreateChannelRequest {
 message CreateChannelResponse {
   // The result of the create operation.
   oneof result {
-    // The channel that was created.
-    Channel channel = 1;
     // The error, if any.
-    common.v1.Error error = 2;
+    common.v1.Error error = 1;
+    // The channel that was created.
+    Channel channel = 2;
   }
 }
 
@@ -121,10 +121,10 @@ message ReadRequest {
 }
 
 message ReadResponse {
-  // The messages read from the channel.
-  repeated Message messages = 1;
   // The error, if any.
-  optional common.v1.Error error = 2;
+  optional common.v1.Error error = 1;
+  // The messages read from the channel.
+  repeated Message messages = 2;
 }
 
 // The request message for sending a message.
@@ -139,10 +139,10 @@ message SendRequest {
 message SendResponse {
   // The result of the send operation.
   oneof result {
-    // The created message.
-    Message message = 1;
     // The error, if any.
-    common.v1.Error error = 2;
+    common.v1.Error error = 1;
+    // The created message.
+    Message message = 2;
   }
 }
 

@@ -52,10 +52,10 @@ message FeedRequest {
 
 // Response for getting the user feed.
 message FeedResponse {
-  // The returned post IDs.
-  repeated fixed64 post_ids = 1;
   // The error, if any.
-  optional common.v1.Error error = 2;
+  optional common.v1.Error error = 1;
+  // The returned post IDs.
+  repeated fixed64 post_ids = 2;
 }
 
 // Request for publishing a new post.
@@ -72,10 +72,10 @@ message PublishRequest {
 message PublishResponse {
   // The result of the operation.
   oneof result {
-    // The published post.
-    Post post = 1;
     // The error, if any.
-    common.v1.Error error = 2;
+    common.v1.Error error = 1;
+    // The published post.
+    Post post = 2;
   }
 }
 
@@ -99,12 +99,12 @@ message GetRequest {
 
 // Response for getting posts.
 message GetResponse {
+  // The error, if any.
+  optional common.v1.Error error = 1;
   // The requested posts.
   //
   // If a post ID is not found, it is not included in the map.
-  map<fixed64, Post> posts = 1;
-  // The error, if any.
-  optional common.v1.Error error = 2;
+  map<fixed64, Post> posts = 2;
 }
 
 // Request for getting posts of a user.
@@ -119,10 +119,10 @@ message GetOfRequest {
 
 // Response for getting posts of a user.
 message GetOfResponse {
-  // The posts of the user.
-  repeated Post posts = 1;
   // The error, if any.
-  optional common.v1.Error error = 2;
+  optional common.v1.Error error = 1;
+  // The posts of the user.
+  repeated Post posts = 2;
 }
 
 // Request for searching posts.
@@ -137,10 +137,10 @@ message SearchRequest {
 
 // Response for searching posts.
 message SearchResponse {
-  // The search results.
-  repeated Post posts = 1;
   // The error, if any.
-  optional common.v1.Error error = 2;
+  optional common.v1.Error error = 1;
+  // The search results.
+  repeated Post posts = 2;
 }
 
 // Request for reacting to a post.
